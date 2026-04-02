@@ -79,12 +79,12 @@ const Index = () => {
                 title="🔥 Populaire Cams"
                 models={popularCams}
                 totalOnline={popularCams.length}
-                isLoading={loadingCam4 || loadingCB || loadingBonga}
+                isLoading={loadingCam4 || loadingCB || loadingBonga || loadingXCams}
               />
               <CamGrid
                 title="💑 Koppels"
                 models={couples}
-                isLoading={loadingCouples4 || loadingCouplesCB || loadingCouplesBonga}
+                isLoading={loadingCouples4 || loadingCouplesCB || loadingCouplesBonga || loadingCouplesXCams}
               />
               <CamGrid
                 title="🆕 Meer Ontdekken"
