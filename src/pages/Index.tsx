@@ -76,7 +76,7 @@ const Index = () => {
                 title="🔥 Populaire Cams"
                 models={popularCams}
                 totalOnline={popularCams.length}
-                isLoading={loadingCam4 || loadingCB}
+                isLoading={loadingCam4 || loadingCB || loadingBonga}
               />
               <CamGrid
                 title="💑 Koppels"
