@@ -3,10 +3,14 @@ import FilterSidebar from "@/components/FilterSidebar";
 import CamGrid from "@/components/CamGrid";
 import Footer from "@/components/Footer";
 import AgeGate from "@/components/AgeGate";
-import { featuredModels, topModels, newModels } from "@/data/mockModels";
+import { useCam4Online } from "@/hooks/useCam4";
 import { Helmet } from "react-helmet-async";
 
 const Index = () => {
+  const { data: femaleCams = [], isLoading: loadingFemale } = useCam4Online({ gender: "female", limit: 20 });
+  const { data: coupleCams = [], isLoading: loadingCouples } = useCam4Online({ gender: "couple", limit: 10 });
+  const { data: newCams = [], isLoading: loadingNew } = useCam4Online({ gender: "female", limit: 10, page: 2 });
+
   return (
     <AgeGate>
       <div className="min-h-screen flex flex-col bg-background">
@@ -45,26 +49,36 @@ const Index = () => {
         <Header />
 
         <main className="container flex-1 py-6">
-          {/* SEO H1 */}
           <div className="mb-6">
             <h1 className="text-2xl md:text-3xl font-bold font-display">
               Gratis Live Sex Cams & Webcam Shows
             </h1>
             <p className="text-sm text-muted-foreground mt-2 max-w-3xl leading-relaxed">
-              Welkom bij StartVagina, dé zoekmachine voor gratis live sex cams. Bekijk webcam shows van de beste platformen, 
+              Welkom bij StartVagina, dé zoekmachine voor gratis live sex cams. Bekijk webcam shows van de beste platformen,
               filter op categorie, geslacht, leeftijd, land en meer. Ontdek duizenden modellen die nu live zijn.
             </p>
           </div>
 
           <div className="flex gap-6">
-            {/* Main content */}
             <div className="flex-1 space-y-8 min-w-0">
-              <CamGrid title="🔥 Populaire Cams" models={featuredModels} totalOnline={18432} />
-              <CamGrid title="⭐ Top Cams" models={topModels} />
-              <CamGrid title="🆕 Nieuw Online" models={newModels} />
+              <CamGrid
+                title="🔥 Populaire Cams"
+                models={femaleCams}
+                totalOnline={femaleCams.length}
+                isLoading={loadingFemale}
+              />
+              <CamGrid
+                title="💑 Koppels"
+                models={coupleCams}
+                isLoading={loadingCouples}
+              />
+              <CamGrid
+                title="🆕 Meer Ontdekken"
+                models={newCams}
+                isLoading={loadingNew}
+              />
             </div>
 
-            {/* Sidebar - desktop only */}
             <div className="hidden lg:block w-64 shrink-0">
               <FilterSidebar />
             </div>
