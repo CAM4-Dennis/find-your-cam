@@ -52,6 +52,10 @@ function buildProfileUrl(nickname: string): string {
   return `https://www.xcams.com/profile/${nickname}/?comfrom=${COMFROM}&cf0=pc2&cfsa1=O180&cf2=Startvagina&cfsa2=&brand=y`;
 }
 
+function buildPaymentUrl(nickname: string): string {
+  return `https://www.xcams.com/login/${nickname}/?comfrom=${COMFROM}&cf0=pc2&cfsa1=O180&cf2=Startvagina&cfsa2=&brand=y`;
+}
+
 function normalizeXCamsModel(model: XCamsModel): CamModel {
   const tags = (model.tags || model.categories || []).slice(0, 5);
 
@@ -75,6 +79,7 @@ function normalizeXCamsModel(model: XCamsModel): CamModel {
     previewUrl: model.streamUrl || "",
     slug: `xcams-${model.nickname}`,
     iframeEmbed: "",
+    paymentUrl: buildPaymentUrl(model.nickname),
   };
 }
 

@@ -186,6 +186,17 @@ const CamStream = () => {
               >
                 Bekijk op {model.platform} →
               </a>
+
+              {model.paymentUrl && (
+                <a
+                  href={model.paymentUrl}
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  className="block w-full text-center bg-accent text-accent-foreground py-2.5 rounded-lg font-medium text-sm hover:opacity-90 transition"
+                >
+                  Start privé show →
+                </a>
+              )}
             </aside>
           </div>
         </main>
