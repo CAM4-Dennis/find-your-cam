@@ -19,9 +19,12 @@ const CamStream = () => {
 
   const model = location.state?.model as CamModel | undefined;
 
+  const hasHls = !!model?.previewUrl;
+  const hasIframe = !!model?.iframeEmbed;
+
   useEffect(() => {
-    if (!model?.previewUrl || !videoRef.current) {
-      setError(true);
+    if (!hasHls || !model?.previewUrl || !videoRef.current) {
+      if (!hasIframe) setError(true);
       return;
     }
 
@@ -54,7 +57,7 @@ const CamStream = () => {
       hlsRef.current?.destroy();
       hlsRef.current = null;
     };
-  }, [model?.previewUrl]);
+  }, [model?.previewUrl, hasHls, hasIframe]);
 
   if (!model) {
     return (
