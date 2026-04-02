@@ -5,19 +5,22 @@ import Footer from "@/components/Footer";
 import AgeGate from "@/components/AgeGate";
 import { useCam4Online } from "@/hooks/useCam4";
 import { useChaturbateOnline } from "@/hooks/useChaturbate";
+import { useBongaCamsOnline } from "@/hooks/useBongaCams";
 import { Helmet } from "react-helmet-async";
 import type { CamModel } from "@/types/cam";
 
 const Index = () => {
-  const { data: cam4Female = [], isLoading: loadingCam4 } = useCam4Online({ gender: "female", limit: 15 });
-  const { data: cbFemale = [], isLoading: loadingCB } = useChaturbateOnline({ gender: "f", limit: 15 });
-  const { data: coupleCams4 = [], isLoading: loadingCouples4 } = useCam4Online({ gender: "couple", limit: 10 });
-  const { data: coupleCamsCB = [], isLoading: loadingCouplesCB } = useChaturbateOnline({ gender: "c", limit: 10 });
+  const { data: cam4Female = [], isLoading: loadingCam4 } = useCam4Online({ gender: "female", limit: 10 });
+  const { data: cbFemale = [], isLoading: loadingCB } = useChaturbateOnline({ gender: "f", limit: 10 });
+  const { data: bongaFemale = [], isLoading: loadingBonga } = useBongaCamsOnline({ gender: "female", limit: 10 });
+  const { data: coupleCams4 = [], isLoading: loadingCouples4 } = useCam4Online({ gender: "couple", limit: 7 });
+  const { data: coupleCamsCB = [], isLoading: loadingCouplesCB } = useChaturbateOnline({ gender: "c", limit: 7 });
+  const { data: coupleBonga = [], isLoading: loadingCouplesBonga } = useBongaCamsOnline({ gender: "couple", limit: 6 });
   const { data: newCams = [], isLoading: loadingNew } = useChaturbateOnline({ limit: 10, offset: 100 });
 
   // Merge & shuffle platforms for variety
-  const popularCams: CamModel[] = [...cam4Female, ...cbFemale].sort(() => Math.random() - 0.5);
-  const couples: CamModel[] = [...coupleCams4, ...coupleCamsCB].sort(() => Math.random() - 0.5);
+  const popularCams: CamModel[] = [...cam4Female, ...cbFemale, ...bongaFemale].sort(() => Math.random() - 0.5);
+  const couples: CamModel[] = [...coupleCams4, ...coupleCamsCB, ...coupleBonga].sort(() => Math.random() - 0.5);
 
   return (
     <AgeGate>
