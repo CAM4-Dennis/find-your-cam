@@ -84,7 +84,7 @@
   .cam-card {
     @apply rounded-lg overflow-hidden bg-card border border-border 
            hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10
-           cursor-pointer group;
+           cursor-pointer;
   }
 
   .cam-card-image {
