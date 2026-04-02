@@ -45,6 +45,8 @@ function normalizeCam4Model(model: Cam4Model): CamModel {
     isNew: model.new_performer,
     isHD: model.hd_stream !== null,
     showType: model.show_type,
+    previewUrl: model.preview_url,
+    slug: model.nickname,
   };
 }
 
