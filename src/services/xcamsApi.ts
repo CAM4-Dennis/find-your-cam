@@ -79,6 +79,7 @@ function normalizeXCamsModel(model: XCamsModel): CamModel {
     previewUrl: model.streamUrl || "",
     slug: `xcams-${model.nickname}`,
     iframeEmbed: "",
+    paymentUrl: buildPaymentUrl(model.nickname),
   };
 }
 
