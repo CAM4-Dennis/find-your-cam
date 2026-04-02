@@ -4,7 +4,9 @@ import CamGrid from "@/components/CamGrid";
 import Footer from "@/components/Footer";
 import AgeGate from "@/components/AgeGate";
 import { useCam4Online } from "@/hooks/useCam4";
+import { useChaturbateOnline } from "@/hooks/useChaturbate";
 import { Helmet } from "react-helmet-async";
+import type { CamModel } from "@/types/cam";
 
 const Index = () => {
   const { data: femaleCams = [], isLoading: loadingFemale } = useCam4Online({ gender: "female", limit: 20 });
