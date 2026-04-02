@@ -52,4 +52,5 @@ export interface CamModel {
   previewUrl: string;
   slug: string;
   iframeEmbed?: string;
+  paymentUrl?: string;
 }
