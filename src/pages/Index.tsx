@@ -71,14 +71,14 @@ const Index = () => {
             <div className="flex-1 space-y-8 min-w-0">
               <CamGrid
                 title="🔥 Populaire Cams"
-                models={femaleCams}
-                totalOnline={femaleCams.length}
-                isLoading={loadingFemale}
+                models={popularCams}
+                totalOnline={popularCams.length}
+                isLoading={loadingCam4 || loadingCB}
               />
               <CamGrid
                 title="💑 Koppels"
-                models={coupleCams}
-                isLoading={loadingCouples}
+                models={couples}
+                isLoading={loadingCouples4 || loadingCouplesCB}
               />
               <CamGrid
                 title="🆕 Meer Ontdekken"

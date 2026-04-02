@@ -51,4 +51,5 @@ export interface CamModel {
   showType: string;
   previewUrl: string;
   slug: string;
+  iframeEmbed?: string;
 }
