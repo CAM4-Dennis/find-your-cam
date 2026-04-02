@@ -5,11 +5,13 @@ const BASE_URL = "https://bngprm.com/api/v2/models-online";
 const CAMPAIGN_ID = "714932";
 
 export interface BongaCamsFilters {
-  gender?: "female" | "male" | "couple" | "transsexual";
+  section?: "all" | "straight" | "couples" | "gay" | "transsexual" | "new";
+  categories?: string[];
+  tags?: string[];
+  region?: "asia" | "cis" | "europe" | "latin_america" | "north_america" | "other";
+  sort?: "display_name" | "languages" | "last_online" | "rank";
   limit?: number;
   offset?: number;
-  tag?: string;
-  region?: string;
 }
 
 interface BongaCamsModel {
@@ -46,6 +48,7 @@ interface BongaCamsModel {
 }
 
 interface BongaCamsResponse {
+  online_models: number;
   models: BongaCamsModel[];
 }
 
@@ -79,10 +82,18 @@ export async function fetchBongaCamsRooms(filters: BongaCamsFilters = {}): Promi
   const params = new URLSearchParams();
   params.set("c", CAMPAIGN_ID);
   params.set("client_ip", "request_ip");
+
   if (filters.limit) params.set("limit", String(filters.limit));
   if (filters.offset) params.set("offset", String(filters.offset));
-  if (filters.gender) params.set("gender", filters.gender);
-  if (filters.tag) params.set("tag", filters.tag);
+  if (filters.section) params.set("section", filters.section);
+  if (filters.sort) params.set("sort", filters.sort);
+  if (filters.region) params.set("region", filters.region);
+  if (filters.categories) {
+    filters.categories.forEach((cat) => params.append("categories[]", cat));
+  }
+  if (filters.tags) {
+    filters.tags.forEach((tag) => params.append("tags[]", tag));
+  }
 
   const url = `${BASE_URL}?${params.toString()}`;
   const response = await fetch(url);
