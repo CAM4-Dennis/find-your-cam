@@ -83,7 +83,7 @@ const Index = () => {
               <CamGrid
                 title="🆕 Meer Ontdekken"
                 models={newCams}
-                isLoading={loadingNew}
+                isLoading={loadingNew || loadingCB}
               />
             </div>
 
