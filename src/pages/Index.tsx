@@ -81,7 +81,7 @@ const Index = () => {
               <CamGrid
                 title="💑 Koppels"
                 models={couples}
-                isLoading={loadingCouples4 || loadingCouplesCB}
+                isLoading={loadingCouples4 || loadingCouplesCB || loadingCouplesBonga}
               />
               <CamGrid
                 title="🆕 Meer Ontdekken"
