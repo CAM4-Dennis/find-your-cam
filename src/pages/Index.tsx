@@ -1,3 +1,4 @@
+import { useState, useMemo } from "react";
 import Header from "@/components/Header";
 import FilterSidebar from "@/components/FilterSidebar";
 import CamGrid from "@/components/CamGrid";
@@ -9,8 +10,13 @@ import { useBongaCamsOnline } from "@/hooks/useBongaCams";
 import { useXCamsOnline } from "@/hooks/useXCams";
 import { Helmet } from "react-helmet-async";
 import type { CamModel } from "@/types/cam";
+import type { CamFilters } from "@/types/filters";
+import { defaultFilters } from "@/types/filters";
+import { applyFilters } from "@/lib/filterModels";
 
 const Index = () => {
+  const [filters, setFilters] = useState<CamFilters>(defaultFilters);
+
   const { data: cam4Female = [], isLoading: loadingCam4 } = useCam4Online({ gender: "female", limit: 8 });
   const { data: cbFemale = [], isLoading: loadingCB } = useChaturbateOnline({ gender: "f", limit: 8 });
   const { data: bongaFemale = [], isLoading: loadingBonga } = useBongaCamsOnline({ section: "straight", limit: 8 });
@@ -21,9 +27,40 @@ const Index = () => {
   const { data: coupleXCams = [], isLoading: loadingCouplesXCams } = useXCamsOnline({ gender: "couple", limit: 5 });
   const { data: newCams = [], isLoading: loadingNew } = useChaturbateOnline({ limit: 10, offset: 100 });
 
-  // Merge & shuffle platforms for variety
-  const popularCams: CamModel[] = [...cam4Female, ...cbFemale, ...bongaFemale, ...xcamsFemale].sort(() => Math.random() - 0.5);
-  const couples: CamModel[] = [...coupleCams4, ...coupleCamsCB, ...coupleBonga, ...coupleXCams].sort(() => Math.random() - 0.5);
+  // Merge all models into one pool, then filter
+  const allModels = useMemo(() => {
+    return [...cam4Female, ...cbFemale, ...bongaFemale, ...xcamsFemale,
+            ...coupleCams4, ...coupleCamsCB, ...coupleBonga, ...coupleXCams,
+            ...newCams];
+  }, [cam4Female, cbFemale, bongaFemale, xcamsFemale, coupleCams4, coupleCamsCB, coupleBonga, coupleXCams, newCams]);
+
+  const hasActiveFilters = filters.gender.length > 0 || filters.platforms.length > 0 ||
+    filters.tags.length > 0 || filters.hd === true || filters.ageRange !== null;
+
+  const filteredModels = useMemo(() => {
+    if (!hasActiveFilters) return null; // use sectioned view
+    const filtered = applyFilters(allModels, filters);
+    // Deduplicate by id
+    const seen = new Set<string>();
+    return filtered.filter((m) => {
+      if (seen.has(m.id)) return false;
+      seen.add(m.id);
+      return true;
+    }).sort(() => Math.random() - 0.5);
+  }, [allModels, filters, hasActiveFilters]);
+
+  // Sectioned views (no filters active)
+  const popularCams: CamModel[] = useMemo(
+    () => [...cam4Female, ...cbFemale, ...bongaFemale, ...xcamsFemale].sort(() => Math.random() - 0.5),
+    [cam4Female, cbFemale, bongaFemale, xcamsFemale]
+  );
+  const couples: CamModel[] = useMemo(
+    () => [...coupleCams4, ...coupleCamsCB, ...coupleBonga, ...coupleXCams].sort(() => Math.random() - 0.5),
+    [coupleCams4, coupleCamsCB, coupleBonga, coupleXCams]
+  );
+
+  const isLoading = loadingCam4 || loadingCB || loadingBonga || loadingXCams ||
+    loadingCouples4 || loadingCouplesCB || loadingCouplesBonga || loadingCouplesXCams || loadingNew;
 
   return (
     <AgeGate>
@@ -75,26 +112,37 @@ const Index = () => {
 
           <div className="flex gap-6">
             <div className="flex-1 space-y-8 min-w-0">
-              <CamGrid
-                title="🔥 Populaire Cams"
-                models={popularCams}
-                totalOnline={popularCams.length}
-                isLoading={loadingCam4 || loadingCB || loadingBonga || loadingXCams}
-              />
-              <CamGrid
-                title="💑 Koppels"
-                models={couples}
-                isLoading={loadingCouples4 || loadingCouplesCB || loadingCouplesBonga || loadingCouplesXCams}
-              />
-              <CamGrid
-                title="🆕 Meer Ontdekken"
-                models={newCams}
-                isLoading={loadingNew || loadingCB}
-              />
+              {hasActiveFilters && filteredModels ? (
+                <CamGrid
+                  title={`🔍 Filterresultaten`}
+                  models={filteredModels}
+                  totalOnline={filteredModels.length}
+                  isLoading={isLoading}
+                />
+              ) : (
+                <>
+                  <CamGrid
+                    title="🔥 Populaire Cams"
+                    models={popularCams}
+                    totalOnline={popularCams.length}
+                    isLoading={loadingCam4 || loadingCB || loadingBonga || loadingXCams}
+                  />
+                  <CamGrid
+                    title="💑 Koppels"
+                    models={couples}
+                    isLoading={loadingCouples4 || loadingCouplesCB || loadingCouplesBonga || loadingCouplesXCams}
+                  />
+                  <CamGrid
+                    title="🆕 Meer Ontdekken"
+                    models={newCams}
+                    isLoading={loadingNew || loadingCB}
+                  />
+                </>
+              )}
             </div>
 
             <div className="hidden lg:block w-64 shrink-0">
-              <FilterSidebar />
+              <FilterSidebar filters={filters} onChange={setFilters} />
             </div>
           </div>
         </main>
