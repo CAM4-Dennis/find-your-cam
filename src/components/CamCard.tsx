@@ -1,7 +1,7 @@
 import { Eye } from "lucide-react";
 import type { CamModel } from "@/types/cam";
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
 interface CamCardProps {
   model: CamModel;
 }
@@ -11,7 +11,7 @@ const CamCard = ({ model }: CamCardProps) => {
 
   return (
     <article className="cam-card group" aria-label={`${model.name}, ${model.age} jaar`}>
-      <a href={model.link} target="_blank" rel="noopener noreferrer nofollow" className="block">
+      <Link to={`/cam/${model.slug}`} state={{ model }} className="block">
         <div className="relative overflow-hidden">
           <img
             src={imgError ? model.thumbnailFallback : model.thumbnail}
@@ -71,7 +71,7 @@ const CamCard = ({ model }: CamCardProps) => {
             </div>
           )}
         </div>
-      </a>
+      </Link>
     </article>
   );
 };

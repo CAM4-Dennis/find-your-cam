@@ -49,4 +49,6 @@ export interface CamModel {
   isNew: boolean;
   isHD: boolean;
   showType: string;
+  previewUrl: string;
+  slug: string;
 }
