@@ -1,62 +1,77 @@
 import { Eye } from "lucide-react";
-
-export interface CamModel {
-  id: string;
-  name: string;
-  age: number;
-  viewers: number;
-  country: string;
-  countryFlag: string;
-  platform: string;
-  thumbnail: string;
-  tags: string[];
-  isOnline: boolean;
-}
+import type { CamModel } from "@/types/cam";
+import { useState } from "react";
 
 interface CamCardProps {
   model: CamModel;
 }
 
 const CamCard = ({ model }: CamCardProps) => {
+  const [imgError, setImgError] = useState(false);
+
   return (
-    <article className="cam-card" aria-label={`${model.name}, ${model.age} jaar`}>
-      <div className="relative overflow-hidden">
-        <img
-          src={model.thumbnail}
-          alt={`Live webcam van ${model.name}`}
-          className="cam-card-image"
-          loading="lazy"
-          width={320}
-          height={180}
-        />
-        {/* Platform badge */}
-        <span className="absolute top-2 left-2 bg-background/80 backdrop-blur-sm text-xs font-medium px-2 py-0.5 rounded text-foreground">
-          {model.platform}
-        </span>
-        {/* Viewers */}
-        <span className="absolute top-2 right-2 bg-background/80 backdrop-blur-sm text-xs font-medium px-2 py-0.5 rounded text-foreground flex items-center gap-1">
-          <Eye size={12} />
-          {model.viewers.toLocaleString()}
-        </span>
-        {/* Online indicator */}
-        {model.isOnline && (
-          <span className="absolute bottom-2 left-2 online-badge bg-background/80 backdrop-blur-sm px-2 py-0.5 rounded text-foreground">
-            <span className="online-dot" />
-            LIVE
+    <article className="cam-card group" aria-label={`${model.name}, ${model.age} jaar`}>
+      <a href={model.link} target="_blank" rel="noopener noreferrer nofollow" className="block">
+        <div className="relative overflow-hidden">
+          <img
+            src={imgError ? model.thumbnailFallback : model.thumbnail}
+            alt={`Live webcam van ${model.name}`}
+            className="cam-card-image"
+            loading="lazy"
+            width={320}
+            height={180}
+            onError={() => setImgError(true)}
+          />
+          {/* Platform badge */}
+          <span className="absolute top-2 left-2 bg-background/80 backdrop-blur-sm text-xs font-medium px-2 py-0.5 rounded text-foreground">
+            {model.platform}
           </span>
-        )}
-      </div>
-      <div className="p-3 space-y-1">
-        <div className="flex items-center justify-between">
-          <h3 className="font-semibold text-sm text-foreground truncate">
-            {model.name} ({model.age})
-          </h3>
+          {/* Viewers */}
+          <span className="absolute top-2 right-2 bg-background/80 backdrop-blur-sm text-xs font-medium px-2 py-0.5 rounded text-foreground flex items-center gap-1">
+            <Eye size={12} />
+            {model.viewers.toLocaleString()}
+          </span>
+          {/* Online indicator */}
+          {model.isOnline && (
+            <span className="absolute bottom-2 left-2 online-badge bg-background/80 backdrop-blur-sm px-2 py-0.5 rounded text-foreground">
+              <span className="online-dot" />
+              LIVE
+            </span>
+          )}
+          {/* HD badge */}
+          {model.isHD && (
+            <span className="absolute bottom-2 right-2 bg-primary/90 text-primary-foreground text-[10px] font-bold px-1.5 py-0.5 rounded">
+              HD
+            </span>
+          )}
+          {/* New badge */}
+          {model.isNew && (
+            <span className="absolute top-2 left-1/2 -translate-x-1/2 bg-accent/90 text-accent-foreground text-[10px] font-bold px-1.5 py-0.5 rounded">
+              NIEUW
+            </span>
+          )}
         </div>
-        <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-          <span>{model.countryFlag}</span>
-          <span>{model.country}</span>
+        <div className="p-3 space-y-1">
+          <div className="flex items-center justify-between">
+            <h3 className="font-semibold text-sm text-foreground truncate">
+              {model.name} ({model.age})
+            </h3>
+          </div>
+          <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+            <span>{model.countryFlag}</span>
+            <span>{model.country}</span>
+          </div>
+          {model.tags.length > 0 && (
+            <div className="flex flex-wrap gap-1 pt-1">
+              {model.tags.slice(0, 3).map((tag) => (
+                <span key={tag} className="text-[10px] bg-secondary text-muted-foreground px-1.5 py-0.5 rounded">
+                  #{tag}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
-      </div>
+      </a>
     </article>
   );
 };
