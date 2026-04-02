@@ -71,7 +71,7 @@ const CamCard = ({ model }: CamCardProps) => {
             </div>
           )}
         </div>
-      </a>
+      </Link>
     </article>
   );
 };
