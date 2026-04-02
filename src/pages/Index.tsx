@@ -4,12 +4,20 @@ import CamGrid from "@/components/CamGrid";
 import Footer from "@/components/Footer";
 import AgeGate from "@/components/AgeGate";
 import { useCam4Online } from "@/hooks/useCam4";
+import { useChaturbateOnline } from "@/hooks/useChaturbate";
 import { Helmet } from "react-helmet-async";
+import type { CamModel } from "@/types/cam";
 
 const Index = () => {
-  const { data: femaleCams = [], isLoading: loadingFemale } = useCam4Online({ gender: "female", limit: 20 });
-  const { data: coupleCams = [], isLoading: loadingCouples } = useCam4Online({ gender: "couple", limit: 10 });
-  const { data: newCams = [], isLoading: loadingNew } = useCam4Online({ gender: "female", limit: 10, page: 2 });
+  const { data: cam4Female = [], isLoading: loadingCam4 } = useCam4Online({ gender: "female", limit: 15 });
+  const { data: cbFemale = [], isLoading: loadingCB } = useChaturbateOnline({ gender: "f", limit: 15 });
+  const { data: coupleCams4 = [], isLoading: loadingCouples4 } = useCam4Online({ gender: "couple", limit: 10 });
+  const { data: coupleCamsCB = [], isLoading: loadingCouplesCB } = useChaturbateOnline({ gender: "c", limit: 10 });
+  const { data: newCams = [], isLoading: loadingNew } = useChaturbateOnline({ limit: 10, offset: 100 });
+
+  // Merge & shuffle platforms for variety
+  const popularCams: CamModel[] = [...cam4Female, ...cbFemale].sort(() => Math.random() - 0.5);
+  const couples: CamModel[] = [...coupleCams4, ...coupleCamsCB].sort(() => Math.random() - 0.5);
 
   return (
     <AgeGate>
@@ -63,19 +71,19 @@ const Index = () => {
             <div className="flex-1 space-y-8 min-w-0">
               <CamGrid
                 title="🔥 Populaire Cams"
-                models={femaleCams}
-                totalOnline={femaleCams.length}
-                isLoading={loadingFemale}
+                models={popularCams}
+                totalOnline={popularCams.length}
+                isLoading={loadingCam4 || loadingCB}
               />
               <CamGrid
                 title="💑 Koppels"
-                models={coupleCams}
-                isLoading={loadingCouples}
+                models={couples}
+                isLoading={loadingCouples4 || loadingCouplesCB}
               />
               <CamGrid
                 title="🆕 Meer Ontdekken"
                 models={newCams}
-                isLoading={loadingNew}
+                isLoading={loadingNew || loadingCB}
               />
             </div>
 
