@@ -96,7 +96,12 @@ const CamStream = () => {
             {/* Video player */}
             <div className="space-y-3">
               <div className="relative bg-black rounded-lg overflow-hidden aspect-video">
-                {error ? (
+                {hasIframe && !hasHls ? (
+                  <div
+                    className="w-full h-full"
+                    dangerouslySetInnerHTML={{ __html: model.iframeEmbed!.replace(/width="\d+"/, 'width="100%"').replace(/height="\d+"/, 'height="100%"') }}
+                  />
+                ) : error ? (
                   <div className="absolute inset-0 flex flex-col items-center justify-center text-white/70 gap-3">
                     <p className="text-sm">Stream is niet beschikbaar of offline.</p>
                     <a
