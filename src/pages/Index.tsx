@@ -11,17 +11,19 @@ import { Helmet } from "react-helmet-async";
 import type { CamModel } from "@/types/cam";
 
 const Index = () => {
-  const { data: cam4Female = [], isLoading: loadingCam4 } = useCam4Online({ gender: "female", limit: 10 });
-  const { data: cbFemale = [], isLoading: loadingCB } = useChaturbateOnline({ gender: "f", limit: 10 });
-  const { data: bongaFemale = [], isLoading: loadingBonga } = useBongaCamsOnline({ section: "straight", limit: 10 });
-  const { data: coupleCams4 = [], isLoading: loadingCouples4 } = useCam4Online({ gender: "couple", limit: 7 });
-  const { data: coupleCamsCB = [], isLoading: loadingCouplesCB } = useChaturbateOnline({ gender: "c", limit: 7 });
-  const { data: coupleBonga = [], isLoading: loadingCouplesBonga } = useBongaCamsOnline({ section: "couples", limit: 6 });
+  const { data: cam4Female = [], isLoading: loadingCam4 } = useCam4Online({ gender: "female", limit: 8 });
+  const { data: cbFemale = [], isLoading: loadingCB } = useChaturbateOnline({ gender: "f", limit: 8 });
+  const { data: bongaFemale = [], isLoading: loadingBonga } = useBongaCamsOnline({ section: "straight", limit: 8 });
+  const { data: xcamsFemale = [], isLoading: loadingXCams } = useXCamsOnline({ gender: "woman", limit: 8 });
+  const { data: coupleCams4 = [], isLoading: loadingCouples4 } = useCam4Online({ gender: "couple", limit: 5 });
+  const { data: coupleCamsCB = [], isLoading: loadingCouplesCB } = useChaturbateOnline({ gender: "c", limit: 5 });
+  const { data: coupleBonga = [], isLoading: loadingCouplesBonga } = useBongaCamsOnline({ section: "couples", limit: 5 });
+  const { data: coupleXCams = [], isLoading: loadingCouplesXCams } = useXCamsOnline({ gender: "couple", limit: 5 });
   const { data: newCams = [], isLoading: loadingNew } = useChaturbateOnline({ limit: 10, offset: 100 });
 
   // Merge & shuffle platforms for variety
-  const popularCams: CamModel[] = [...cam4Female, ...cbFemale, ...bongaFemale].sort(() => Math.random() - 0.5);
-  const couples: CamModel[] = [...coupleCams4, ...coupleCamsCB, ...coupleBonga].sort(() => Math.random() - 0.5);
+  const popularCams: CamModel[] = [...cam4Female, ...cbFemale, ...bongaFemale, ...xcamsFemale].sort(() => Math.random() - 0.5);
+  const couples: CamModel[] = [...coupleCams4, ...coupleCamsCB, ...coupleBonga, ...coupleXCams].sort(() => Math.random() - 0.5);
 
   return (
     <AgeGate>
