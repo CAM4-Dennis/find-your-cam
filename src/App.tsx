@@ -19,6 +19,7 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/cam/:slug" element={<CamStream />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
