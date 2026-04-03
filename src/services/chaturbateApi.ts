@@ -73,7 +73,7 @@ function normalizeChaturbateRoom(room: ChaturbateRoom): CamModel {
     showType: room.current_show,
     previewUrl: "", // Chaturbate doesn't provide HLS preview; we'll use iframe embed
     slug: `cb-${room.username}`,
-    iframeEmbed: room.iframe_embed_revshare || room.iframe_embed,
+    iframeEmbed: `<iframe src="https://chaturbate.com/in/?tour=9oGW&campaign=${WM}&room=${room.username}&bgcolor=black&disable_sound=1&mobileRedirect=auto" width="100%" height="100%" frameborder="0" scrolling="no" allowfullscreen></iframe>`,
   };
 }
 
