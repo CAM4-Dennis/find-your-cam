@@ -78,6 +78,25 @@ const Index = () => {
       ...rest.sort(() => Math.random() - 0.5),
     ];
   }, [cam4Female, cbFemale, bongaFemale, xcamsFemale, stripFemale, geo]);
+
+  // Category sections from allModels pool
+  const newCamsSection: CamModel[] = useMemo(
+    () => allModels.filter((m) => m.isNew).sort(() => Math.random() - 0.5).slice(0, 15),
+    [allModels]
+  );
+  const youngCams: CamModel[] = useMemo(
+    () => allModels.filter((m) => m.age >= 20 && m.age <= 30).sort(() => Math.random() - 0.5).slice(0, 15),
+    [allModels]
+  );
+  const mobileCams: CamModel[] = useMemo(
+    () => allModels.filter((m) => m.isMobile || m.tags.some(t => t.toLowerCase().includes("mobile"))).sort(() => Math.random() - 0.5).slice(0, 15),
+    [allModels]
+  );
+  const outdoorCams: CamModel[] = useMemo(
+    () => allModels.filter((m) => m.tags.some(t => t.toLowerCase().includes("outdoor"))).sort(() => Math.random() - 0.5).slice(0, 15),
+    [allModels]
+  );
+
   const couples: CamModel[] = useMemo(
     () => [...coupleCams4, ...coupleCamsCB, ...coupleBonga, ...coupleXCams, ...stripCouples].sort(() => Math.random() - 0.5),
     [coupleCams4, coupleCamsCB, coupleBonga, coupleXCams, stripCouples]
@@ -157,9 +176,29 @@ const Index = () => {
                 <>
                   <CamGrid
                     title="🔥 Populaire Cams"
-                    models={popularCams}
+                    models={popularCams.slice(0, 15)}
                     totalOnline={popularCams.length}
                     isLoading={loadingCam4 || loadingCB || loadingBonga || loadingXCams}
+                  />
+                  <CamGrid
+                    title="🆕 Nieuwe Cams"
+                    models={newCamsSection}
+                    isLoading={isLoading}
+                  />
+                  <CamGrid
+                    title="🔞 Leeftijd 20-30"
+                    models={youngCams}
+                    isLoading={isLoading}
+                  />
+                  <CamGrid
+                    title="📱 Mobiele Cams"
+                    models={mobileCams}
+                    isLoading={isLoading}
+                  />
+                  <CamGrid
+                    title="🌳 Outdoor Cams"
+                    models={outdoorCams}
+                    isLoading={isLoading}
                   />
                   <CamGrid
                     title="💑 Koppels"
@@ -167,7 +206,7 @@ const Index = () => {
                     isLoading={loadingCouples4 || loadingCouplesCB || loadingCouplesBonga || loadingCouplesXCams}
                   />
                   <CamGrid
-                    title="🆕 Meer Ontdekken"
+                    title="🔍 Meer Ontdekken"
                     models={newCams}
                     isLoading={loadingNew || loadingCB}
                   />
