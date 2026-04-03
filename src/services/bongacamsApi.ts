@@ -94,14 +94,6 @@ export async function fetchBongaCamsRooms(filters: BongaCamsFilters = {}): Promi
     filters.tags.forEach((tag) => params.append("tags[]", tag));
   }
 
-  const { data, error } = await supabase.functions.invoke("cam-proxy", {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-    body: null,
-  });
-
-  // supabase.functions.invoke doesn't support query params easily, so use fetch directly
-  const projectId = import.meta.env.VITE_SUPABASE_PROJECT_ID;
   const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
   const anonKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
 
