@@ -21,6 +21,15 @@ Deno.serve(async (req) => {
     const url = new URL(req.url);
     const platform = url.searchParams.get('platform');
 
+    if (platform === 'geo') {
+      const country = req.headers.get('cf-ipcountry')
+        || req.headers.get('x-country-code')
+        || '';
+      return new Response(JSON.stringify({ country: country.toLowerCase(), ip: clientIp }), {
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
+
     if (platform === 'bongacams') {
       const params = new URLSearchParams(url.searchParams);
       params.delete('platform');
