@@ -2,6 +2,7 @@ import { corsHeaders } from '@supabase/supabase-js/cors'
 
 const BONGACAMS_BASE = "https://bngprm.com/api/v2/models-online";
 const XCAMS_GATEWAY = "https://cams.dnxlive.com/gateway/gatewayPost.php";
+const STRIPCHAT_BASE = "https://go.stripchat.com/api/models";
 
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
@@ -13,7 +14,6 @@ Deno.serve(async (req) => {
     const platform = url.searchParams.get('platform');
 
     if (platform === 'bongacams') {
-      // Forward all query params except 'platform'
       const params = new URLSearchParams(url.searchParams);
       params.delete('platform');
       
@@ -28,13 +28,50 @@ Deno.serve(async (req) => {
     }
 
     if (platform === 'xcams') {
-      // Read body from the incoming request
       const body = await req.text();
       
       const response = await fetch(XCAMS_GATEWAY, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body,
+      });
+      const data = await response.text();
+
+      return new Response(data, {
+        status: response.status,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
+
+    if (platform === 'stripchat') {
+      const apiKey = Deno.env.get('STRIPCHAT_API_KEY');
+      if (!apiKey) {
+        return new Response(JSON.stringify({ error: 'Stripchat API key not configured' }), {
+          status: 500,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        });
+      }
+
+      const params = new URLSearchParams();
+      params.set('forceClient', '0');
+      params.set('applyGeobans', '0');
+      params.set('fields', 'tags');
+      params.set('strict', '1');
+
+      const tag = url.searchParams.get('tag');
+      if (tag) params.set('tag', tag);
+
+      const limit = url.searchParams.get('limit') || '50';
+      params.set('limit', limit);
+
+      const status = url.searchParams.get('status') || 'public';
+      params.set('status', status);
+
+      const apiUrl = `${STRIPCHAT_BASE}?${params.toString()}`;
+      const response = await fetch(apiUrl, {
+        headers: {
+          'Authorization': `Bearer ${apiKey}`,
+        },
       });
       const data = await response.text();
 
