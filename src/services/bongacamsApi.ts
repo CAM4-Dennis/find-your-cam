@@ -1,7 +1,7 @@
 import type { CamModel } from "@/types/cam";
 import { getCountryFlag, getCountryName } from "@/lib/countryFlags";
+import { supabase } from "@/integrations/supabase/client";
 
-const BASE_URL = "https://bngprm.com/api/v2/models-online";
 const CAMPAIGN_ID = "714932";
 
 export interface BongaCamsFilters {
@@ -80,6 +80,7 @@ function normalizeBongaModel(model: BongaCamsModel): CamModel {
 
 export async function fetchBongaCamsRooms(filters: BongaCamsFilters = {}): Promise<CamModel[]> {
   const params = new URLSearchParams();
+  params.set("platform", "bongacams");
   params.set("c", CAMPAIGN_ID);
   params.set("client_ip", "request_ip");
 
@@ -95,13 +96,29 @@ export async function fetchBongaCamsRooms(filters: BongaCamsFilters = {}): Promi
     filters.tags.forEach((tag) => params.append("tags[]", tag));
   }
 
-  const url = `${BASE_URL}?${params.toString()}`;
-  const response = await fetch(url);
+  const { data, error } = await supabase.functions.invoke("cam-proxy", {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+    body: null,
+  });
+
+  // supabase.functions.invoke doesn't support query params easily, so use fetch directly
+  const projectId = import.meta.env.VITE_SUPABASE_PROJECT_ID;
+  const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+  const anonKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+
+  const url = `${supabaseUrl}/functions/v1/cam-proxy?${params.toString()}`;
+  const response = await fetch(url, {
+    headers: {
+      "Authorization": `Bearer ${anonKey}`,
+      "apikey": anonKey,
+    },
+  });
 
   if (!response.ok) {
-    throw new Error(`BongaCams API error: ${response.status}`);
+    throw new Error(`BongaCams proxy error: ${response.status}`);
   }
 
-  const data: BongaCamsResponse = await response.json();
-  return (data.models || []).map(normalizeBongaModel);
+  const result: BongaCamsResponse = await response.json();
+  return (result.models || []).map(normalizeBongaModel);
 }
