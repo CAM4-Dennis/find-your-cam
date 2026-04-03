@@ -21,6 +21,27 @@ Deno.serve(async (req) => {
     const url = new URL(req.url);
     const platform = url.searchParams.get('platform');
 
+    if (platform === 'geo') {
+      let country = req.headers.get('cf-ipcountry')
+        || req.headers.get('x-country-code')
+        || '';
+
+      // Fallback: use ip-api if no country header
+      if (!country && clientIp && clientIp !== '127.0.0.1') {
+        try {
+          const geoRes = await fetch(`http://ip-api.com/json/${clientIp}?fields=countryCode`);
+          if (geoRes.ok) {
+            const geoData = await geoRes.json();
+            country = geoData.countryCode || '';
+          }
+        } catch { /* ignore */ }
+      }
+
+      return new Response(JSON.stringify({ country: country.toLowerCase(), ip: clientIp }), {
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
+
     if (platform === 'bongacams') {
       const params = new URLSearchParams(url.searchParams);
       params.delete('platform');
