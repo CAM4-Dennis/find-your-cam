@@ -58,8 +58,8 @@ const Index = () => {
     [cam4Female, cbFemale, bongaFemale, xcamsFemale, stripFemale]
   );
   const couples: CamModel[] = useMemo(
-    () => [...coupleCams4, ...coupleCamsCB, ...coupleBonga, ...coupleXCams].sort(() => Math.random() - 0.5),
-    [coupleCams4, coupleCamsCB, coupleBonga, coupleXCams]
+    () => [...coupleCams4, ...coupleCamsCB, ...coupleBonga, ...coupleXCams, ...stripCouples].sort(() => Math.random() - 0.5),
+    [coupleCams4, coupleCamsCB, coupleBonga, coupleXCams, stripCouples]
   );
 
   const isLoading = loadingCam4 || loadingCB || loadingBonga || loadingXCams ||
