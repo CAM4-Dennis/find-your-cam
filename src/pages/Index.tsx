@@ -35,7 +35,7 @@ const Index = () => {
     return [...cam4Female, ...cbFemale, ...bongaFemale, ...xcamsFemale, ...stripFemale,
             ...coupleCams4, ...coupleCamsCB, ...coupleBonga, ...coupleXCams, ...stripCouples,
             ...newCams];
-  }, [cam4Female, cbFemale, bongaFemale, xcamsFemale, coupleCams4, coupleCamsCB, coupleBonga, coupleXCams, newCams]);
+  }, [cam4Female, cbFemale, bongaFemale, xcamsFemale, stripFemale, coupleCams4, coupleCamsCB, coupleBonga, coupleXCams, stripCouples, newCams]);
 
   const hasActiveFilters = filters.gender.length > 0 || filters.platforms.length > 0 ||
     filters.tags.length > 0 || filters.hd === true || filters.ageRange !== null;
