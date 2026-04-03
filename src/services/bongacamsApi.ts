@@ -80,7 +80,7 @@ export async function fetchBongaCamsRooms(filters: BongaCamsFilters = {}): Promi
   const params = new URLSearchParams();
   params.set("platform", "bongacams");
   params.set("c", CAMPAIGN_ID);
-  params.set("client_ip", "request_ip");
+  // client_ip is resolved server-side in the proxy
 
   if (filters.limit) params.set("limit", String(filters.limit));
   if (filters.offset) params.set("offset", String(filters.offset));
