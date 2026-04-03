@@ -1,5 +1,4 @@
 import type { CamModel } from "@/types/cam";
-import type { CamModel } from "@/types/cam";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 interface CamCardProps {
@@ -22,20 +21,16 @@ const CamCard = ({ model }: CamCardProps) => {
             height={180}
             onError={() => setImgError(true)}
           />
-          {/* Platform badge */}
-          <span className="absolute top-2 left-2 bg-background/80 backdrop-blur-sm text-xs font-medium px-2 py-0.5 rounded text-foreground">
-            {model.platform}
-          </span>
-          {/* Viewers */}
-          <span className="absolute top-2 right-2 bg-background/80 backdrop-blur-sm text-xs font-medium px-2 py-0.5 rounded text-foreground flex items-center gap-1">
-            <Eye size={12} />
-            {model.viewers.toLocaleString()}
-          </span>
-          {/* Online indicator */}
-          {model.isOnline && (
-            <span className="absolute bottom-2 left-2 online-badge bg-background/80 backdrop-blur-sm px-2 py-0.5 rounded text-foreground">
-              <span className="online-dot" />
-              LIVE
+          {/* HD badge */}
+          {model.isHD && (
+            <span className="absolute bottom-2 right-2 bg-primary/90 text-primary-foreground text-[10px] font-bold px-1.5 py-0.5 rounded">
+              HD
+            </span>
+          )}
+          {/* New badge */}
+          {model.isNew && (
+            <span className="absolute top-2 left-1/2 -translate-x-1/2 bg-accent/90 text-accent-foreground text-[10px] font-bold px-1.5 py-0.5 rounded">
+              NIEUW
             </span>
           )}
           {/* HD badge */}
