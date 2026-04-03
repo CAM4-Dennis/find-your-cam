@@ -19,17 +19,17 @@ import { applyFilters } from "@/lib/filterModels";
 const Index = () => {
   const [filters, setFilters] = useState<CamFilters>(defaultFilters);
 
-  const { data: cam4Female = [], isLoading: loadingCam4 } = useCam4Online({ gender: "female", limit: 250 });
-  const { data: cbFemale = [], isLoading: loadingCB } = useChaturbateOnline({ gender: "f", limit: 250 });
-  const { data: bongaFemale = [], isLoading: loadingBonga } = useBongaCamsOnline({ section: "straight", limit: 250 });
-  const { data: xcamsFemale = [], isLoading: loadingXCams } = useXCamsOnline({ gender: "woman", limit: 250 });
-  const { data: coupleCams4 = [], isLoading: loadingCouples4 } = useCam4Online({ gender: "couple", limit: 250 });
-  const { data: coupleCamsCB = [], isLoading: loadingCouplesCB } = useChaturbateOnline({ gender: "c", limit: 250 });
-  const { data: coupleBonga = [], isLoading: loadingCouplesBonga } = useBongaCamsOnline({ section: "couples", limit: 250 });
-  const { data: coupleXCams = [], isLoading: loadingCouplesXCams } = useXCamsOnline({ gender: "couple", limit: 250 });
-  const { data: stripFemale = [], isLoading: loadingStrip } = useStripchatOnline({ tag: "girls", limit: 250 });
-  const { data: stripCouples = [], isLoading: loadingStripCouples } = useStripchatOnline({ tag: "couples", limit: 250 });
-  const { data: newCams = [], isLoading: loadingNew } = useChaturbateOnline({ limit: 250, offset: 250 });
+  const { data: cam4Female = [], isLoading: loadingCam4 } = useCam4Online({ gender: "female", limit: 150 });
+  const { data: cbFemale = [], isLoading: loadingCB } = useChaturbateOnline({ gender: "f", limit: 150 });
+  const { data: bongaFemale = [], isLoading: loadingBonga } = useBongaCamsOnline({ section: "straight", limit: 150 });
+  const { data: xcamsFemale = [], isLoading: loadingXCams } = useXCamsOnline({ gender: "woman", limit: 150 });
+  const { data: coupleCams4 = [], isLoading: loadingCouples4 } = useCam4Online({ gender: "couple", limit: 150 });
+  const { data: coupleCamsCB = [], isLoading: loadingCouplesCB } = useChaturbateOnline({ gender: "c", limit: 150 });
+  const { data: coupleBonga = [], isLoading: loadingCouplesBonga } = useBongaCamsOnline({ section: "couples", limit: 150 });
+  const { data: coupleXCams = [], isLoading: loadingCouplesXCams } = useXCamsOnline({ gender: "couple", limit: 150 });
+  const { data: stripFemale = [], isLoading: loadingStrip } = useStripchatOnline({ tag: "girls", limit: 150 });
+  const { data: stripCouples = [], isLoading: loadingStripCouples } = useStripchatOnline({ tag: "couples", limit: 150 });
+  const { data: newCams = [], isLoading: loadingNew } = useChaturbateOnline({ limit: 150, offset: 150 });
 
   // Merge all models into one pool, then filter
   const allModels = useMemo(() => {
