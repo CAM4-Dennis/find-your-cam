@@ -12,6 +12,11 @@ Deno.serve(async (req) => {
     return new Response('ok', { headers: corsHeaders });
   }
 
+  // Extract real client IP from headers
+  const clientIp = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
+    || req.headers.get('cf-connecting-ip')
+    || '127.0.0.1';
+
   try {
     const url = new URL(req.url);
     const platform = url.searchParams.get('platform');
@@ -19,6 +24,7 @@ Deno.serve(async (req) => {
     if (platform === 'bongacams') {
       const params = new URLSearchParams(url.searchParams);
       params.delete('platform');
+      params.set('client_ip', clientIp);
       
       const apiUrl = `${BONGACAMS_BASE}?${params.toString()}`;
       const response = await fetch(apiUrl);
