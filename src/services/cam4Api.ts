@@ -47,6 +47,7 @@ function normalizeCam4Model(model: Cam4Model): CamModel {
     showType: model.show_type,
     previewUrl: model.preview_url,
     slug: model.nickname,
+    isMobile: model.source === "mobile" || model.mobile,
   };
 }
 
