@@ -1,7 +1,6 @@
 import type { CamModel } from "@/types/cam";
 import { getCountryFlag, getCountryName } from "@/lib/countryFlags";
 
-const GATEWAY_URL = "https://cams.dnxlive.com/gateway/gatewayPost.php";
 const COMFROM = "1045042";
 
 export interface XCamsFilters {
@@ -106,14 +105,21 @@ export async function fetchXCamsRooms(filters: XCamsFilters = {}): Promise<CamMo
     formData.set(key, String(val));
   }
 
-  const response = await fetch(GATEWAY_URL, {
+  const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+  const anonKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+
+  const response = await fetch(`${supabaseUrl}/functions/v1/cam-proxy?platform=xcams`, {
     method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Authorization": `Bearer ${anonKey}`,
+      "apikey": anonKey,
+    },
     body: formData.toString(),
   });
 
   if (!response.ok) {
-    throw new Error(`XCams API error: ${response.status}`);
+    throw new Error(`XCams proxy error: ${response.status}`);
   }
 
   const data: XCamsResponse = await response.json();
