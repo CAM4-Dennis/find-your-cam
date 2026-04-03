@@ -1,4 +1,4 @@
-import { Eye } from "lucide-react";
+import type { CamModel } from "@/types/cam";
 import type { CamModel } from "@/types/cam";
 import { useState } from "react";
 import { Link } from "react-router-dom";
