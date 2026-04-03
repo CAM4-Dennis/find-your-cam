@@ -57,10 +57,27 @@ const Index = () => {
   }, [allModels, filters, hasActiveFilters]);
 
   // Sectioned views (no filters active)
-  const popularCams: CamModel[] = useMemo(
-    () => [...cam4Female, ...cbFemale, ...bongaFemale, ...xcamsFemale, ...stripFemale].sort(() => Math.random() - 0.5),
-    [cam4Female, cbFemale, bongaFemale, xcamsFemale, stripFemale]
-  );
+  const popularCams: CamModel[] = useMemo(() => {
+    const all = [...cam4Female, ...cbFemale, ...bongaFemale, ...xcamsFemale, ...stripFemale];
+    if (!geo?.country) return all.sort(() => Math.random() - 0.5);
+
+    const viewerCountry = getCountryName(geo.country);
+    const local: CamModel[] = [];
+    const rest: CamModel[] = [];
+
+    for (const m of all) {
+      if (m.country?.toLowerCase() === viewerCountry.toLowerCase()) {
+        local.push(m);
+      } else {
+        rest.push(m);
+      }
+    }
+
+    return [
+      ...local.sort(() => Math.random() - 0.5),
+      ...rest.sort(() => Math.random() - 0.5),
+    ];
+  }, [cam4Female, cbFemale, bongaFemale, xcamsFemale, stripFemale, geo]);
   const couples: CamModel[] = useMemo(
     () => [...coupleCams4, ...coupleCamsCB, ...coupleBonga, ...coupleXCams, ...stripCouples].sort(() => Math.random() - 0.5),
     [coupleCams4, coupleCamsCB, coupleBonga, coupleXCams, stripCouples]
