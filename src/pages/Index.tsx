@@ -19,6 +19,7 @@ import { applyFilters } from "@/lib/filterModels";
 import { getCountryName } from "@/lib/countryFlags";
 
 const Index = () => {
+  const { data: geo } = useGeoLocation();
   const [filters, setFilters] = useState<CamFilters>(defaultFilters);
 
   const { data: cam4Female = [], isLoading: loadingCam4 } = useCam4Online({ gender: "female", limit: 150 });
