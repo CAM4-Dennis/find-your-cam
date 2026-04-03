@@ -32,13 +32,19 @@ const Index = () => {
   const { data: coupleXCams = [], isLoading: loadingCouplesXCams } = useXCamsOnline({ gender: "couple", limit: 150 });
   const { data: stripFemale = [], isLoading: loadingStrip } = useStripchatOnline({ tag: "girls", limit: 150 });
   const { data: stripCouples = [], isLoading: loadingStripCouples } = useStripchatOnline({ tag: "couples", limit: 150 });
-  const { data: newCams = [], isLoading: loadingNew } = useChaturbateOnline({ limit: 150, offset: 150 });
+  const { data: newCams = [], isLoading: loadingNew } = useChaturbateOnline({ gender: "f", limit: 150, offset: 150 });
 
-  // Merge all models into one pool, then filter
+  // Only show cams that include women (female, couple with female)
+  const isFemaleRelated = (m: CamModel) => {
+    const g = m.gender?.toLowerCase() || "";
+    return g === "female" || g === "couple" || g.includes("couple_f") || g === "f";
+  };
+
+  // Merge all models into one pool, filtered to female-related only
   const allModels = useMemo(() => {
     return [...cam4Female, ...cbFemale, ...bongaFemale, ...xcamsFemale, ...stripFemale,
             ...coupleCams4, ...coupleCamsCB, ...coupleBonga, ...coupleXCams, ...stripCouples,
-            ...newCams];
+            ...newCams].filter(isFemaleRelated);
   }, [cam4Female, cbFemale, bongaFemale, xcamsFemale, stripFemale, coupleCams4, coupleCamsCB, coupleBonga, coupleXCams, stripCouples, newCams]);
 
   const hasActiveFilters = filters.gender.length > 0 || filters.platforms.length > 0 ||
@@ -101,7 +107,7 @@ const Index = () => {
   }, [allModels]);
 
   const couples: CamModel[] = useMemo(
-    () => [...coupleCams4, ...coupleCamsCB, ...coupleBonga, ...coupleXCams, ...stripCouples].sort(() => Math.random() - 0.5),
+    () => [...coupleCams4, ...coupleCamsCB, ...coupleBonga, ...coupleXCams, ...stripCouples].filter(isFemaleRelated).sort(() => Math.random() - 0.5),
     [coupleCams4, coupleCamsCB, coupleBonga, coupleXCams, stripCouples]
   );
 
