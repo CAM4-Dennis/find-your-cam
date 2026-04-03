@@ -29,6 +29,7 @@ interface StripchatModel {
     blockedLanguages: string[];
   };
   status: string;
+  isNew?: boolean;
   goalMessage?: string | null;
   neededForGoal?: number;
   earnedForGoal?: number;
