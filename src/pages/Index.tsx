@@ -78,6 +78,25 @@ const Index = () => {
       ...rest.sort(() => Math.random() - 0.5),
     ];
   }, [cam4Female, cbFemale, bongaFemale, xcamsFemale, stripFemale, geo]);
+
+  // Category sections from allModels pool
+  const newCamsSection: CamModel[] = useMemo(
+    () => allModels.filter((m) => m.isNew).sort(() => Math.random() - 0.5).slice(0, 15),
+    [allModels]
+  );
+  const youngCams: CamModel[] = useMemo(
+    () => allModels.filter((m) => m.age >= 20 && m.age <= 30).sort(() => Math.random() - 0.5).slice(0, 15),
+    [allModels]
+  );
+  const mobileCams: CamModel[] = useMemo(
+    () => allModels.filter((m) => m.isMobile || m.tags.some(t => t.toLowerCase().includes("mobile"))).sort(() => Math.random() - 0.5).slice(0, 15),
+    [allModels]
+  );
+  const outdoorCams: CamModel[] = useMemo(
+    () => allModels.filter((m) => m.tags.some(t => t.toLowerCase().includes("outdoor"))).sort(() => Math.random() - 0.5).slice(0, 15),
+    [allModels]
+  );
+
   const couples: CamModel[] = useMemo(
     () => [...coupleCams4, ...coupleCamsCB, ...coupleBonga, ...coupleXCams, ...stripCouples].sort(() => Math.random() - 0.5),
     [coupleCams4, coupleCamsCB, coupleBonga, coupleXCams, stripCouples]
