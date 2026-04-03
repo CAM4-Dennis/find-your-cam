@@ -54,8 +54,8 @@ const Index = () => {
 
   // Sectioned views (no filters active)
   const popularCams: CamModel[] = useMemo(
-    () => [...cam4Female, ...cbFemale, ...bongaFemale, ...xcamsFemale].sort(() => Math.random() - 0.5),
-    [cam4Female, cbFemale, bongaFemale, xcamsFemale]
+    () => [...cam4Female, ...cbFemale, ...bongaFemale, ...xcamsFemale, ...stripFemale].sort(() => Math.random() - 0.5),
+    [cam4Female, cbFemale, bongaFemale, xcamsFemale, stripFemale]
   );
   const couples: CamModel[] = useMemo(
     () => [...coupleCams4, ...coupleCamsCB, ...coupleBonga, ...coupleXCams].sort(() => Math.random() - 0.5),
