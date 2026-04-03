@@ -19,8 +19,10 @@ const CamStream = () => {
 
   const model = location.state?.model as CamModel | undefined;
 
-  const hasHls = !!model?.previewUrl;
+  // For CAM4, prefer iframe over HLS (HLS has CORS issues)
+  const isCam4 = model?.platform === "Cam4";
   const hasIframe = !!model?.iframeEmbed;
+  const hasHls = !!model?.previewUrl && !isCam4;
 
   useEffect(() => {
     if (!hasHls || !model?.previewUrl || !videoRef.current) {
