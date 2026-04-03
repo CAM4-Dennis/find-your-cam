@@ -32,7 +32,7 @@ const Index = () => {
   const { data: coupleXCams = [], isLoading: loadingCouplesXCams } = useXCamsOnline({ gender: "couple", limit: 150 });
   const { data: stripFemale = [], isLoading: loadingStrip } = useStripchatOnline({ tag: "girls", limit: 150 });
   const { data: stripCouples = [], isLoading: loadingStripCouples } = useStripchatOnline({ tag: "couples", limit: 150 });
-  const { data: newCams = [], isLoading: loadingNew } = useChaturbateOnline({ limit: 150, offset: 150 });
+  const { data: newCams = [], isLoading: loadingNew } = useChaturbateOnline({ gender: "f", limit: 150, offset: 150 });
 
   // Merge all models into one pool, then filter
   const allModels = useMemo(() => {
