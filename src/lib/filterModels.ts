@@ -15,6 +15,34 @@ const ageRanges: Record<string, [number, number]> = {
   "40+": [40, 999],
 };
 
+// Map filter tag names to possible variations across platforms
+const tagAliases: Record<string, string[]> = {
+  "asian": ["asian", "asiatic"],
+  "bdsm": ["bdsm", "bondage", "domination", "fetish"],
+  "big boobs": ["big boobs", "big tits", "bigboobs", "bigtits", "big-boobs", "busty", "huge boobs"],
+  "ebony": ["ebony", "black"],
+  "hairy": ["hairy", "hairy pussy", "hairypussy"],
+  "latina": ["latina", "latino", "latin"],
+  "mature": ["mature", "granny", "older"],
+  "milf": ["milf"],
+  "small tits": ["small tits", "smalltits", "small-tits", "petite", "tiny tits"],
+  "tattoo": ["tattoo", "tattoos", "tattooed", "inked"],
+  "teen": ["teen", "18", "young", "18+", "teenager"],
+  "anal": ["anal", "ass", "anal play"],
+  "squirt": ["squirt", "squirting"],
+  "feet": ["feet", "foot", "foot fetish", "footjob"],
+};
+
+function modelMatchesTag(modelTags: string[], filterTag: string): boolean {
+  const normalizedFilter = filterTag.toLowerCase();
+  const aliases = tagAliases[normalizedFilter] || [normalizedFilter];
+  
+  return modelTags.some((mt) => {
+    const lower = mt.toLowerCase();
+    return aliases.some((alias) => lower.includes(alias) || alias.includes(lower));
+  });
+}
+
 export function applyFilters(models: CamModel[], filters: CamFilters): CamModel[] {
   return models.filter((m) => {
     // Gender filter
@@ -31,16 +59,17 @@ export function applyFilters(models: CamModel[], filters: CamFilters): CamModel[
     // HD filter
     if (filters.hd === true && !m.isHD) return false;
 
-    // Age range
+    // Age range (skip models with age 0 = unknown)
     if (filters.ageRange && ageRanges[filters.ageRange]) {
       const [min, max] = ageRanges[filters.ageRange];
+      if (m.age === 0) return true; // include models with unknown age
       if (m.age < min || m.age > max) return false;
     }
 
-    // Tags / category filter
+    // Tags / category filter with fuzzy matching
     if (filters.tags.length > 0) {
-      const modelTags = m.tags.map((t) => t.toLowerCase());
-      const hasMatch = filters.tags.some((t) => modelTags.includes(t.toLowerCase()));
+      const modelTags = m.tags || [];
+      const hasMatch = filters.tags.some((t) => modelMatchesTag(modelTags, t));
       if (!hasMatch) return false;
     }
 

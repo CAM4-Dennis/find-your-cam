@@ -35,7 +35,7 @@ function normalizeCam4Model(model: Cam4Model): CamModel {
     viewers: model.viewers,
     country: getCountryName(model.country),
     countryFlag: getCountryFlag(model.country),
-    platform: "CAM4",
+    platform: "Cam4",
     thumbnail: model.thumb,
     thumbnailFallback: model.thumb_error,
     tags: model.show_tags.length > 0 ? model.show_tags : [],
