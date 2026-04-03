@@ -176,9 +176,29 @@ const Index = () => {
                 <>
                   <CamGrid
                     title="🔥 Populaire Cams"
-                    models={popularCams}
+                    models={popularCams.slice(0, 15)}
                     totalOnline={popularCams.length}
                     isLoading={loadingCam4 || loadingCB || loadingBonga || loadingXCams}
+                  />
+                  <CamGrid
+                    title="🆕 Nieuwe Cams"
+                    models={newCamsSection}
+                    isLoading={isLoading}
+                  />
+                  <CamGrid
+                    title="🔞 Leeftijd 20-30"
+                    models={youngCams}
+                    isLoading={isLoading}
+                  />
+                  <CamGrid
+                    title="📱 Mobiele Cams"
+                    models={mobileCams}
+                    isLoading={isLoading}
+                  />
+                  <CamGrid
+                    title="🌳 Outdoor Cams"
+                    models={outdoorCams}
+                    isLoading={isLoading}
                   />
                   <CamGrid
                     title="💑 Koppels"
@@ -186,7 +206,7 @@ const Index = () => {
                     isLoading={loadingCouples4 || loadingCouplesCB || loadingCouplesBonga || loadingCouplesXCams}
                   />
                   <CamGrid
-                    title="🆕 Meer Ontdekken"
+                    title="🔍 Meer Ontdekken"
                     models={newCams}
                     isLoading={loadingNew || loadingCB}
                   />
