@@ -1,7 +1,5 @@
 import type { CamModel } from "@/types/cam";
 import { getCountryFlag, getCountryName } from "@/lib/countryFlags";
-import { supabase } from "@/integrations/supabase/client";
-
 const CAMPAIGN_ID = "714932";
 
 export interface BongaCamsFilters {
