@@ -79,10 +79,10 @@ function normalizeStripchatModel(model: StripchatModel): CamModel {
     isOnline: model.status === "public",
     gender: normalizeGender(model.gender, model.broadcastGender),
     link: model.clickUrl,
-    isNew: false,
+    isNew: model.isNew || false,
     isHD: model.broadcastHD,
     showType: model.status,
-    previewUrl: "",
+    previewUrl: model.stream?.url || "",
     slug: `stripchat-${model.username}`,
     iframeEmbed: "",
   };
