@@ -92,10 +92,13 @@ const Index = () => {
     () => allModels.filter((m) => m.isMobile || m.tags.some(t => t.toLowerCase().includes("mobile"))).sort(() => Math.random() - 0.5).slice(0, 15),
     [allModels]
   );
-  const outdoorCams: CamModel[] = useMemo(
-    () => allModels.filter((m) => m.tags.some(t => t.toLowerCase().includes("outdoor"))).sort(() => Math.random() - 0.5).slice(0, 15),
-    [allModels]
-  );
+  const outdoorCams: CamModel[] = useMemo(() => {
+    const outdoorTags = ["outdoor", "outside", "public", "exhib", "voyeur", "garden", "pool", "shower", "bath", "balcon", "forest", "park", "beach"];
+    return allModels
+      .filter((m) => m.tags.some(t => outdoorTags.some(ot => t.toLowerCase().includes(ot))))
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 15);
+  }, [allModels]);
 
   const couples: CamModel[] = useMemo(
     () => [...coupleCams4, ...coupleCamsCB, ...coupleBonga, ...coupleXCams, ...stripCouples].sort(() => Math.random() - 0.5),
