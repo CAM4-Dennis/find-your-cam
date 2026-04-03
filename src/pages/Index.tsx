@@ -114,7 +114,17 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="flex gap-6">
+          <LoadingBar
+            platforms={[
+              { name: "Cam4", isLoading: loadingCam4 || loadingCouples4 },
+              { name: "Chaturbate", isLoading: loadingCB || loadingCouplesCB || loadingNew },
+              { name: "BongaCams", isLoading: loadingBonga || loadingCouplesBonga },
+              { name: "XCams", isLoading: loadingXCams || loadingCouplesXCams },
+              { name: "Stripchat", isLoading: loadingStrip || loadingStripCouples },
+            ]}
+          />
+
+          <div className="flex gap-6 mt-4">
             <div className="flex-1 space-y-8 min-w-0">
               {hasActiveFilters && filteredModels ? (
                 <CamGrid
