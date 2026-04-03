@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import Header from "@/components/Header";
 import FilterSidebar from "@/components/FilterSidebar";
 import CamGrid from "@/components/CamGrid";
+import LoadingBar from "@/components/LoadingBar";
 import Footer from "@/components/Footer";
 import AgeGate from "@/components/AgeGate";
 import { useCam4Online } from "@/hooks/useCam4";
