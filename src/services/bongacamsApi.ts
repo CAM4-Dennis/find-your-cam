@@ -73,6 +73,7 @@ function normalizeBongaModel(model: BongaCamsModel): CamModel {
     previewUrl: model.stream_feed_url || "",
     slug: `bonga-${model.username}`,
     iframeEmbed: "",
+    isMobile: tags.includes("mobile-live"),
   };
 }
 
