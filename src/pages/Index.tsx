@@ -156,7 +156,9 @@ const Index = () => {
             </div>
 
             <div className="hidden lg:block w-64 shrink-0">
-              <FilterSidebar filters={filters} onChange={setFilters} />
+              <div className="sticky top-6 max-h-[calc(100vh-3rem)] overflow-y-auto scrollbar-thin">
+                <FilterSidebar filters={filters} onChange={setFilters} />
+              </div>
             </div>
           </div>
         </main>
