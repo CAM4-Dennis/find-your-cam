@@ -17,15 +17,15 @@ import { applyFilters } from "@/lib/filterModels";
 const Index = () => {
   const [filters, setFilters] = useState<CamFilters>(defaultFilters);
 
-  const { data: cam4Female = [], isLoading: loadingCam4 } = useCam4Online({ gender: "female", limit: 8 });
-  const { data: cbFemale = [], isLoading: loadingCB } = useChaturbateOnline({ gender: "f", limit: 8 });
-  const { data: bongaFemale = [], isLoading: loadingBonga } = useBongaCamsOnline({ section: "straight", limit: 8 });
-  const { data: xcamsFemale = [], isLoading: loadingXCams } = useXCamsOnline({ gender: "woman", limit: 8 });
-  const { data: coupleCams4 = [], isLoading: loadingCouples4 } = useCam4Online({ gender: "couple", limit: 5 });
-  const { data: coupleCamsCB = [], isLoading: loadingCouplesCB } = useChaturbateOnline({ gender: "c", limit: 5 });
-  const { data: coupleBonga = [], isLoading: loadingCouplesBonga } = useBongaCamsOnline({ section: "couples", limit: 5 });
-  const { data: coupleXCams = [], isLoading: loadingCouplesXCams } = useXCamsOnline({ gender: "couple", limit: 5 });
-  const { data: newCams = [], isLoading: loadingNew } = useChaturbateOnline({ limit: 10, offset: 100 });
+  const { data: cam4Female = [], isLoading: loadingCam4 } = useCam4Online({ gender: "female", limit: 50 });
+  const { data: cbFemale = [], isLoading: loadingCB } = useChaturbateOnline({ gender: "f", limit: 50 });
+  const { data: bongaFemale = [], isLoading: loadingBonga } = useBongaCamsOnline({ section: "straight", limit: 50 });
+  const { data: xcamsFemale = [], isLoading: loadingXCams } = useXCamsOnline({ gender: "woman", limit: 50 });
+  const { data: coupleCams4 = [], isLoading: loadingCouples4 } = useCam4Online({ gender: "couple", limit: 50 });
+  const { data: coupleCamsCB = [], isLoading: loadingCouplesCB } = useChaturbateOnline({ gender: "c", limit: 50 });
+  const { data: coupleBonga = [], isLoading: loadingCouplesBonga } = useBongaCamsOnline({ section: "couples", limit: 50 });
+  const { data: coupleXCams = [], isLoading: loadingCouplesXCams } = useXCamsOnline({ gender: "couple", limit: 50 });
+  const { data: newCams = [], isLoading: loadingNew } = useChaturbateOnline({ limit: 50, offset: 100 });
 
   // Merge all models into one pool, then filter
   const allModels = useMemo(() => {
