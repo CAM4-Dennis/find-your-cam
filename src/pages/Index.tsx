@@ -62,8 +62,8 @@ const Index = () => {
     [coupleCams4, coupleCamsCB, coupleBonga, coupleXCams, stripCouples]
   );
 
-  const isLoading = loadingCam4 || loadingCB || loadingBonga || loadingXCams ||
-    loadingCouples4 || loadingCouplesCB || loadingCouplesBonga || loadingCouplesXCams || loadingNew;
+  const isLoading = loadingCam4 || loadingCB || loadingBonga || loadingXCams || loadingStrip ||
+    loadingCouples4 || loadingCouplesCB || loadingCouplesBonga || loadingCouplesXCams || loadingStripCouples || loadingNew;
 
   return (
     <AgeGate>
