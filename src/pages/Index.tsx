@@ -26,6 +26,8 @@ const Index = () => {
   const { data: coupleCamsCB = [], isLoading: loadingCouplesCB } = useChaturbateOnline({ gender: "c", limit: 50 });
   const { data: coupleBonga = [], isLoading: loadingCouplesBonga } = useBongaCamsOnline({ section: "couples", limit: 50 });
   const { data: coupleXCams = [], isLoading: loadingCouplesXCams } = useXCamsOnline({ gender: "couple", limit: 50 });
+  const { data: stripFemale = [], isLoading: loadingStrip } = useStripchatOnline({ tag: "girls", limit: 50 });
+  const { data: stripCouples = [], isLoading: loadingStripCouples } = useStripchatOnline({ tag: "couples", limit: 50 });
   const { data: newCams = [], isLoading: loadingNew } = useChaturbateOnline({ limit: 50, offset: 100 });
 
   // Merge all models into one pool, then filter
