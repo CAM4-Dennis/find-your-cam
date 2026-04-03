@@ -32,8 +32,8 @@ const Index = () => {
 
   // Merge all models into one pool, then filter
   const allModels = useMemo(() => {
-    return [...cam4Female, ...cbFemale, ...bongaFemale, ...xcamsFemale,
-            ...coupleCams4, ...coupleCamsCB, ...coupleBonga, ...coupleXCams,
+    return [...cam4Female, ...cbFemale, ...bongaFemale, ...xcamsFemale, ...stripFemale,
+            ...coupleCams4, ...coupleCamsCB, ...coupleBonga, ...coupleXCams, ...stripCouples,
             ...newCams];
   }, [cam4Female, cbFemale, bongaFemale, xcamsFemale, coupleCams4, coupleCamsCB, coupleBonga, coupleXCams, newCams]);
 
