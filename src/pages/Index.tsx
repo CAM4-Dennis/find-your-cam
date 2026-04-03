@@ -8,6 +8,7 @@ import { useCam4Online } from "@/hooks/useCam4";
 import { useChaturbateOnline } from "@/hooks/useChaturbate";
 import { useBongaCamsOnline } from "@/hooks/useBongaCams";
 import { useXCamsOnline } from "@/hooks/useXCams";
+import { useStripchatOnline } from "@/hooks/useStripchat";
 import { Helmet } from "react-helmet-async";
 import type { CamModel } from "@/types/cam";
 import type { CamFilters } from "@/types/filters";
@@ -25,14 +26,16 @@ const Index = () => {
   const { data: coupleCamsCB = [], isLoading: loadingCouplesCB } = useChaturbateOnline({ gender: "c", limit: 50 });
   const { data: coupleBonga = [], isLoading: loadingCouplesBonga } = useBongaCamsOnline({ section: "couples", limit: 50 });
   const { data: coupleXCams = [], isLoading: loadingCouplesXCams } = useXCamsOnline({ gender: "couple", limit: 50 });
+  const { data: stripFemale = [], isLoading: loadingStrip } = useStripchatOnline({ tag: "girls", limit: 50 });
+  const { data: stripCouples = [], isLoading: loadingStripCouples } = useStripchatOnline({ tag: "couples", limit: 50 });
   const { data: newCams = [], isLoading: loadingNew } = useChaturbateOnline({ limit: 50, offset: 100 });
 
   // Merge all models into one pool, then filter
   const allModels = useMemo(() => {
-    return [...cam4Female, ...cbFemale, ...bongaFemale, ...xcamsFemale,
-            ...coupleCams4, ...coupleCamsCB, ...coupleBonga, ...coupleXCams,
+    return [...cam4Female, ...cbFemale, ...bongaFemale, ...xcamsFemale, ...stripFemale,
+            ...coupleCams4, ...coupleCamsCB, ...coupleBonga, ...coupleXCams, ...stripCouples,
             ...newCams];
-  }, [cam4Female, cbFemale, bongaFemale, xcamsFemale, coupleCams4, coupleCamsCB, coupleBonga, coupleXCams, newCams]);
+  }, [cam4Female, cbFemale, bongaFemale, xcamsFemale, stripFemale, coupleCams4, coupleCamsCB, coupleBonga, coupleXCams, stripCouples, newCams]);
 
   const hasActiveFilters = filters.gender.length > 0 || filters.platforms.length > 0 ||
     filters.tags.length > 0 || filters.hd === true || filters.ageRange !== null;
@@ -51,16 +54,16 @@ const Index = () => {
 
   // Sectioned views (no filters active)
   const popularCams: CamModel[] = useMemo(
-    () => [...cam4Female, ...cbFemale, ...bongaFemale, ...xcamsFemale].sort(() => Math.random() - 0.5),
-    [cam4Female, cbFemale, bongaFemale, xcamsFemale]
+    () => [...cam4Female, ...cbFemale, ...bongaFemale, ...xcamsFemale, ...stripFemale].sort(() => Math.random() - 0.5),
+    [cam4Female, cbFemale, bongaFemale, xcamsFemale, stripFemale]
   );
   const couples: CamModel[] = useMemo(
-    () => [...coupleCams4, ...coupleCamsCB, ...coupleBonga, ...coupleXCams].sort(() => Math.random() - 0.5),
-    [coupleCams4, coupleCamsCB, coupleBonga, coupleXCams]
+    () => [...coupleCams4, ...coupleCamsCB, ...coupleBonga, ...coupleXCams, ...stripCouples].sort(() => Math.random() - 0.5),
+    [coupleCams4, coupleCamsCB, coupleBonga, coupleXCams, stripCouples]
   );
 
-  const isLoading = loadingCam4 || loadingCB || loadingBonga || loadingXCams ||
-    loadingCouples4 || loadingCouplesCB || loadingCouplesBonga || loadingCouplesXCams || loadingNew;
+  const isLoading = loadingCam4 || loadingCB || loadingBonga || loadingXCams || loadingStrip ||
+    loadingCouples4 || loadingCouplesCB || loadingCouplesBonga || loadingCouplesXCams || loadingStripCouples || loadingNew;
 
   return (
     <AgeGate>

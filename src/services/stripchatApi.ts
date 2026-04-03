@@ -1,0 +1,115 @@
+import type { CamModel } from "@/types/cam";
+import { getCountryFlag, getCountryName } from "@/lib/countryFlags";
+
+interface StripchatModel {
+  id: number;
+  username: string;
+  avatarUrl: string | null;
+  popularSnapshotUrl: string;
+  snapshotUrl: string;
+  clickUrl: string;
+  modelsCountry: string;
+  gender: string;
+  broadcastGender: string;
+  previewUrlThumbSmall: string;
+  tags: string[];
+  favoritedCount: number;
+  stream: {
+    width: number;
+    height: number;
+    url: string;
+    urls: Record<string, string>;
+  };
+  viewersCount: number;
+  broadcastVR: boolean;
+  broadcastHD: boolean;
+  geobans: {
+    blockedCountries: string[];
+    blockedRegions: Record<string, string[]>;
+    blockedLanguages: string[];
+  };
+  status: string;
+  isNew?: boolean;
+  goalMessage?: string | null;
+  neededForGoal?: number;
+  earnedForGoal?: number;
+  languages: string[];
+}
+
+interface StripchatResponse {
+  count: number;
+  total: number;
+  models: StripchatModel[];
+}
+
+export interface StripchatFilters {
+  tag?: string; // "girls" | "men" | "couples" | "trans"
+  limit?: number;
+  status?: string;
+}
+
+function normalizeGender(gender: string, broadcastGender: string): string {
+  const bg = broadcastGender.toLowerCase();
+  if (bg === "female" || gender === "female") return "female";
+  if (bg === "male" || gender === "male") return "male";
+  if (bg === "group" || gender === "maleFemale" || gender === "females") return "couple";
+  if (gender === "trans") return "trans";
+  return gender;
+}
+
+function normalizeStripchatModel(model: StripchatModel): CamModel {
+  const cleanTags = (model.tags || [])
+    .map((t) => t.replace(/^(girls|men|couples|trans)\//, ""))
+    .filter((t) => t.length > 0 && t.length < 25)
+    .slice(0, 5);
+
+  const country = model.modelsCountry?.toUpperCase() || "";
+
+  return {
+    id: `stripchat-${model.id}`,
+    name: model.username,
+    age: 0,
+    viewers: model.viewersCount,
+    country: getCountryName(country) || country || "Onbekend",
+    countryFlag: getCountryFlag(country) || "🌍",
+    platform: "Stripchat",
+    thumbnail: model.snapshotUrl || model.popularSnapshotUrl,
+    thumbnailFallback: model.previewUrlThumbSmall || model.popularSnapshotUrl,
+    tags: cleanTags,
+    isOnline: model.status === "public",
+    gender: normalizeGender(model.gender, model.broadcastGender),
+    link: model.clickUrl,
+    isNew: model.isNew || false,
+    isHD: model.broadcastHD,
+    showType: model.status,
+    previewUrl: model.stream?.url || "",
+    slug: `stripchat-${model.username}`,
+    iframeEmbed: "",
+  };
+}
+
+export async function fetchStripchatRooms(filters: StripchatFilters = {}): Promise<CamModel[]> {
+  const params = new URLSearchParams();
+  params.set("platform", "stripchat");
+  if (filters.tag) params.set("tag", filters.tag);
+  if (filters.limit) params.set("limit", String(filters.limit));
+  params.set("status", filters.status || "public");
+
+  const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+  const anonKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+
+  const url = `${supabaseUrl}/functions/v1/cam-proxy?${params.toString()}`;
+  const response = await fetch(url, {
+    headers: {
+      "Authorization": `Bearer ${anonKey}`,
+      "apikey": anonKey,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error(`Stripchat proxy error: ${response.status}`);
+  }
+
+  const result: StripchatResponse = await response.json();
+  return (result.models || []).map(normalizeStripchatModel);
+}
