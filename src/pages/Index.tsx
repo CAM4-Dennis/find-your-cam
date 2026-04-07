@@ -120,28 +120,31 @@ const Index = () => {
     <AgeGate>
       <div className="min-h-screen flex flex-col bg-background">
         <Helmet>
-          <title>StartVagina — Gratis Live Sex Cams, Webcam Shows & Chat</title>
+          <title>StartVagina — Gratis Webcamsex & Live Sex Cams Nederland België</title>
           <meta
             name="description"
-            content="StartVagina is dé zoekmachine voor gratis live sex cams. Bekijk duizenden webcam modellen van Chaturbate, Stripchat, BongaCams en meer. Filter op categorie, leeftijd, land en meer."
+            content="StartVagina is dé zoekmachine voor gratis webcamsex en live sex cams. Bekijk duizenden cam girls van Chaturbate, Stripchat, BongaCams en Cam4. Nederlandse en Belgische webcam modellen, sexchat en erotische shows. Filter op leeftijd, land en categorie."
           />
+          <meta name="keywords" content="webcamsex, live sex cams, gratis webcam, sexchat, cam girls, Nederlandse webcamsex, Belgische webcamsex, erotische webcam, webcam modellen, live sex chat, gratis cam, cam meisjes, sex cam, webcam sex, live cam" />
           <meta name="robots" content="index, follow" />
           <link rel="canonical" href="https://startvagina.nl" />
-          <meta property="og:title" content="StartVagina — Gratis Live Sex Cams" />
-          <meta property="og:description" content="Dé zoekmachine voor gratis live webcam shows. Duizenden modellen van de beste cam-platformen." />
+          <meta property="og:title" content="StartVagina — Gratis Webcamsex & Live Sex Cams" />
+          <meta property="og:description" content="Dé zoekmachine voor gratis webcamsex. Nederlandse en Belgische cam girls live op je scherm." />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://startvagina.nl" />
           <meta property="og:site_name" content="StartVagina" />
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="StartVagina — Gratis Live Sex Cams" />
-          <meta name="twitter:description" content="Dé zoekmachine voor gratis live webcam shows." />
+          <meta name="twitter:title" content="StartVagina — Gratis Webcamsex & Live Cam Girls" />
+          <meta name="twitter:description" content="Dé zoekmachine voor gratis webcamsex en live sex cams in Nederland en België." />
           <script type="application/ld+json">
             {JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
               name: "StartVagina",
               url: "https://startvagina.nl",
-              description: "Dé zoekmachine voor gratis live sex cams en webcam shows.",
+              alternateName: "StartVagina.nl",
+              description: "Dé zoekmachine voor gratis webcamsex, live sex cams en erotische webcam shows van Nederlandse en Belgische cam girls.",
+              inLanguage: "nl",
               potentialAction: {
                 "@type": "SearchAction",
                 target: "https://startvagina.nl/search?q={search_term_string}",
@@ -156,11 +159,13 @@ const Index = () => {
         <main className="container flex-1 py-6">
           <div className="mb-6">
             <h1 className="text-2xl md:text-3xl font-bold font-display">
-              Gratis Live Sex Cams & Webcam Shows
+              Gratis Webcamsex & Live Sex Cams
             </h1>
             <p className="text-sm text-muted-foreground mt-2 max-w-3xl leading-relaxed">
-              Welkom bij StartVagina, dé zoekmachine voor gratis live sex cams. Bekijk webcam shows van de beste platformen,
-              filter op categorie, geslacht, leeftijd, land en meer. Ontdek duizenden modellen die nu live zijn.
+              Welkom bij <strong>StartVagina</strong>, dé zoekmachine voor gratis <strong>webcamsex</strong> en <strong>live sex cams</strong>. 
+              Bekijk duizenden <strong>cam girls</strong> en <strong>webcam modellen</strong> uit Nederland en België. 
+              Geniet van gratis <strong>sexchat</strong>, <strong>erotische webcam</strong> shows en live cam streams. 
+              Filter op categorie, leeftijd, land en meer.
             </p>
           </div>
 
