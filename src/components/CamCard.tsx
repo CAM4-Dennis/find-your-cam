@@ -22,11 +22,6 @@ const CamCard = ({ model }: CamCardProps) => {
               width={320}
               height={180}
               onError={() => setImgError(true)}
-            />
-            width={320}
-            height={180}
-            onError={() => setImgError(true)}
-          />
           {/* HD badge */}
           {model.isHD && (
             <span className="absolute bottom-2 right-2 bg-primary/90 text-primary-foreground text-[10px] font-bold px-1.5 py-0.5 rounded">
