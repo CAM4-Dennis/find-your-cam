@@ -100,7 +100,7 @@ const CamStream = () => {
               <div className="relative bg-black rounded-lg overflow-hidden aspect-video">
                 {hasIframe && !hasHls ? (
                   <div
-                    className="w-full h-full"
+                    className="absolute inset-0 w-full h-full"
                     dangerouslySetInnerHTML={{ __html: model.iframeEmbed!.replace(/width="\d+"/, 'width="100%"').replace(/height="\d+"/, 'height="100%"') }}
                   />
                 ) : error ? (
