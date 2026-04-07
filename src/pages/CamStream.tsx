@@ -8,6 +8,7 @@ import { Helmet } from "react-helmet-async";
 import type { CamModel } from "@/types/cam";
 import { ArrowLeft, Eye, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import SimilarCams from "@/components/SimilarCams";
 
 const CamStream = () => {
   const { slug } = useParams<{ slug: string }>();
