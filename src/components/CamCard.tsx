@@ -1,12 +1,15 @@
 import type { CamModel } from "@/types/cam";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSfwMode } from "@/hooks/useSfwMode";
+
 interface CamCardProps {
   model: CamModel;
 }
 
 const CamCard = ({ model }: CamCardProps) => {
   const [imgError, setImgError] = useState(false);
+  const { sfwMode } = useSfwMode();
 
   return (
     <article className="cam-card group" aria-label={`${model.name}${model.age ? `, ${model.age} jaar` : ''}`}>
@@ -15,31 +18,17 @@ const CamCard = ({ model }: CamCardProps) => {
           <img
             src={imgError ? model.thumbnailFallback : model.thumbnail}
             alt={`Live webcam van ${model.name}`}
-            className="cam-card-image"
+            className={`cam-card-image ${sfwMode ? "blur-xl scale-110" : ""}`}
             loading="lazy"
             width={320}
             height={180}
             onError={() => setImgError(true)}
           />
-          {/* HD badge */}
           {model.isHD && (
             <span className="absolute bottom-2 right-2 bg-primary/90 text-primary-foreground text-[10px] font-bold px-1.5 py-0.5 rounded">
               HD
             </span>
           )}
-          {/* New badge */}
-          {model.isNew && (
-            <span className="absolute top-2 left-1/2 -translate-x-1/2 bg-accent/90 text-accent-foreground text-[10px] font-bold px-1.5 py-0.5 rounded">
-              NIEUW
-            </span>
-          )}
-          {/* HD badge */}
-          {model.isHD && (
-            <span className="absolute bottom-2 right-2 bg-primary/90 text-primary-foreground text-[10px] font-bold px-1.5 py-0.5 rounded">
-              HD
-            </span>
-          )}
-          {/* New badge */}
           {model.isNew && (
             <span className="absolute top-2 left-1/2 -translate-x-1/2 bg-accent/90 text-accent-foreground text-[10px] font-bold px-1.5 py-0.5 rounded">
               NIEUW

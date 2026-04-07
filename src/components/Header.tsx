@@ -1,5 +1,6 @@
-import { Search, Menu, X } from "lucide-react";
+import { Search, Menu, X, Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
+import { useSfwMode } from "@/hooks/useSfwMode";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -13,6 +14,7 @@ const navItems = [
 const Header = () => {
   const [searchOpen, setSearchOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { sfwMode, toggleSfw } = useSfwMode();
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-md">
@@ -37,6 +39,19 @@ const Header = () => {
 
         {/* Search & Mobile Menu */}
         <div className="flex items-center gap-3">
+          <button
+            onClick={toggleSfw}
+            className={`flex items-center gap-1.5 text-xs px-2.5 py-1.5 rounded-md border transition-colors ${
+              sfwMode
+                ? "bg-primary text-primary-foreground border-primary"
+                : "bg-secondary text-muted-foreground border-border hover:text-foreground"
+            }`}
+            aria-label={sfwMode ? "NSFW modus inschakelen" : "SFW modus inschakelen"}
+            title={sfwMode ? "Thumbnails zijn verborgen — klik om te tonen" : "Klik om thumbnails te verbergen (SFW)"}
+          >
+            {sfwMode ? <EyeOff size={14} /> : <Eye size={14} />}
+            <span className="hidden sm:inline">{sfwMode ? "SFW" : "NSFW"}</span>
+          </button>
           {searchOpen ? (
             <div className="flex items-center gap-2">
               <input
