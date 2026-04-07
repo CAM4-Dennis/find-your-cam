@@ -111,5 +111,7 @@ export async function fetchBongaCamsRooms(filters: BongaCamsFilters = {}): Promi
   }
 
   const result: BongaCamsResponse = await response.json();
-  return (result.models || []).map(normalizeBongaModel);
+  const models = (result.models || []).map(normalizeBongaModel);
+  console.log("[BongaDebug] Fetched", models.length, "models, genders:", [...new Set(models.map(m => m.gender))]);
+  return models;
 }
