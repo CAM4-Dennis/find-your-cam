@@ -202,6 +202,9 @@ const CamStream = () => {
               )}
             </aside>
           </div>
+
+          {/* Similar cams */}
+          <SimilarCams currentModel={model} />
         </main>
 
         <Footer />
