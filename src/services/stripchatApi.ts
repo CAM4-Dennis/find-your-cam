@@ -91,13 +91,13 @@ function normalizeStripchatModel(model: StripchatModel): CamModel {
     tags: cleanTags,
     isOnline: model.status === "public",
     gender: normalizeGender(model.gender, model.broadcastGender),
-    link: model.clickUrl,
+    link: `https://stripchat.com/${model.username}`,
     isNew: model.isNew || false,
     isHD: model.broadcastHD,
     showType: model.status,
-    previewUrl: model.stream?.url || "",
+    previewUrl: "",
     slug: `stripchat-${model.username}`,
-    iframeEmbed: "",
+    iframeEmbed: `<iframe src="https://stripchat.com/${model.username}?embed=1" width="100%" height="100%" frameborder="0" allowfullscreen allow="autoplay"></iframe>`,
   };
 }
 

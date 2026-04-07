@@ -20,10 +20,9 @@ const CamStream = () => {
 
   const model = location.state?.model as CamModel | undefined;
 
-  // For CAM4, prefer iframe over HLS (HLS has CORS issues)
-  const isCam4 = model?.platform === "Cam4";
+  // Platforms with iframe embeds (CAM4, BongaCams, Stripchat) - prefer iframe over HLS
   const hasIframe = !!model?.iframeEmbed;
-  const hasHls = !!model?.previewUrl && !isCam4;
+  const hasHls = !!model?.previewUrl && !hasIframe;
 
   useEffect(() => {
     if (!hasHls || !model?.previewUrl || !videoRef.current) {
