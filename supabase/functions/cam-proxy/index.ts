@@ -60,12 +60,19 @@ Deno.serve(async (req) => {
     if (platform === 'xcams') {
       const body = await req.text();
       
+      console.log('[xcams] request body:', body);
+      console.log('[xcams] gateway url:', XCAMS_GATEWAY);
+      
       const response = await fetch(XCAMS_GATEWAY, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body,
       });
       const data = await response.text();
+      
+      console.log('[xcams] response status:', response.status);
+      console.log('[xcams] response body length:', data.length);
+      console.log('[xcams] response body preview:', data.substring(0, 500));
 
       return new Response(data, {
         status: response.status,
