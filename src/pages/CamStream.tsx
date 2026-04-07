@@ -82,8 +82,8 @@ const CamStream = () => {
     <AgeGate>
       <div className="min-h-screen flex flex-col bg-background">
         <Helmet>
-          <title>{`${model.name} Live Webcam — StartVagina`}</title>
-          <meta name="description" content={`Bekijk de live webcam stream van ${model.name} (${model.age}) uit ${model.country}. Gratis live cam op StartVagina.`} />
+          <title>{`${model.name} Gratis Live Webcamsex — StartVagina`}</title>
+          <meta name="description" content={`Bekijk de gratis webcamsex stream van ${model.name}${model.age ? ` (${model.age})` : ''} uit ${model.country}. Live sex cam en sexchat op StartVagina.`} />
           <meta name="robots" content="noindex, nofollow" />
         </Helmet>
 
