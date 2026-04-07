@@ -1,22 +1,28 @@
 import type { CamModel } from "@/types/cam";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSfwMode } from "@/hooks/useSfwMode";
 interface CamCardProps {
   model: CamModel;
 }
 
 const CamCard = ({ model }: CamCardProps) => {
   const [imgError, setImgError] = useState(false);
+  const { sfwMode } = useSfwMode();
 
   return (
     <article className="cam-card group" aria-label={`${model.name}${model.age ? `, ${model.age} jaar` : ''}`}>
       <Link to={`/cam/${model.slug}`} state={{ model }} className="block">
         <div className="relative overflow-hidden">
-          <img
-            src={imgError ? model.thumbnailFallback : model.thumbnail}
-            alt={`Live webcam van ${model.name}`}
-            className="cam-card-image"
-            loading="lazy"
+            <img
+              src={imgError ? model.thumbnailFallback : model.thumbnail}
+              alt={`Live webcam van ${model.name}`}
+              className={`cam-card-image ${sfwMode ? "blur-xl scale-110" : ""}`}
+              loading="lazy"
+              width={320}
+              height={180}
+              onError={() => setImgError(true)}
+            />
             width={320}
             height={180}
             onError={() => setImgError(true)}
