@@ -94,10 +94,10 @@ const CamStream = () => {
             <ArrowLeft size={16} className="mr-1" /> Terug naar overzicht
           </Button>
 
-          <div className={`grid gap-6 ${isCam4 ? '' : 'lg:grid-cols-[1fr_320px]'}`}>
+          <div className="grid gap-6">
             {/* Video player */}
             <div className="space-y-3">
-              <div className={`relative bg-black rounded-lg overflow-hidden ${isCam4 ? 'aspect-[16/10]' : 'aspect-video'}`}>
+              <div className="relative bg-black rounded-lg overflow-hidden aspect-[16/10]">
                 {hasIframe && !hasHls ? (
                   <div
                     className="absolute inset-0 w-full h-full"
