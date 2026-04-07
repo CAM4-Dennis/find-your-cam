@@ -67,6 +67,13 @@ Deno.serve(async (req) => {
       });
       const data = await response.text();
 
+      // If gateway returns empty, return empty models array
+      if (!data || data.trim() === '') {
+        return new Response(JSON.stringify({ status: 'ok', data: { models: [], total: 0 } }), {
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        });
+      }
+
       return new Response(data, {
         status: response.status,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
