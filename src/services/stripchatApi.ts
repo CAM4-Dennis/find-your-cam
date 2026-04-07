@@ -23,6 +23,7 @@ interface StripchatModel {
   viewersCount: number;
   broadcastVR: boolean;
   broadcastHD: boolean;
+  broadcastMobile?: boolean;
   geobans: {
     blockedCountries: string[];
     blockedRegions: Record<string, string[]>;
@@ -34,6 +35,7 @@ interface StripchatModel {
   neededForGoal?: number;
   earnedForGoal?: number;
   languages: string[];
+  profileBirthDate?: string;
 }
 
 interface StripchatResponse {
@@ -57,6 +59,17 @@ function normalizeGender(gender: string, broadcastGender: string): string {
   return gender;
 }
 
+function calcAge(birthDate?: string): number {
+  if (!birthDate || birthDate.startsWith("0001")) return 0;
+  const birth = new Date(birthDate);
+  if (isNaN(birth.getTime())) return 0;
+  const now = new Date();
+  let age = now.getFullYear() - birth.getFullYear();
+  const m = now.getMonth() - birth.getMonth();
+  if (m < 0 || (m === 0 && now.getDate() < birth.getDate())) age--;
+  return age >= 18 ? age : 0;
+}
+
 function normalizeStripchatModel(model: StripchatModel): CamModel {
   const cleanTags = (model.tags || [])
     .map((t) => t.replace(/^(girls|men|couples|trans)\//, ""))
@@ -68,7 +81,7 @@ function normalizeStripchatModel(model: StripchatModel): CamModel {
   return {
     id: `stripchat-${model.id}`,
     name: model.username,
-    age: 0,
+    age: calcAge(model.profileBirthDate),
     viewers: model.viewersCount,
     country: getCountryName(country) || country || "Onbekend",
     countryFlag: getCountryFlag(country) || "🌍",
