@@ -59,5 +59,5 @@ const countryNames: Record<string, string> = {
   vn: "Vietnam", za: "Zuid-Afrika", zm: "Zambia", zw: "Zimbabwe",
 };
 
-export const getCountryFlag = (code: string): string => countryToFlag[code.toLowerCase()] ?? "🌍";
-export const getCountryName = (code: string): string => countryNames[code.toLowerCase()] ?? code.toUpperCase();
+export const getCountryFlag = (code: string | null | undefined): string => code ? (countryToFlag[code.toLowerCase()] ?? "🌍") : "🌍";
+export const getCountryName = (code: string | null | undefined): string => code ? (countryNames[code.toLowerCase()] ?? code.toUpperCase()) : "Onbekend";
