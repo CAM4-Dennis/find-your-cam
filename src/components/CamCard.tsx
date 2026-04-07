@@ -9,7 +9,7 @@ const CamCard = ({ model }: CamCardProps) => {
   const [imgError, setImgError] = useState(false);
 
   return (
-    <article className="cam-card group" aria-label={`${model.name}, ${model.age} jaar`}>
+    <article className="cam-card group" aria-label={`${model.name}${model.age ? `, ${model.age} jaar` : ''}`}>
       <Link to={`/cam/${model.slug}`} state={{ model }} className="block">
         <div className="relative overflow-hidden">
           <img
@@ -49,7 +49,7 @@ const CamCard = ({ model }: CamCardProps) => {
         <div className="p-3 space-y-1">
           <div className="flex items-center justify-between">
             <h3 className="font-semibold text-sm text-foreground truncate">
-              {model.name} ({model.age})
+              {model.name}{model.age ? ` (${model.age})` : ''}
             </h3>
           </div>
           <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
