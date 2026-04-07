@@ -27,7 +27,7 @@ const filterGroups: FilterGroup[] = [
 
 const ageOptions = ["18-19", "20-30", "31-40", "40+"];
 
-const platforms = ["Cam4", "Chaturbate", "BongaCams", "XCams", "Stripchat"];
+const platforms = ["Cam4", "Chaturbate", "BongaCams", "Stripchat"];
 
 const FilterSidebar = ({ filters, onChange }: FilterSidebarProps) => {
   const toggleArrayFilter = (key: keyof CamFilters, value: string) => {
