@@ -44,6 +44,11 @@ function modelMatchesTag(modelTags: string[], filterTag: string): boolean {
 }
 
 export function applyFilters(models: CamModel[], filters: CamFilters): CamModel[] {
+  if (filters.platforms.length > 0) {
+    const platformCounts: Record<string, number> = {};
+    models.forEach(m => { platformCounts[m.platform] = (platformCounts[m.platform] || 0) + 1; });
+    console.log("[FilterDebug] Platform counts in pool:", platformCounts, "Filter:", filters.platforms);
+  }
   return models.filter((m) => {
     // Gender filter
     if (filters.gender.length > 0) {
