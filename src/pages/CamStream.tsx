@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import AgeGate from "@/components/AgeGate";
 import { Helmet } from "react-helmet-async";
 import type { CamModel } from "@/types/cam";
-import { ArrowLeft, Eye, Users } from "lucide-react";
+import { ArrowLeft, Eye, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SimilarCams from "@/components/SimilarCams";
 
@@ -20,13 +20,13 @@ const CamStream = () => {
 
   const model = location.state?.model as CamModel | undefined;
 
-  // Platforms with iframe embeds (CAM4, BongaCams, Stripchat) - prefer iframe over HLS
   const hasIframe = !!model?.iframeEmbed;
   const hasHls = !!model?.previewUrl && !hasIframe;
+  // Platforms without embed support show thumbnail + CTA
+  const isRedirectOnly = !hasIframe && !hasHls;
 
   useEffect(() => {
     if (!hasHls || !model?.previewUrl || !videoRef.current) {
-      if (!hasIframe) setError(true);
       return;
     }
 
@@ -95,27 +95,15 @@ const CamStream = () => {
           </Button>
 
           <div className="grid gap-6">
-            {/* Video player */}
+            {/* Video player / embed / thumbnail */}
             <div className="space-y-3">
               <div className="relative bg-black rounded-lg overflow-hidden aspect-[16/10]">
-                {hasIframe && !hasHls ? (
+                {hasIframe ? (
                   <div
                     className="absolute inset-0 w-full h-full"
                     dangerouslySetInnerHTML={{ __html: model.iframeEmbed!.replace(/width="\d+"/, 'width="100%"').replace(/height="\d+"/, 'height="100%"') }}
                   />
-                ) : error ? (
-                  <div className="absolute inset-0 flex flex-col items-center justify-center text-white/70 gap-3">
-                    <p className="text-sm">Stream is niet beschikbaar of offline.</p>
-                    <a
-                      href={model.link}
-                      target="_blank"
-                      rel="noopener noreferrer nofollow"
-                      className="text-primary underline text-sm"
-                    >
-                      Bekijk op {model.platform}
-                    </a>
-                  </div>
-                ) : (
+                ) : hasHls && !error ? (
                   <video
                     ref={videoRef}
                     className="w-full h-full object-contain"
@@ -124,12 +112,39 @@ const CamStream = () => {
                     muted
                     playsInline
                   />
+                ) : (
+                  /* Thumbnail preview with CTA overlay for platforms without embed */
+                  <a
+                    href={model.link}
+                    target="_blank"
+                    rel="noopener noreferrer nofollow"
+                    className="absolute inset-0 flex flex-col items-center justify-center group cursor-pointer"
+                  >
+                    <img
+                      src={model.thumbnail}
+                      alt={`Preview van ${model.name}`}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      onError={(e) => { (e.target as HTMLImageElement).src = model.thumbnailFallback; }}
+                    />
+                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors" />
+                    <div className="relative z-10 flex flex-col items-center gap-3">
+                      <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <ExternalLink size={28} className="text-primary-foreground" />
+                      </div>
+                      <span className="text-white font-semibold text-lg drop-shadow-lg">
+                        Bekijk {model.name} Live op {model.platform}
+                      </span>
+                      <span className="text-white/70 text-sm">
+                        Klik om de gratis stream te openen
+                      </span>
+                    </div>
+                  </a>
                 )}
               </div>
 
               <div className="flex items-center justify-between">
                 <h1 className="text-xl font-bold font-display text-foreground">
-                  {model.name} ({model.age})
+                  {model.name}{model.age ? ` (${model.age})` : ''}
                 </h1>
                 <div className="flex items-center gap-3 text-sm text-muted-foreground">
                   <span className="flex items-center gap-1">

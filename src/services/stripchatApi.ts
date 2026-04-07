@@ -97,7 +97,7 @@ function normalizeStripchatModel(model: StripchatModel): CamModel {
     showType: model.status,
     previewUrl: "",
     slug: `stripchat-${model.username}`,
-    iframeEmbed: `<iframe src="https://stripchat.com/${model.username}?embed=1" width="100%" height="100%" frameborder="0" allowfullscreen allow="autoplay"></iframe>`,
+    iframeEmbed: "", // Stripchat blocks iframes (X-Frame-Options: deny) - use redirect instead
   };
 }
 
