@@ -25,8 +25,15 @@ const CamStream = () => {
   // Platforms without embed support show thumbnail + CTA
   const isRedirectOnly = !hasIframe && !hasHls;
 
+  // Debug logging
+  console.log('[CamStream] model:', model?.name, 'platform:', model?.platform);
+  console.log('[CamStream] previewUrl:', model?.previewUrl);
+  console.log('[CamStream] iframeEmbed:', model?.iframeEmbed);
+  console.log('[CamStream] hasHls:', hasHls, 'hasIframe:', hasIframe, 'isRedirectOnly:', isRedirectOnly);
+
   useEffect(() => {
     if (!hasHls || !model?.previewUrl || !videoRef.current) {
+      console.log('[CamStream] Skipping HLS setup - hasHls:', hasHls, 'previewUrl:', model?.previewUrl, 'videoRef:', !!videoRef.current);
       return;
     }
 
