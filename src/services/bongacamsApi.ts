@@ -66,7 +66,7 @@ function normalizeBongaModel(model: BongaCamsModel): CamModel {
     tags,
     isOnline: true,
     gender: model.gender,
-    link: model.chat_url_on_home_page || model.chat_url,
+    link: `https://bongacash.com/model-ref?c=714936&model=${model.username}`,
     isNew: false,
     isHD: model.is_hd,
     showType: "public",

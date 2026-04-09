@@ -91,7 +91,7 @@ function normalizeStripchatModel(model: StripchatModel): CamModel {
     tags: cleanTags,
     isOnline: model.status === "public",
     gender: normalizeGender(model.gender, model.broadcastGender),
-    link: `https://stripchat.com/${model.username}`,
+    link: `https://go.mavrtracktor.com?onlineModels=${model.username}&userId=143a6a41ca48f0d679a727aa16aac452f9aa7e09ec7f2bc56b5475dcfccd5975`,
     isNew: model.isNew || false,
     isHD: model.broadcastHD,
     showType: model.status,

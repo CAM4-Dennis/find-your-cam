@@ -67,7 +67,7 @@ function normalizeChaturbateRoom(room: ChaturbateRoom): CamModel {
     tags: room.tags?.slice(0, 5) || [],
     isOnline: true,
     gender: normalizeGender(room.gender),
-    link: room.chat_room_url_revshare || room.chat_room_url,
+    link: `https://chaturbate.com/in/?tour=5zjT&campaign=nr6ku&track=default&room=${room.username}`,
     isNew: room.is_new,
     isHD: room.is_hd,
     showType: room.current_show,
