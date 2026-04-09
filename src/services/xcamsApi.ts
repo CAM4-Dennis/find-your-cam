@@ -2,7 +2,8 @@ import type { CamModel } from "@/types/cam";
 import { getCountryFlag, getCountryName } from "@/lib/countryFlags";
 
 const COMFROM = "1045042";
-const GATEWAY_URL = "https://cams.dnxlive.com/gateway/gatewayPost.php";
+// Direct API has no CORS headers, proxy through Vercel serverless function
+const PROXY_URL = "/api/xcams-proxy";
 
 export interface XCamsFilters {
   gender?: "F" | "M" | "P" | "S";
@@ -106,15 +107,11 @@ export async function fetchXCamsRooms(filters: XCamsFilters = {}): Promise<CamMo
   // Request extra fields
   params.set("return_values", "account-nickname-status-country-language-sex-audio-one2one-hd-new-priority-first_language-age-origin");
 
-  const response = await fetch(GATEWAY_URL, {
+  const response = await fetch(PROXY_URL, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: params.toString(),
   });
-
-  if (!response.ok) {
-    throw new Error(`XCams API error: ${response.status}`);
-  }
 
   const data: XCamsResponse = await response.json();
 
