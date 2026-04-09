@@ -12,6 +12,8 @@ import Countries from "./pages/Countries.tsx";
 import New from "./pages/New.tsx";
 import TopCams from "./pages/TopCams.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import Blog from "./pages/Blog.tsx";
+import BlogPost from "./pages/BlogPost.tsx";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +32,8 @@ const App = () => (
               <Route path="/countries" element={<Countries />} />
               <Route path="/new" element={<New />} />
               <Route path="/top" element={<TopCams />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:id" element={<BlogPost />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
