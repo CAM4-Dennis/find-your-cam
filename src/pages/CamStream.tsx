@@ -1,5 +1,5 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import Hls from "hls.js";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -14,7 +14,10 @@ const CamStream = () => {
   const { slug } = useParams<{ slug: string }>();
   const location = useLocation();
   const navigate = useNavigate();
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoEl, setVideoEl] = useState<HTMLVideoElement | null>(null);
+  const videoRef = useCallback((node: HTMLVideoElement | null) => {
+    setVideoEl(node);
+  }, []);
   const hlsRef = useRef<Hls | null>(null);
   const [error, setError] = useState(false);
 
@@ -25,19 +28,12 @@ const CamStream = () => {
   // Platforms without embed support show thumbnail + CTA
   const isRedirectOnly = !hasIframe && !hasHls;
 
-  // Debug logging
-  console.log('[CamStream] model:', model?.name, 'platform:', model?.platform);
-  console.log('[CamStream] previewUrl:', model?.previewUrl);
-  console.log('[CamStream] iframeEmbed:', model?.iframeEmbed);
-  console.log('[CamStream] hasHls:', hasHls, 'hasIframe:', hasIframe, 'isRedirectOnly:', isRedirectOnly);
-
   useEffect(() => {
-    if (!hasHls || !model?.previewUrl || !videoRef.current) {
-      console.log('[CamStream] Skipping HLS setup - hasHls:', hasHls, 'previewUrl:', model?.previewUrl, 'videoRef:', !!videoRef.current);
+    if (!hasHls || !model?.previewUrl || !videoEl) {
       return;
     }
 
-    const video = videoRef.current;
+    const video = videoEl;
 
     if (Hls.isSupported()) {
       const hls = new Hls({
@@ -83,7 +79,7 @@ const CamStream = () => {
       hlsRef.current?.destroy();
       hlsRef.current = null;
     };
-  }, [model?.previewUrl, hasHls, hasIframe]);
+  }, [model?.previewUrl, hasHls, hasIframe, videoEl]);
 
   if (!model) {
     return (
