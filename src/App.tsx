@@ -14,6 +14,7 @@ import TopCams from "./pages/TopCams.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import Blog from "./pages/Blog.tsx";
 import BlogPost from "./pages/BlogPost.tsx";
+import KeywordLanding from "./pages/KeywordLanding.tsx";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,11 @@ const App = () => (
               <Route path="/top" element={<TopCams />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:id" element={<BlogPost />} />
+              <Route path="/webcamsex" element={<KeywordLanding />} />
+              <Route path="/gratis-webcam-sex" element={<KeywordLanding />} />
+              <Route path="/sexchat" element={<KeywordLanding />} />
+              <Route path="/cam-girls" element={<KeywordLanding />} />
+              <Route path="/live-sex-cams" element={<KeywordLanding />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
