@@ -2,126 +2,125 @@ import type { CamModel } from "@/types/cam";
 import { getCountryFlag, getCountryName } from "@/lib/countryFlags";
 
 const COMFROM = "1045042";
+const GATEWAY_URL = "https://cams.dnxlive.com/gateway/gatewayPost.php";
 
 export interface XCamsFilters {
-  gender?: "woman" | "man" | "couple" | "trans";
+  gender?: "F" | "M" | "P" | "S";
   limit?: number;
-  offset?: number;
-  orderBy?: "viewers" | "rating" | "random";
-  hd?: boolean;
+  page?: number;
   language?: string;
-  category?: string;
+  hd?: boolean;
+  new?: boolean;
 }
 
-interface XCamsModel {
+interface XCamsCam {
+  account: string;
   nickname: string;
-  age: number;
-  sex: string;
+  status: string;
   country: string;
   language: string;
-  thumbnail: string;
-  nbViewers: number;
-  isHD: boolean;
-  isNew: boolean;
-  tags: string[];
-  status: string;
-  streamUrl: string;
-  categories: string[];
+  first_language: string;
+  sex: string;
+  audio: string;
+  one2one: string;
+  hd: string;
+  new: string;
+  priority: number;
+  age?: number;
+  origin?: string;
 }
 
 interface XCamsResponse {
-  status: string;
-  data: {
-    models: XCamsModel[];
-    total: number;
-  };
+  cams: Record<string, XCamsCam>;
+  total: number;
+  success: string;
+  message: string | null;
 }
 
-function normalizeXCamsGender(sex: string): string {
-  switch (sex?.toLowerCase()) {
-    case "woman": return "female";
-    case "man": return "male";
-    case "trans": return "trans";
-    case "couple": return "couple";
-    default: return sex || "female";
+function normalizeGender(sex: string): string {
+  switch (sex) {
+    case "F": return "female";
+    case "M": return "male";
+    case "P": return "couple";
+    case "S": return "trans";
+    default: return "female";
   }
 }
 
 function buildProfileUrl(nickname: string): string {
-  return `https://www.xcams.com/profile/${nickname}/?comfrom=${COMFROM}&cf0=pc2&cfsa1=O180&cf2=Startvagina&cfsa2=&brand=y`;
+  return `https://www.webcamsex.com/profile/${nickname}/?comfrom=${COMFROM}&cf0=pc2&cfsa1=O180&cf2=Startvagina&cfsa2=&brand=y`;
 }
 
 function buildPaymentUrl(nickname: string): string {
-  return `https://www.xcams.com/login/${nickname}/?comfrom=${COMFROM}&cf0=pc2&cfsa1=O180&cf2=Startvagina&cfsa2=&brand=y`;
+  return `https://www.webcamsex.com/login/${nickname}/?comfrom=${COMFROM}&cf0=pc2&cfsa1=O180&cf2=Startvagina&cfsa2=&brand=y`;
 }
 
-function normalizeXCamsModel(model: XCamsModel): CamModel {
-  const tags = (model.tags || model.categories || []).slice(0, 5);
+function buildThumbnailUrl(account: string): string {
+  return `https://cams.images-dnxlive.com/snapshots/${account}_webcam_320x180.jpg`;
+}
+
+function buildThumbnailFallbackUrl(account: string): string {
+  return `https://cams.images-dnxlive.com/snapshots/${account}_webcam_200x150.jpg`;
+}
+
+function normalizeCam(cam: XCamsCam): CamModel {
+  const country = cam.country?.toUpperCase() || "";
 
   return {
-    id: `xcams-${model.nickname}`,
-    name: model.nickname,
-    age: model.age || 0,
-    viewers: model.nbViewers || 0,
-    country: model.country ? getCountryName(model.country) : "Onbekend",
-    countryFlag: model.country ? getCountryFlag(model.country) : "🌍",
+    id: `xcams-${cam.account}`,
+    name: cam.nickname,
+    age: cam.age || 0,
+    viewers: 0, // API doesn't provide viewer count, use priority as proxy
+    country: getCountryName(country) || country || "Onbekend",
+    countryFlag: getCountryFlag(country) || "🌍",
     platform: "XCams",
-    thumbnail: model.thumbnail || "",
-    thumbnailFallback: model.thumbnail || "",
-    tags,
-    isOnline: true,
-    gender: normalizeXCamsGender(model.sex),
-    link: buildProfileUrl(model.nickname),
-    isNew: model.isNew || false,
-    isHD: model.isHD || false,
-    showType: model.status || "public",
-    previewUrl: model.streamUrl || "",
-    slug: `xcams-${model.nickname}`,
+    thumbnail: buildThumbnailUrl(cam.account),
+    thumbnailFallback: buildThumbnailFallbackUrl(cam.account),
+    tags: [],
+    isOnline: cam.status === "ONLINE",
+    gender: normalizeGender(cam.sex),
+    link: buildProfileUrl(cam.nickname),
+    isNew: cam.new === "Y",
+    isHD: cam.hd === "Y",
+    showType: cam.status?.toLowerCase() || "public",
+    previewUrl: "",
+    slug: `xcams-${cam.nickname}`,
     iframeEmbed: "",
-    paymentUrl: buildPaymentUrl(model.nickname),
+    paymentUrl: buildPaymentUrl(cam.nickname),
   };
 }
 
 export async function fetchXCamsRooms(filters: XCamsFilters = {}): Promise<CamModel[]> {
-  const body: Record<string, string | number | boolean> = {
-    method: "getCams",
-    comfrom: COMFROM,
-    cf0: "pc2",
-    cfsa1: "O180",
-    cf2: "Startvagina",
-    brand: "y",
-  };
+  const params = new URLSearchParams();
+  params.set("action", "getCams");
+  params.set("cams_per_page", String(filters.limit || 150));
+  params.set("current_page", String(filters.page || 1));
+  params.set("ip", "82.169.0.1"); // Dutch IP for geo-relevance
+  params.set("status", "ONLINE");
 
-  if (filters.gender) body.sex = filters.gender;
-  if (filters.limit) body.limit = filters.limit;
-  if (filters.offset) body.offset = filters.offset;
-  if (filters.orderBy) body.orderBy = filters.orderBy;
-  if (filters.hd) body.hd = 1;
-  if (filters.language) body.language = filters.language;
-  if (filters.category) body.category = filters.category;
+  if (filters.gender) params.set("sex", filters.gender);
+  if (filters.hd) params.set("hd", "Y");
+  if (filters.new) params.set("new", "Y");
+  if (filters.language) params.set("language", filters.language);
 
-  const formData = new URLSearchParams();
-  for (const [key, val] of Object.entries(body)) {
-    formData.set(key, String(val));
-  }
+  // Request extra fields
+  params.set("return_values", "account-nickname-status-country-language-sex-audio-one2one-hd-new-priority-first_language-age-origin");
 
-  const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-  const anonKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
-
-  const response = await fetch(`${supabaseUrl}/functions/v1/cam-proxy?platform=xcams`, {
+  const response = await fetch(GATEWAY_URL, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-      "Authorization": `Bearer ${anonKey}`,
-      "apikey": anonKey,
-    },
-    body: formData.toString(),
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: params.toString(),
   });
 
   if (!response.ok) {
-    throw new Error(`XCams proxy error: ${response.status}`);
+    throw new Error(`XCams API error: ${response.status}`);
   }
 
   const data: XCamsResponse = await response.json();
-  return (data.data?.models || []).map(normalizeXCamsModel);
+
+  if (data.success !== "Y") {
+    throw new Error(`XCams API failed: ${data.message}`);
+  }
+
+  return Object.values(data.cams || {}).map(normalizeCam);
 }
