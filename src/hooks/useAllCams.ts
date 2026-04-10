@@ -11,7 +11,7 @@ export function useAllCams() {
   const { data: cbFemale = [], isLoading: l2 } = useChaturbateOnline({ gender: "f", limit: 150 });
   const { data: bongaFemale = [], isLoading: l3 } = useBongaCamsOnline({ section: "straight", limit: 150 });
   const { data: stripFemale = [], isLoading: l4 } = useStripchatOnline({ tag: "girls", limit: 150 });
-  const { data: xcamsFemale = [], isLoading: l9 } = useXCamsOnline({ gender: "F", limit: 150 });
+  const { data: xcamsFemale = [], isLoading: l9 } = useXCamsOnline({ gender: "F", limit: 50 });
   const { data: coupleCams4 = [], isLoading: l5 } = useCam4Online({ gender: "couple", limit: 150 });
   const { data: coupleCamsCB = [], isLoading: l6 } = useChaturbateOnline({ gender: "c", limit: 150 });
   const { data: coupleBonga = [], isLoading: l7 } = useBongaCamsOnline({ section: "couples", limit: 150 });
