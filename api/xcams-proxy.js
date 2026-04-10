@@ -1,29 +1,53 @@
-// Vercel Serverless Function — proxies XCams DNX Live Gateway API (adds CORS)
-export default async function handler(req, res) {
-  // CORS headers
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+// Vercel Serverless Function — proxies XCams DNX Live Gateway API
+// Adds CORS headers and caches responses for 30 seconds
 
+export const config = {
+  runtime: "edge", // Edge runtime = no cold starts, faster globally
+};
+
+export default async function handler(req) {
+  // CORS preflight
   if (req.method === "OPTIONS") {
-    return res.status(200).end();
+    return new Response(null, {
+      status: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type",
+      },
+    });
   }
 
   if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
+    return new Response(JSON.stringify({ error: "Method not allowed" }), {
+      status: 405,
+      headers: { "Content-Type": "application/json" },
+    });
   }
 
   try {
+    const body = await req.text();
+
     const response = await fetch("https://cams.dnxlive.com/gateway/gatewayPost.php", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: req.body,
+      body: body,
     });
 
     const data = await response.text();
-    res.setHeader("Content-Type", "application/json");
-    res.status(200).send(data);
+
+    return new Response(data, {
+      status: 200,
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Cache-Control": "public, s-maxage=30, stale-while-revalidate=60",
+      },
+    });
   } catch (error) {
-    res.status(500).json({ error: "Proxy error", message: error.message });
+    return new Response(JSON.stringify({ error: "Proxy error", message: error.message }), {
+      status: 500,
+      headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
+    });
   }
 }
