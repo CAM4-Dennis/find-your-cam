@@ -86,7 +86,7 @@ function normalizeCam(cam: XCamsCam): CamModel {
     showType: cam.status?.toLowerCase() || "public",
     previewUrl: "",
     slug: `xcams-${cam.nickname}`,
-    iframeEmbed: "",
+    iframeEmbed: "", // XCams blocks iframe embeds via CSP (frame-ancestors restricted)
     paymentUrl: buildPaymentUrl(cam.nickname),
   };
 }

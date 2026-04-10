@@ -1,5 +1,19 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useRef, useState, useCallback } from "react";
+
+// Auto-refreshing thumbnail for platforms without stream embed (e.g., XCams)
+function useRefreshingThumbnail(baseUrl: string, enabled: boolean, intervalMs = 3000) {
+  const [url, setUrl] = useState(baseUrl);
+  useEffect(() => {
+    if (!enabled || !baseUrl) return;
+    setUrl(baseUrl + "?t=" + Date.now());
+    const timer = setInterval(() => {
+      setUrl(baseUrl + "?t=" + Date.now());
+    }, intervalMs);
+    return () => clearInterval(timer);
+  }, [baseUrl, enabled, intervalMs]);
+  return url;
+}
 import Hls from "hls.js";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -27,6 +41,9 @@ const CamStream = () => {
   const hasHls = !!model?.previewUrl && !hasIframe;
   // Platforms without embed support show thumbnail + CTA
   const isRedirectOnly = !hasIframe && !hasHls;
+  // Auto-refresh thumbnail for XCams (live snapshots update every few seconds on CDN)
+  const isXCams = model?.platform === "XCams";
+  const liveThumbnail = useRefreshingThumbnail(model?.thumbnail || "", isRedirectOnly && isXCams);
 
   useEffect(() => {
     if (!hasHls || !model?.previewUrl || !videoEl) {
@@ -141,11 +158,17 @@ const CamStream = () => {
                     className="absolute inset-0 flex flex-col items-center justify-center group cursor-pointer"
                   >
                     <img
-                      src={model.thumbnail}
+                      src={isXCams ? liveThumbnail : model.thumbnail}
                       alt={`Preview van ${model.name}`}
-                      className="absolute inset-0 w-full h-full object-cover"
+                      className={`absolute inset-0 w-full h-full object-cover ${isXCams ? "transition-opacity duration-500" : ""}`}
                       onError={(e) => { (e.target as HTMLImageElement).src = model.thumbnailFallback; }}
                     />
+                    {isXCams && (
+                      <div className="absolute top-3 left-3 z-20 flex items-center gap-1.5 bg-red-600/90 text-white text-xs font-bold px-2 py-1 rounded">
+                        <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
+                        LIVE SNAPSHOT
+                      </div>
+                    )}
                     <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors" />
                     <div className="relative z-10 flex flex-col items-center gap-3">
                       <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center group-hover:scale-110 transition-transform">
