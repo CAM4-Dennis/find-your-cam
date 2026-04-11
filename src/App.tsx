@@ -16,6 +16,7 @@ import Blog from "./pages/Blog.tsx";
 import BlogPost from "./pages/BlogPost.tsx";
 import KeywordLanding from "./pages/KeywordLanding.tsx";
 import Languages from "./pages/Languages.tsx";
+import LanguageLanding from "./pages/LanguageLanding.tsx";
 import PlatformLanding from "./pages/PlatformLanding.tsx";
 import CategoryLanding from "./pages/CategoryLanding.tsx";
 import CountryLanding from "./pages/CountryLanding.tsx";
@@ -40,6 +41,16 @@ const App = () => (
               <Route path="/categories" element={<Categories />} />
               <Route path="/countries" element={<Countries />} />
               <Route path="/languages" element={<Languages />} />
+              <Route path="/webcamsex-in-het-nederlands" element={<LanguageLanding />} />
+              <Route path="/english-webcam-sex-chat" element={<LanguageLanding />} />
+              <Route path="/webcamsex-auf-deutsch" element={<LanguageLanding />} />
+              <Route path="/webcamsex-en-francais" element={<LanguageLanding />} />
+              <Route path="/webcamsex-en-espanol" element={<LanguageLanding />} />
+              <Route path="/webcamsex-in-italiano" element={<LanguageLanding />} />
+              <Route path="/webcamsex-em-portugues" element={<LanguageLanding />} />
+              <Route path="/webcamsex-na-russkom" element={<LanguageLanding />} />
+              <Route path="/japanese-webcam-sex" element={<LanguageLanding />} />
+              <Route path="/korean-webcam-sex" element={<LanguageLanding />} />
               <Route path="/new" element={<New />} />
               <Route path="/top" element={<TopCams />} />
               <Route path="/blog" element={<Blog />} />

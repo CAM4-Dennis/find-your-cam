@@ -1,4 +1,5 @@
 import { useState, useMemo, useRef } from "react";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AgeGate from "@/components/AgeGate";
@@ -49,10 +50,24 @@ const languageEmojis: Record<string, string> = {
 function modelMatchesLanguage(modelLanguages: string[], langName: string): boolean {
   const aliases = languageAliases[langName] || [langName.toLowerCase()];
   return modelLanguages.some((ml) => {
-    const lower = ml.toLowerCase();
-    return aliases.some((alias) => lower.includes(alias) || alias.includes(lower));
+    const lower = ml.toLowerCase().trim();
+    return aliases.some((alias) => lower === alias);
   });
 }
+
+/** Map language display name to landing page slug */
+const languageSlugMap: Record<string, string> = {
+  Nederlands: "webcamsex-in-het-nederlands",
+  English: "english-webcam-sex-chat",
+  Deutsch: "webcamsex-auf-deutsch",
+  Français: "webcamsex-en-francais",
+  Español: "webcamsex-en-espanol",
+  Italiano: "webcamsex-in-italiano",
+  Português: "webcamsex-em-portugues",
+  Русский: "webcamsex-na-russkom",
+  "日本語": "japanese-webcam-sex",
+  "한국어": "korean-webcam-sex",
+};
 
 const Languages = () => {
   const { allCams, isLoading } = useAllCams();
@@ -129,29 +144,42 @@ const Languages = () => {
             }
           </p>
 
-          {/* Language chips */}
+          {/* Language chips — languages with landing pages link out */}
           <div className="flex flex-wrap gap-2 mb-8">
-            {languageCounts.map(({ lang, emoji, count }) => (
-              <button
-                key={lang}
-                onClick={() => handleSelect(lang)}
-                className={`flex items-center gap-1.5 px-3 py-2 rounded-lg border text-sm transition-colors ${
-                  selected === lang
-                    ? "bg-primary text-primary-foreground border-primary"
-                    : "bg-card border-border text-foreground hover:bg-accent hover:border-accent"
-                }`}
-              >
-                <span>{emoji}</span>
-                <span>{lang}</span>
-                <span
-                  className={`text-xs ml-1 ${
-                    selected === lang ? "text-primary-foreground/70" : "text-muted-foreground"
-                  }`}
+            {languageCounts.map(({ lang, emoji, count }) => {
+              const landingSlug = languageSlugMap[lang];
+              const chipClass = `flex items-center gap-1.5 px-3 py-2 rounded-lg border text-sm transition-colors ${
+                selected === lang
+                  ? "bg-primary text-primary-foreground border-primary"
+                  : "bg-card border-border text-foreground hover:bg-accent hover:border-accent"
+              }`;
+
+              if (landingSlug) {
+                return (
+                  <Link key={lang} to={`/${landingSlug}`} className={chipClass}>
+                    <span>{emoji}</span>
+                    <span>{lang}</span>
+                    <span className="text-xs ml-1 text-muted-foreground">({count})</span>
+                  </Link>
+                );
+              }
+
+              return (
+                <button
+                  key={lang}
+                  onClick={() => handleSelect(lang)}
+                  className={chipClass}
                 >
-                  ({count})
-                </span>
-              </button>
-            ))}
+                  <span>{emoji}</span>
+                  <span>{lang}</span>
+                  <span className={`text-xs ml-1 ${
+                    selected === lang ? "text-primary-foreground/70" : "text-muted-foreground"
+                  }`}>
+                    ({count})
+                  </span>
+                </button>
+              );
+            })}
           </div>
 
           {/* Results */}

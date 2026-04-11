@@ -50,8 +50,10 @@ const languageAliases: Record<string, string[]> = {
 function modelMatchesLanguage(modelLanguages: string[], filterLang: string): boolean {
   const aliases = languageAliases[filterLang] || [filterLang.toLowerCase()];
   return modelLanguages.some((ml) => {
-    const lower = ml.toLowerCase();
-    return aliases.some((alias) => lower.includes(alias) || alias.includes(lower));
+    const lower = ml.toLowerCase().trim();
+    // Exact match only — no substring matching to avoid false positives
+    // (e.g. "de" matching "nederlandstalig", or "nl" matching "only")
+    return aliases.some((alias) => lower === alias);
   });
 }
 
