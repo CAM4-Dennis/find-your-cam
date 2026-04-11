@@ -18,7 +18,17 @@ interface PlatformConfig {
   description: string;
   keywords: string;
   intro: string;
+  content: string;
   faq: { q: string; a: string }[];
+}
+
+/** Convert **bold** markers and newlines to simple HTML */
+function renderContent(text: string): string {
+  return text
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    .replace(/\n\n/g, "</p><p>")
+    .replace(/\n- /g, "<br/>• ")
+    .replace(/\n/g, "<br/>");
 }
 
 const platforms: Record<string, PlatformConfig> = {
@@ -32,8 +42,19 @@ const platforms: Record<string, PlatformConfig> = {
       "Bekijk gratis live sex cams van CAM4 op StartVagina. Duizenden CAM4 modellen live online. Nederlandse en Belgische cam girls, koppels en meer op Cam4.",
     keywords:
       "cam4, cam4 live, cam4 webcamsex, cam4 gratis, cam4 nederland, cam4 sex cams, cam4 cam girls, cam4 modellen, cam4 live sex",
-    intro:
-      "Ontdek alle live CAM4 modellen op StartVagina. CAM4 staat bekend om echte amateurs en koppels uit Nederland en België. Bekijk gratis live webcam shows, chat met modellen en geniet van ongeregisseerde cam sex — 24/7 online.",
+    intro: "",
+    content: `CAM4 is al sinds 2007 een van de meest populaire webcamsex platforms ter wereld — en met name in Nederland en België heeft het een enorme fanbase opgebouwd. Wat CAM4 uniek maakt? Het draait hier om **echte mensen**. Geen gepolijste studio-opnames, maar authentieke amateurs en koppels die vanuit hun eigen slaapkamer of woonkamer live gaan.
+
+Op StartVagina verzamelen we alle live CAM4 modellen op één overzichtelijke pagina. Je ziet in real-time wie er online is, inclusief thumbnail previews en het aantal kijkers. Geen gedoe met inloggen of registreren — klik op een model en je kijkt direct mee.
+
+**Waarom CAM4 zo populair is in Nederland:**
+- Een van de weinige cam sites met een groot aantal **Nederlandse en Vlaamse modellen**
+- Sterke community van **echte amateurs** — geen scripts, geen regisseurs
+- Populair bij **koppels** die samen live gaan
+- Gratis kijken zonder account, inclusief HD-streams
+- Actieve chatrooms waar modellen direct reageren op kijkers
+
+Of je nu op zoek bent naar een gezellige Nederlandse cam girl, een spannend koppel of gewoon wilt rondkijken — CAM4 heeft het. En via StartVagina kun je tegelijk vergelijken met modellen van Chaturbate, Stripchat en andere platforms.`,
     faq: [
       {
         q: "Wat is CAM4?",
@@ -59,8 +80,21 @@ const platforms: Record<string, PlatformConfig> = {
       "Gratis Chaturbate live sex cams kijken op StartVagina. De populairste cam girls van Chaturbate live online. Webcamsex, sexchat en erotische shows.",
     keywords:
       "chaturbate, chaturbate live, chaturbate gratis, chaturbate nederland, chaturbate cam girls, chaturbate webcamsex, chaturbate modellen, chaturbate sex cams",
-    intro:
-      "Chaturbate is 's werelds grootste webcamsex platform met duizenden modellen tegelijk online. Op StartVagina zie je alle live Chaturbate cam girls op één overzichtelijke pagina. Filter, zoek en begin direct met kijken — gratis en zonder registratie.",
+    intro: "",
+    content: `Chaturbate is met afstand het **grootste webcamsex platform ter wereld**. Op elk willekeurig moment zijn er meer dan 4.000 modellen tegelijk live — van solo cam girls en jongens tot koppels en groepen. De naam zegt het al: een mix van "chat" en "masturbate", en dat vat de sfeer perfect samen.
+
+Op StartVagina tonen we alle live Chaturbate cam girls in een overzichtelijk grid. Je hoeft niet te zoeken op Chaturbate zelf — wij laten je in één oogopslag zien wie er online is, met thumbnail previews, leeftijd en tags. Klik en kijk, zo simpel is het.
+
+**Wat maakt Chaturbate de nummer één?**
+- **Grootste aanbod**: duizenden modellen 24/7 online, uit elke hoek van de wereld
+- **Token-systeem**: kijk gratis mee en tip alleen als je dat wilt — geen verplichte betalingen
+- **Interactieve shows**: veel modellen gebruiken Lovense en andere connected toys die reageren op tips
+- **Enorme variatie**: of je nu houdt van jonge cam girls, curvy modellen, MILF's, koppels of een specifieke niche — het is er allemaal
+- **Geen registratie nodig**: alle openbare shows zijn direct en anoniem te bekijken
+
+Chaturbate is ook de plek waar veel **nieuwe cam modellen** hun carrière beginnen. Via het "New Cams"-filter ontdek je dagelijks verse gezichten die voor het eerst live gaan. En dankzij het enorme aantal kijkers is de chatsfeer altijd levendig.
+
+Tip: gebruik de filters op StartVagina om Chaturbate-modellen te combineren met cam girls van Stripchat, BongaCams en CAM4. Zo mis je nooit de beste show.`,
     faq: [
       {
         q: "Wat is Chaturbate?",
@@ -86,8 +120,21 @@ const platforms: Record<string, PlatformConfig> = {
       "Bekijk gratis BongaCams live sex cams op StartVagina. Populaire BongaCams cam girls en modellen live online. Europese webcamsex op z'n best.",
     keywords:
       "bongacams, bongacams live, bongacams gratis, bongacams nederland, bongacams cam girls, bongacams webcamsex, bongacams modellen, bongacams sex cams",
-    intro:
-      "BongaCams is een van de populairste Europese cam sites met een groot aanbod aan cam girls uit Oost-Europa, Nederland en België. Bekijk alle live BongaCams modellen hier op StartVagina — gratis en in HD kwaliteit.",
+    intro: "",
+    content: `BongaCams heeft zich in korte tijd opgewerkt tot een van de **grootste cam platforms van Europa**. Met het hoofdkantoor in Cyprus en een sterke focus op de Europese markt, trekt BongaCams een ander type model aan dan de Amerikaanse concurrenten — denk aan prachtige Oost-Europese, Nederlandse en Belgische cam girls die in HD-kwaliteit streamen.
+
+Op StartVagina zie je alle live BongaCams modellen op één plek. Real-time data, thumbnail previews en directe links naar de streams — zonder omwegen.
+
+**Wat BongaCams onderscheidt:**
+- **Europese focus**: veel modellen uit Roemenië, Rusland, Oekraïne, Nederland en België — vaak meertalig
+- **HD als standaard**: BongaCams staat bekend om hoge videokwaliteit, ook in gratis shows
+- **Gratis tokens voor nieuwe gebruikers**: bij registratie ontvang je direct tokens om te tippen
+- **Actieve promoties**: regelmatig wedstrijden en awards die modellen extra motiveren
+- **Gebruiksvriendelijke interface**: schoon design, snelle streams, goede mobiele ervaring
+
+BongaCams is ideaal als je houdt van Europese schoonheden met een professionele uitstraling, maar toch de spontaniteit van live webcamsex. De modellen zijn over het algemeen interactief en reageren snel in de chat.
+
+Een voordeel van BongaCams ten opzichte van Chaturbate is de **overzichtelijkheid**. Waar Chaturbate je kan overweldigen met duizenden opties, biedt BongaCams een meer gecureerde ervaring. En via StartVagina vergelijk je beide platforms moeiteloos naast elkaar.`,
     faq: [
       {
         q: "Wat is BongaCams?",
@@ -113,8 +160,22 @@ const platforms: Record<string, PlatformConfig> = {
       "Gratis Stripchat live sex cams kijken op StartVagina. Duizenden Stripchat cam girls en modellen live. VR cam shows, sexchat en meer.",
     keywords:
       "stripchat, stripchat live, stripchat gratis, stripchat nederland, stripchat cam girls, stripchat webcamsex, stripchat modellen, stripchat vr cams",
-    intro:
-      "Stripchat is een snelgroeiend cam platform dat bekend staat om innovatieve features zoals VR cam shows. Bekijk alle live Stripchat modellen op StartVagina — van cam girls tot koppels, allemaal gratis en in hoge kwaliteit.",
+    intro: "",
+    content: `Stripchat is de afgelopen jaren uitgegroeid tot een serieuze concurrent van Chaturbate — en op sommige vlakken heeft het de gigant al ingehaald. Met **innovatieve features** zoals VR cam shows, AI-aanbevelingen en een gelikte interface trekt Stripchat zowel modellen als kijkers aan die op zoek zijn naar de nieuwste technologie in webcamsex.
+
+Op StartVagina tonen we alle live Stripchat modellen real-time. Thumbnail previews, kijkersaantallen en directe links — in één klik ben je bij je favoriete model.
+
+**Waarom Stripchat eruit springt:**
+- **VR cam shows**: als een van de weinige platforms biedt Stripchat **virtual reality** shows aan — met een VR-headset zit je virtueel naast het model
+- **Enorm aanbod**: duizenden modellen tegelijk online, vergelijkbaar met Chaturbate
+- **Slimme filters**: zoek op leeftijd, lichaamsbouw, haarkleur, etniciteit, taal en tientallen categorieën
+- **Interactieve toys**: veel modellen gebruiken connected toys die reageren op tips — populaire functie bij kijkers
+- **Gratis en anoniem**: alle openbare shows zijn zonder account te bekijken
+- **Snelgroeiend**: steeds meer topmodellen stappen over van andere platforms naar Stripchat
+
+Wat Stripchat bijzonder maakt is de **balans tussen kwantiteit en kwaliteit**. Het enorme aanbod van Chaturbate gecombineerd met de gepolijste ervaring van premium sites. De zoekfunctie en filters zijn uitstekend, waardoor je snel vindt wat je zoekt.
+
+Of je nu een doorgewinterde cam-kijker bent of voor het eerst webcamsex ontdekt — Stripchat is een platform dat je moet kennen. En via StartVagina vergelijk je Stripchat-modellen direct met die van CAM4, BongaCams en Chaturbate.`,
     faq: [
       {
         q: "Wat is Stripchat?",
@@ -140,8 +201,21 @@ const platforms: Record<string, PlatformConfig> = {
       "Bekijk gratis XCams live sex cams op StartVagina. Europese XCams cam girls en modellen live online. Premium webcamsex uit Frankrijk, Nederland en België.",
     keywords:
       "xcams, xcams live, xcams gratis, xcams nederland, xcams cam girls, xcams webcamsex, xcams modellen, xcams europees",
-    intro:
-      "XCams is het premium Europese cam platform bij uitstek. Met een focus op kwaliteit boven kwantiteit biedt XCams een selectie van de mooiste Europese cam modellen. Bekijk alle live XCams shows hier op StartVagina.",
+    intro: "",
+    content: `XCams is het **best bewaarde geheim** van de Europese webcamsex-wereld. Waar platforms als Chaturbate en Stripchat draaien om volume — duizenden modellen tegelijk — kiest XCams bewust voor een andere aanpak: **kwaliteit boven kwantiteit**. Het resultaat? Een selecte groep van de mooiste en meest professionele Europese cam modellen.
+
+Op StartVagina tonen we alle live XCams modellen naast die van de grote platforms. Zo ontdek je een wereld van premium webcamsex die je anders misschien had gemist.
+
+**Wat maakt XCams uniek?**
+- **Premium Europees**: XCams heeft zijn roots in Frankrijk en richt zich op de Europese markt — veel modellen uit Frankrijk, Spanje, Italië, Nederland en België
+- **Kwaliteit boven kwantiteit**: minder modellen online, maar een hoger gemiddeld niveau qua looks, setup en interactie
+- **Professionele sfeer**: veel modellen hebben professionele camera's, belichting en achtergronden — het voelt als een premium ervaring
+- **Intieme chatrooms**: door het kleinere aantal kijkers per model is de interactie persoonlijker dan op de grote platforms
+- **Meertalig**: veel modellen spreken meerdere Europese talen, waaronder Nederlands, Frans, Duits en Engels
+
+XCams is perfect voor wie uitgeput raakt van het eindeloos scrollen op Chaturbate en op zoek is naar iets **exclusievers**. De modellen nemen meer de tijd voor hun kijkers en de shows voelen persoonlijker en intiemer aan.
+
+Het platform is minder bekend dan de grote namen, maar dat is juist het voordeel — minder concurrentie om de aandacht van je favoriete model. Via StartVagina kun je XCams-modellen ontdekken naast het aanbod van Chaturbate, Stripchat, BongaCams en CAM4.`,
     faq: [
       {
         q: "Wat is XCams?",
@@ -210,9 +284,10 @@ const PlatformLanding = () => {
             <h1 className="text-3xl font-bold font-display text-foreground mb-3">
               {config.h1}
             </h1>
-            <p className="text-muted-foreground max-w-3xl leading-relaxed">
-              {config.intro}
-            </p>
+            <div
+              className="text-muted-foreground max-w-3xl leading-relaxed space-y-3 [&>p]:mb-3 [&_strong]:text-foreground [&_strong]:font-semibold"
+              dangerouslySetInnerHTML={{ __html: "<p>" + renderContent(config.content) + "</p>" }}
+            />
           </section>
 
           {isLoading ? (
