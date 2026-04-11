@@ -24,6 +24,66 @@ import { ArrowLeft, Eye, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SimilarCams from "@/components/SimilarCams";
 
+/** Generate a dynamic SEO-rich profile description from model data */
+function generateProfileText(model: CamModel, platformName: string): string {
+  const parts: string[] = [];
+
+  // Opening
+  const genderLabel = model.gender === "female" ? "cam girl" : model.gender === "couple" ? "cam koppel" : model.gender === "male" ? "cam model" : "cam model";
+  const ageText = model.age ? ` van ${model.age} jaar` : "";
+  const countryText = model.country && model.country !== "Onbekend" ? ` uit ${model.country}` : "";
+
+  parts.push(`${model.name} is een populaire ${genderLabel}${ageText}${countryText} op ${platformName}.`);
+
+  // Status
+  if (model.viewers > 0) {
+    parts.push(`Op dit moment ${model.viewers > 100 ? "kijken er " + model.viewers.toLocaleString() + " mensen mee" : "is " + model.name + " live met " + model.viewers.toLocaleString() + " kijkers"} — een ${model.viewers > 500 ? "enorm populaire" : model.viewers > 100 ? "drukbezochte" : "gezellige"} show.`);
+  }
+
+  // Quality & features
+  const features: string[] = [];
+  if (model.isHD) features.push("HD-kwaliteit stream");
+  if (model.isNew) features.push("nieuw op het platform");
+  if (model.isMobile) features.push("streamt vanaf mobiel");
+  if (features.length > 0) {
+    parts.push(`${model.name} biedt ${features.join(", ")}.`);
+  }
+
+  // Languages
+  if (model.languages && model.languages.length > 0) {
+    if (model.languages.length === 1) {
+      parts.push(`${model.name} spreekt ${model.languages[0]}.`);
+    } else {
+      const last = model.languages[model.languages.length - 1];
+      const rest = model.languages.slice(0, -1).join(", ");
+      parts.push(`${model.name} spreekt ${rest} en ${last}, waardoor je makkelijk kunt chatten.`);
+    }
+  }
+
+  // Tags
+  if (model.tags && model.tags.length > 0) {
+    const tagList = model.tags.slice(0, 5).map(t => t.toLowerCase()).join(", ");
+    parts.push(`Populaire tags bij deze show: ${tagList}.`);
+  }
+
+  // Platform context
+  const platformContexts: Record<string, string> = {
+    Chaturbate: `Op Chaturbate kun je de show van ${model.name} gratis bekijken. Tip met tokens voor interactie of vraag een privé show aan voor een persoonlijke ervaring.`,
+    Cam4: `${model.name} is actief op CAM4, het platform dat bekend staat om echte amateurs en een sterke Nederlandse community. De show is gratis te bekijken.`,
+    BongaCams: `Via BongaCams stream ${model.name} in hoge kwaliteit. Het platform biedt gratis tokens voor nieuwe gebruikers, ideaal om direct te kunnen tippen.`,
+    Stripchat: `Op Stripchat biedt ${model.name} een interactieve show. Het platform staat bekend om slimme filters en innovatieve features zoals VR-shows.`,
+    XCams: `${model.name} is te vinden op XCams, het premium Europese cam platform. De shows zijn intiem en persoonlijk door het kleinere publiek.`,
+  };
+  if (platformContexts[platformName]) {
+    parts.push(platformContexts[platformName]);
+  }
+
+  // CTA
+  parts.push(`Bekijk ${model.name} nu gratis live op StartVagina — geen registratie nodig.`);
+
+  return parts.join(" ");
+}
+
 const CamStream = () => {
   const { platform, username } = useParams<{ platform: string; username: string }>();
   const location = useLocation();
@@ -130,13 +190,28 @@ const CamStream = () => {
       <div className="min-h-screen flex flex-col bg-background">
         <Helmet>
           <title>{`${model.name} Live op ${platformName} — Gratis Webcamsex | StartVagina`}</title>
-          <meta name="description" content={`Bekijk ${model.name}${model.age ? ` (${model.age})` : ''} gratis live op ${platformName}. ${model.country ? `${model.country} webcam model` : 'Webcam model'} — live sex cam, sexchat en erotische shows op StartVagina.`} />
-          <meta name="keywords" content={`${model.name}, ${platformName}, ${model.name} webcam, ${model.name} live, ${platformName} cam, webcamsex ${platformName}, ${model.name} ${platformName}`} />
+          <meta name="description" content={`Bekijk ${model.name}${model.age ? ` (${model.age})` : ''} gratis live op ${platformName}. ${model.country && model.country !== "Onbekend" ? model.country + " " : ""}${model.gender === "female" ? "cam girl" : model.gender === "couple" ? "koppel" : "cam model"}${model.tags?.length > 0 ? " — " + model.tags.slice(0, 3).join(", ") : ""}. Live webcamsex en sexchat op StartVagina.`} />
+          <meta name="keywords" content={`${model.name}, ${platformName}, ${model.name} webcam, ${model.name} live, ${platformName} cam, webcamsex ${platformName}${model.country && model.country !== "Onbekend" ? ", " + model.country + " cam" : ""}${model.tags?.slice(0, 3).map(t => ", " + t).join("") || ""}`} />
           <link rel="canonical" href={`https://startvagina.nl/${platform}/${username}`} />
           <meta property="og:title" content={`${model.name} Live op ${platformName} — StartVagina`} />
           <meta property="og:description" content={`Bekijk ${model.name} gratis live op ${platformName}. Live webcamsex en sexchat.`} />
           <meta property="og:url" content={`https://startvagina.nl/${platform}/${username}`} />
           <meta name="robots" content="noindex, nofollow" />
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ProfilePage",
+              mainEntity: {
+                "@type": "Person",
+                name: model.name,
+                ...(model.country && model.country !== "Onbekend" ? { nationality: model.country } : {}),
+                ...(model.age ? { description: `${model.name}, ${model.age} jaar, webcam model op ${platformName}` } : {}),
+                knowsLanguage: model.languages?.length > 0 ? model.languages : undefined,
+              },
+              description: `Bekijk ${model.name} live op ${platformName}`,
+              url: `https://startvagina.nl/${platform}/${username}`,
+            })}
+          </script>
         </Helmet>
 
         <Header />
@@ -250,6 +325,24 @@ const CamStream = () => {
                       <dd className="text-primary font-bold">HD</dd>
                     </div>
                   )}
+                  {model.languages?.length > 0 && (
+                    <div className="flex justify-between">
+                      <dt className="text-muted-foreground">Talen</dt>
+                      <dd className="text-foreground">🗣️ {model.languages.join(", ")}</dd>
+                    </div>
+                  )}
+                  {model.isNew && (
+                    <div className="flex justify-between">
+                      <dt className="text-muted-foreground">Status</dt>
+                      <dd className="text-accent font-bold">🆕 Nieuw</dd>
+                    </div>
+                  )}
+                  {model.viewers > 0 && (
+                    <div className="flex justify-between">
+                      <dt className="text-muted-foreground">Kijkers</dt>
+                      <dd className="text-foreground">{model.viewers.toLocaleString()}</dd>
+                    </div>
+                  )}
                 </dl>
               </div>
 
@@ -274,6 +367,28 @@ const CamStream = () => {
               )}
             </aside>
           </div>
+
+          {/* Dynamic profile description */}
+          <section className="bg-card border border-border rounded-lg p-5 space-y-3">
+            <h2 className="text-lg font-semibold text-foreground">
+              Over {model.name}
+            </h2>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              {generateProfileText(model, platformName)}
+            </p>
+            {model.tags?.length > 0 && (
+              <div className="pt-2">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">Tags</h3>
+                <div className="flex flex-wrap gap-1.5">
+                  {model.tags.map((tag) => (
+                    <span key={tag} className="text-xs bg-secondary text-muted-foreground px-2 py-1 rounded">
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+          </section>
 
           {/* Similar cams */}
           <SimilarCams currentModel={model} />
