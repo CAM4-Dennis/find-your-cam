@@ -15,6 +15,7 @@ import NotFound from "./pages/NotFound.tsx";
 import Blog from "./pages/Blog.tsx";
 import BlogPost from "./pages/BlogPost.tsx";
 import KeywordLanding from "./pages/KeywordLanding.tsx";
+import PlatformLanding from "./pages/PlatformLanding.tsx";
 
 const queryClient = new QueryClient();
 
@@ -40,6 +41,11 @@ const App = () => (
               <Route path="/sexchat" element={<KeywordLanding />} />
               <Route path="/cam-girls" element={<KeywordLanding />} />
               <Route path="/live-sex-cams" element={<KeywordLanding />} />
+              <Route path="/live-sex-cams-cam4" element={<PlatformLanding />} />
+              <Route path="/live-sex-cams-chaturbate" element={<PlatformLanding />} />
+              <Route path="/live-sex-cams-bongacams" element={<PlatformLanding />} />
+              <Route path="/live-sex-cams-stripchat" element={<PlatformLanding />} />
+              <Route path="/live-sex-cams-xcams" element={<PlatformLanding />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
