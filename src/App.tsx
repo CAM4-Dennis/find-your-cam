@@ -69,25 +69,7 @@ const App = () => (
               <Route path="/webcamsex-voeten" element={<CategoryLanding />} />
               <Route path="/webcamsex-outdoor" element={<CategoryLanding />} />
               <Route path="/webcamsex-mobiel" element={<CategoryLanding />} />
-              <Route path="/webcamsex-nederland" element={<CountryLanding />} />
-              <Route path="/webcamsex-belgie" element={<CountryLanding />} />
-              <Route path="/webcamsex-duitsland" element={<CountryLanding />} />
-              <Route path="/webcamsex-colombia" element={<CountryLanding />} />
-              <Route path="/webcamsex-roemenie" element={<CountryLanding />} />
-              <Route path="/webcamsex-italie" element={<CountryLanding />} />
-              <Route path="/webcamsex-spanje" element={<CountryLanding />} />
-              <Route path="/webcamsex-frankrijk" element={<CountryLanding />} />
-              <Route path="/webcamsex-verenigd-koninkrijk" element={<CountryLanding />} />
-              <Route path="/webcamsex-verenigde-staten" element={<CountryLanding />} />
-              <Route path="/webcamsex-rusland" element={<CountryLanding />} />
-              <Route path="/webcamsex-oekraine" element={<CountryLanding />} />
-              <Route path="/webcamsex-brazilie" element={<CountryLanding />} />
-              <Route path="/webcamsex-japan" element={<CountryLanding />} />
-              <Route path="/webcamsex-polen" element={<CountryLanding />} />
-              <Route path="/webcamsex-mexico" element={<CountryLanding />} />
-              <Route path="/webcamsex-tsjechie" element={<CountryLanding />} />
-              <Route path="/webcamsex-filipijnen" element={<CountryLanding />} />
-              <Route path="/webcamsex-thailand" element={<CountryLanding />} />
+              <Route path="/webcamsex-:countrySlug" element={<CountryLanding />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>

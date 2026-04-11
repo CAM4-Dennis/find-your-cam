@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AgeGate from "@/components/AgeGate";
@@ -466,17 +466,82 @@ const countryVariants: Record<string, string[]> = {
   België: ["België", "Belgium"],
 };
 
+/** Generate config for countries without predefined SEO */
+function generateDynamicConfig(slug: string, country: string, flag: string): CountryConfig {
+  return {
+    slug,
+    country,
+    flag,
+    title: `Webcamsex ${country} — Cam Girls uit ${country} Live | StartVagina`,
+    h1: `Webcamsex ${country} — Cam Girls Live`,
+    description: `Cam girls uit ${country} live op webcam. Gratis webcamsex met modellen uit ${country} op Chaturbate, Stripchat, BongaCams en meer.`,
+    keywords: `webcamsex ${country.toLowerCase()}, cam girls ${country.toLowerCase()}, ${country.toLowerCase()} webcam, live cam ${country.toLowerCase()}`,
+    content: `Ontdek live cam modellen uit **${country}** op StartVagina. We tonen alle online cam girls uit ${country} van de grootste cam platforms — Chaturbate, Stripchat, BongaCams, CAM4 en XCams. Klik op een model en kijk direct mee, gratis en zonder registratie.
+
+Op StartVagina verzamelen we modellen van alle grote cam platforms op één plek. Zo hoef je niet te zoeken op elk platform apart — filter op ${country} en zie direct wie er nu live is.`,
+    faq: [
+      { q: `Zijn er cam modellen uit ${country} online?`, a: `Ja! Op StartVagina tonen we real-time welke modellen uit ${country} nu live zijn op Chaturbate, Stripchat, BongaCams, CAM4 en XCams.` },
+      { q: "Is het gratis om te kijken?", a: "Ja, alle openbare cam shows zijn gratis te bekijken. Je hoeft geen account aan te maken om te kijken." },
+    ],
+  };
+}
+
 const CountryLandingPage = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const slug = location.pathname.replace(/^\//, "");
-  const config = countryPages[slug || ""];
   const { allCams, isLoading } = useAllCams();
+
+  // Try predefined config first
+  let config = countryPages[slug || ""];
+
+  // If no predefined config, try to find the country dynamically from allCams
+  const dynamicCountry = useMemo(() => {
+    if (config) return null;
+    if (!slug.startsWith("webcamsex-")) return null;
+
+    const countrySlugPart = slug.replace("webcamsex-", "");
+
+    // Build a map of slug → country from allCams
+    const mergeMap: Record<string, string> = {
+      "The Netherlands": "Nederland", "Netherlands": "Nederland",
+      "North Holland": "Nederland", "South Holland": "Nederland",
+      "Belgium": "België",
+    };
+
+    const seen = new Map<string, { country: string; flag: string }>();
+    for (const m of allCams) {
+      if (!m.country || m.country === "Onbekend") continue;
+      const canonical = mergeMap[m.country] || m.country;
+      if (seen.has(canonical)) continue;
+
+      // Generate slug for this country
+      const generated = canonical
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+
+      if (generated === countrySlugPart) {
+        seen.set(canonical, { country: canonical, flag: m.countryFlag });
+      }
+    }
+
+    const match = Array.from(seen.values())[0];
+    return match || null;
+  }, [slug, config, allCams]);
+
+  // Use dynamic config if no predefined
+  if (!config && dynamicCountry) {
+    config = generateDynamicConfig(slug, dynamicCountry.country, dynamicCountry.flag);
+  }
 
   const countryCams = useMemo(() => {
     if (!config || !allCams.length) return [];
-    const variants = countryVariants[config.country] || [config.country];
+    const vars = countryVariants[config.country] || [config.country];
     return allCams
-      .filter((m) => variants.includes(m.country))
+      .filter((m) => vars.includes(m.country))
       .sort(() => Math.random() - 0.5);
   }, [allCams, config]);
 
