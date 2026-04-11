@@ -48,7 +48,7 @@ function normalizeCam4Model(model: Cam4Model): CamModel {
     previewUrl: model.preview_url,
     slug: `cam4/${model.nickname}`,
     isMobile: model.source === "mobile" || model.mobile,
-    iframeEmbed: `<iframe src="https://www.cam4.com/${model.nickname}/embed" width="100%" height="100%" frameborder="0" allowfullscreen allow="autoplay"></iframe>`,
+    iframeEmbed: "", // Disabled: CAM4 embed shows repeated cookie consent bar; use HLS preview instead
   };
 }
 
