@@ -85,6 +85,7 @@ function normalizeCam(cam: XCamsCam): CamModel {
     isHD: cam.hd === "Y",
     showType: cam.status?.toLowerCase() || "public",
     previewUrl: "",
+    languages: [cam.first_language, cam.language].map((l) => l?.trim()).filter(Boolean),
     slug: `xcams/${cam.nickname}`,
     iframeEmbed: "", // XCams blocks iframe embeds via CSP (frame-ancestors restricted)
     paymentUrl: buildPaymentUrl(cam.nickname),

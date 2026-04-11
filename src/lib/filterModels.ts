@@ -33,6 +33,28 @@ const tagAliases: Record<string, string[]> = {
   "feet": ["feet", "foot", "foot fetish", "footjob"],
 };
 
+/** Map display language names to possible API values */
+const languageAliases: Record<string, string[]> = {
+  "Nederlands": ["dutch", "nl", "nederlands", "nederlandstalig"],
+  "English": ["english", "en", "eng"],
+  "Deutsch": ["german", "de", "deutsch"],
+  "Français": ["french", "fr", "français", "francais"],
+  "Español": ["spanish", "es", "español", "espanol"],
+  "Italiano": ["italian", "it", "italiano"],
+  "Português": ["portuguese", "pt", "português", "portugues"],
+  "Русский": ["russian", "ru", "русский"],
+  "日本語": ["japanese", "ja", "jp", "日本語"],
+  "한국어": ["korean", "ko", "kr", "한국어"],
+};
+
+function modelMatchesLanguage(modelLanguages: string[], filterLang: string): boolean {
+  const aliases = languageAliases[filterLang] || [filterLang.toLowerCase()];
+  return modelLanguages.some((ml) => {
+    const lower = ml.toLowerCase();
+    return aliases.some((alias) => lower.includes(alias) || alias.includes(lower));
+  });
+}
+
 function modelMatchesTag(modelTags: string[], filterTag: string): boolean {
   const normalizedFilter = filterTag.toLowerCase();
   const aliases = tagAliases[normalizedFilter] || [normalizedFilter];
@@ -71,6 +93,14 @@ export function applyFilters(models: CamModel[], filters: CamFilters): CamModel[
       const modelTags = m.tags || [];
       const hasMatch = filters.tags.some((t) => modelMatchesTag(modelTags, t));
       if (!hasMatch) return false;
+    }
+
+    // Language filter
+    if (filters.languages && filters.languages.length > 0) {
+      const modelLangs = m.languages || [];
+      if (modelLangs.length === 0) return false;
+      const hasLangMatch = filters.languages.some((l) => modelMatchesLanguage(modelLangs, l));
+      if (!hasLangMatch) return false;
     }
 
     return true;

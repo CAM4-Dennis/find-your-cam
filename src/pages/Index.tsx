@@ -48,7 +48,8 @@ const Index = () => {
   }, [cam4Female, cbFemale, bongaFemale, xcamsFemale, stripFemale, coupleCams4, coupleCamsCB, coupleBonga, coupleXCams, stripCouples, newCams]);
 
   const hasActiveFilters = filters.gender.length > 0 || filters.platforms.length > 0 ||
-    filters.tags.length > 0 || filters.hd === true || filters.ageRange !== null;
+    filters.tags.length > 0 || filters.hd === true || filters.ageRange !== null ||
+    filters.languages.length > 0;
 
   const filteredModels = useMemo(() => {
     if (!hasActiveFilters) return null; // use sectioned view

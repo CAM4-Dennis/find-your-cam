@@ -6,6 +6,7 @@ export interface CamFilters {
   ageRange: string | null;
   bodyType: string[];
   hairColor: string[];
+  languages: string[];
 }
 
 export const defaultFilters: CamFilters = {
@@ -16,4 +17,5 @@ export const defaultFilters: CamFilters = {
   ageRange: null,
   bodyType: [],
   hairColor: [],
+  languages: [],
 };

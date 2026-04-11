@@ -72,6 +72,7 @@ function normalizeChaturbateRoom(room: ChaturbateRoom): CamModel {
     isHD: room.is_hd,
     showType: room.current_show,
     previewUrl: "", // Chaturbate doesn't provide HLS preview; we'll use iframe embed
+    languages: room.spoken_languages ? room.spoken_languages.split(",").map((l: string) => l.trim()).filter(Boolean) : [],
     slug: `chaturbate/${room.username}`,
     iframeEmbed: `<iframe src="https://chaturbate.com/fullvideo/?b=${room.username}&campaign=${WM}" width="100%" height="100%" frameborder="0" scrolling="no" allowfullscreen allow="autoplay; encrypted-media"></iframe>`,
   };

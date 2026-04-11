@@ -54,4 +54,5 @@ export interface CamModel {
   iframeEmbed?: string;
   paymentUrl?: string;
   isMobile?: boolean;
+  languages: string[];
 }

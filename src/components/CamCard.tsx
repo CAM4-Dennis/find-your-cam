@@ -44,6 +44,12 @@ const CamCard = ({ model }: CamCardProps) => {
           <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
             <span>{model.countryFlag}</span>
             <span>{model.country}</span>
+            {model.languages?.length > 0 && (
+              <>
+                <span className="text-border">·</span>
+                <span className="truncate">{model.languages.slice(0, 2).join(", ")}</span>
+              </>
+            )}
           </div>
           {model.tags.length > 0 && (
             <div className="flex flex-wrap gap-1 pt-1">

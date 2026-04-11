@@ -7,7 +7,7 @@ interface FilterSidebarProps {
 }
 
 interface FilterGroup {
-  key: keyof Pick<CamFilters, "gender" | "tags" | "bodyType" | "hairColor">;
+  key: keyof Pick<CamFilters, "gender" | "tags" | "bodyType" | "hairColor" | "languages">;
   title: string;
   options: string[];
 }
@@ -24,6 +24,12 @@ const filterGroups: FilterGroup[] = [
     options: ["Asian", "BDSM", "Big Boobs", "Ebony", "Hairy", "Latina", "Mature", "MILF", "Small Tits", "Tattoo", "Teen", "Anal", "Squirt", "Feet"],
   },
 ];
+
+const languageGroup: FilterGroup = {
+  key: "languages",
+  title: "Taal",
+  options: ["Nederlands", "English", "Deutsch", "Français", "Español", "Italiano", "Português", "Русский", "日本語", "한국어"],
+};
 
 const ageOptions = ["18-19", "20-30", "31-40", "40+"];
 
@@ -50,6 +56,7 @@ const FilterSidebar = ({ filters, onChange }: FilterSidebarProps) => {
       ageRange: null,
       bodyType: [],
       hairColor: [],
+      languages: [],
     });
   };
 
@@ -58,7 +65,8 @@ const FilterSidebar = ({ filters, onChange }: FilterSidebarProps) => {
     filters.platforms.length > 0 ||
     filters.tags.length > 0 ||
     filters.hd === true ||
-    filters.ageRange !== null;
+    filters.ageRange !== null ||
+    filters.languages.length > 0;
 
   return (
     <aside className="space-y-5" aria-label="Filters">
@@ -129,6 +137,25 @@ const FilterSidebar = ({ filters, onChange }: FilterSidebarProps) => {
           </div>
         </div>
       ))}
+
+      {/* Language filter */}
+      <div>
+        <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">
+          {languageGroup.title}
+        </h3>
+        <div className="flex flex-wrap gap-1.5">
+          {languageGroup.options.map((option) => (
+            <button
+              key={option}
+              onClick={() => toggleArrayFilter("languages", option)}
+              className={`filter-chip ${isActive("languages", option) ? "filter-chip-active" : ""}`}
+              aria-pressed={isActive("languages", option)}
+            >
+              {option}
+            </button>
+          ))}
+        </div>
+      </div>
 
       {/* Platform filter */}
       <div>
