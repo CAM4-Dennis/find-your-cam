@@ -5,6 +5,7 @@ import CamGrid from "@/components/CamGrid";
 import LoadingBar from "@/components/LoadingBar";
 import Footer from "@/components/Footer";
 import AgeGate from "@/components/AgeGate";
+import LazySection from "@/components/LazySection";
 import { useCam4Online } from "@/hooks/useCam4";
 import { useChaturbateOnline } from "@/hooks/useChaturbate";
 import { useBongaCamsOnline } from "@/hooks/useBongaCams";
@@ -166,17 +167,9 @@ const Index = () => {
         <Header />
 
         <main className="container flex-1 py-6">
-          <div className="mb-6">
-            <h1 className="text-2xl md:text-3xl font-bold font-display">
-              Gratis Webcamsex & Live Sex Cams
-            </h1>
-            <p className="text-sm text-muted-foreground mt-2 max-w-3xl leading-relaxed">
-              Welkom bij <strong>StartVagina</strong>, dé zoekmachine voor gratis <strong>webcamsex</strong> en <strong>live sex cams</strong>. 
-              Bekijk duizenden <strong>cam girls</strong> en <strong>webcam modellen</strong> uit Nederland en België. 
-              Geniet van gratis <strong>sexchat</strong>, <strong>erotische webcam</strong> shows en live cam streams. 
-              Filter op categorie, leeftijd, land en meer.
-            </p>
-          </div>
+          <h1 className="text-2xl md:text-3xl font-bold font-display mb-4">
+            Gratis Webcamsex & Live Sex Cams
+          </h1>
 
           <LoadingBar
             platforms={[
@@ -199,42 +192,54 @@ const Index = () => {
                 />
               ) : (
                 <>
+                  {/* Above the fold — render immediately */}
                   <CamGrid
                     title="🔥 Populaire Cams"
-                    models={popularCams.slice(0, 15)}
+                    models={popularCams.slice(0, 10)}
                     totalOnline={popularCams.length}
-                    isLoading={loadingCam4 || loadingCB || loadingBonga || loadingXCams}
+                    isLoading={loadingCam4 || loadingCB || loadingBonga}
                   />
                   <CamGrid
                     title="🆕 Nieuwe Cams"
                     models={newCamsSection}
                     isLoading={isLoading}
                   />
-                  <CamGrid
-                    title="🔞 Leeftijd 20-30"
-                    models={youngCams}
-                    isLoading={isLoading}
-                  />
-                  <CamGrid
-                    title="📱 Mobiele Cams"
-                    models={mobileCams}
-                    isLoading={isLoading}
-                  />
-                  <CamGrid
-                    title="🌳 Outdoor Cams"
-                    models={outdoorCams}
-                    isLoading={isLoading}
-                  />
-                  <CamGrid
-                    title="💑 Koppels"
-                    models={couples}
-                    isLoading={loadingCouples4 || loadingCouplesCB || loadingCouplesBonga || loadingCouplesXCams}
-                  />
-                  <CamGrid
-                    title="🔍 Meer Ontdekken"
-                    models={newCams}
-                    isLoading={loadingNew || loadingCB}
-                  />
+                  {/* Below the fold — lazy render on scroll */}
+                  <LazySection>
+                    <CamGrid
+                      title="🔞 Leeftijd 20-30"
+                      models={youngCams}
+                      isLoading={isLoading}
+                    />
+                  </LazySection>
+                  <LazySection>
+                    <CamGrid
+                      title="📱 Mobiele Cams"
+                      models={mobileCams}
+                      isLoading={isLoading}
+                    />
+                  </LazySection>
+                  <LazySection>
+                    <CamGrid
+                      title="🌳 Outdoor Cams"
+                      models={outdoorCams}
+                      isLoading={isLoading}
+                    />
+                  </LazySection>
+                  <LazySection>
+                    <CamGrid
+                      title="💑 Koppels"
+                      models={couples}
+                      isLoading={loadingCouples4 || loadingCouplesCB || loadingCouplesBonga || loadingCouplesXCams}
+                    />
+                  </LazySection>
+                  <LazySection>
+                    <CamGrid
+                      title="🔍 Meer Ontdekken"
+                      models={newCams}
+                      isLoading={loadingNew || loadingCB}
+                    />
+                  </LazySection>
                 </>
               )}
             </div>
@@ -246,6 +251,17 @@ const Index = () => {
             </div>
           </div>
         </main>
+
+        <LazySection minHeight="100px">
+          <div className="container max-w-3xl py-8">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Welkom bij <strong className="text-foreground">StartVagina</strong>, dé zoekmachine voor gratis <strong className="text-foreground">webcamsex</strong> en <strong className="text-foreground">live sex cams</strong>. 
+              Bekijk duizenden <strong className="text-foreground">cam girls</strong> en <strong className="text-foreground">webcam modellen</strong> uit Nederland en België. 
+              Geniet van gratis <strong className="text-foreground">sexchat</strong>, <strong className="text-foreground">erotische webcam</strong> shows en live cam streams. 
+              Filter op categorie, leeftijd, land en meer.
+            </p>
+          </div>
+        </LazySection>
 
         <Footer />
       </div>

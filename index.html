@@ -2,13 +2,26 @@
 <html lang="nl">
   <head>
     <meta charset="UTF-8" />
-    <!-- Google Analytics (GA4) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VGJXSJMSB3"></script>
+    <!-- Google Analytics (GA4) — deferred to reduce TBT -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-VGJXSJMSB3');
+      // Load GA after first interaction or 3s, whichever comes first
+      function loadGA() {
+        if (document.querySelector('#ga-script')) return;
+        var s = document.createElement('script');
+        s.id = 'ga-script';
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-VGJXSJMSB3';
+        s.async = true;
+        document.head.appendChild(s);
+      }
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadGA, { timeout: 3000 });
+      } else {
+        setTimeout(loadGA, 3000);
+      }
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#1a1d27" />
