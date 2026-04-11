@@ -161,22 +161,32 @@ const Countries = () => {
   const [expanded, setExpanded] = useState(false);
   const chipsRef = useRef<HTMLDivElement>(null);
 
-  // Build country list with counts — NL/BE/Dutch-speaking always on top, then by count desc
+  /** Merge country name variants into a canonical name */
+  const countryMergeMap: Record<string, string> = {
+    "The Netherlands": "Nederland",
+    "Netherlands": "Nederland",
+    "North Holland": "Nederland",
+    "South Holland": "Nederland",
+    "Belgium": "België",
+  };
+
+  // Pinned countries shown first (in this order)
   const pinnedCountries = [
-    "Nederland", "The Netherlands", "Netherlands", "North Holland", "South Holland",
-    "België", "Belgium",
-    "Suriname", "Curaçao", "Aruba", "Sint Maarten",
+    "Nederland", "België", "Suriname", "Curaçao", "Aruba", "Sint Maarten",
   ];
 
   const countryCounts = useMemo(() => {
     const map = new Map<string, { flag: string; count: number }>();
     for (const m of allCams) {
       if (!m.country || m.country === "Onbekend") continue;
-      const existing = map.get(m.country);
+      // Merge variants into canonical name
+      const canonical = countryMergeMap[m.country] || m.country;
+      const flag = canonical === "Nederland" ? "🇳🇱" : canonical === "België" ? "🇧🇪" : m.countryFlag;
+      const existing = map.get(canonical);
       if (existing) {
         existing.count++;
       } else {
-        map.set(m.country, { flag: m.countryFlag, count: 1 });
+        map.set(canonical, { flag, count: 1 });
       }
     }
     return Array.from(map.entries())
@@ -186,19 +196,27 @@ const Countries = () => {
         const bPin = pinnedCountries.indexOf(b.country);
         const aIsPinned = aPin !== -1;
         const bIsPinned = bPin !== -1;
-        // Pinned countries first, in order of pinnedCountries array
         if (aIsPinned && !bIsPinned) return -1;
         if (!aIsPinned && bIsPinned) return 1;
         if (aIsPinned && bIsPinned) return aPin - bPin;
-        // Rest sorted by count desc
         return b.count - a.count;
       });
   }, [allCams]);
 
+  /** Get all raw country names that map to a canonical name */
+  const getCountryVariants = (canonical: string): string[] => {
+    const variants = [canonical];
+    for (const [raw, merged] of Object.entries(countryMergeMap)) {
+      if (merged === canonical) variants.push(raw);
+    }
+    return variants;
+  };
+
   const filteredCams = useMemo(() => {
     if (!selected) return null;
+    const variants = getCountryVariants(selected);
     return allCams
-      .filter(m => m.country === selected)
+      .filter(m => variants.includes(m.country))
       .sort(() => Math.random() - 0.5);
   }, [allCams, selected]);
 

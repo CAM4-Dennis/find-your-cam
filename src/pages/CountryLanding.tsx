@@ -460,7 +460,13 @@ Bekijk alle live Thaise cam modellen op StartVagina.`,
   },
 };
 
-const CategoryLanding = () => {
+/** Map variant country names to canonical name for matching */
+const countryVariants: Record<string, string[]> = {
+  Nederland: ["Nederland", "The Netherlands", "Netherlands", "North Holland", "South Holland"],
+  België: ["België", "Belgium"],
+};
+
+const CountryLandingPage = () => {
   const location = useLocation();
   const slug = location.pathname.replace(/^\//, "");
   const config = countryPages[slug || ""];
@@ -468,8 +474,9 @@ const CategoryLanding = () => {
 
   const countryCams = useMemo(() => {
     if (!config || !allCams.length) return [];
+    const variants = countryVariants[config.country] || [config.country];
     return allCams
-      .filter((m) => m.country === config.country)
+      .filter((m) => variants.includes(m.country))
       .sort(() => Math.random() - 0.5);
   }, [allCams, config]);
 
@@ -586,4 +593,4 @@ const CategoryLanding = () => {
   );
 };
 
-export default CategoryLanding;
+export default CountryLandingPage;
