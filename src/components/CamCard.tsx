@@ -47,6 +47,7 @@ const CamCard = ({ model }: CamCardProps) => {
             {model.languages?.length > 0 && (
               <>
                 <span className="text-border">·</span>
+                <span className="text-[11px]">🗣️</span>
                 <span className="truncate">{model.languages.slice(0, 2).join(", ")}</span>
               </>
             )}
