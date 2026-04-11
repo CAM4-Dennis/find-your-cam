@@ -557,17 +557,9 @@ const CategoryLanding = () => {
         <Header />
 
         <main className="container flex-1 py-8">
-          <section className="mb-8">
-            <h1 className="text-3xl font-bold font-display text-foreground mb-3">
-              {config.h1}
-            </h1>
-            <div
-              className="text-muted-foreground max-w-3xl leading-relaxed space-y-3 [&>p]:mb-3 [&_strong]:text-foreground [&_strong]:font-semibold"
-              dangerouslySetInnerHTML={{
-                __html: "<p>" + renderContent(config.content) + "</p>",
-              }}
-            />
-          </section>
+          <h1 className="text-3xl font-bold font-display text-foreground mb-6">
+            {config.h1}
+          </h1>
 
           {isLoading ? (
             <div className="flex items-center gap-2 text-muted-foreground py-12 justify-center">
@@ -582,6 +574,16 @@ const CategoryLanding = () => {
               isLoading={isLoading}
             />
           )}
+
+          <section className="mt-12 max-w-3xl">
+            <h2 className="text-xl font-bold text-foreground mb-3">{config.label}</h2>
+            <div
+              className="text-muted-foreground leading-relaxed space-y-3 [&>p]:mb-3 [&_strong]:text-foreground [&_strong]:font-semibold"
+              dangerouslySetInnerHTML={{
+                __html: "<p>" + renderContent(config.content) + "</p>",
+              }}
+            />
+          </section>
 
           {/* FAQ Section */}
           <section className="mt-12 max-w-3xl">

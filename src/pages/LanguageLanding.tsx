@@ -309,17 +309,9 @@ const LanguageLanding = () => {
         <Header />
 
         <main className="container flex-1 py-8">
-          <section className="mb-8">
-            <h1 className="text-3xl font-bold font-display text-foreground mb-3">
-              {config.emoji} {config.h1}
-            </h1>
-            <div
-              className="text-muted-foreground max-w-3xl leading-relaxed space-y-3 [&>p]:mb-3 [&_strong]:text-foreground [&_strong]:font-semibold"
-              dangerouslySetInnerHTML={{
-                __html: "<p>" + renderContent(config.content) + "</p>",
-              }}
-            />
-          </section>
+          <h1 className="text-3xl font-bold font-display text-foreground mb-6">
+            {config.emoji} {config.h1}
+          </h1>
 
           {isLoading ? (
             <div className="flex items-center gap-2 text-muted-foreground py-12 justify-center">
@@ -334,6 +326,15 @@ const LanguageLanding = () => {
               isLoading={isLoading}
             />
           )}
+
+          <section className="mt-12 max-w-3xl">
+            <div
+              className="text-muted-foreground leading-relaxed space-y-3 [&>p]:mb-3 [&_strong]:text-foreground [&_strong]:font-semibold"
+              dangerouslySetInnerHTML={{
+                __html: "<p>" + renderContent(config.content) + "</p>",
+              }}
+            />
+          </section>
 
           {/* FAQ */}
           <section className="mt-12 max-w-3xl">
