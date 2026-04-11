@@ -1,10 +1,34 @@
 import { useState, useMemo, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AgeGate from "@/components/AgeGate";
 import CamGrid from "@/components/CamGrid";
 import { Helmet } from "react-helmet-async";
 import { useAllCams } from "@/hooks/useAllCams";
+
+/** Map country name to landing page slug (only for countries with dedicated pages) */
+const countrySlugMap: Record<string, string> = {
+  Nederland: "webcamsex-nederland",
+  België: "webcamsex-belgie",
+  Duitsland: "webcamsex-duitsland",
+  Colombia: "webcamsex-colombia",
+  Roemenië: "webcamsex-roemenie",
+  Italië: "webcamsex-italie",
+  Spanje: "webcamsex-spanje",
+  Frankrijk: "webcamsex-frankrijk",
+  "Verenigd Koninkrijk": "webcamsex-verenigd-koninkrijk",
+  "Verenigde Staten": "webcamsex-verenigde-staten",
+  Rusland: "webcamsex-rusland",
+  Oekraïne: "webcamsex-oekraine",
+  Brazilië: "webcamsex-brazilie",
+  Japan: "webcamsex-japan",
+  Polen: "webcamsex-polen",
+  Mexico: "webcamsex-mexico",
+  Tsjechië: "webcamsex-tsjechie",
+  Filipijnen: "webcamsex-filipijnen",
+  Thailand: "webcamsex-thailand",
+};
 
 interface CountrySeo {
   title: string;
@@ -182,27 +206,42 @@ const Countries = () => {
             {seo ? seo.intro : "Ontdek live cam modellen uit jouw favoriete land. Van Nederlandse cam girls tot Colombiaanse schoonheden en Oost-Europese modellen — selecteer een land en bekijk wie er nu live is."}
           </p>
 
-          {/* Country chips */}
+          {/* Country chips — countries with landing pages link out, others filter inline */}
           <div className="flex flex-wrap gap-2 mb-8">
-            {countryCounts.map(({ country, flag, count }) => (
-              <button
-                key={country}
-                onClick={() => setSelected(selected === country ? null : country)}
-                className={`flex items-center gap-1.5 px-3 py-2 rounded-lg border text-sm transition-colors ${
-                  selected === country
-                    ? "bg-primary text-primary-foreground border-primary"
-                    : "bg-card border-border text-foreground hover:bg-accent hover:border-accent"
-                }`}
-              >
-                <span>{flag}</span>
-                <span>{country}</span>
-                <span className={`text-xs ml-1 ${
-                  selected === country ? "text-primary-foreground/70" : "text-muted-foreground"
-                }`}>
-                  ({count})
-                </span>
-              </button>
-            ))}
+            {countryCounts.map(({ country, flag, count }) => {
+              const landingSlug = countrySlugMap[country];
+              const chipClass = `flex items-center gap-1.5 px-3 py-2 rounded-lg border text-sm transition-colors ${
+                selected === country
+                  ? "bg-primary text-primary-foreground border-primary"
+                  : "bg-card border-border text-foreground hover:bg-accent hover:border-accent"
+              }`;
+
+              if (landingSlug) {
+                return (
+                  <Link key={country} to={`/${landingSlug}`} className={chipClass}>
+                    <span>{flag}</span>
+                    <span>{country}</span>
+                    <span className="text-xs ml-1 text-muted-foreground">({count})</span>
+                  </Link>
+                );
+              }
+
+              return (
+                <button
+                  key={country}
+                  onClick={() => setSelected(selected === country ? null : country)}
+                  className={chipClass}
+                >
+                  <span>{flag}</span>
+                  <span>{country}</span>
+                  <span className={`text-xs ml-1 ${
+                    selected === country ? "text-primary-foreground/70" : "text-muted-foreground"
+                  }`}>
+                    ({count})
+                  </span>
+                </button>
+              );
+            })}
           </div>
 
           {/* Results */}
