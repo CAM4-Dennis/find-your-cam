@@ -158,7 +158,9 @@ const Countries = () => {
     }
   }, [selected]);
 
-  // Build country list with counts, sorted by count desc
+  // Build country list with counts — NL/BE/Dutch-speaking always on top, then by count desc
+  const pinnedCountries = ["Nederland", "België", "Suriname", "Curaçao", "Aruba", "Sint Maarten"];
+
   const countryCounts = useMemo(() => {
     const map = new Map<string, { flag: string; count: number }>();
     for (const m of allCams) {
@@ -172,7 +174,18 @@ const Countries = () => {
     }
     return Array.from(map.entries())
       .map(([country, { flag, count }]) => ({ country, flag, count }))
-      .sort((a, b) => b.count - a.count);
+      .sort((a, b) => {
+        const aPin = pinnedCountries.indexOf(a.country);
+        const bPin = pinnedCountries.indexOf(b.country);
+        const aIsPinned = aPin !== -1;
+        const bIsPinned = bPin !== -1;
+        // Pinned countries first, in order of pinnedCountries array
+        if (aIsPinned && !bIsPinned) return -1;
+        if (!aIsPinned && bIsPinned) return 1;
+        if (aIsPinned && bIsPinned) return aPin - bPin;
+        // Rest sorted by count desc
+        return b.count - a.count;
+      });
   }, [allCams]);
 
   const filteredCams = useMemo(() => {
