@@ -71,7 +71,7 @@ function normalizeBongaModel(model: BongaCamsModel): CamModel {
     isHD: model.is_hd,
     showType: "public",
     previewUrl: "",
-    slug: `bonga-${model.username}`,
+    slug: `bongacams/${model.username}`,
     iframeEmbed: `<iframe src="${model.direct_chat_url || `https://bongacams.com/chat-popup/${model.username}`}" width="100%" height="100%" frameborder="0" allowfullscreen allow="autoplay"></iframe>`,
     isMobile: tags.includes("mobile-live"),
   };

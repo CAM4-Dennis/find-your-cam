@@ -13,7 +13,7 @@ const CamCard = ({ model }: CamCardProps) => {
 
   return (
     <article className="cam-card group" aria-label={`${model.name}${model.age ? `, ${model.age} jaar` : ''}`}>
-      <Link to={`/cam/${model.slug}`} state={{ model }} className="block">
+      <Link to={`/${model.slug}`} state={{ model }} className="block">
         <div className="relative overflow-hidden">
           <img
             src={imgError ? model.thumbnailFallback : model.thumbnail}

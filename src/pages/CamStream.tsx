@@ -25,7 +25,7 @@ import { Button } from "@/components/ui/button";
 import SimilarCams from "@/components/SimilarCams";
 
 const CamStream = () => {
-  const { slug } = useParams<{ slug: string }>();
+  const { platform, username } = useParams<{ platform: string; username: string }>();
   const location = useLocation();
   const navigate = useNavigate();
   const [videoEl, setVideoEl] = useState<HTMLVideoElement | null>(null);
@@ -36,6 +36,16 @@ const CamStream = () => {
   const [error, setError] = useState(false);
 
   const model = location.state?.model as CamModel | undefined;
+
+  // Format platform name for display in titles
+  const platformDisplayNames: Record<string, string> = {
+    chaturbate: "Chaturbate",
+    bongacams: "BongaCams",
+    cam4: "CAM4",
+    stripchat: "Stripchat",
+    xcams: "XCams",
+  };
+  const platformName = model?.platform || platformDisplayNames[platform || ""] || platform || "Webcam";
 
   const hasIframe = !!model?.iframeEmbed;
   const hasHls = !!model?.previewUrl && !hasIframe;
@@ -119,8 +129,13 @@ const CamStream = () => {
     <AgeGate>
       <div className="min-h-screen flex flex-col bg-background">
         <Helmet>
-          <title>{`${model.name} Gratis Live Webcamsex — StartVagina`}</title>
-          <meta name="description" content={`Bekijk de gratis webcamsex stream van ${model.name}${model.age ? ` (${model.age})` : ''} uit ${model.country}. Live sex cam en sexchat op StartVagina.`} />
+          <title>{`${model.name} Live op ${platformName} — Gratis Webcamsex | StartVagina`}</title>
+          <meta name="description" content={`Bekijk ${model.name}${model.age ? ` (${model.age})` : ''} gratis live op ${platformName}. ${model.country ? `${model.country} webcam model` : 'Webcam model'} — live sex cam, sexchat en erotische shows op StartVagina.`} />
+          <meta name="keywords" content={`${model.name}, ${platformName}, ${model.name} webcam, ${model.name} live, ${platformName} cam, webcamsex ${platformName}, ${model.name} ${platformName}`} />
+          <link rel="canonical" href={`https://startvagina.nl/${platform}/${username}`} />
+          <meta property="og:title" content={`${model.name} Live op ${platformName} — StartVagina`} />
+          <meta property="og:description" content={`Bekijk ${model.name} gratis live op ${platformName}. Live webcamsex en sexchat.`} />
+          <meta property="og:url" content={`https://startvagina.nl/${platform}/${username}`} />
           <meta name="robots" content="noindex, nofollow" />
         </Helmet>
 

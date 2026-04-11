@@ -15,7 +15,12 @@
     { "source": "/live-sex-cam-sites/:path(.*)", "destination": "/", "permanent": true },
     { "source": "/sex-tube-sites", "destination": "/", "permanent": true },
     { "source": "/sex-tube-sites/", "destination": "/", "permanent": true },
-    { "source": "/sex-tube-sites/:path(.*)", "destination": "/", "permanent": true }
+    { "source": "/sex-tube-sites/:path(.*)", "destination": "/", "permanent": true },
+    { "source": "/cam/cb-:name(.*)", "destination": "/chaturbate/:name", "permanent": true },
+    { "source": "/cam/bonga-:name(.*)", "destination": "/bongacams/:name", "permanent": true },
+    { "source": "/cam/stripchat-:name(.*)", "destination": "/stripchat/:name", "permanent": true },
+    { "source": "/cam/xcams-:name(.*)", "destination": "/xcams/:name", "permanent": true },
+    { "source": "/cam/:name(.*)", "destination": "/cam4/:name", "permanent": true }
   ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }

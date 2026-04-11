@@ -25,7 +25,7 @@ const LiveModelCard = ({ cam }: { cam: CamModel }) => {
 
   return (
     <Link
-      to={`/cam/${cam.slug}`}
+      to={`/${cam.slug}`}
       state={{ model: cam }}
       className="group block rounded-lg overflow-hidden border border-border hover:border-primary/50 transition-all hover:scale-[1.03] bg-card"
     >

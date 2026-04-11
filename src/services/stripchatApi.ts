@@ -96,7 +96,7 @@ function normalizeStripchatModel(model: StripchatModel): CamModel {
     isHD: model.broadcastHD,
     showType: model.status,
     previewUrl: model.stream?.urls?.original || model.stream?.url || "",
-    slug: `stripchat-${model.username}`,
+    slug: `stripchat/${model.username}`,
     iframeEmbed: "", // Stripchat blocks iframes (X-Frame-Options: deny) - use HLS instead
   };
 }

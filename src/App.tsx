@@ -30,7 +30,11 @@ const App = () => (
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
-              <Route path="/cam/:slug" element={<CamStream />} />
+              <Route path="/chaturbate/:username" element={<CamStream />} />
+              <Route path="/bongacams/:username" element={<CamStream />} />
+              <Route path="/cam4/:username" element={<CamStream />} />
+              <Route path="/stripchat/:username" element={<CamStream />} />
+              <Route path="/xcams/:username" element={<CamStream />} />
               <Route path="/categories" element={<Categories />} />
               <Route path="/countries" element={<Countries />} />
               <Route path="/new" element={<New />} />

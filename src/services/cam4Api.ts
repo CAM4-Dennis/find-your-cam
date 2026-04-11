@@ -46,7 +46,7 @@ function normalizeCam4Model(model: Cam4Model): CamModel {
     isHD: model.hd_stream !== null,
     showType: model.show_type,
     previewUrl: model.preview_url,
-    slug: model.nickname,
+    slug: `cam4/${model.nickname}`,
     isMobile: model.source === "mobile" || model.mobile,
     iframeEmbed: `<iframe src="https://www.cam4.com/${model.nickname}/embed" width="100%" height="100%" frameborder="0" allowfullscreen allow="autoplay"></iframe>`,
   };
