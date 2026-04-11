@@ -158,8 +158,15 @@ const Countries = () => {
     }
   }, [selected]);
 
+  const [expanded, setExpanded] = useState(false);
+  const chipsRef = useRef<HTMLDivElement>(null);
+
   // Build country list with counts — NL/BE/Dutch-speaking always on top, then by count desc
-  const pinnedCountries = ["Nederland", "België", "Suriname", "Curaçao", "Aruba", "Sint Maarten"];
+  const pinnedCountries = [
+    "Nederland", "The Netherlands", "Netherlands", "North Holland", "South Holland",
+    "België", "Belgium",
+    "Suriname", "Curaçao", "Aruba", "Sint Maarten",
+  ];
 
   const countryCounts = useMemo(() => {
     const map = new Map<string, { flag: string; count: number }>();
@@ -219,8 +226,13 @@ const Countries = () => {
             {seo ? seo.intro : "Ontdek live cam modellen uit jouw favoriete land. Van Nederlandse cam girls tot Colombiaanse schoonheden en Oost-Europese modellen — selecteer een land en bekijk wie er nu live is."}
           </p>
 
-          {/* Country chips — countries with landing pages link out, others filter inline */}
-          <div className="flex flex-wrap gap-2 mb-8">
+          {/* Country chips — 3 rows visible, expandable */}
+          <div
+            ref={chipsRef}
+            className={`flex flex-wrap gap-2 mb-2 overflow-hidden transition-all duration-300 ${
+              expanded ? "" : "max-h-[9.5rem]"
+            }`}
+          >
             {countryCounts.map(({ country, flag, count }) => {
               const landingSlug = countrySlugMap[country];
               const chipClass = `flex items-center gap-1.5 px-3 py-2 rounded-lg border text-sm transition-colors ${
@@ -256,6 +268,15 @@ const Countries = () => {
               );
             })}
           </div>
+          {countryCounts.length > 15 && (
+            <button
+              onClick={() => setExpanded(!expanded)}
+              className="text-sm text-primary hover:text-primary/80 transition-colors mb-6 flex items-center gap-1"
+            >
+              {expanded ? "▲ Minder landen tonen" : `▼ Alle ${countryCounts.length} landen tonen`}
+            </button>
+          )}
+          {(expanded || countryCounts.length <= 15) && <div className="mb-6" />}
 
           {/* Results */}
           <div ref={resultsRef} />
