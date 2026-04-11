@@ -5,7 +5,13 @@ const L = ({ to, children }: { to: string; children: ReactNode }) => (
   <Link to={to} className="text-primary hover:underline">{children}</Link>
 );
 
+const categoryKeywords = ["milf", "teen", "mature", "asian", "latina", "ebony", "borsten", "anal", "koppels", "squirt", "bdsm", "tattoo", "hairy", "voeten", "outdoor", "mobiel"];
+const languageKeywords = ["in-het-", "auf-deutsch", "en-francais", "en-espanol", "in-italiano", "em-portugu", "na-russkom"];
+
 function getFooterContent(path: string): { title: string; paragraphs: ReactNode[] } {
+  const isCategory = path.startsWith("/webcamsex-") && categoryKeywords.some(k => path.includes(k));
+  const isLanguage = path.startsWith("/webcamsex-") && languageKeywords.some(k => path.includes(k));
+
   // Homepage
   if (path === "/") {
     return {
@@ -48,18 +54,8 @@ function getFooterContent(path: string): { title: string; paragraphs: ReactNode[
     };
   }
 
-  // Country pages
-  if (path.startsWith("/webcamsex-nederland") || path.startsWith("/webcamsex-belgie") ||
-      path.startsWith("/webcamsex-duitsland") || path.startsWith("/webcamsex-colombia") ||
-      path.startsWith("/webcamsex-roemenie") || path.startsWith("/webcamsex-italie") ||
-      path.startsWith("/webcamsex-spanje") || path.startsWith("/webcamsex-frankrijk") ||
-      path.startsWith("/webcamsex-verenigd") || path.startsWith("/webcamsex-verenigde") ||
-      path.startsWith("/webcamsex-rusland") || path.startsWith("/webcamsex-oekraine") ||
-      path.startsWith("/webcamsex-brazilie") || path.startsWith("/webcamsex-japan") ||
-      path.startsWith("/webcamsex-polen") || path.startsWith("/webcamsex-mexico") ||
-      path.startsWith("/webcamsex-tsjechie") || path.startsWith("/webcamsex-filipijnen") ||
-      path.startsWith("/webcamsex-thailand") || path === "/countries"
-  ) {
+  // Country pages (catch-all for /webcamsex-{country} that isn't a category or language)
+  if (path.startsWith("/webcamsex-") && !isCategory && !isLanguage) {
     return {
       title: "Webcamsex per Land — Ontdek de Wereld op StartVagina",
       paragraphs: [
@@ -70,17 +66,56 @@ function getFooterContent(path: string): { title: string; paragraphs: ReactNode[
   }
 
   // Language pages
-  if (path.startsWith("/webcamsex-in-het-") || path.startsWith("/webcamsex-auf-") ||
-      path.startsWith("/webcamsex-en-francais") || path.startsWith("/webcamsex-en-espanol") ||
-      path.startsWith("/webcamsex-in-italiano") || path.startsWith("/webcamsex-em-") ||
-      path.startsWith("/webcamsex-na-") || path.startsWith("/english-") ||
-      path.startsWith("/japanese-") || path.startsWith("/korean-") || path === "/languages"
-  ) {
+  if (isLanguage || path.startsWith("/english-") || path.startsWith("/japanese-") || path.startsWith("/korean-")) {
     return {
       title: "Webcamsex in Jouw Taal — Geen Taalbarrière",
       paragraphs: [
         <p key="1">Op StartVagina vind je cam modellen die <L to="/languages">jouw taal spreken</L>. Van <L to="/webcamsex-in-het-nederlands">Nederlandstalige cam girls</L> tot <L to="/webcamsex-en-francais">Franstalige</L>, <L to="/webcamsex-auf-deutsch">Duitstalige</L> en <L to="/webcamsex-en-espanol">Spaanstalige</L> modellen — communiceer direct in je moedertaal voor een persoonlijkere ervaring.</p>,
         <p key="2">Combineer taalfilters met <L to="/categories">categorieën</L> en <L to="/countries">landen</L> om exact te vinden wat je zoekt. Modellen van <L to="/live-sex-cams-chaturbate">Chaturbate</L>, <L to="/live-sex-cams-bongacams">BongaCams</L>, <L to="/live-sex-cams-cam4">CAM4</L> en meer — alles overzichtelijk bij elkaar.</p>,
+      ],
+    };
+  }
+
+  // Countries overview
+  if (path === "/countries") {
+    return {
+      title: "Webcamsex uit Alle Landen — Van Nederland tot Colombia",
+      paragraphs: [
+        <p key="1">Op de <L to="/countries">landen-pagina</L> van StartVagina ontdek je cam modellen uit de hele wereld. <L to="/webcamsex-nederland">Nederland</L> en <L to="/webcamsex-belgie">België</L> staan bovenaan, gevolgd door populaire cam-landen als <L to="/webcamsex-colombia">Colombia</L>, <L to="/webcamsex-roemenie">Roemenië</L> en de <L to="/webcamsex-verenigde-staten">Verenigde Staten</L>. Elk land heeft een eigen pagina met live modellen en achtergrondinformatie.</p>,
+        <p key="2">Wist je dat <L to="/webcamsex-colombia">Colombia</L> het land met de meeste cam modellen ter wereld is? Of dat <L to="/webcamsex-roemenie">Roemenië</L> bekendstaat om professionele studio-setups? Ontdek het per land, of filter direct op <L to="/categories">categorie</L> en <L to="/languages">taal</L>.</p>,
+      ],
+    };
+  }
+
+  // Languages overview
+  if (path === "/languages") {
+    return {
+      title: "Webcamsex per Taal — Chat in Je Moedertaal",
+      paragraphs: [
+        <p key="1">Taal maakt het verschil in webcamsex. Op de <L to="/languages">talen-pagina</L> vind je cam modellen die jouw taal spreken — van <L to="/webcamsex-in-het-nederlands">Nederlandstalig</L> en <L to="/webcamsex-auf-deutsch">Duitstalig</L> tot <L to="/webcamsex-en-espanol">Spaanstalig</L> en <L to="/webcamsex-em-portugues">Portugeestalig</L>. Geen taalbarrière, direct persoonlijk contact.</p>,
+        <p key="2">Combineer taal met <L to="/countries">land</L> of <L to="/categories">categorie</L> voor de perfecte match. Of vergelijk het taalaanbod per platform: <L to="/live-sex-cams-cam4">CAM4</L> voor Nederlands, <L to="/live-sex-cams-bongacams">BongaCams</L> voor Russisch, <L to="/live-sex-cams-xcams">XCams</L> voor Frans.</p>,
+      ],
+    };
+  }
+
+  // Top Cams
+  if (path === "/top") {
+    return {
+      title: "De Populairste Cam Girls — Live en Trending",
+      paragraphs: [
+        <p key="1">De top cams op StartVagina zijn de modellen met de meeste kijkers op dit moment — de shows waar het gebeurt. Deze cam girls trekken honderden tot duizenden kijkers tegelijk van <L to="/live-sex-cams-chaturbate">Chaturbate</L>, <L to="/live-sex-cams-stripchat">Stripchat</L>, <L to="/live-sex-cams-bongacams">BongaCams</L> en <L to="/live-sex-cams-cam4">CAM4</L>.</p>,
+        <p key="2">Op zoek naar iets specifieks? Filter de populairste modellen per <L to="/categories">categorie</L> (bijv. <L to="/webcamsex-milf">MILF</L> of <L to="/webcamsex-latina">Latina</L>), per <L to="/countries">land</L> of per <L to="/languages">taal</L>. Of bekijk de <L to="/new">nieuwste cam girls</L> die net begonnen zijn.</p>,
+      ],
+    };
+  }
+
+  // New Cams
+  if (path === "/new") {
+    return {
+      title: "Nieuwe Cam Girls — Vers op het Platform",
+      paragraphs: [
+        <p key="1">Elke dag beginnen er nieuwe cam modellen op <L to="/live-sex-cams-chaturbate">Chaturbate</L>, <L to="/live-sex-cams-stripchat">Stripchat</L>, <L to="/live-sex-cams-bongacams">BongaCams</L> en <L to="/live-sex-cams-cam4">CAM4</L>. Deze verse gezichten zijn vaak extra enthousiast, spontaan en nieuwsgierig — en ze staan te popelen om hun eerste kijkers te verwelkomen.</p>,
+        <p key="2">Nieuwe modellen ontdekken is een van de leukste dingen aan webcamsex. Combineer met <L to="/categories">categorieën</L> of zoek nieuwe cam girls uit een specifiek <L to="/countries">land</L>. Of bekijk de <L to="/top">populairste cam girls</L> als je liever kiest voor bewezen kwaliteit.</p>,
       ],
     };
   }
