@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AgeGate from "@/components/AgeGate";
@@ -9,6 +9,14 @@ import { useAllCams } from "@/hooks/useAllCams";
 const Countries = () => {
   const { allCams, isLoading } = useAllCams();
   const [selected, setSelected] = useState<string | null>(null);
+  const resultsRef = useRef<HTMLDivElement>(null);
+
+  // Scroll to results when a country is selected
+  useEffect(() => {
+    if (selected && resultsRef.current) {
+      resultsRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [selected]);
 
   // Build country list with counts, sorted by count desc
   const countryCounts = useMemo(() => {
@@ -76,6 +84,7 @@ const Countries = () => {
           </div>
 
           {/* Results */}
+          <div ref={resultsRef} />
           {selected && filteredCams ? (
             <CamGrid
               title={`${countryCounts.find(c => c.country === selected)?.flag} ${selected}`}
