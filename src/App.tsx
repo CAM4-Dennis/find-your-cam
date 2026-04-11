@@ -16,6 +16,7 @@ import Blog from "./pages/Blog.tsx";
 import BlogPost from "./pages/BlogPost.tsx";
 import KeywordLanding from "./pages/KeywordLanding.tsx";
 import PlatformLanding from "./pages/PlatformLanding.tsx";
+import CategoryLanding from "./pages/CategoryLanding.tsx";
 
 const queryClient = new QueryClient();
 
@@ -46,6 +47,23 @@ const App = () => (
               <Route path="/live-sex-cams-bongacams" element={<PlatformLanding />} />
               <Route path="/live-sex-cams-stripchat" element={<PlatformLanding />} />
               <Route path="/live-sex-cams-xcams" element={<PlatformLanding />} />
+              <Route path="/webcamsex-teen-18-plus" element={<CategoryLanding />} />
+              <Route path="/webcamsex-milf" element={<CategoryLanding />} />
+              <Route path="/webcamsex-mature" element={<CategoryLanding />} />
+              <Route path="/webcamsex-asian" element={<CategoryLanding />} />
+              <Route path="/webcamsex-latina" element={<CategoryLanding />} />
+              <Route path="/webcamsex-ebony" element={<CategoryLanding />} />
+              <Route path="/webcamsex-grote-borsten" element={<CategoryLanding />} />
+              <Route path="/webcamsex-kleine-borsten" element={<CategoryLanding />} />
+              <Route path="/webcamsex-anal" element={<CategoryLanding />} />
+              <Route path="/webcamsex-koppels" element={<CategoryLanding />} />
+              <Route path="/webcamsex-squirt" element={<CategoryLanding />} />
+              <Route path="/webcamsex-bdsm" element={<CategoryLanding />} />
+              <Route path="/webcamsex-tattoo" element={<CategoryLanding />} />
+              <Route path="/webcamsex-hairy" element={<CategoryLanding />} />
+              <Route path="/webcamsex-voeten" element={<CategoryLanding />} />
+              <Route path="/webcamsex-outdoor" element={<CategoryLanding />} />
+              <Route path="/webcamsex-mobiel" element={<CategoryLanding />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
