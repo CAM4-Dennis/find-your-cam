@@ -10,8 +10,12 @@
     { "source": "/list/", "destination": "/", "permanent": true },
     { "source": "/about", "destination": "/", "permanent": true },
     { "source": "/about/", "destination": "/", "permanent": true },
-    { "source": "/live-sex-cam-sites/:path*", "destination": "/", "permanent": true },
-    { "source": "/sex-tube-sites/:path*", "destination": "/", "permanent": true }
+    { "source": "/live-sex-cam-sites", "destination": "/", "permanent": true },
+    { "source": "/live-sex-cam-sites/", "destination": "/", "permanent": true },
+    { "source": "/live-sex-cam-sites/:path(.*)", "destination": "/", "permanent": true },
+    { "source": "/sex-tube-sites", "destination": "/", "permanent": true },
+    { "source": "/sex-tube-sites/", "destination": "/", "permanent": true },
+    { "source": "/sex-tube-sites/:path(.*)", "destination": "/", "permanent": true }
   ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
