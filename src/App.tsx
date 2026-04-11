@@ -1,3 +1,4 @@
+import { Suspense, lazy } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
@@ -5,21 +6,24 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { SfwProvider } from "@/hooks/useSfwMode";
+
+// Eager: landing page (most common entry)
 import Index from "./pages/Index.tsx";
-import CamStream from "./pages/CamStream.tsx";
-import Categories from "./pages/Categories.tsx";
-import Countries from "./pages/Countries.tsx";
-import New from "./pages/New.tsx";
-import TopCams from "./pages/TopCams.tsx";
-import NotFound from "./pages/NotFound.tsx";
-import Blog from "./pages/Blog.tsx";
-import BlogPost from "./pages/BlogPost.tsx";
-import KeywordLanding from "./pages/KeywordLanding.tsx";
-import Languages from "./pages/Languages.tsx";
-import LanguageLanding from "./pages/LanguageLanding.tsx";
-import PlatformLanding from "./pages/PlatformLanding.tsx";
-import CategoryLanding from "./pages/CategoryLanding.tsx";
-import CountryLanding from "./pages/CountryLanding.tsx";
+
+// Lazy: all other pages
+const CamStream = lazy(() => import("./pages/CamStream.tsx"));
+const Categories = lazy(() => import("./pages/Categories.tsx"));
+const Countries = lazy(() => import("./pages/Countries.tsx"));
+const New = lazy(() => import("./pages/New.tsx"));
+const TopCams = lazy(() => import("./pages/TopCams.tsx"));
+const Blog = lazy(() => import("./pages/Blog.tsx"));
+const BlogPost = lazy(() => import("./pages/BlogPost.tsx"));
+const KeywordLanding = lazy(() => import("./pages/KeywordLanding.tsx"));
+const Languages = lazy(() => import("./pages/Languages.tsx"));
+const LanguageLanding = lazy(() => import("./pages/LanguageLanding.tsx"));
+const PlatformLanding = lazy(() => import("./pages/PlatformLanding.tsx"));
+const CategoryLanding = lazy(() => import("./pages/CategoryLanding.tsx"));
+const CountryLanding = lazy(() => import("./pages/CountryLanding.tsx"));
 
 const queryClient = new QueryClient();
 
@@ -31,6 +35,7 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
+            <Suspense fallback={<div className="min-h-screen bg-background" />}>
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/chaturbate/:username" element={<CamStream />} />
@@ -84,6 +89,7 @@ const App = () => (
               <Route path="/webcamsex-mobiel" element={<CategoryLanding />} />
               <Route path="*" element={<CountryLanding />} />
             </Routes>
+            </Suspense>
           </BrowserRouter>
         </TooltipProvider>
       </SfwProvider>

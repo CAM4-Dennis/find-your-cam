@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Header from "@/components/Header";
 import FilterSidebar from "@/components/FilterSidebar";
 import CamGrid from "@/components/CamGrid";
@@ -22,17 +22,27 @@ const Index = () => {
   const { data: geo } = useGeoLocation();
   const [filters, setFilters] = useState<CamFilters>(defaultFilters);
 
+  // Stagger API calls: primary loads immediately, secondary after 500ms
+  const [loadSecondary, setLoadSecondary] = useState(false);
+  useEffect(() => {
+    const timer = setTimeout(() => setLoadSecondary(true), 500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Primary: main cam sources (load immediately)
   const { data: cam4Female = [], isLoading: loadingCam4 } = useCam4Online({ gender: "female", limit: 150 });
   const { data: cbFemale = [], isLoading: loadingCB } = useChaturbateOnline({ gender: "f", limit: 150 });
   const { data: bongaFemale = [], isLoading: loadingBonga } = useBongaCamsOnline({ section: "straight", limit: 150 });
-  const { data: xcamsFemale = [], isLoading: loadingXCams } = useXCamsOnline({ gender: "F", limit: 50 });
-  const { data: coupleCams4 = [], isLoading: loadingCouples4 } = useCam4Online({ gender: "couple", limit: 150 });
-  const { data: coupleCamsCB = [], isLoading: loadingCouplesCB } = useChaturbateOnline({ gender: "c", limit: 150 });
-  const { data: coupleBonga = [], isLoading: loadingCouplesBonga } = useBongaCamsOnline({ section: "couples", limit: 150 });
-  const { data: coupleXCams = [], isLoading: loadingCouplesXCams } = useXCamsOnline({ gender: "P", limit: 50 });
   const { data: stripFemale = [], isLoading: loadingStrip } = useStripchatOnline({ tag: "girls", limit: 150 });
-  const { data: stripCouples = [], isLoading: loadingStripCouples } = useStripchatOnline({ tag: "couples", limit: 150 });
-  const { data: newCams = [], isLoading: loadingNew } = useChaturbateOnline({ gender: "f", limit: 150, offset: 150 });
+
+  // Secondary: deferred until after first paint
+  const { data: xcamsFemale = [], isLoading: loadingXCams } = useXCamsOnline({ gender: "F", limit: 50 }, loadSecondary);
+  const { data: coupleCams4 = [], isLoading: loadingCouples4 } = useCam4Online({ gender: "couple", limit: 150 }, loadSecondary);
+  const { data: coupleCamsCB = [], isLoading: loadingCouplesCB } = useChaturbateOnline({ gender: "c", limit: 150 }, loadSecondary);
+  const { data: coupleBonga = [], isLoading: loadingCouplesBonga } = useBongaCamsOnline({ section: "couples", limit: 150 }, loadSecondary);
+  const { data: coupleXCams = [], isLoading: loadingCouplesXCams } = useXCamsOnline({ gender: "P", limit: 50 }, loadSecondary);
+  const { data: stripCouples = [], isLoading: loadingStripCouples } = useStripchatOnline({ tag: "couples", limit: 150 }, loadSecondary);
+  const { data: newCams = [], isLoading: loadingNew } = useChaturbateOnline({ gender: "f", limit: 150, offset: 150 }, loadSecondary);
 
   // Only show cams that include women (female, couple with female)
   const isFemaleRelated = (m: CamModel) => {
