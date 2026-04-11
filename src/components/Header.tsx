@@ -6,6 +6,7 @@ const navItems = [
   { label: "Home", href: "/" },
   { label: "Categorieën", href: "/categories" },
   { label: "Landen", href: "/countries" },
+  { label: "Talen", href: "/languages" },
   { label: "Nieuw", href: "/new" },
   { label: "Top Cams", href: "/top" },
   { label: "Blog", href: "/blog" },

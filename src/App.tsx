@@ -15,6 +15,7 @@ import NotFound from "./pages/NotFound.tsx";
 import Blog from "./pages/Blog.tsx";
 import BlogPost from "./pages/BlogPost.tsx";
 import KeywordLanding from "./pages/KeywordLanding.tsx";
+import Languages from "./pages/Languages.tsx";
 import PlatformLanding from "./pages/PlatformLanding.tsx";
 import CategoryLanding from "./pages/CategoryLanding.tsx";
 import CountryLanding from "./pages/CountryLanding.tsx";
@@ -38,6 +39,7 @@ const App = () => (
               <Route path="/xcams/:username" element={<CamStream />} />
               <Route path="/categories" element={<Categories />} />
               <Route path="/countries" element={<Countries />} />
+              <Route path="/languages" element={<Languages />} />
               <Route path="/new" element={<New />} />
               <Route path="/top" element={<TopCams />} />
               <Route path="/blog" element={<Blog />} />
