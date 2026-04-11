@@ -1,4 +1,18 @@
 {
+  "redirects": [
+    { "source": "/gratis-filmpjes", "destination": "/", "permanent": true },
+    { "source": "/gratis-filmpjes/", "destination": "/", "permanent": true },
+    { "source": "/blog/tips-om-veilig-porno-te-kijken", "destination": "/", "permanent": true },
+    { "source": "/blog/tips-om-veilig-porno-te-kijken/", "destination": "/", "permanent": true },
+    { "source": "/blog/wie-is-milena-star-profiel", "destination": "/", "permanent": true },
+    { "source": "/blog/wie-is-milena-star-profiel/", "destination": "/", "permanent": true },
+    { "source": "/list", "destination": "/", "permanent": true },
+    { "source": "/list/", "destination": "/", "permanent": true },
+    { "source": "/about", "destination": "/", "permanent": true },
+    { "source": "/about/", "destination": "/", "permanent": true },
+    { "source": "/live-sex-cam-sites/:path*", "destination": "/", "permanent": true },
+    { "source": "/sex-tube-sites/:path*", "destination": "/", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
