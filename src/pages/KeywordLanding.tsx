@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AgeGate from "@/components/AgeGate";
 import CamGrid from "@/components/CamGrid";
-import LoadingBar from "@/components/LoadingBar";
+import { Loader2 } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { useAllCams } from "@/hooks/useAllCams";
 import { useMemo } from "react";
@@ -123,7 +123,12 @@ const KeywordLanding = () => {
             <p className="text-muted-foreground max-w-3xl leading-relaxed">{config.intro}</p>
           </section>
 
-          {isLoading ? <LoadingBar /> : <CamGrid models={shuffled} />}
+          {isLoading ? (
+            <div className="flex items-center gap-2 text-muted-foreground py-12 justify-center">
+              <Loader2 size={20} className="animate-spin text-primary" />
+              <span>Modellen laden…</span>
+            </div>
+          ) : <CamGrid models={shuffled} />}
 
           {/* FAQ Section for SEO */}
           <section className="mt-12 max-w-3xl">
