@@ -82,8 +82,7 @@ const App = () => (
               <Route path="/webcamsex-voeten" element={<CategoryLanding />} />
               <Route path="/webcamsex-outdoor" element={<CategoryLanding />} />
               <Route path="/webcamsex-mobiel" element={<CategoryLanding />} />
-              <Route path="/webcamsex-:countrySlug" element={<CountryLanding />} />
-              <Route path="*" element={<NotFound />} />
+              <Route path="*" element={<CountryLanding />} />
             </Routes>
           </BrowserRouter>
         </TooltipProvider>

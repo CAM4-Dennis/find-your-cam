@@ -545,7 +545,22 @@ const CountryLandingPage = () => {
       .sort(() => Math.random() - 0.5);
   }, [allCams, config]);
 
-  if (!config) return null;
+  // If no config found (not a country page), show 404
+  if (!config) {
+    return (
+      <AgeGate>
+        <div className="min-h-screen flex flex-col bg-background">
+          <Header />
+          <main className="container flex-1 py-12 text-center">
+            <h1 className="text-4xl font-bold font-display text-foreground mb-4">404</h1>
+            <p className="text-muted-foreground mb-6">Pagina niet gevonden</p>
+            <Link to="/" className="text-primary hover:underline">Terug naar home</Link>
+          </main>
+          <Footer />
+        </div>
+      </AgeGate>
+    );
+  }
 
   return (
     <AgeGate>
