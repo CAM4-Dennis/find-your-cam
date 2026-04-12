@@ -1,4 +1,5 @@
 import { useLocation } from "react-router-dom";
+import LocalLink from "@/components/LocalLink";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AgeGate from "@/components/AgeGate";
@@ -7,7 +8,9 @@ import { Loader2 } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { useAllCams } from "@/hooks/useAllCams";
 import { useMemo } from "react";
-import { Link } from "react-router-dom";
+import { Link /* replaced */ } from "react-router-dom";
+import LocalLink from "@/components/LocalLink";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 interface PlatformConfig {
   slug: string;
@@ -338,38 +341,38 @@ const PlatformLanding = () => {
               {Object.values(platforms)
                 .filter((p) => p.slug !== config.slug)
                 .map((p) => (
-                  <Link
+                  <LocalLink
                     key={p.slug}
                     to={`/${p.slug}`}
                     className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors"
                   >
                     {p.name} Live Cams
-                  </Link>
+                  </LocalLink>
                 ))}
-              <Link
+              <LocalLink
                 to="/webcamsex"
                 className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors"
               >
                 Webcamsex
-              </Link>
-              <Link
+              </LocalLink>
+              <LocalLink
                 to="/cam-girls"
                 className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors"
               >
                 Cam Girls
-              </Link>
-              <Link
+              </LocalLink>
+              <LocalLink
                 to="/categories"
                 className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors"
               >
                 Categorieën
-              </Link>
-              <Link
+              </LocalLink>
+              <LocalLink
                 to="/blog"
                 className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors"
               >
                 Blog
-              </Link>
+              </LocalLink>
             </div>
           </section>
         </main>

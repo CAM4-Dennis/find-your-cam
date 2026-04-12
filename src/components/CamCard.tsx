@@ -2,6 +2,7 @@ import type { CamModel } from "@/types/cam";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSfwMode } from "@/hooks/useSfwMode";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 interface CamCardProps {
   model: CamModel;
@@ -10,10 +11,11 @@ interface CamCardProps {
 const CamCard = ({ model }: CamCardProps) => {
   const [imgError, setImgError] = useState(false);
   const { sfwMode } = useSfwMode();
+  const { localePath } = useLanguage();
 
   return (
     <article className="cam-card group" aria-label={`${model.name}${model.age ? `, ${model.age} jaar` : ''}`}>
-      <Link to={`/${model.slug}`} state={{ model }} className="block">
+      <Link to={localePath(`/${model.slug}`)} state={{ model }} className="block">
         <div className="relative overflow-hidden">
           <img
             src={imgError ? model.thumbnailFallback : model.thumbnail}

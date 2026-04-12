@@ -1,4 +1,5 @@
 import { useParams, useNavigate, Link } from "react-router-dom";
+import LocalLink from "@/components/LocalLink";
 import { useState, useMemo } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -10,6 +11,7 @@ import blogPosts from "@/data/blog-posts.json";
 import { useAllCams } from "@/hooks/useAllCams";
 import { useSfwMode } from "@/hooks/useSfwMode";
 import type { CamModel } from "@/types/cam";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const platformColors: Record<string, string> = {
   Chaturbate: "bg-orange-500/20 text-orange-400 border-orange-500/30",
@@ -24,7 +26,7 @@ const LiveModelCard = ({ cam }: { cam: CamModel }) => {
   const colorClass = platformColors[cam.platform] || "border-border";
 
   return (
-    <Link
+    <LocalLink
       to={`/${cam.slug}`}
       state={{ model: cam }}
       className="group block rounded-lg overflow-hidden border border-border hover:border-primary/50 transition-all hover:scale-[1.03] bg-card"
@@ -48,7 +50,7 @@ const LiveModelCard = ({ cam }: { cam: CamModel }) => {
         <div className="text-xs font-medium text-foreground truncate">{cam.name}</div>
         <div className="text-[10px] text-muted-foreground">{cam.viewers.toLocaleString()} kijkers</div>
       </div>
-    </Link>
+    </LocalLink>
   );
 };
 
@@ -92,6 +94,7 @@ function useBlogModels(articleModels: { name: string; platform: string; slug: st
 const BlogPost = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const { localePath } = useLanguage();
 
   const post = blogPosts.find((p) => p.id === id);
   const { models: liveModels, isLoading: modelsLoading } = useBlogModels(post?.models || [], 10);
@@ -103,7 +106,7 @@ const BlogPost = () => {
           <Header />
           <main className="container flex-1 py-12 text-center">
             <p className="text-muted-foreground">Artikel niet gevonden.</p>
-            <Button variant="outline" className="mt-4" onClick={() => navigate("/blog")}>
+            <Button variant="outline" className="mt-4" onClick={() => navigate(localePath("/blog"))}>
               <ArrowLeft size={16} className="mr-2" /> Terug naar blog
             </Button>
           </main>
@@ -124,7 +127,7 @@ const BlogPost = () => {
         <Header />
 
         <main className="container flex-1 py-6 max-w-3xl mx-auto">
-          <Button variant="ghost" size="sm" onClick={() => navigate("/blog")} className="text-muted-foreground hover:text-foreground mb-4">
+          <Button variant="ghost" size="sm" onClick={() => navigate(localePath("/blog"))} className="text-muted-foreground hover:text-foreground mb-4">
             <ArrowLeft size={16} className="mr-1" /> Terug naar blog
           </Button>
 

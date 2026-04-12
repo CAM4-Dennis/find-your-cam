@@ -1,5 +1,6 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useRef, useState, useCallback } from "react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 // Auto-refreshing thumbnail for platforms without stream embed (e.g., XCams)
 function useRefreshingThumbnail(baseUrl: string, enabled: boolean, intervalMs = 3000) {
@@ -88,6 +89,7 @@ const CamStream = () => {
   const { platform, username } = useParams<{ platform: string; username: string }>();
   const location = useLocation();
   const navigate = useNavigate();
+  const { localePath } = useLanguage();
   const [videoEl, setVideoEl] = useState<HTMLVideoElement | null>(null);
   const videoRef = useCallback((node: HTMLVideoElement | null) => {
     setVideoEl(node);
@@ -175,7 +177,7 @@ const CamStream = () => {
           <Header />
           <main className="container flex-1 py-12 text-center">
             <p className="text-muted-foreground">Stream niet gevonden. Ga terug naar de homepage.</p>
-            <Button variant="outline" className="mt-4" onClick={() => navigate("/")}>
+            <Button variant="outline" className="mt-4" onClick={() => navigate(localePath("/"))}>
               <ArrowLeft size={16} className="mr-2" /> Terug
             </Button>
           </main>
@@ -217,7 +219,7 @@ const CamStream = () => {
         <Header />
 
         <main className="container flex-1 py-6 space-y-4">
-          <Button variant="ghost" size="sm" onClick={() => navigate("/")} className="text-muted-foreground hover:text-foreground">
+          <Button variant="ghost" size="sm" onClick={() => navigate(localePath("/"))} className="text-muted-foreground hover:text-foreground">
             <ArrowLeft size={16} className="mr-1" /> Terug naar overzicht
           </Button>
 

@@ -1,4 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
+import LocalLink from "@/components/LocalLink";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AgeGate from "@/components/AgeGate";
@@ -6,8 +7,10 @@ import CamGrid from "@/components/CamGrid";
 import { Helmet } from "react-helmet-async";
 import { useAllCams } from "@/hooks/useAllCams";
 import { useMemo } from "react";
-import { Link } from "react-router-dom";
+import { Link /* replaced */ } from "react-router-dom";
+import LocalLink from "@/components/LocalLink";
 import { Loader2 } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 interface CountryConfig {
   slug: string;
@@ -554,7 +557,7 @@ const CountryLandingPage = () => {
           <main className="container flex-1 py-12 text-center">
             <h1 className="text-4xl font-bold font-display text-foreground mb-4">404</h1>
             <p className="text-muted-foreground mb-6">Pagina niet gevonden</p>
-            <Link to="/" className="text-primary hover:underline">Terug naar home</Link>
+            <LocalLink to="/" className="text-primary hover:underline">Terug naar home</LocalLink>
           </main>
           <Footer />
         </div>
@@ -648,23 +651,23 @@ const CountryLandingPage = () => {
               {Object.values(countryPages)
                 .filter((c) => c.slug !== config.slug)
                 .map((c) => (
-                  <Link
+                  <LocalLink
                     key={c.slug}
                     to={`/${c.slug}`}
                     className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors"
                   >
                     {c.flag} {c.country}
-                  </Link>
+                  </LocalLink>
                 ))}
-              <Link to="/countries" className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors">
+              <LocalLink to="/countries" className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors">
                 🌍 Alle Landen
-              </Link>
-              <Link to="/webcamsex" className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors">
+              </LocalLink>
+              <LocalLink to="/webcamsex" className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors">
                 Webcamsex
-              </Link>
-              <Link to="/categories" className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors">
+              </LocalLink>
+              <LocalLink to="/categories" className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors">
                 Categorieën
-              </Link>
+              </LocalLink>
             </div>
           </section>
         </main>

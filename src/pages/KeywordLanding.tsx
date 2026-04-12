@@ -1,4 +1,5 @@
 import { useParams, useLocation } from "react-router-dom";
+import LocalLink from "@/components/LocalLink";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AgeGate from "@/components/AgeGate";
@@ -7,7 +8,9 @@ import { Loader2 } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { useAllCams } from "@/hooks/useAllCams";
 import { useMemo } from "react";
-import { Link } from "react-router-dom";
+import { Link /* replaced */ } from "react-router-dom";
+import LocalLink from "@/components/LocalLink";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 interface KeywordConfig {
   title: string;
@@ -152,19 +155,19 @@ const KeywordLanding = () => {
               {Object.entries(keywordPages)
                 .filter(([k]) => k !== keyword)
                 .map(([k, v]) => (
-                  <Link key={k} to={`/${k}`} className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors">
+                  <LocalLink key={k} to={`/${k}`} className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors">
                     {v.h1.split("—")[0].trim()}
-                  </Link>
+                  </LocalLink>
                 ))}
-              <Link to="/blog" className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors">
+              <LocalLink to="/blog" className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors">
                 Blog
-              </Link>
-              <Link to="/categories" className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors">
+              </LocalLink>
+              <LocalLink to="/categories" className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors">
                 Categorieën
-              </Link>
-              <Link to="/top" className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors">
+              </LocalLink>
+              <LocalLink to="/top" className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors">
                 Top Cams
-              </Link>
+              </LocalLink>
             </div>
           </section>
         </main>

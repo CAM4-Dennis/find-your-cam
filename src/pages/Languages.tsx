@@ -1,11 +1,13 @@
 import { useState, useMemo, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link /* replaced */ } from "react-router-dom";
+import LocalLink from "@/components/LocalLink";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AgeGate from "@/components/AgeGate";
 import CamGrid from "@/components/CamGrid";
 import { Helmet } from "react-helmet-async";
 import { useAllCams } from "@/hooks/useAllCams";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 /** Display name → matching aliases (same as filterModels.ts) */
 const languageAliases: Record<string, string[]> = {
@@ -156,11 +158,11 @@ const Languages = () => {
 
               if (landingSlug) {
                 return (
-                  <Link key={lang} to={`/${landingSlug}`} className={chipClass}>
+                  <LocalLink key={lang} to={`/${landingSlug}`} className={chipClass}>
                     <span>{emoji}</span>
                     <span>{lang}</span>
                     <span className="text-xs ml-1 text-muted-foreground">({count})</span>
-                  </Link>
+                  </LocalLink>
                 );
               }
 

@@ -1,11 +1,13 @@
 import { useState, useMemo, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link /* replaced */ } from "react-router-dom";
+import LocalLink from "@/components/LocalLink";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AgeGate from "@/components/AgeGate";
 import { Helmet } from "react-helmet-async";
 import { useAllCams } from "@/hooks/useAllCams";
 import { countryToFullSlug } from "@/lib/countrySlug";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const Countries = () => {
   const { allCams } = useAllCams();
@@ -85,7 +87,7 @@ const Countries = () => {
             }`}
           >
             {countryCounts.map(({ country, flag, count }) => (
-              <Link
+              <LocalLink
                 key={country}
                 to={`/${countryToFullSlug(country)}`}
                 className="flex items-center gap-1.5 px-3 py-2 rounded-lg border text-sm transition-colors bg-card border-border text-foreground hover:bg-accent hover:border-accent"
@@ -93,7 +95,7 @@ const Countries = () => {
                 <span>{flag}</span>
                 <span>{country}</span>
                 <span className="text-xs ml-1 text-muted-foreground">({count})</span>
-              </Link>
+              </LocalLink>
             ))}
           </div>
           {countryCounts.length > 15 && (

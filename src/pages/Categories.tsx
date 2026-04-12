@@ -2,7 +2,9 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AgeGate from "@/components/AgeGate";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link /* replaced */ } from "react-router-dom";
+import LocalLink from "@/components/LocalLink";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const categories = [
   { label: "Teen (18+)", emoji: "🔞", slug: "webcamsex-teen-18-plus" },
@@ -49,14 +51,14 @@ const Categories = () => {
           {/* Category grid — now links instead of buttons */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 mb-8">
             {categories.map((cat) => (
-              <Link
+              <LocalLink
                 key={cat.slug}
                 to={`/${cat.slug}`}
                 className="flex items-center gap-2 px-4 py-3 rounded-lg border bg-card border-border text-foreground hover:bg-accent hover:border-accent text-sm font-medium transition-colors"
               >
                 <span className="text-lg">{cat.emoji}</span>
                 <span>{cat.label}</span>
-              </Link>
+              </LocalLink>
             ))}
           </div>
 

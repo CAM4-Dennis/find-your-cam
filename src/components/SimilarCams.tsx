@@ -5,6 +5,7 @@ import { useCam4Online } from "@/hooks/useCam4";
 import { useChaturbateOnline } from "@/hooks/useChaturbate";
 import { useBongaCamsOnline } from "@/hooks/useBongaCams";
 import { useStripchatOnline } from "@/hooks/useStripchat";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 interface SimilarCamsProps {
   currentModel: CamModel;

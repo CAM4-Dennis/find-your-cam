@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link /* replaced */ } from "react-router-dom";
+import LocalLink from "@/components/LocalLink";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AgeGate from "@/components/AgeGate";
 import { Helmet } from "react-helmet-async";
 import blogPosts from "@/data/blog-posts.json";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const platformColors: Record<string, string> = {
   Chaturbate: "bg-orange-500/20 text-orange-400",
@@ -31,7 +33,7 @@ const Blog = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {sorted.map((post) => (
-              <Link
+              <LocalLink
                 key={post.id}
                 to={`/blog/${post.id}`}
                 className="group bg-card border border-border rounded-lg overflow-hidden hover:border-primary/50 transition-colors"
@@ -68,7 +70,7 @@ const Blog = () => {
                     </div>
                   )}
                 </div>
-              </Link>
+              </LocalLink>
             ))}
           </div>
         </main>

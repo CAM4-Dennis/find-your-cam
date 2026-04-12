@@ -2,9 +2,11 @@ import { Link, useLocation } from "react-router-dom";
 import type { ReactNode } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
-const L = ({ to, children }: { to: string; children: ReactNode }) => (
-  <Link to={to} className="text-primary hover:underline">{children}</Link>
-);
+const L = ({ to, children }: { to: string; children: ReactNode }) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { localePath } = useLanguage();
+  return <Link to={localePath(to)} className="text-primary hover:underline">{children}</Link>;
+};
 
 const categoryKeywords = ["milf", "teen", "mature", "asian", "latina", "ebony", "borsten", "anal", "koppels", "squirt", "bdsm", "tattoo", "hairy", "voeten", "outdoor", "mobiel"];
 const languageKeywords = ["in-het-", "auf-deutsch", "en-francais", "en-espanol", "in-italiano", "em-portugu", "na-russkom"];

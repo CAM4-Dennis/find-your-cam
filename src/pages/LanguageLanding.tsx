@@ -1,4 +1,5 @@
 import { useLocation } from "react-router-dom";
+import LocalLink from "@/components/LocalLink";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AgeGate from "@/components/AgeGate";
@@ -6,8 +7,10 @@ import CamGrid from "@/components/CamGrid";
 import { Helmet } from "react-helmet-async";
 import { useAllCams } from "@/hooks/useAllCams";
 import { useMemo } from "react";
-import { Link } from "react-router-dom";
+import { Link /* replaced */ } from "react-router-dom";
+import LocalLink from "@/components/LocalLink";
 import { Loader2 } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 interface LanguageConfig {
   slug: string;
@@ -362,17 +365,17 @@ const LanguageLanding = () => {
               {allLanguagePages
                 .filter((l) => l.slug !== config.slug)
                 .map((l) => (
-                  <Link
+                  <LocalLink
                     key={l.slug}
                     to={`/${l.slug}`}
                     className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors"
                   >
                     {l.emoji} {l.name}
-                  </Link>
+                  </LocalLink>
                 ))}
-              <Link to="/languages" className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors">
+              <LocalLink to="/languages" className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors">
                 🗣️ Alle Talen
-              </Link>
+              </LocalLink>
             </div>
           </section>
         </main>

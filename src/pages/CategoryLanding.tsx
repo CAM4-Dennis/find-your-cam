@@ -1,4 +1,5 @@
 import { useLocation } from "react-router-dom";
+import LocalLink from "@/components/LocalLink";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AgeGate from "@/components/AgeGate";
@@ -7,8 +8,10 @@ import { Loader2 } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { useAllCams } from "@/hooks/useAllCams";
 import { useMemo } from "react";
-import { Link } from "react-router-dom";
+import { Link /* replaced */ } from "react-router-dom";
+import LocalLink from "@/components/LocalLink";
 import type { CamModel } from "@/types/cam";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 interface CategoryConfig {
   slug: string;
@@ -616,32 +619,32 @@ const CategoryLanding = () => {
               {Object.values(categoryPages)
                 .filter((c) => c.slug !== config.slug)
                 .map((c) => (
-                  <Link
+                  <LocalLink
                     key={c.slug}
                     to={`/${c.slug}`}
                     className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors"
                   >
                     {c.emoji} {c.label}
-                  </Link>
+                  </LocalLink>
                 ))}
-              <Link
+              <LocalLink
                 to="/categories"
                 className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors"
               >
                 Alle Categorieën
-              </Link>
-              <Link
+              </LocalLink>
+              <LocalLink
                 to="/webcamsex"
                 className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors"
               >
                 Webcamsex
-              </Link>
-              <Link
+              </LocalLink>
+              <LocalLink
                 to="/live-sex-cams"
                 className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors"
               >
                 Live Sex Cams
-              </Link>
+              </LocalLink>
             </div>
           </section>
         </main>
