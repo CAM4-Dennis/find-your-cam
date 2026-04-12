@@ -492,7 +492,8 @@ Op StartVagina verzamelen we modellen van alle grote cam platforms op één plek
 const CountryLandingPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const slug = location.pathname.replace(/^\//, "");
+  const { basePath } = useLanguage();
+  const slug = basePath.replace(/^\//, "");
   const { allCams, isLoading } = useAllCams();
 
   // Try predefined config first

@@ -270,7 +270,8 @@ const allLanguagePages = Object.values(languagePages);
 
 const LanguageLanding = () => {
   const location = useLocation();
-  const slug = location.pathname.replace(/^\//, "");
+  const { basePath } = useLanguage();
+  const slug = basePath.replace(/^\//, "");
   const config = languagePages[slug || ""];
   const { allCams, isLoading } = useAllCams();
 

@@ -82,7 +82,8 @@ const keywordPages: Record<string, KeywordConfig> = {
 
 const KeywordLanding = () => {
   const location = useLocation();
-  const keyword = location.pathname.replace(/^\//, "");
+  const { basePath } = useLanguage();
+  const keyword = basePath.replace(/^\//, "");
   const config = keywordPages[keyword || ""];
   const { allCams, isLoading } = useAllCams();
 

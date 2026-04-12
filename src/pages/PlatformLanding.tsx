@@ -238,7 +238,8 @@ Het platform is minder bekend dan de grote namen, maar dat is juist het voordeel
 
 const PlatformLanding = () => {
   const location = useLocation();
-  const slug = location.pathname.replace(/^\//, "");
+  const { basePath } = useLanguage();
+  const slug = basePath.replace(/^\//, "");
   const config = platforms[slug || ""];
   const { allCams, isLoading } = useAllCams();
 

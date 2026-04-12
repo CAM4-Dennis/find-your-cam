@@ -7,6 +7,8 @@ interface LanguageContextType {
   t: typeof translations["nl"];
   langPrefix: string; // "" for nl, "/en" for en, etc.
   localePath: (path: string) => string; // prepend lang prefix to a path
+  /** The current pathname with the language prefix stripped (e.g. /fr/categories → /categories) */
+  basePath: string;
   switchLanguage: (newLang: Language) => void;
 }
 
@@ -39,6 +41,7 @@ export const LanguageProvider = ({ children }: { children: React.ReactNode }) =>
 
   const t = translations[lang];
   const langPrefix = lang === "nl" ? "" : `/${lang}`;
+  const basePath = stripLangPrefix(location.pathname);
 
   const localePath = (path: string): string => {
     if (lang === "nl") return path;
@@ -57,7 +60,7 @@ export const LanguageProvider = ({ children }: { children: React.ReactNode }) =>
   };
 
   return (
-    <LanguageContext.Provider value={{ lang, t, langPrefix, localePath, switchLanguage }}>
+    <LanguageContext.Provider value={{ lang, t, langPrefix, localePath, basePath, switchLanguage }}>
       {children}
     </LanguageContext.Provider>
   );

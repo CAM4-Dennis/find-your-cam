@@ -515,7 +515,8 @@ Op StartVagina filter je op mobiele cam shows en ontdek je modellen die nu live 
 
 const CategoryLanding = () => {
   const location = useLocation();
-  const slug = location.pathname.replace(/^\//, "");
+  const { basePath } = useLanguage();
+  const slug = basePath.replace(/^\//, "");
   const config = categoryPages[slug || ""];
   const { allCams, isLoading } = useAllCams();
 

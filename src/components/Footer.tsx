@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import type { ReactNode } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
@@ -160,9 +160,8 @@ function getFooterContent(path: string): { title: string; paragraphs: ReactNode[
 }
 
 const Footer = () => {
-  const { pathname } = useLocation();
-  const { t, localePath } = useLanguage();
-  const { title, paragraphs } = getFooterContent(pathname);
+  const { t, localePath, basePath } = useLanguage();
+  const { title, paragraphs } = getFooterContent(basePath);
 
   return (
     <footer className="border-t border-border bg-card mt-12">
