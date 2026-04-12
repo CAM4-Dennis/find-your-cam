@@ -109,6 +109,56 @@ type TranslationStrings = {
 
   // Language switcher
   langSwitcherLabel: string;
+
+  // Categories page
+  categoriesTitle: string;
+  categoriesH1: string;
+  categoriesDescription: string;
+  categoriesSeoTitle: string;
+  categoriesSeoP1: string;
+  categoriesSeoP2: string;
+
+  // Countries page
+  countriesTitle: string;
+  countriesH1: string;
+  countriesDescription: string;
+  countriesShowLess: string;
+  countriesShowAll: (count: number) => string;
+
+  // Languages page
+  languagesTitle: string;
+  languagesH1: string;
+  languagesH1Selected: (lang: string) => string;
+  languagesDescription: string;
+  languagesDescriptionSelected: (lang: string) => string;
+  languagesPickPrompt: string;
+  languagesModelsOnline: string;
+
+  // New page
+  newTitle: string;
+  newH1: string;
+  newDescription: string;
+  newSectionJustStarted: string;
+  newSectionHiddenGems: string;
+
+  // Top Cams page
+  topTitle: string;
+  topH1: string;
+  topDescription: string;
+  topSectionMostViewed: string;
+  topSectionHD: string;
+
+  // Blog page
+  blogTitle: string;
+  blogDescription: string;
+  blogMore: string;
+
+  // CamCard
+  camCardNew: string;
+
+  // CamGrid / generic
+  modelsOnline: string;
+  modelsLoading: string;
 };
 
 export const translations: Record<Language, TranslationStrings> = {
@@ -190,6 +240,48 @@ export const translations: Record<Language, TranslationStrings> = {
     introText: "Welkom bij <strong>StartVagina</strong>, dé zoekmachine voor gratis <strong>webcamsex</strong> en <strong>live sex cams</strong>. Bekijk duizenden <strong>cam girls</strong> en <strong>webcam modellen</strong> uit Nederland en België. Geniet van gratis <strong>sexchat</strong>, <strong>erotische webcam</strong> shows en live cam streams. Filter op categorie, leeftijd, land en meer.",
 
     langSwitcherLabel: "Taal",
+
+    categoriesTitle: "Categorieën — Webcamsex per Categorie | StartVagina",
+    categoriesH1: "Webcamsex Categorieën",
+    categoriesDescription: "Kies een categorie en ontdek live cam modellen die bij jouw voorkeur passen. Elke categorie toont modellen van alle platforms — Chaturbate, Stripchat, BongaCams, CAM4 en XCams — op één plek.",
+    categoriesSeoTitle: "Webcamsex per categorie op StartVagina",
+    categoriesSeoP1: "StartVagina biedt een uitgebreid overzicht van webcamsex categorieën. Of je nu op zoek bent naar MILF cam girls, Latina modellen, BDSM shows of cam koppels — elke categorie heeft een eigen pagina met live modellen.",
+    categoriesSeoP2: "Alle categorieën tonen real-time data van de grootste cam platforms: Chaturbate, Stripchat, BongaCams, CAM4 en XCams.",
+
+    countriesTitle: "Webcamsex per Land — Cam Girls uit Alle Landen | StartVagina",
+    countriesH1: "Webcamsex per Land",
+    countriesDescription: "Ontdek live cam modellen uit jouw favoriete land. Van Nederlandse cam girls tot Colombiaanse schoonheden en Oost-Europese modellen — kies een land en bekijk wie er nu live is.",
+    countriesShowLess: "▲ Minder landen tonen",
+    countriesShowAll: (count: number) => `▼ Alle ${count} landen tonen`,
+
+    languagesTitle: "Webcamsex per Taal — Cam Girls in Jouw Taal | StartVagina",
+    languagesH1: "Webcamsex per Taal",
+    languagesH1Selected: (lang: string) => `🗣️ Webcamsex in het ${lang}`,
+    languagesDescription: "Kies een taal en ontdek cam modellen die jouw taal spreken. Van Nederlandstalige cam girls tot Spaanstalige modellen — eindelijk webcamsex zonder taalbarrière.",
+    languagesDescriptionSelected: (lang: string) => `Bekijk alle live cam modellen die ${lang} spreken. Geen taalbarrière — chat direct in jouw taal.`,
+    languagesPickPrompt: "🗣️ Kies een taal om cam modellen te bekijken",
+    languagesModelsOnline: "modellen online",
+
+    newTitle: "Nieuwe Cam Girls — StartVagina | Vers Talent Live",
+    newH1: "🆕 Nieuwe Cam Girls",
+    newDescription: "Ontdek vers talent! Deze modellen zijn net begonnen en staan voor het eerst live. Wees erbij vanaf het begin.",
+    newSectionJustStarted: "⭐ Net Begonnen",
+    newSectionHiddenGems: "💎 Verborgen Pareltjes",
+
+    topTitle: "Top Cams — StartVagina | Meest Bekeken Webcamsex",
+    topH1: "🏆 Top Cams",
+    topDescription: "De populairste cam modellen op dit moment, gesorteerd op aantal kijkers. Dit zijn de shows die je niet wilt missen.",
+    topSectionMostViewed: "🔥 Meest Bekeken Nu",
+    topSectionHD: "📺 Top HD Cams",
+
+    blogTitle: "Blog — StartVagina | Cam Nieuws, Top Modellen & Gidsen",
+    blogDescription: "Top modellen, trending performers en gidsen voor cam liefhebbers.",
+    blogMore: "meer",
+
+    camCardNew: "NIEUW",
+
+    modelsOnline: "modellen online",
+    modelsLoading: "Modellen laden…",
   },
 
   en: {
@@ -270,6 +362,48 @@ export const translations: Record<Language, TranslationStrings> = {
     introText: "Welcome to <strong>StartVagina</strong>, the ultimate search engine for free <strong>webcam sex</strong> and <strong>live sex cams</strong>. Watch thousands of <strong>cam girls</strong> and <strong>webcam models</strong> live. Enjoy free <strong>sex chat</strong>, <strong>erotic webcam</strong> shows and live cam streams. Filter by category, age, country and more.",
 
     langSwitcherLabel: "Language",
+
+    categoriesTitle: "Categories — Webcam Sex by Category | StartVagina",
+    categoriesH1: "Webcam Sex Categories",
+    categoriesDescription: "Choose a category and discover live cam models that match your preference. Each category shows models from all platforms — Chaturbate, Stripchat, BongaCams, CAM4 and XCams — in one place.",
+    categoriesSeoTitle: "Webcam sex by category on StartVagina",
+    categoriesSeoP1: "StartVagina offers a comprehensive overview of webcam sex categories. Whether you're looking for MILF cam girls, Latina models, BDSM shows or cam couples — each category has its own page with live models.",
+    categoriesSeoP2: "All categories show real-time data from the biggest cam platforms: Chaturbate, Stripchat, BongaCams, CAM4 and XCams.",
+
+    countriesTitle: "Webcam Sex by Country — Cam Girls from All Countries | StartVagina",
+    countriesH1: "Webcam Sex by Country",
+    countriesDescription: "Discover live cam models from your favourite country. From Dutch cam girls to Colombian beauties and Eastern European models — pick a country and see who's live now.",
+    countriesShowLess: "▲ Show fewer countries",
+    countriesShowAll: (count: number) => `▼ Show all ${count} countries`,
+
+    languagesTitle: "Webcam Sex by Language — Cam Girls in Your Language | StartVagina",
+    languagesH1: "Webcam Sex by Language",
+    languagesH1Selected: (lang: string) => `🗣️ Webcam sex in ${lang}`,
+    languagesDescription: "Pick a language and discover cam models who speak your language. From Dutch-speaking cam girls to Spanish-speaking models — webcam sex without the language barrier.",
+    languagesDescriptionSelected: (lang: string) => `Watch all live cam models who speak ${lang}. No language barrier — chat directly in your language.`,
+    languagesPickPrompt: "🗣️ Pick a language to view cam models",
+    languagesModelsOnline: "models online",
+
+    newTitle: "New Cam Girls — StartVagina | Fresh Talent Live",
+    newH1: "🆕 New Cam Girls",
+    newDescription: "Discover fresh talent! These models just started and are live for the first time. Be there from the beginning.",
+    newSectionJustStarted: "⭐ Just Started",
+    newSectionHiddenGems: "💎 Hidden Gems",
+
+    topTitle: "Top Cams — StartVagina | Most Viewed Webcam Sex",
+    topH1: "🏆 Top Cams",
+    topDescription: "The most popular cam models right now, sorted by viewer count. These are the shows you don't want to miss.",
+    topSectionMostViewed: "🔥 Most Viewed Now",
+    topSectionHD: "📺 Top HD Cams",
+
+    blogTitle: "Blog — StartVagina | Cam News, Top Models & Guides",
+    blogDescription: "Top models, trending performers and guides for cam enthusiasts.",
+    blogMore: "more",
+
+    camCardNew: "NEW",
+
+    modelsOnline: "models online",
+    modelsLoading: "Loading models…",
   },
 
   fr: {
@@ -350,6 +484,48 @@ export const translations: Record<Language, TranslationStrings> = {
     introText: "Bienvenue sur <strong>StartVagina</strong>, le moteur de recherche ultime pour le <strong>webcam sexe</strong> gratuit et les <strong>cams en direct</strong>. Regardez des milliers de <strong>cam girls</strong> et <strong>modèles webcam</strong> en direct. Profitez du <strong>chat sexe</strong> gratuit, des shows <strong>webcam érotiques</strong> et des streams en direct. Filtrez par catégorie, âge, pays et plus.",
 
     langSwitcherLabel: "Langue",
+
+    categoriesTitle: "Catégories — Webcam Sexe par Catégorie | StartVagina",
+    categoriesH1: "Catégories Webcam Sexe",
+    categoriesDescription: "Choisissez une catégorie et découvrez des modèles cam en direct qui correspondent à vos préférences. Chaque catégorie affiche des modèles de toutes les plateformes.",
+    categoriesSeoTitle: "Webcam sexe par catégorie sur StartVagina",
+    categoriesSeoP1: "StartVagina offre un aperçu complet des catégories de webcam sexe. Que vous recherchiez des cam girls MILF, des modèles Latina, des shows BDSM ou des couples cam.",
+    categoriesSeoP2: "Toutes les catégories affichent des données en temps réel des plus grandes plateformes cam : Chaturbate, Stripchat, BongaCams, CAM4 et XCams.",
+
+    countriesTitle: "Webcam Sexe par Pays — Cam Girls de Tous les Pays | StartVagina",
+    countriesH1: "Webcam Sexe par Pays",
+    countriesDescription: "Découvrez des modèles cam en direct de votre pays préféré. Des cam girls néerlandaises aux beautés colombiennes — choisissez un pays et voyez qui est en direct.",
+    countriesShowLess: "▲ Afficher moins de pays",
+    countriesShowAll: (count: number) => `▼ Afficher les ${count} pays`,
+
+    languagesTitle: "Webcam Sexe par Langue — Cam Girls dans Votre Langue | StartVagina",
+    languagesH1: "Webcam Sexe par Langue",
+    languagesH1Selected: (lang: string) => `🗣️ Webcam sexe en ${lang}`,
+    languagesDescription: "Choisissez une langue et découvrez des modèles cam qui parlent votre langue. Du webcam sexe sans barrière linguistique.",
+    languagesDescriptionSelected: (lang: string) => `Regardez tous les modèles cam en direct qui parlent ${lang}. Aucune barrière linguistique.`,
+    languagesPickPrompt: "🗣️ Choisissez une langue pour voir les modèles cam",
+    languagesModelsOnline: "modèles en ligne",
+
+    newTitle: "Nouvelles Cam Girls — StartVagina | Talents Frais en Direct",
+    newH1: "🆕 Nouvelles Cam Girls",
+    newDescription: "Découvrez de nouveaux talents ! Ces modèles viennent de commencer et sont en direct pour la première fois.",
+    newSectionJustStarted: "⭐ Viennent de Commencer",
+    newSectionHiddenGems: "💎 Perles Cachées",
+
+    topTitle: "Top Cams — StartVagina | Webcam Sexe les Plus Vues",
+    topH1: "🏆 Top Cams",
+    topDescription: "Les modèles cam les plus populaires en ce moment, triées par nombre de spectateurs.",
+    topSectionMostViewed: "🔥 Les Plus Vues",
+    topSectionHD: "📺 Top Cams HD",
+
+    blogTitle: "Blog — StartVagina | Actualités Cam, Top Modèles & Guides",
+    blogDescription: "Top modèles, performers tendance et guides pour les amateurs de cam.",
+    blogMore: "de plus",
+
+    camCardNew: "NOUVEAU",
+
+    modelsOnline: "modèles en ligne",
+    modelsLoading: "Chargement des modèles…",
   },
 
   it: {
@@ -430,6 +606,48 @@ export const translations: Record<Language, TranslationStrings> = {
     introText: "Benvenuto su <strong>StartVagina</strong>, il motore di ricerca definitivo per <strong>webcam sex</strong> gratis e <strong>cam dal vivo</strong>. Guarda migliaia di <strong>cam girl</strong> e <strong>modelle webcam</strong> dal vivo. Goditi la <strong>chat erotica</strong> gratuita, gli show <strong>webcam erotici</strong> e gli stream dal vivo. Filtra per categoria, età, paese e altro.",
 
     langSwitcherLabel: "Lingua",
+
+    categoriesTitle: "Categorie — Webcam Sex per Categoria | StartVagina",
+    categoriesH1: "Categorie Webcam Sex",
+    categoriesDescription: "Scegli una categoria e scopri modelle cam dal vivo che corrispondono alle tue preferenze. Ogni categoria mostra modelle da tutte le piattaforme.",
+    categoriesSeoTitle: "Webcam sex per categoria su StartVagina",
+    categoriesSeoP1: "StartVagina offre una panoramica completa delle categorie di webcam sex. Che tu stia cercando cam girl MILF, modelle Latina, show BDSM o coppie cam.",
+    categoriesSeoP2: "Tutte le categorie mostrano dati in tempo reale dalle più grandi piattaforme cam: Chaturbate, Stripchat, BongaCams, CAM4 e XCams.",
+
+    countriesTitle: "Webcam Sex per Paese — Cam Girl da Tutti i Paesi | StartVagina",
+    countriesH1: "Webcam Sex per Paese",
+    countriesDescription: "Scopri modelle cam dal vivo dal tuo paese preferito. Dalle cam girl olandesi alle bellezze colombiane — scegli un paese e guarda chi è online.",
+    countriesShowLess: "▲ Mostra meno paesi",
+    countriesShowAll: (count: number) => `▼ Mostra tutti i ${count} paesi`,
+
+    languagesTitle: "Webcam Sex per Lingua — Cam Girl nella Tua Lingua | StartVagina",
+    languagesH1: "Webcam Sex per Lingua",
+    languagesH1Selected: (lang: string) => `🗣️ Webcam sex in ${lang}`,
+    languagesDescription: "Scegli una lingua e scopri modelle cam che parlano la tua lingua. Webcam sex senza barriere linguistiche.",
+    languagesDescriptionSelected: (lang: string) => `Guarda tutte le modelle cam dal vivo che parlano ${lang}. Nessuna barriera linguistica.`,
+    languagesPickPrompt: "🗣️ Scegli una lingua per vedere le modelle cam",
+    languagesModelsOnline: "modelle online",
+
+    newTitle: "Nuove Cam Girl — StartVagina | Talenti Freschi dal Vivo",
+    newH1: "🆕 Nuove Cam Girl",
+    newDescription: "Scopri nuovi talenti! Queste modelle hanno appena iniziato e sono dal vivo per la prima volta.",
+    newSectionJustStarted: "⭐ Appena Iniziato",
+    newSectionHiddenGems: "💎 Gemme Nascoste",
+
+    topTitle: "Top Cams — StartVagina | Webcam Sex Più Viste",
+    topH1: "🏆 Top Cams",
+    topDescription: "Le modelle cam più popolari in questo momento, ordinate per numero di spettatori.",
+    topSectionMostViewed: "🔥 Più Viste Ora",
+    topSectionHD: "📺 Top Cams HD",
+
+    blogTitle: "Blog — StartVagina | Notizie Cam, Top Modelle & Guide",
+    blogDescription: "Top modelle, performer di tendenza e guide per gli appassionati di cam.",
+    blogMore: "in più",
+
+    camCardNew: "NUOVA",
+
+    modelsOnline: "modelle online",
+    modelsLoading: "Caricamento modelle…",
   },
 
   de: {
@@ -510,6 +728,48 @@ export const translations: Record<Language, TranslationStrings> = {
     introText: "Willkommen bei <strong>StartVagina</strong>, der ultimativen Suchmaschine für gratis <strong>Webcam Sex</strong> und <strong>Live Sex Cams</strong>. Schau dir tausende <strong>Cam Girls</strong> und <strong>Webcam Models</strong> live an. Genieße kostenlosen <strong>Sexchat</strong>, <strong>erotische Webcam</strong> Shows und Live Cam Streams. Filtere nach Kategorie, Alter, Land und mehr.",
 
     langSwitcherLabel: "Sprache",
+
+    categoriesTitle: "Kategorien — Webcam Sex nach Kategorie | StartVagina",
+    categoriesH1: "Webcam Sex Kategorien",
+    categoriesDescription: "Wähle eine Kategorie und entdecke Live Cam Models die zu deinen Vorlieben passen. Jede Kategorie zeigt Models von allen Plattformen.",
+    categoriesSeoTitle: "Webcam Sex nach Kategorie auf StartVagina",
+    categoriesSeoP1: "StartVagina bietet einen umfassenden Überblick über Webcam Sex Kategorien. Ob du nach MILF Cam Girls, Latina Models, BDSM Shows oder Cam Paaren suchst.",
+    categoriesSeoP2: "Alle Kategorien zeigen Echtzeit-Daten der größten Cam Plattformen: Chaturbate, Stripchat, BongaCams, CAM4 und XCams.",
+
+    countriesTitle: "Webcam Sex nach Land — Cam Girls aus Allen Ländern | StartVagina",
+    countriesH1: "Webcam Sex nach Land",
+    countriesDescription: "Entdecke Live Cam Models aus deinem Lieblingsland. Von niederländischen Cam Girls bis kolumbianischen Schönheiten — wähle ein Land und schau wer gerade live ist.",
+    countriesShowLess: "▲ Weniger Länder zeigen",
+    countriesShowAll: (count: number) => `▼ Alle ${count} Länder zeigen`,
+
+    languagesTitle: "Webcam Sex nach Sprache — Cam Girls in Deiner Sprache | StartVagina",
+    languagesH1: "Webcam Sex nach Sprache",
+    languagesH1Selected: (lang: string) => `🗣️ Webcam Sex auf ${lang}`,
+    languagesDescription: "Wähle eine Sprache und entdecke Cam Models die deine Sprache sprechen. Webcam Sex ohne Sprachbarriere.",
+    languagesDescriptionSelected: (lang: string) => `Schau dir alle Live Cam Models an die ${lang} sprechen. Keine Sprachbarriere.`,
+    languagesPickPrompt: "🗣️ Wähle eine Sprache um Cam Models zu sehen",
+    languagesModelsOnline: "Models online",
+
+    newTitle: "Neue Cam Girls — StartVagina | Frisches Talent Live",
+    newH1: "🆕 Neue Cam Girls",
+    newDescription: "Entdecke frisches Talent! Diese Models haben gerade angefangen und sind zum ersten Mal live.",
+    newSectionJustStarted: "⭐ Gerade Gestartet",
+    newSectionHiddenGems: "💎 Versteckte Perlen",
+
+    topTitle: "Top Cams — StartVagina | Meistgesehener Webcam Sex",
+    topH1: "🏆 Top Cams",
+    topDescription: "Die beliebtesten Cam Models gerade, sortiert nach Zuschauerzahl. Das sind die Shows die du nicht verpassen willst.",
+    topSectionMostViewed: "🔥 Meistgesehen Jetzt",
+    topSectionHD: "📺 Top HD Cams",
+
+    blogTitle: "Blog — StartVagina | Cam News, Top Models & Guides",
+    blogDescription: "Top Models, Trending Performer und Guides für Cam-Fans.",
+    blogMore: "mehr",
+
+    camCardNew: "NEU",
+
+    modelsOnline: "Models online",
+    modelsLoading: "Models werden geladen…",
   },
 
   es: {
@@ -590,5 +850,47 @@ export const translations: Record<Language, TranslationStrings> = {
     introText: "Bienvenido a <strong>StartVagina</strong>, el buscador definitivo de <strong>webcam sexo</strong> gratis y <strong>cams en vivo</strong>. Mira miles de <strong>cam girls</strong> y <strong>modelos webcam</strong> en directo. Disfruta del <strong>chat sexual</strong> gratuito, shows de <strong>webcam erótica</strong> y streams en vivo. Filtra por categoría, edad, país y más.",
 
     langSwitcherLabel: "Idioma",
+
+    categoriesTitle: "Categorías — Webcam Sexo por Categoría | StartVagina",
+    categoriesH1: "Categorías Webcam Sexo",
+    categoriesDescription: "Elige una categoría y descubre modelos cam en vivo que se ajustan a tus preferencias. Cada categoría muestra modelos de todas las plataformas.",
+    categoriesSeoTitle: "Webcam sexo por categoría en StartVagina",
+    categoriesSeoP1: "StartVagina ofrece una visión completa de las categorías de webcam sexo. Ya busques cam girls MILF, modelos Latina, shows BDSM o parejas cam.",
+    categoriesSeoP2: "Todas las categorías muestran datos en tiempo real de las mayores plataformas cam: Chaturbate, Stripchat, BongaCams, CAM4 y XCams.",
+
+    countriesTitle: "Webcam Sexo por País — Cam Girls de Todos los Países | StartVagina",
+    countriesH1: "Webcam Sexo por País",
+    countriesDescription: "Descubre modelos cam en vivo de tu país favorito. Desde cam girls holandesas hasta bellezas colombianas — elige un país y mira quién está en directo.",
+    countriesShowLess: "▲ Mostrar menos países",
+    countriesShowAll: (count: number) => `▼ Mostrar los ${count} países`,
+
+    languagesTitle: "Webcam Sexo por Idioma — Cam Girls en Tu Idioma | StartVagina",
+    languagesH1: "Webcam Sexo por Idioma",
+    languagesH1Selected: (lang: string) => `🗣️ Webcam sexo en ${lang}`,
+    languagesDescription: "Elige un idioma y descubre modelos cam que hablan tu idioma. Webcam sexo sin barrera lingüística.",
+    languagesDescriptionSelected: (lang: string) => `Mira todas las modelos cam en vivo que hablan ${lang}. Sin barrera lingüística.`,
+    languagesPickPrompt: "🗣️ Elige un idioma para ver modelos cam",
+    languagesModelsOnline: "modelos en línea",
+
+    newTitle: "Nuevas Cam Girls — StartVagina | Talento Fresco en Vivo",
+    newH1: "🆕 Nuevas Cam Girls",
+    newDescription: "¡Descubre talento fresco! Estas modelos acaban de empezar y están en directo por primera vez.",
+    newSectionJustStarted: "⭐ Recién Empezadas",
+    newSectionHiddenGems: "💎 Joyas Ocultas",
+
+    topTitle: "Top Cams — StartVagina | Webcam Sexo Más Vistas",
+    topH1: "🏆 Top Cams",
+    topDescription: "Las modelos cam más populares ahora mismo, ordenadas por espectadores. Estos son los shows que no te puedes perder.",
+    topSectionMostViewed: "🔥 Más Vistas Ahora",
+    topSectionHD: "📺 Top Cams HD",
+
+    blogTitle: "Blog — StartVagina | Noticias Cam, Top Modelos & Guías",
+    blogDescription: "Top modelos, performers tendencia y guías para aficionados al cam.",
+    blogMore: "más",
+
+    camCardNew: "NUEVA",
+
+    modelsOnline: "modelos en línea",
+    modelsLoading: "Cargando modelos…",
   },
 };

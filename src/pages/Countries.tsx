@@ -1,5 +1,4 @@
 import { useState, useMemo, useRef } from "react";
-import { Link /* replaced */ } from "react-router-dom";
 import LocalLink from "@/components/LocalLink";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -13,8 +12,8 @@ const Countries = () => {
   const { allCams } = useAllCams();
   const [expanded, setExpanded] = useState(false);
   const chipsRef = useRef<HTMLDivElement>(null);
+  const { t, langPrefix } = useLanguage();
 
-  /** Merge country name variants into a canonical name */
   const countryMergeMap: Record<string, string> = {
     "The Netherlands": "Nederland",
     "Netherlands": "Nederland",
@@ -23,7 +22,6 @@ const Countries = () => {
     "Belgium": "België",
   };
 
-  // Pinned countries shown first (in this order)
   const pinnedCountries = [
     "Nederland", "België", "Suriname", "Curaçao", "Aruba", "Sint Maarten",
   ];
@@ -32,7 +30,6 @@ const Countries = () => {
     const map = new Map<string, { flag: string; count: number }>();
     for (const m of allCams) {
       if (!m.country || m.country === "Onbekend") continue;
-      // Merge variants into canonical name
       const canonical = countryMergeMap[m.country] || m.country;
       const flag = canonical === "Nederland" ? "🇳🇱" : canonical === "België" ? "🇧🇪" : m.countryFlag;
       const existing = map.get(canonical);
@@ -56,30 +53,26 @@ const Countries = () => {
       });
   }, [allCams]);
 
-
-
   return (
     <AgeGate>
       <div className="min-h-screen flex flex-col bg-background">
         <Helmet>
-          <title>Webcamsex per Land — Cam Girls uit Alle Landen | StartVagina</title>
-          <meta name="description" content="Bekijk live webcam modellen per land. Nederlandse, Belgische, Duitse, Colombiaanse en internationale cam girls op StartVagina. Gratis webcamsex uit elk land." />
-          <meta name="keywords" content="webcamsex per land, cam girls per land, internationale webcamsex, webcam modellen landen" />
+          <title>{t.countriesTitle}</title>
+          <meta name="description" content={t.countriesDescription} />
           <meta name="robots" content="index, follow" />
-          <link rel="canonical" href="https://startvagina.nl/countries" />
+          <link rel="canonical" href={`https://startvagina.nl${langPrefix}/countries`} />
         </Helmet>
 
         <Header />
 
         <main className="container flex-1 py-6">
           <h1 className="text-2xl md:text-3xl font-bold font-display mb-2">
-            Webcamsex per Land
+            {t.countriesH1}
           </h1>
           <p className="text-sm text-muted-foreground mb-6 max-w-2xl leading-relaxed">
-            Ontdek live cam modellen uit jouw favoriete land. Van Nederlandse cam girls tot Colombiaanse schoonheden en Oost-Europese modellen — kies een land en bekijk wie er nu live is.
+            {t.countriesDescription}
           </p>
 
-          {/* Country chips — all link to dedicated pages, 3 rows visible, expandable */}
           <div
             ref={chipsRef}
             className={`flex flex-wrap gap-2 mb-2 overflow-hidden transition-all duration-300 ${
@@ -103,7 +96,7 @@ const Countries = () => {
               onClick={() => setExpanded(!expanded)}
               className="text-sm text-primary hover:text-primary/80 transition-colors mb-6 flex items-center gap-1"
             >
-              {expanded ? "▲ Minder landen tonen" : `▼ Alle ${countryCounts.length} landen tonen`}
+              {expanded ? t.countriesShowLess : t.countriesShowAll(countryCounts.length)}
             </button>
           )}
           {(expanded || countryCounts.length <= 15) && <div className="mb-6" />}

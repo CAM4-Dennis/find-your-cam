@@ -238,7 +238,7 @@ Het platform is minder bekend dan de grote namen, maar dat is juist het voordeel
 
 const PlatformLanding = () => {
   const location = useLocation();
-  const { basePath } = useLanguage();
+  const { basePath, t } = useLanguage();
   const slug = basePath.replace(/^\//, "");
   const config = platforms[slug || ""];
   const { allCams, isLoading } = useAllCams();
@@ -291,7 +291,7 @@ const PlatformLanding = () => {
           {isLoading ? (
             <div className="flex items-center gap-2 text-muted-foreground py-12 justify-center">
               <Loader2 size={20} className="animate-spin text-primary" />
-              <span>Modellen laden…</span>
+              <span>{t.modelsLoading}</span>
             </div>
           ) : (
             <CamGrid

@@ -82,7 +82,7 @@ const keywordPages: Record<string, KeywordConfig> = {
 
 const KeywordLanding = () => {
   const location = useLocation();
-  const { basePath } = useLanguage();
+  const { basePath, t } = useLanguage();
   const keyword = basePath.replace(/^\//, "");
   const config = keywordPages[keyword || ""];
   const { allCams, isLoading } = useAllCams();
@@ -130,7 +130,7 @@ const KeywordLanding = () => {
           {isLoading ? (
             <div className="flex items-center gap-2 text-muted-foreground py-12 justify-center">
               <Loader2 size={20} className="animate-spin text-primary" />
-              <span>Modellen laden…</span>
+              <span>{t.modelsLoading}</span>
             </div>
           ) : <CamGrid models={shuffled} />}
 

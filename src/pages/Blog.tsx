@@ -1,4 +1,3 @@
-import { Link /* replaced */ } from "react-router-dom";
 import LocalLink from "@/components/LocalLink";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -16,20 +15,21 @@ const platformColors: Record<string, string> = {
 
 const Blog = () => {
   const sorted = [...blogPosts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  const { t, lang } = useLanguage();
 
   return (
     <AgeGate>
       <div className="min-h-screen flex flex-col bg-background">
         <Helmet>
-          <title>Blog — StartVagina | Cam Nieuws, Top Modellen & Gidsen</title>
-          <meta name="description" content="Lees de laatste cam nieuws, top model lijsten en beginnersgidsen. Ontdek trending modellen op Chaturbate, Stripchat, BongaCams en CAM4." />
+          <title>{t.blogTitle}</title>
+          <meta name="description" content={t.blogDescription} />
         </Helmet>
 
         <Header />
 
         <main className="container flex-1 py-8">
           <h1 className="text-3xl font-bold font-display text-foreground mb-2">Blog</h1>
-          <p className="text-muted-foreground mb-8">Top modellen, trending performers en gidsen voor cam liefhebbers.</p>
+          <p className="text-muted-foreground mb-8">{t.blogDescription}</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {sorted.map((post) => (
@@ -46,7 +46,7 @@ const Blog = () => {
                       </span>
                     )}
                     <span className="text-xs text-muted-foreground">
-                      {new Date(post.date).toLocaleDateString("nl-NL", { day: "numeric", month: "long", year: "numeric" })}
+                      {new Date(post.date).toLocaleDateString(lang === "nl" ? "nl-NL" : lang === "de" ? "de-DE" : lang === "fr" ? "fr-FR" : lang === "it" ? "it-IT" : lang === "es" ? "es-ES" : "en-US", { day: "numeric", month: "long", year: "numeric" })}
                     </span>
                   </div>
                   <h2 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors leading-tight">
@@ -64,7 +64,7 @@ const Blog = () => {
                       ))}
                       {post.models.length > 4 && (
                         <span className="text-[10px] bg-secondary text-muted-foreground px-1.5 py-0.5 rounded">
-                          +{post.models.length - 4} meer
+                          +{post.models.length - 4} {t.blogMore}
                         </span>
                       )}
                     </div>

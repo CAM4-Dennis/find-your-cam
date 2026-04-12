@@ -492,7 +492,7 @@ Op StartVagina verzamelen we modellen van alle grote cam platforms op één plek
 const CountryLandingPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { basePath } = useLanguage();
+  const { basePath, t } = useLanguage();
   const slug = basePath.replace(/^\//, "");
   const { allCams, isLoading } = useAllCams();
 
@@ -605,7 +605,7 @@ const CountryLandingPage = () => {
           {isLoading ? (
             <div className="flex items-center gap-2 text-muted-foreground py-12 justify-center">
               <Loader2 size={20} className="animate-spin text-primary" />
-              <span>Modellen laden…</span>
+              <span>{t.modelsLoading}</span>
             </div>
           ) : (
             <CamGrid

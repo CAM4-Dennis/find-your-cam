@@ -5,9 +5,11 @@ import AgeGate from "@/components/AgeGate";
 import CamGrid from "@/components/CamGrid";
 import { Helmet } from "react-helmet-async";
 import { useAllCams } from "@/hooks/useAllCams";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const New = () => {
   const { allCams, isLoading } = useAllCams();
+  const { t } = useLanguage();
 
   const newCams = useMemo(() => {
     return allCams
@@ -15,7 +17,6 @@ const New = () => {
       .sort(() => Math.random() - 0.5);
   }, [allCams]);
 
-  // Also show young models who are newer to camming (low viewer count as heuristic)
   const recentlyDiscovered = useMemo(() => {
     return allCams
       .filter(m => !m.isNew && m.viewers <= 50)
@@ -27,8 +28,8 @@ const New = () => {
     <AgeGate>
       <div className="min-h-screen flex flex-col bg-background">
         <Helmet>
-          <title>Nieuwe Cam Girls — StartVagina | Vers Talent Live</title>
-          <meta name="description" content="Ontdek nieuwe cam girls die net begonnen zijn met webcammen. Vers talent live op StartVagina — als eerste ontdekken!" />
+          <title>{t.newTitle}</title>
+          <meta name="description" content={t.newDescription} />
         </Helmet>
 
         <Header />
@@ -36,15 +37,15 @@ const New = () => {
         <main className="container flex-1 py-6 space-y-8">
           <div>
             <h1 className="text-2xl md:text-3xl font-bold font-display mb-2">
-              🆕 Nieuwe Cam Girls
+              {t.newH1}
             </h1>
             <p className="text-sm text-muted-foreground max-w-2xl">
-              Ontdek vers talent! Deze modellen zijn net begonnen en staan voor het eerst live. Wees erbij vanaf het begin.
+              {t.newDescription}
             </p>
           </div>
 
           <CamGrid
-            title="⭐ Net Begonnen"
+            title={t.newSectionJustStarted}
             models={newCams}
             totalOnline={newCams.length}
             isLoading={isLoading}
@@ -52,7 +53,7 @@ const New = () => {
 
           {recentlyDiscovered.length > 0 && (
             <CamGrid
-              title="💎 Verborgen Pareltjes"
+              title={t.newSectionHiddenGems}
               models={recentlyDiscovered}
               totalOnline={recentlyDiscovered.length}
               isLoading={isLoading}

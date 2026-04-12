@@ -5,16 +5,16 @@ import AgeGate from "@/components/AgeGate";
 import CamGrid from "@/components/CamGrid";
 import { Helmet } from "react-helmet-async";
 import { useAllCams } from "@/hooks/useAllCams";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const TopCams = () => {
   const { allCams, isLoading } = useAllCams();
+  const { t } = useLanguage();
 
-  // Top by viewers
   const topByViewers = useMemo(() => {
     return [...allCams].sort((a, b) => b.viewers - a.viewers).slice(0, 30);
   }, [allCams]);
 
-  // Top HD cams
   const topHD = useMemo(() => {
     return allCams
       .filter(m => m.isHD)
@@ -22,7 +22,6 @@ const TopCams = () => {
       .slice(0, 15);
   }, [allCams]);
 
-  // Top per platform
   const topPerPlatform = useMemo(() => {
     const platforms = ["Cam4", "Chaturbate", "BongaCams", "Stripchat"];
     return platforms.map(platform => ({
@@ -38,8 +37,8 @@ const TopCams = () => {
     <AgeGate>
       <div className="min-h-screen flex flex-col bg-background">
         <Helmet>
-          <title>Top Cams — StartVagina | Meest Bekeken Webcamsex</title>
-          <meta name="description" content="De meest bekeken live webcam modellen op dit moment. Top cam girls van Chaturbate, Stripchat, BongaCams en Cam4 op StartVagina." />
+          <title>{t.topTitle}</title>
+          <meta name="description" content={t.topDescription} />
         </Helmet>
 
         <Header />
@@ -47,15 +46,15 @@ const TopCams = () => {
         <main className="container flex-1 py-6 space-y-8">
           <div>
             <h1 className="text-2xl md:text-3xl font-bold font-display mb-2">
-              🏆 Top Cams
+              {t.topH1}
             </h1>
             <p className="text-sm text-muted-foreground max-w-2xl">
-              De populairste cam modellen op dit moment, gesorteerd op aantal kijkers. Dit zijn de shows die je niet wilt missen.
+              {t.topDescription}
             </p>
           </div>
 
           <CamGrid
-            title="🔥 Meest Bekeken Nu"
+            title={t.topSectionMostViewed}
             models={topByViewers}
             totalOnline={topByViewers.length}
             isLoading={isLoading}
@@ -63,7 +62,7 @@ const TopCams = () => {
 
           {topHD.length > 0 && (
             <CamGrid
-              title="📺 Top HD Cams"
+              title={t.topSectionHD}
               models={topHD}
               totalOnline={topHD.length}
               isLoading={isLoading}

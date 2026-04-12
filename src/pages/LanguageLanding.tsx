@@ -270,7 +270,7 @@ const allLanguagePages = Object.values(languagePages);
 
 const LanguageLanding = () => {
   const location = useLocation();
-  const { basePath } = useLanguage();
+  const { basePath, t } = useLanguage();
   const slug = basePath.replace(/^\//, "");
   const config = languagePages[slug || ""];
   const { allCams, isLoading } = useAllCams();
@@ -320,7 +320,7 @@ const LanguageLanding = () => {
           {isLoading ? (
             <div className="flex items-center gap-2 text-muted-foreground py-12 justify-center">
               <Loader2 size={20} className="animate-spin text-primary" />
-              <span>Modellen laden…</span>
+              <span>{t.modelsLoading}</span>
             </div>
           ) : (
             <CamGrid

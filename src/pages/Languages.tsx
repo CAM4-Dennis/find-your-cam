@@ -1,5 +1,4 @@
 import { useState, useMemo, useRef } from "react";
-import { Link /* replaced */ } from "react-router-dom";
 import LocalLink from "@/components/LocalLink";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -9,7 +8,6 @@ import { Helmet } from "react-helmet-async";
 import { useAllCams } from "@/hooks/useAllCams";
 import { useLanguage } from "@/i18n/LanguageContext";
 
-/** Display name → matching aliases (same as filterModels.ts) */
 const languageAliases: Record<string, string[]> = {
   Nederlands: ["dutch", "nl", "nederlands", "nederlandstalig"],
   English: ["english", "en", "eng"],
@@ -57,7 +55,6 @@ function modelMatchesLanguage(modelLanguages: string[], langName: string): boole
   });
 }
 
-/** Map language display name to landing page slug */
 const languageSlugMap: Record<string, string> = {
   Nederlands: "webcamsex-in-het-nederlands",
   English: "english-webcam-sex-chat",
@@ -75,8 +72,8 @@ const Languages = () => {
   const { allCams, isLoading } = useAllCams();
   const [selected, setSelected] = useState<string | null>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
+  const { t, langPrefix } = useLanguage();
 
-  // Build language list with counts
   const languageCounts = useMemo(() => {
     const counts: Record<string, number> = {};
     for (const langName of Object.keys(languageAliases)) {
@@ -88,12 +85,9 @@ const Languages = () => {
       }
       if (count > 0) counts[langName] = count;
     }
-
-    // Also count unknown/other languages from the raw data
     return Object.entries(counts)
       .map(([lang, count]) => ({ lang, emoji: languageEmojis[lang] || "🗣️", count }))
       .sort((a, b) => {
-        // Nederlands always first
         if (a.lang === "Nederlands") return -1;
         if (b.lang === "Nederlands") return 1;
         if (a.lang === "English") return -1;
@@ -109,7 +103,6 @@ const Languages = () => {
       .sort(() => Math.random() - 0.5);
   }, [allCams, selected]);
 
-  // Scroll to results
   const handleSelect = (lang: string) => {
     setSelected(selected === lang ? null : lang);
     setTimeout(() => {
@@ -123,30 +116,25 @@ const Languages = () => {
     <AgeGate>
       <div className="min-h-screen flex flex-col bg-background">
         <Helmet>
-          <title>Webcamsex per Taal — Cam Girls in Jouw Taal | StartVagina</title>
-          <meta
-            name="description"
-            content="Vind cam girls die jouw taal spreken. Filter webcamsex op Nederlands, Engels, Duits, Frans, Spaans en meer. Webcam modellen in elke taal op StartVagina."
-          />
-          <meta name="keywords" content="webcamsex per taal, nederlandstalige cam girls, cam girls taal, webcamsex nederlands, webcam talen" />
+          <title>{t.languagesTitle}</title>
+          <meta name="description" content={t.languagesDescription} />
           <meta name="robots" content="index, follow" />
-          <link rel="canonical" href="https://startvagina.nl/languages" />
+          <link rel="canonical" href={`https://startvagina.nl${langPrefix}/languages`} />
         </Helmet>
 
         <Header />
 
         <main className="container flex-1 py-6">
           <h1 className="text-2xl md:text-3xl font-bold font-display mb-2">
-            {selected ? `🗣️ Webcamsex in het ${selected}` : "Webcamsex per Taal"}
+            {selected ? t.languagesH1Selected(selected) : t.languagesH1}
           </h1>
           <p className="text-sm text-muted-foreground mb-6 max-w-2xl leading-relaxed">
             {selected
-              ? `Bekijk alle live cam modellen die ${selected} spreken. Geen taalbarrière — chat direct in jouw taal.`
-              : "Kies een taal en ontdek cam modellen die jouw taal spreken. Van Nederlandstalige cam girls tot Spaanstalige modellen — eindelijk webcamsex zonder taalbarrière."
+              ? t.languagesDescriptionSelected(selected)
+              : t.languagesDescription
             }
           </p>
 
-          {/* Language chips — languages with landing pages link out */}
           <div className="flex flex-wrap gap-2 mb-8">
             {languageCounts.map(({ lang, emoji, count }) => {
               const landingSlug = languageSlugMap[lang];
@@ -184,11 +172,10 @@ const Languages = () => {
             })}
           </div>
 
-          {/* Results */}
           <div ref={resultsRef} />
           {selected && filteredCams ? (
             <CamGrid
-              title={`🗣️ ${selected} — ${filteredCams.length} modellen online`}
+              title={`🗣️ ${selected} — ${filteredCams.length} ${t.languagesModelsOnline}`}
               models={filteredCams}
               totalOnline={filteredCams.length}
               isLoading={isLoading}
@@ -196,7 +183,7 @@ const Languages = () => {
           ) : (
             !selected && (
               <div className="text-center py-12 text-muted-foreground">
-                <p className="text-lg">🗣️ Kies een taal om cam modellen te bekijken</p>
+                <p className="text-lg">{t.languagesPickPrompt}</p>
               </div>
             )
           )}

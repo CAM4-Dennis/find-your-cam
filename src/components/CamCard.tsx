@@ -11,7 +11,7 @@ interface CamCardProps {
 const CamCard = ({ model }: CamCardProps) => {
   const [imgError, setImgError] = useState(false);
   const { sfwMode } = useSfwMode();
-  const { localePath } = useLanguage();
+  const { localePath, t } = useLanguage();
 
   return (
     <article className="cam-card group" aria-label={`${model.name}${model.age ? `, ${model.age} jaar` : ''}`}>
@@ -33,7 +33,7 @@ const CamCard = ({ model }: CamCardProps) => {
           )}
           {model.isNew && (
             <span className="absolute top-2 left-1/2 -translate-x-1/2 bg-accent/90 text-accent-foreground text-[10px] font-bold px-1.5 py-0.5 rounded">
-              NIEUW
+              {t.camCardNew}
             </span>
           )}
         </div>
