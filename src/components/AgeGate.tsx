@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const AgeGate = ({ children }: { children: React.ReactNode }) => {
   const [verified, setVerified] = useState(false);
   const [checking, setChecking] = useState(true);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const stored = localStorage.getItem("sv_age_verified");
@@ -33,21 +35,20 @@ const AgeGate = ({ children }: { children: React.ReactNode }) => {
               <span className="text-primary">Start</span>Vagina
             </h2>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Deze website bevat expliciete inhoud die alleen bedoeld is voor volwassenen (18+). 
-              Door verder te gaan bevestig je dat je 18 jaar of ouder bent.
+              {t.ageGateText}
             </p>
             <div className="flex flex-col gap-3">
               <button
                 onClick={handleVerify}
                 className="w-full py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
               >
-                Ik ben 18 jaar of ouder — Doorgaan
+                {t.ageGateConfirm}
               </button>
               <a
                 href="https://www.google.com"
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
-                Ik ben jonger dan 18 — Verlaat de site
+                {t.ageGateLeave}
               </a>
             </div>
           </div>

@@ -18,10 +18,13 @@ import type { CamFilters } from "@/types/filters";
 import { defaultFilters } from "@/types/filters";
 import { applyFilters } from "@/lib/filterModels";
 import { getCountryName } from "@/lib/countryFlags";
+import { useLanguage } from "@/i18n/LanguageContext";
+import { OG_LOCALES } from "@/i18n/translations";
 
 const Index = () => {
   const { data: geo } = useGeoLocation();
   const [filters, setFilters] = useState<CamFilters>(defaultFilters);
+  const { t, lang, langPrefix } = useLanguage();
 
   // Stagger API calls: primary loads immediately, secondary after 500ms
   const [loadSecondary, setLoadSecondary] = useState(false);
@@ -126,38 +129,39 @@ const Index = () => {
   const isLoading = loadingCam4 || loadingCB || loadingBonga || loadingXCams || loadingStrip ||
     loadingCouples4 || loadingCouplesCB || loadingCouplesBonga || loadingCouplesXCams || loadingStripCouples || loadingNew;
 
+  const canonicalUrl = `https://startvagina.nl${langPrefix || ""}`;
+
   return (
     <AgeGate>
       <div className="min-h-screen flex flex-col bg-background">
         <Helmet>
-          <title>StartVagina — Gratis Webcamsex & Live Sex Cams Nederland België</title>
-          <meta
-            name="description"
-            content="StartVagina is dé zoekmachine voor gratis webcamsex en live sex cams. Bekijk duizenden cam girls van Chaturbate, Stripchat, BongaCams en Cam4. Nederlandse en Belgische webcam modellen, sexchat en erotische shows. Filter op leeftijd, land en categorie."
-          />
-          <meta name="keywords" content="webcamsex, live sex cams, gratis webcam, sexchat, cam girls, Nederlandse webcamsex, Belgische webcamsex, erotische webcam, webcam modellen, live sex chat, gratis cam, cam meisjes, sex cam, webcam sex, live cam" />
+          <html lang={lang} />
+          <title>{t.siteTitle}</title>
+          <meta name="description" content={t.siteDescription} />
+          <meta name="keywords" content="webcamsex, live sex cams, gratis webcam, sexchat, cam girls" />
           <meta name="robots" content="index, follow" />
-          <link rel="canonical" href="https://startvagina.nl" />
-          <meta property="og:title" content="StartVagina — Gratis Webcamsex & Live Sex Cams" />
-          <meta property="og:description" content="Dé zoekmachine voor gratis webcamsex. Nederlandse en Belgische cam girls live op je scherm." />
+          <link rel="canonical" href={canonicalUrl} />
+          <meta property="og:title" content={t.ogTitle} />
+          <meta property="og:description" content={t.ogDescription} />
           <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://startvagina.nl" />
+          <meta property="og:url" content={canonicalUrl} />
           <meta property="og:site_name" content="StartVagina" />
+          <meta property="og:locale" content={OG_LOCALES[lang]} />
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="StartVagina — Gratis Webcamsex & Live Cam Girls" />
-          <meta name="twitter:description" content="Dé zoekmachine voor gratis webcamsex en live sex cams in Nederland en België." />
+          <meta name="twitter:title" content={t.twitterTitle} />
+          <meta name="twitter:description" content={t.twitterDescription} />
           <script type="application/ld+json">
             {JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
               name: "StartVagina",
-              url: "https://startvagina.nl",
+              url: canonicalUrl,
               alternateName: "StartVagina.nl",
-              description: "Dé zoekmachine voor gratis webcamsex, live sex cams en erotische webcam shows van Nederlandse en Belgische cam girls.",
-              inLanguage: "nl",
+              description: t.siteDescription,
+              inLanguage: lang,
               potentialAction: {
                 "@type": "SearchAction",
-                target: "https://startvagina.nl/search?q={search_term_string}",
+                target: `${canonicalUrl}/search?q={search_term_string}`,
                 "query-input": "required name=search_term_string",
               },
             })}
@@ -168,7 +172,7 @@ const Index = () => {
 
         <main className="container flex-1 py-6">
           <h1 className="text-2xl md:text-3xl font-bold font-display mb-4">
-            Gratis Webcamsex & Live Sex Cams
+            {t.heroTitle}
           </h1>
 
           <LoadingBar
@@ -185,7 +189,7 @@ const Index = () => {
             <div className="flex-1 space-y-8 min-w-0">
               {hasActiveFilters && filteredModels ? (
                 <CamGrid
-                  title={`🔍 Filterresultaten`}
+                  title={t.filterResults}
                   models={filteredModels}
                   totalOnline={filteredModels.length}
                   isLoading={isLoading}
@@ -194,48 +198,48 @@ const Index = () => {
                 <>
                   {/* Above the fold — render immediately */}
                   <CamGrid
-                    title="🔥 Populaire Cams"
+                    title={t.sectionPopular}
                     models={popularCams.slice(0, 10)}
                     totalOnline={popularCams.length}
                     isLoading={loadingCam4 || loadingCB || loadingBonga}
                   />
                   <CamGrid
-                    title="🆕 Nieuwe Cams"
+                    title={t.sectionNew}
                     models={newCamsSection}
                     isLoading={isLoading}
                   />
                   {/* Below the fold — lazy render on scroll */}
                   <LazySection>
                     <CamGrid
-                      title="🔞 Leeftijd 20-30"
+                      title={t.sectionAge2030}
                       models={youngCams}
                       isLoading={isLoading}
                     />
                   </LazySection>
                   <LazySection>
                     <CamGrid
-                      title="📱 Mobiele Cams"
+                      title={t.sectionMobile}
                       models={mobileCams}
                       isLoading={isLoading}
                     />
                   </LazySection>
                   <LazySection>
                     <CamGrid
-                      title="🌳 Outdoor Cams"
+                      title={t.sectionOutdoor}
                       models={outdoorCams}
                       isLoading={isLoading}
                     />
                   </LazySection>
                   <LazySection>
                     <CamGrid
-                      title="💑 Koppels"
+                      title={t.sectionCouples}
                       models={couples}
                       isLoading={loadingCouples4 || loadingCouplesCB || loadingCouplesBonga || loadingCouplesXCams}
                     />
                   </LazySection>
                   <LazySection>
                     <CamGrid
-                      title="🔍 Meer Ontdekken"
+                      title={t.sectionDiscover}
                       models={newCams}
                       isLoading={loadingNew || loadingCB}
                     />
@@ -254,12 +258,15 @@ const Index = () => {
 
         <LazySection minHeight="100px">
           <div className="container max-w-3xl py-8">
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Welkom bij <strong className="text-foreground">StartVagina</strong>, dé zoekmachine voor gratis <strong className="text-foreground">webcamsex</strong> en <strong className="text-foreground">live sex cams</strong>. 
-              Bekijk duizenden <strong className="text-foreground">cam girls</strong> en <strong className="text-foreground">webcam modellen</strong> uit Nederland en België. 
-              Geniet van gratis <strong className="text-foreground">sexchat</strong>, <strong className="text-foreground">erotische webcam</strong> shows en live cam streams. 
-              Filter op categorie, leeftijd, land en meer.
-            </p>
+            <p
+              className="text-sm text-muted-foreground leading-relaxed"
+              dangerouslySetInnerHTML={{
+                __html: t.introText.replace(
+                  /<strong>/g,
+                  '<strong class="text-foreground">'
+                ),
+              }}
+            />
           </div>
         </LazySection>
 

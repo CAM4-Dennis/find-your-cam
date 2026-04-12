@@ -1,28 +1,44 @@
-import { Search, Menu, X, Eye, EyeOff } from "lucide-react";
-import { useState } from "react";
+import { Search, Menu, X, Eye, EyeOff, Globe } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
 import { useSfwMode } from "@/hooks/useSfwMode";
-
-const navItems = [
-  { label: "Home", href: "/" },
-  { label: "Categorieën", href: "/categories" },
-  { label: "Landen", href: "/countries" },
-  { label: "Talen", href: "/languages" },
-  { label: "Nieuw", href: "/new" },
-  { label: "Top Cams", href: "/top" },
-  { label: "Blog", href: "/blog" },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
+import { SUPPORTED_LANGUAGES, LANGUAGE_LABELS, type Language } from "@/i18n/translations";
 
 const Header = () => {
   const [searchOpen, setSearchOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
   const { sfwMode, toggleSfw } = useSfwMode();
+  const { t, lang, localePath, switchLanguage } = useLanguage();
+  const langRef = useRef<HTMLDivElement>(null);
+
+  const navItems = [
+    { label: t.navHome, href: localePath("/") },
+    { label: t.navCategories, href: localePath("/categories") },
+    { label: t.navCountries, href: localePath("/countries") },
+    { label: t.navLanguages, href: localePath("/languages") },
+    { label: t.navNew, href: localePath("/new") },
+    { label: t.navTopCams, href: localePath("/top") },
+    { label: t.navBlog, href: localePath("/blog") },
+  ];
+
+  // Close language dropdown on outside click
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+        setLangOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-md">
       {/* Top bar */}
       <div className="container flex items-center justify-between h-14">
         {/* Logo */}
-        <a href="/" className="flex items-center gap-2 shrink-0">
+        <a href={localePath("/")} className="flex items-center gap-2 shrink-0">
           <span className="text-2xl font-bold font-display tracking-tight">
             <span className="text-primary">Start</span>
             <span className="text-foreground">Vagina</span>
@@ -38,8 +54,35 @@ const Header = () => {
           ))}
         </nav>
 
-        {/* Search & Mobile Menu */}
+        {/* Search, Language & Mobile Menu */}
         <div className="flex items-center gap-3">
+          {/* Language Switcher */}
+          <div className="relative" ref={langRef}>
+            <button
+              onClick={() => setLangOpen(!langOpen)}
+              className="flex items-center gap-1 text-xs px-2 py-1.5 rounded-md border border-border bg-secondary text-muted-foreground hover:text-foreground transition-colors"
+              aria-label={t.langSwitcherLabel}
+            >
+              <Globe size={14} />
+              <span className="hidden sm:inline">{lang.toUpperCase()}</span>
+            </button>
+            {langOpen && (
+              <div className="absolute right-0 top-full mt-1 bg-card border border-border rounded-md shadow-lg py-1 z-50 min-w-[140px]">
+                {SUPPORTED_LANGUAGES.map((l) => (
+                  <button
+                    key={l}
+                    onClick={() => { switchLanguage(l as Language); setLangOpen(false); }}
+                    className={`block w-full text-left px-3 py-1.5 text-sm hover:bg-accent transition-colors ${
+                      l === lang ? "text-primary font-medium" : "text-foreground"
+                    }`}
+                  >
+                    {LANGUAGE_LABELS[l as Language]}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
           <button
             onClick={toggleSfw}
             className={`flex items-center gap-1.5 text-xs px-2.5 py-1.5 rounded-md border transition-colors ${
@@ -51,23 +94,23 @@ const Header = () => {
             title={sfwMode ? "Thumbnails zijn verborgen — klik om te tonen" : "Klik om thumbnails te verbergen (SFW)"}
           >
             {sfwMode ? <EyeOff size={14} /> : <Eye size={14} />}
-            <span className="hidden sm:inline">{sfwMode ? "SFW" : "NSFW"}</span>
+            <span className="hidden sm:inline">{sfwMode ? t.sfwLabel : t.nsfwLabel}</span>
           </button>
           {searchOpen ? (
             <div className="flex items-center gap-2">
               <input
                 type="search"
-                placeholder="Zoek model of categorie..."
+                placeholder={t.searchPlaceholder}
                 className="bg-secondary border border-border rounded-md px-3 py-1.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary w-48 md:w-64"
                 autoFocus
-                aria-label="Zoeken"
+                aria-label={t.searchPlaceholder}
               />
               <button onClick={() => setSearchOpen(false)} className="text-muted-foreground hover:text-foreground" aria-label="Sluiten">
                 <X size={18} />
               </button>
             </div>
           ) : (
-            <button onClick={() => setSearchOpen(true)} className="text-muted-foreground hover:text-foreground" aria-label="Zoeken">
+            <button onClick={() => setSearchOpen(true)} className="text-muted-foreground hover:text-foreground" aria-label={t.searchPlaceholder}>
               <Search size={20} />
             </button>
           )}

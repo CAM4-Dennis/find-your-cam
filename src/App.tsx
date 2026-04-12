@@ -6,6 +6,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { SfwProvider } from "@/hooks/useSfwMode";
+import { LanguageProvider } from "@/i18n/LanguageContext";
 
 // Eager: landing page (most common entry)
 import Index from "./pages/Index.tsx";
@@ -27,6 +28,66 @@ const CountryLanding = lazy(() => import("./pages/CountryLanding.tsx"));
 
 const queryClient = new QueryClient();
 
+const AppRoutes = () => (
+  <LanguageProvider>
+    <Suspense fallback={<div className="min-h-screen bg-background" />}>
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/chaturbate/:username" element={<CamStream />} />
+        <Route path="/bongacams/:username" element={<CamStream />} />
+        <Route path="/cam4/:username" element={<CamStream />} />
+        <Route path="/stripchat/:username" element={<CamStream />} />
+        <Route path="/xcams/:username" element={<CamStream />} />
+        <Route path="/categories" element={<Categories />} />
+        <Route path="/countries" element={<Countries />} />
+        <Route path="/languages" element={<Languages />} />
+        <Route path="/webcamsex-in-het-nederlands" element={<LanguageLanding />} />
+        <Route path="/english-webcam-sex-chat" element={<LanguageLanding />} />
+        <Route path="/webcamsex-auf-deutsch" element={<LanguageLanding />} />
+        <Route path="/webcamsex-en-francais" element={<LanguageLanding />} />
+        <Route path="/webcamsex-en-espanol" element={<LanguageLanding />} />
+        <Route path="/webcamsex-in-italiano" element={<LanguageLanding />} />
+        <Route path="/webcamsex-em-portugues" element={<LanguageLanding />} />
+        <Route path="/webcamsex-na-russkom" element={<LanguageLanding />} />
+        <Route path="/japanese-webcam-sex" element={<LanguageLanding />} />
+        <Route path="/korean-webcam-sex" element={<LanguageLanding />} />
+        <Route path="/new" element={<New />} />
+        <Route path="/top" element={<TopCams />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:id" element={<BlogPost />} />
+        <Route path="/webcamsex" element={<KeywordLanding />} />
+        <Route path="/gratis-webcam-sex" element={<KeywordLanding />} />
+        <Route path="/sexchat" element={<KeywordLanding />} />
+        <Route path="/cam-girls" element={<KeywordLanding />} />
+        <Route path="/live-sex-cams" element={<KeywordLanding />} />
+        <Route path="/live-sex-cams-cam4" element={<PlatformLanding />} />
+        <Route path="/live-sex-cams-chaturbate" element={<PlatformLanding />} />
+        <Route path="/live-sex-cams-bongacams" element={<PlatformLanding />} />
+        <Route path="/live-sex-cams-stripchat" element={<PlatformLanding />} />
+        <Route path="/live-sex-cams-xcams" element={<PlatformLanding />} />
+        <Route path="/webcamsex-teen-18-plus" element={<CategoryLanding />} />
+        <Route path="/webcamsex-milf" element={<CategoryLanding />} />
+        <Route path="/webcamsex-mature" element={<CategoryLanding />} />
+        <Route path="/webcamsex-asian" element={<CategoryLanding />} />
+        <Route path="/webcamsex-latina" element={<CategoryLanding />} />
+        <Route path="/webcamsex-ebony" element={<CategoryLanding />} />
+        <Route path="/webcamsex-grote-borsten" element={<CategoryLanding />} />
+        <Route path="/webcamsex-kleine-borsten" element={<CategoryLanding />} />
+        <Route path="/webcamsex-anal" element={<CategoryLanding />} />
+        <Route path="/webcamsex-koppels" element={<CategoryLanding />} />
+        <Route path="/webcamsex-squirt" element={<CategoryLanding />} />
+        <Route path="/webcamsex-bdsm" element={<CategoryLanding />} />
+        <Route path="/webcamsex-tattoo" element={<CategoryLanding />} />
+        <Route path="/webcamsex-hairy" element={<CategoryLanding />} />
+        <Route path="/webcamsex-voeten" element={<CategoryLanding />} />
+        <Route path="/webcamsex-outdoor" element={<CategoryLanding />} />
+        <Route path="/webcamsex-mobiel" element={<CategoryLanding />} />
+        <Route path="*" element={<CountryLanding />} />
+      </Routes>
+    </Suspense>
+  </LanguageProvider>
+);
+
 const App = () => (
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
@@ -35,61 +96,11 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
-            <Suspense fallback={<div className="min-h-screen bg-background" />}>
+            {/* Default Dutch routes (no prefix) */}
             <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/chaturbate/:username" element={<CamStream />} />
-              <Route path="/bongacams/:username" element={<CamStream />} />
-              <Route path="/cam4/:username" element={<CamStream />} />
-              <Route path="/stripchat/:username" element={<CamStream />} />
-              <Route path="/xcams/:username" element={<CamStream />} />
-              <Route path="/categories" element={<Categories />} />
-              <Route path="/countries" element={<Countries />} />
-              <Route path="/languages" element={<Languages />} />
-              <Route path="/webcamsex-in-het-nederlands" element={<LanguageLanding />} />
-              <Route path="/english-webcam-sex-chat" element={<LanguageLanding />} />
-              <Route path="/webcamsex-auf-deutsch" element={<LanguageLanding />} />
-              <Route path="/webcamsex-en-francais" element={<LanguageLanding />} />
-              <Route path="/webcamsex-en-espanol" element={<LanguageLanding />} />
-              <Route path="/webcamsex-in-italiano" element={<LanguageLanding />} />
-              <Route path="/webcamsex-em-portugues" element={<LanguageLanding />} />
-              <Route path="/webcamsex-na-russkom" element={<LanguageLanding />} />
-              <Route path="/japanese-webcam-sex" element={<LanguageLanding />} />
-              <Route path="/korean-webcam-sex" element={<LanguageLanding />} />
-              <Route path="/new" element={<New />} />
-              <Route path="/top" element={<TopCams />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:id" element={<BlogPost />} />
-              <Route path="/webcamsex" element={<KeywordLanding />} />
-              <Route path="/gratis-webcam-sex" element={<KeywordLanding />} />
-              <Route path="/sexchat" element={<KeywordLanding />} />
-              <Route path="/cam-girls" element={<KeywordLanding />} />
-              <Route path="/live-sex-cams" element={<KeywordLanding />} />
-              <Route path="/live-sex-cams-cam4" element={<PlatformLanding />} />
-              <Route path="/live-sex-cams-chaturbate" element={<PlatformLanding />} />
-              <Route path="/live-sex-cams-bongacams" element={<PlatformLanding />} />
-              <Route path="/live-sex-cams-stripchat" element={<PlatformLanding />} />
-              <Route path="/live-sex-cams-xcams" element={<PlatformLanding />} />
-              <Route path="/webcamsex-teen-18-plus" element={<CategoryLanding />} />
-              <Route path="/webcamsex-milf" element={<CategoryLanding />} />
-              <Route path="/webcamsex-mature" element={<CategoryLanding />} />
-              <Route path="/webcamsex-asian" element={<CategoryLanding />} />
-              <Route path="/webcamsex-latina" element={<CategoryLanding />} />
-              <Route path="/webcamsex-ebony" element={<CategoryLanding />} />
-              <Route path="/webcamsex-grote-borsten" element={<CategoryLanding />} />
-              <Route path="/webcamsex-kleine-borsten" element={<CategoryLanding />} />
-              <Route path="/webcamsex-anal" element={<CategoryLanding />} />
-              <Route path="/webcamsex-koppels" element={<CategoryLanding />} />
-              <Route path="/webcamsex-squirt" element={<CategoryLanding />} />
-              <Route path="/webcamsex-bdsm" element={<CategoryLanding />} />
-              <Route path="/webcamsex-tattoo" element={<CategoryLanding />} />
-              <Route path="/webcamsex-hairy" element={<CategoryLanding />} />
-              <Route path="/webcamsex-voeten" element={<CategoryLanding />} />
-              <Route path="/webcamsex-outdoor" element={<CategoryLanding />} />
-              <Route path="/webcamsex-mobiel" element={<CategoryLanding />} />
-              <Route path="*" element={<CountryLanding />} />
+              <Route path="/:lang/*" element={<AppRoutes />} />
+              <Route path="/*" element={<AppRoutes />} />
             </Routes>
-            </Suspense>
           </BrowserRouter>
         </TooltipProvider>
       </SfwProvider>

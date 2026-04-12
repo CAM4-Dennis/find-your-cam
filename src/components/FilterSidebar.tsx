@@ -1,41 +1,27 @@
 import { Switch } from "@/components/ui/switch";
 import type { CamFilters } from "@/types/filters";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 interface FilterSidebarProps {
   filters: CamFilters;
   onChange: (filters: CamFilters) => void;
 }
 
-interface FilterGroup {
-  key: keyof Pick<CamFilters, "gender" | "tags" | "bodyType" | "hairColor" | "languages">;
-  title: string;
-  options: string[];
-}
-
-const filterGroups: FilterGroup[] = [
-  {
-    key: "gender",
-    title: "Geslacht",
-    options: ["Vrouw", "Koppel", "Shemale", "Man"],
-  },
-  {
-    key: "tags",
-    title: "Categorie",
-    options: ["Asian", "BDSM", "Big Boobs", "Ebony", "Hairy", "Latina", "Mature", "MILF", "Small Tits", "Tattoo", "Teen", "Anal", "Squirt", "Feet"],
-  },
-];
-
-const languageGroup: FilterGroup = {
-  key: "languages",
-  title: "Taal",
-  options: ["Nederlands", "English", "Deutsch", "Français", "Español", "Italiano", "Português", "Русский", "日本語", "한국어"],
-};
-
 const ageOptions = ["18-19", "20-30", "31-40", "40+"];
-
 const platforms = ["Cam4", "Chaturbate", "BongaCams", "Stripchat", "XCams"];
+const tagOptions = ["Asian", "BDSM", "Big Boobs", "Ebony", "Hairy", "Latina", "Mature", "MILF", "Small Tits", "Tattoo", "Teen", "Anal", "Squirt", "Feet"];
+const languageOptions = ["Nederlands", "English", "Deutsch", "Français", "Español", "Italiano", "Português", "Русский", "日本語", "한국어"];
 
 const FilterSidebar = ({ filters, onChange }: FilterSidebarProps) => {
+  const { t } = useLanguage();
+
+  const genderOptions = [
+    { value: "Vrouw", label: t.genderFemale },
+    { value: "Koppel", label: t.genderCouple },
+    { value: "Shemale", label: t.genderShemale },
+    { value: "Man", label: t.genderMale },
+  ];
+
   const toggleArrayFilter = (key: keyof CamFilters, value: string) => {
     const current = (filters[key] as string[]) || [];
     const updated = current.includes(value)
@@ -76,14 +62,14 @@ const FilterSidebar = ({ filters, onChange }: FilterSidebarProps) => {
           onClick={clearAll}
           className="text-xs text-primary hover:underline font-medium"
         >
-          ✕ Wis alle filters
+          {t.filterClearAll}
         </button>
       )}
 
       {/* HD toggle */}
       <div className="flex items-center justify-between">
         <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-          Alleen HD
+          {t.filterHDOnly}
         </span>
         <Switch
           checked={filters.hd === true}
@@ -96,7 +82,7 @@ const FilterSidebar = ({ filters, onChange }: FilterSidebarProps) => {
       {/* Age range */}
       <div>
         <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">
-          Leeftijd
+          {t.filterAge}
         </h3>
         <div className="flex flex-wrap gap-1.5">
           {ageOptions.map((opt) => (
@@ -117,34 +103,51 @@ const FilterSidebar = ({ filters, onChange }: FilterSidebarProps) => {
         </div>
       </div>
 
-      {/* Dynamic filter groups */}
-      {filterGroups.map((group) => (
-        <div key={group.key}>
-          <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">
-            {group.title}
-          </h3>
-          <div className="flex flex-wrap gap-1.5">
-            {group.options.map((option) => (
-              <button
-                key={option}
-                onClick={() => toggleArrayFilter(group.key, option)}
-                className={`filter-chip ${isActive(group.key, option) ? "filter-chip-active" : ""}`}
-                aria-pressed={isActive(group.key, option)}
-              >
-                {option}
-              </button>
-            ))}
-          </div>
+      {/* Gender */}
+      <div>
+        <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">
+          {t.filterGender}
+        </h3>
+        <div className="flex flex-wrap gap-1.5">
+          {genderOptions.map((option) => (
+            <button
+              key={option.value}
+              onClick={() => toggleArrayFilter("gender", option.value)}
+              className={`filter-chip ${isActive("gender", option.value) ? "filter-chip-active" : ""}`}
+              aria-pressed={isActive("gender", option.value)}
+            >
+              {option.label}
+            </button>
+          ))}
         </div>
-      ))}
+      </div>
+
+      {/* Category / Tags */}
+      <div>
+        <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">
+          {t.filterCategory}
+        </h3>
+        <div className="flex flex-wrap gap-1.5">
+          {tagOptions.map((option) => (
+            <button
+              key={option}
+              onClick={() => toggleArrayFilter("tags", option)}
+              className={`filter-chip ${isActive("tags", option) ? "filter-chip-active" : ""}`}
+              aria-pressed={isActive("tags", option)}
+            >
+              {option}
+            </button>
+          ))}
+        </div>
+      </div>
 
       {/* Language filter */}
       <div>
         <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">
-          {languageGroup.title}
+          {t.filterLanguage}
         </h3>
         <div className="flex flex-wrap gap-1.5">
-          {languageGroup.options.map((option) => (
+          {languageOptions.map((option) => (
             <button
               key={option}
               onClick={() => toggleArrayFilter("languages", option)}
@@ -160,7 +163,7 @@ const FilterSidebar = ({ filters, onChange }: FilterSidebarProps) => {
       {/* Platform filter */}
       <div>
         <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3">
-          Cam Sites
+          {t.filterCamSites}
         </h3>
         <div className="space-y-1.5">
           {platforms.map((site) => (
