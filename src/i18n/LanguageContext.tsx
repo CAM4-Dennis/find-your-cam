@@ -1,5 +1,5 @@
 import { createContext, useContext, useMemo } from "react";
-import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { translations, SUPPORTED_LANGUAGES, type Language } from "./translations";
 
 interface LanguageContextType {
@@ -12,36 +12,42 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | null>(null);
 
+const NON_NL_LANGS: Language[] = ["en", "fr", "it", "de", "es"];
+
+function detectLangFromPath(pathname: string): Language {
+  const match = pathname.match(/^\/(en|fr|it|de|es)(\/|$)/);
+  if (match && NON_NL_LANGS.includes(match[1] as Language)) {
+    return match[1] as Language;
+  }
+  return "nl";
+}
+
+/** Strip the lang prefix from a pathname, returning the inner path */
+function stripLangPrefix(pathname: string): string {
+  const match = pathname.match(/^\/(en|fr|it|de|es)(\/.*|$)/);
+  if (match) {
+    return match[2] || "/";
+  }
+  return pathname;
+}
+
 export const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
-  const { lang: langParam } = useParams<{ lang?: string }>();
   const navigate = useNavigate();
   const location = useLocation();
 
-  const lang: Language = useMemo(() => {
-    if (langParam && SUPPORTED_LANGUAGES.includes(langParam as Language) && langParam !== "nl") {
-      return langParam as Language;
-    }
-    return "nl";
-  }, [langParam]);
+  const lang = useMemo(() => detectLangFromPath(location.pathname), [location.pathname]);
 
   const t = translations[lang];
   const langPrefix = lang === "nl" ? "" : `/${lang}`;
 
   const localePath = (path: string): string => {
     if (lang === "nl") return path;
-    // If path starts with /, prepend lang prefix
     if (path.startsWith("/")) return `/${lang}${path}`;
     return `/${lang}/${path}`;
   };
 
   const switchLanguage = (newLang: Language) => {
-    // Get current path without lang prefix
-    let currentPath = location.pathname;
-    // Remove existing lang prefix if present
-    const currentLangMatch = currentPath.match(/^\/(en|fr|it|de|es)(\/|$)/);
-    if (currentLangMatch) {
-      currentPath = currentPath.slice(currentLangMatch[1].length + 1) || "/";
-    }
+    const currentPath = stripLangPrefix(location.pathname);
     
     if (newLang === "nl") {
       navigate(currentPath + location.search);
