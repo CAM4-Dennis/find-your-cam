@@ -1,6 +1,6 @@
 import { Suspense, lazy } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Outlet } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
@@ -28,7 +28,17 @@ const CountryLanding = lazy(() => import("./pages/CountryLanding.tsx"));
 
 const queryClient = new QueryClient();
 
-const AllRoutes = () => (
+/** Layout wrapper that provides language context */
+const LanguageLayout = () => (
+  <LanguageProvider>
+    <Suspense fallback={<div className="min-h-screen bg-background" />}>
+      <Outlet />
+    </Suspense>
+  </LanguageProvider>
+);
+
+/** All the page routes — used as children of the language layout */
+const pageRoutes = (
   <>
     <Route index element={<Index />} />
     <Route path="chaturbate/:username" element={<CamStream />} />
@@ -92,20 +102,16 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
-            <LanguageProvider>
-              <Suspense fallback={<div className="min-h-screen bg-background" />}>
-                <Routes>
-                  {/* Language-prefixed routes */}
-                  <Route path="/en">{AllRoutes()}</Route>
-                  <Route path="/fr">{AllRoutes()}</Route>
-                  <Route path="/it">{AllRoutes()}</Route>
-                  <Route path="/de">{AllRoutes()}</Route>
-                  <Route path="/es">{AllRoutes()}</Route>
-                  {/* Default Dutch (no prefix) */}
-                  <Route path="/">{AllRoutes()}</Route>
-                </Routes>
-              </Suspense>
-            </LanguageProvider>
+            <Routes>
+              {/* Language-prefixed: /en/*, /fr/*, etc. use Outlet + relative child routes */}
+              <Route path="/en" element={<LanguageLayout />}>{pageRoutes}</Route>
+              <Route path="/fr" element={<LanguageLayout />}>{pageRoutes}</Route>
+              <Route path="/it" element={<LanguageLayout />}>{pageRoutes}</Route>
+              <Route path="/de" element={<LanguageLayout />}>{pageRoutes}</Route>
+              <Route path="/es" element={<LanguageLayout />}>{pageRoutes}</Route>
+              {/* Default Dutch (no prefix) */}
+              <Route path="/" element={<LanguageLayout />}>{pageRoutes}</Route>
+            </Routes>
           </BrowserRouter>
         </TooltipProvider>
       </SfwProvider>
