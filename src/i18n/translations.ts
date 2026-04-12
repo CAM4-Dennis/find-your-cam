@@ -263,7 +263,7 @@ export const translations: Record<Language, TranslationStrings> = {
     languagesModelsOnline: "modellen online",
 
     newTitle: "Nieuwe Cam Girls — StartVagina | Vers Talent Live",
-    newH1: "🆕 Nieuwe Cam Girls",
+    newH1: "Nieuwe webcam modellen op StartVagina",
     newDescription: "Ontdek vers talent! Deze modellen zijn net begonnen en staan voor het eerst live. Wees erbij vanaf het begin.",
     newSectionJustStarted: "⭐ Net Begonnen",
     newSectionHiddenGems: "💎 Verborgen Pareltjes",
@@ -385,7 +385,7 @@ export const translations: Record<Language, TranslationStrings> = {
     languagesModelsOnline: "models online",
 
     newTitle: "New Cam Girls — StartVagina | Fresh Talent Live",
-    newH1: "🆕 New Cam Girls",
+    newH1: "New webcam models on StartVagina",
     newDescription: "Discover fresh talent! These models just started and are live for the first time. Be there from the beginning.",
     newSectionJustStarted: "⭐ Just Started",
     newSectionHiddenGems: "💎 Hidden Gems",
@@ -507,7 +507,7 @@ export const translations: Record<Language, TranslationStrings> = {
     languagesModelsOnline: "modèles en ligne",
 
     newTitle: "Nouvelles Cam Girls — StartVagina | Talents Frais en Direct",
-    newH1: "🆕 Nouvelles Cam Girls",
+    newH1: "Nouveaux modèles webcam sur StartVagina",
     newDescription: "Découvrez de nouveaux talents ! Ces modèles viennent de commencer et sont en direct pour la première fois.",
     newSectionJustStarted: "⭐ Viennent de Commencer",
     newSectionHiddenGems: "💎 Perles Cachées",
@@ -629,7 +629,7 @@ export const translations: Record<Language, TranslationStrings> = {
     languagesModelsOnline: "modelle online",
 
     newTitle: "Nuove Cam Girl — StartVagina | Talenti Freschi dal Vivo",
-    newH1: "🆕 Nuove Cam Girl",
+    newH1: "Nuove modelle webcam su StartVagina",
     newDescription: "Scopri nuovi talenti! Queste modelle hanno appena iniziato e sono dal vivo per la prima volta.",
     newSectionJustStarted: "⭐ Appena Iniziato",
     newSectionHiddenGems: "💎 Gemme Nascoste",
@@ -751,7 +751,7 @@ export const translations: Record<Language, TranslationStrings> = {
     languagesModelsOnline: "Models online",
 
     newTitle: "Neue Cam Girls — StartVagina | Frisches Talent Live",
-    newH1: "🆕 Neue Cam Girls",
+    newH1: "Neue Webcam Models auf StartVagina",
     newDescription: "Entdecke frisches Talent! Diese Models haben gerade angefangen und sind zum ersten Mal live.",
     newSectionJustStarted: "⭐ Gerade Gestartet",
     newSectionHiddenGems: "💎 Versteckte Perlen",
@@ -873,7 +873,7 @@ export const translations: Record<Language, TranslationStrings> = {
     languagesModelsOnline: "modelos en línea",
 
     newTitle: "Nuevas Cam Girls — StartVagina | Talento Fresco en Vivo",
-    newH1: "🆕 Nuevas Cam Girls",
+    newH1: "Nuevas modelos webcam en StartVagina",
     newDescription: "¡Descubre talento fresco! Estas modelos acaban de empezar y están en directo por primera vez.",
     newSectionJustStarted: "⭐ Recién Empezadas",
     newSectionHiddenGems: "💎 Joyas Ocultas",
