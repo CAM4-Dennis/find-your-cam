@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { SfwProvider } from "@/hooks/useSfwMode";
 import { LanguageProvider } from "@/i18n/LanguageContext";
+import LanguageDetector from "@/components/LanguageDetector";
 
 // Eager: landing page (most common entry)
 import Index from "./pages/Index.tsx";
@@ -102,6 +103,7 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
+            <LanguageDetector />
             <Routes>
               {/* Language-prefixed: /en/*, /fr/*, etc. use Outlet + relative child routes */}
               <Route path="/en" element={<LanguageLayout />}>{pageRoutes}</Route>

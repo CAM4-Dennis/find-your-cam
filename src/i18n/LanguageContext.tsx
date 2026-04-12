@@ -52,6 +52,9 @@ export const LanguageProvider = ({ children }: { children: React.ReactNode }) =>
   const switchLanguage = (newLang: Language) => {
     const currentPath = stripLangPrefix(location.pathname);
     
+    // Save choice so LanguageDetector respects it
+    localStorage.setItem("sv_lang_detected", newLang);
+    
     if (newLang === "nl") {
       navigate(currentPath + location.search);
     } else {
