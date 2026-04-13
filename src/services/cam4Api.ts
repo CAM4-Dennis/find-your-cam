@@ -41,7 +41,7 @@ function normalizeCam4Model(model: Cam4Model): CamModel {
     tags: model.show_tags.length > 0 ? model.show_tags : [],
     isOnline: true,
     gender: model.gender,
-    link: `https://offers.cam4tracking.com/aff_c?offer_id=278&aff_id=1961&aff_sub=startvagina&aff_sub2=${model.nickname}`,
+    link: `https://offers.cam4tracking.com/aff_c?offer_id=278&aff_id=1961&aff_sub=startvagina&aff_sub2=${model.nickname}&url=https://www.cam4.com/${model.nickname}`,
     isNew: model.new_performer,
     isHD: model.hd_stream !== null,
     showType: model.show_type,
