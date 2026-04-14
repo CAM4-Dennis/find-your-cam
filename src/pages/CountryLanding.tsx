@@ -10,6 +10,7 @@ import { useMemo } from "react";
 import { Loader2 } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { landingUI } from "@/data/i18nHelpers";
+import { getCountryConfig } from "@/data/countryPages";
 
 interface CountryConfig {
   slug: string;
@@ -495,8 +496,9 @@ const CountryLandingPage = () => {
   const slug = basePath.replace(/^\//, "");
   const { allCams, isLoading } = useAllCams();
 
-  // Try predefined config first
-  let config = countryPages[slug || ""];
+  // Try translated config first, then fall back to predefined NL config
+  const translatedConfig = getCountryConfig(slug || "", lang);
+  let config = translatedConfig || countryPages[slug || ""];
 
   // If no predefined config, try to find the country dynamically from allCams
   const dynamicCountry = useMemo(() => {
