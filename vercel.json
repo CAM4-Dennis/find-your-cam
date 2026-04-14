@@ -1,6 +1,5 @@
 {
-  "installCommand": "npm install && npx playwright install chromium",
-  "redirects": [
+"redirects": [
     { "source": "/gratis-filmpjes", "destination": "/", "permanent": true },
     { "source": "/gratis-filmpjes/", "destination": "/", "permanent": true },
     { "source": "/blog/tips-om-veilig-porno-te-kijken", "destination": "/", "permanent": true },
