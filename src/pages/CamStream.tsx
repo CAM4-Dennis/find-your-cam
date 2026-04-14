@@ -25,62 +25,37 @@ import { ArrowLeft, Eye, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SimilarCams from "@/components/SimilarCams";
 
-/** Generate a dynamic SEO-rich profile description from model data */
-function generateProfileText(model: CamModel, platformName: string): string {
+/** Generate a dynamic SEO-rich profile description from model data (translated) */
+function generateProfileText(model: CamModel, platformName: string, t: any): string {
   const parts: string[] = [];
 
-  // Opening
-  const genderLabel = model.gender === "female" ? "cam girl" : model.gender === "couple" ? "cam koppel" : model.gender === "male" ? "cam model" : "cam model";
-  const ageText = model.age ? ` van ${model.age} jaar` : "";
-  const countryText = model.country && model.country !== "Onbekend" ? ` uit ${model.country}` : "";
+  const genderLabel = model.gender === "female" ? t.camGenderFemale : model.gender === "couple" ? t.camGenderCouple : model.gender === "male" ? t.camGenderMale : t.camGenderModel;
+  const country = model.country && model.country !== "Onbekend" ? model.country : "";
 
-  parts.push(`${model.name} is een populaire ${genderLabel}${ageText}${countryText} op ${platformName}.`);
+  parts.push(t.profileIsPopular(model.name, genderLabel, model.age || null, country, platformName));
 
-  // Status
   if (model.viewers > 0) {
-    parts.push(`Op dit moment ${model.viewers > 100 ? "kijken er " + model.viewers.toLocaleString() + " mensen mee" : "is " + model.name + " live met " + model.viewers.toLocaleString() + " kijkers"} — een ${model.viewers > 500 ? "enorm populaire" : model.viewers > 100 ? "drukbezochte" : "gezellige"} show.`);
+    parts.push(t.profileViewers(model.name, model.viewers));
   }
 
-  // Quality & features
   const features: string[] = [];
-  if (model.isHD) features.push("HD-kwaliteit stream");
-  if (model.isNew) features.push("nieuw op het platform");
-  if (model.isMobile) features.push("streamt vanaf mobiel");
+  if (model.isHD) features.push("HD");
+  if (model.isNew) features.push(t.camNew.toLowerCase());
+  if (model.isMobile) features.push("mobile");
   if (features.length > 0) {
-    parts.push(`${model.name} biedt ${features.join(", ")}.`);
+    parts.push(t.profileFeatures(model.name, features.join(", ")));
   }
 
-  // Languages
   if (model.languages && model.languages.length > 0) {
-    if (model.languages.length === 1) {
-      parts.push(`${model.name} spreekt ${model.languages[0]}.`);
-    } else {
-      const last = model.languages[model.languages.length - 1];
-      const rest = model.languages.slice(0, -1).join(", ");
-      parts.push(`${model.name} spreekt ${rest} en ${last}, waardoor je makkelijk kunt chatten.`);
-    }
+    parts.push(t.profileLanguages(model.name, model.languages.join(", ")));
   }
 
-  // Tags
   if (model.tags && model.tags.length > 0) {
     const tagList = model.tags.slice(0, 5).map(t => t.toLowerCase()).join(", ");
-    parts.push(`Populaire tags bij deze show: ${tagList}.`);
+    parts.push(t.profileTags(tagList));
   }
 
-  // Platform context
-  const platformContexts: Record<string, string> = {
-    Chaturbate: `Op Chaturbate kun je de show van ${model.name} gratis bekijken. Tip met tokens voor interactie of vraag een privé show aan voor een persoonlijke ervaring.`,
-    Cam4: `${model.name} is actief op CAM4, het platform dat bekend staat om echte amateurs en een sterke Nederlandse community. De show is gratis te bekijken.`,
-    BongaCams: `Via BongaCams stream ${model.name} in hoge kwaliteit. Het platform biedt gratis tokens voor nieuwe gebruikers, ideaal om direct te kunnen tippen.`,
-    Stripchat: `Op Stripchat biedt ${model.name} een interactieve show. Het platform staat bekend om slimme filters en innovatieve features zoals VR-shows.`,
-    XCams: `${model.name} is te vinden op XCams, het premium Europese cam platform. De shows zijn intiem en persoonlijk door het kleinere publiek.`,
-  };
-  if (platformContexts[platformName]) {
-    parts.push(platformContexts[platformName]);
-  }
-
-  // CTA
-  parts.push(`Bekijk ${model.name} nu gratis live op StartVagina — geen registratie nodig.`);
+  parts.push(t.profileWatchFree(model.name));
 
   return parts.join(" ");
 }
@@ -89,7 +64,7 @@ const CamStream = () => {
   const { platform, username } = useParams<{ platform: string; username: string }>();
   const location = useLocation();
   const navigate = useNavigate();
-  const { localePath } = useLanguage();
+  const { localePath, t } = useLanguage();
   const [videoEl, setVideoEl] = useState<HTMLVideoElement | null>(null);
   const videoRef = useCallback((node: HTMLVideoElement | null) => {
     setVideoEl(node);
@@ -176,9 +151,9 @@ const CamStream = () => {
         <div className="min-h-screen flex flex-col bg-background">
           <Header />
           <main className="container flex-1 py-12 text-center">
-            <p className="text-muted-foreground">Stream niet gevonden. Ga terug naar de homepage.</p>
+            <p className="text-muted-foreground">{t.camStreamNotFound}</p>
             <Button variant="outline" className="mt-4" onClick={() => navigate(localePath("/"))}>
-              <ArrowLeft size={16} className="mr-2" /> Terug
+              <ArrowLeft size={16} className="mr-2" /> {t.camBack}
             </Button>
           </main>
           <Footer />
@@ -191,12 +166,12 @@ const CamStream = () => {
     <AgeGate>
       <div className="min-h-screen flex flex-col bg-background">
         <Helmet>
-          <title>{`${model.name} Live op ${platformName} — Gratis Webcamsex | StartVagina`}</title>
-          <meta name="description" content={`Bekijk ${model.name}${model.age ? ` (${model.age})` : ''} gratis live op ${platformName}. ${model.country && model.country !== "Onbekend" ? model.country + " " : ""}${model.gender === "female" ? "cam girl" : model.gender === "couple" ? "koppel" : "cam model"}${model.tags?.length > 0 ? " — " + model.tags.slice(0, 3).join(", ") : ""}. Live webcamsex en sexchat op StartVagina.`} />
-          <meta name="keywords" content={`${model.name}, ${platformName}, ${model.name} webcam, ${model.name} live, ${platformName} cam, webcamsex ${platformName}${model.country && model.country !== "Onbekend" ? ", " + model.country + " cam" : ""}${model.tags?.slice(0, 3).map(t => ", " + t).join("") || ""}`} />
+          <title>{t.camTitle(model.name, platformName)}</title>
+          <meta name="description" content={t.camDesc(model.name, platformName)} />
+          <meta name="keywords" content={`${model.name}, ${platformName}, ${model.name} webcam, ${model.name} live${model.country && model.country !== "Onbekend" ? ", " + model.country + " cam" : ""}${model.tags?.slice(0, 3).map(tag => ", " + tag).join("") || ""}`} />
           <link rel="canonical" href={`https://startvagina.nl/${platform}/${username}`} />
-          <meta property="og:title" content={`${model.name} Live op ${platformName} — StartVagina`} />
-          <meta property="og:description" content={`Bekijk ${model.name} gratis live op ${platformName}. Live webcamsex en sexchat.`} />
+          <meta property="og:title" content={t.camTitle(model.name, platformName)} />
+          <meta property="og:description" content={t.camDesc(model.name, platformName)} />
           <meta property="og:url" content={`https://startvagina.nl/${platform}/${username}`} />
           <meta name="robots" content="noindex, nofollow" />
           <script type="application/ld+json">
@@ -220,7 +195,7 @@ const CamStream = () => {
 
         <main className="container flex-1 py-6 space-y-4">
           <Button variant="ghost" size="sm" onClick={() => navigate(localePath("/"))} className="text-muted-foreground hover:text-foreground">
-            <ArrowLeft size={16} className="mr-1" /> Terug naar overzicht
+            <ArrowLeft size={16} className="mr-1" /> {t.camBackToOverview}
           </Button>
 
           <div className="grid gap-6">
@@ -267,10 +242,10 @@ const CamStream = () => {
                         <ExternalLink size={28} className="text-primary-foreground" />
                       </div>
                       <span className="text-white font-semibold text-lg drop-shadow-lg">
-                        Bekijk {model.name} Live op {model.platform}
+                        {t.camWatchFree(model.name)}
                       </span>
                       <span className="text-white/70 text-sm">
-                        Klik om de gratis stream te openen
+                        {t.camClickToOpen}
                       </span>
                     </div>
                   </a>
@@ -283,7 +258,7 @@ const CamStream = () => {
                 </h1>
                 <div className="flex items-center gap-3 text-sm text-muted-foreground">
                   <span className="flex items-center gap-1">
-                    <Eye size={14} /> {model.viewers.toLocaleString()} kijkers
+                    <Eye size={14} /> {model.viewers.toLocaleString()} {t.camViewers}
                   </span>
                   <span>{model.countryFlag} {model.country}</span>
                 </div>
@@ -303,45 +278,45 @@ const CamStream = () => {
             {/* Sidebar info */}
             <aside className="space-y-4">
               <div className="bg-card border border-border rounded-lg p-4 space-y-3">
-                <h2 className="font-semibold text-foreground">Model Info</h2>
+                <h2 className="font-semibold text-foreground">{t.camModelInfo}</h2>
                 <dl className="text-sm space-y-2">
                   <div className="flex justify-between">
-                    <dt className="text-muted-foreground">Platform</dt>
+                    <dt className="text-muted-foreground">{t.camPlatform}</dt>
                     <dd className="text-foreground">{model.platform}</dd>
                   </div>
                   <div className="flex justify-between">
-                    <dt className="text-muted-foreground">Geslacht</dt>
+                    <dt className="text-muted-foreground">{t.camGender}</dt>
                     <dd className="text-foreground capitalize">{model.gender}</dd>
                   </div>
                   <div className="flex justify-between">
-                    <dt className="text-muted-foreground">Land</dt>
+                    <dt className="text-muted-foreground">{t.camCountry}</dt>
                     <dd className="text-foreground">{model.countryFlag} {model.country}</dd>
                   </div>
                   <div className="flex justify-between">
-                    <dt className="text-muted-foreground">Show type</dt>
+                    <dt className="text-muted-foreground">{t.camShowType}</dt>
                     <dd className="text-foreground capitalize">{model.showType.toLowerCase()}</dd>
                   </div>
                   {model.isHD && (
                     <div className="flex justify-between">
-                      <dt className="text-muted-foreground">Kwaliteit</dt>
+                      <dt className="text-muted-foreground">{t.camQuality}</dt>
                       <dd className="text-primary font-bold">HD</dd>
                     </div>
                   )}
                   {model.languages?.length > 0 && (
                     <div className="flex justify-between">
-                      <dt className="text-muted-foreground">Talen</dt>
+                      <dt className="text-muted-foreground">{t.camLanguages}</dt>
                       <dd className="text-foreground">🗣️ {model.languages.join(", ")}</dd>
                     </div>
                   )}
                   {model.isNew && (
                     <div className="flex justify-between">
-                      <dt className="text-muted-foreground">Status</dt>
-                      <dd className="text-accent font-bold">🆕 Nieuw</dd>
+                      <dt className="text-muted-foreground">{t.camStatus}</dt>
+                      <dd className="text-accent font-bold">🆕 {t.camNew}</dd>
                     </div>
                   )}
                   {model.viewers > 0 && (
                     <div className="flex justify-between">
-                      <dt className="text-muted-foreground">Kijkers</dt>
+                      <dt className="text-muted-foreground">{t.camViewersLabel}</dt>
                       <dd className="text-foreground">{model.viewers.toLocaleString()}</dd>
                     </div>
                   )}
@@ -354,7 +329,7 @@ const CamStream = () => {
                 rel="noopener noreferrer nofollow"
                 className="block w-full text-center bg-primary text-primary-foreground py-2.5 rounded-lg font-medium text-sm hover:opacity-90 transition"
               >
-                Bekijk op {model.platform} →
+                {t.camViewOnPlatform(model.platform)}
               </a>
 
               {model.paymentUrl && (
@@ -364,7 +339,7 @@ const CamStream = () => {
                   rel="noopener noreferrer nofollow"
                   className="block w-full text-center bg-accent text-accent-foreground py-2.5 rounded-lg font-medium text-sm hover:opacity-90 transition"
                 >
-                  Start privé show →
+                  {t.camStartPrivate}
                 </a>
               )}
             </aside>
@@ -373,14 +348,14 @@ const CamStream = () => {
           {/* Dynamic profile description */}
           <section className="bg-card border border-border rounded-lg p-5 space-y-3">
             <h2 className="text-lg font-semibold text-foreground">
-              Over {model.name}
+              {t.camAbout(model.name)}
             </h2>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              {generateProfileText(model, platformName)}
+              {generateProfileText(model, platformName, t)}
             </p>
             {model.tags?.length > 0 && (
               <div className="pt-2">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">Tags</h3>
+                <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">{t.camTags}</h3>
                 <div className="flex flex-wrap gap-1.5">
                   {model.tags.map((tag) => (
                     <span key={tag} className="text-xs bg-secondary text-muted-foreground px-2 py-1 rounded">

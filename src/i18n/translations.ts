@@ -159,6 +159,42 @@ type TranslationStrings = {
   // CamGrid / generic
   modelsOnline: string;
   modelsLoading: string;
+
+  // CamStream / profile page
+  camTitle: (name: string, platform: string) => string;
+  camDesc: (name: string, platform: string) => string;
+  camBackToOverview: string;
+  camViewers: string;
+  camModelInfo: string;
+  camPlatform: string;
+  camGender: string;
+  camCountry: string;
+  camShowType: string;
+  camQuality: string;
+  camLanguages: string;
+  camStatus: string;
+  camNew: string;
+  camViewersLabel: string;
+  camViewOnPlatform: (platform: string) => string;
+  camStartPrivate: string;
+  camAbout: (name: string) => string;
+  camTags: string;
+  camWatchFree: (name: string) => string;
+  camClickToOpen: string;
+  camStreamNotFound: string;
+  camBack: string;
+  camGenderFemale: string;
+  camGenderCouple: string;
+  camGenderMale: string;
+  camGenderModel: string;
+
+  // Profile text generation
+  profileIsPopular: (name: string, gender: string, age: number | null, country: string, platform: string) => string;
+  profileViewers: (name: string, viewers: number) => string;
+  profileFeatures: (name: string, features: string) => string;
+  profileLanguages: (name: string, langs: string) => string;
+  profileTags: (tags: string) => string;
+  profileWatchFree: (name: string) => string;
 };
 
 export const translations: Record<Language, TranslationStrings> = {
@@ -282,6 +318,39 @@ export const translations: Record<Language, TranslationStrings> = {
 
     modelsOnline: "modellen online",
     modelsLoading: "Modellen laden…",
+
+    camTitle: (name, platform) => `${name} Live op ${platform} — Gratis Webcamsex | StartVagina`,
+    camDesc: (name, platform) => `Bekijk ${name} gratis live op ${platform}. Live webcamsex en sexchat op StartVagina.`,
+    camBackToOverview: "Terug naar overzicht",
+    camViewers: "kijkers",
+    camModelInfo: "Model Info",
+    camPlatform: "Platform",
+    camGender: "Geslacht",
+    camCountry: "Land",
+    camShowType: "Show type",
+    camQuality: "Kwaliteit",
+    camLanguages: "Talen",
+    camStatus: "Status",
+    camNew: "Nieuw",
+    camViewersLabel: "Kijkers",
+    camViewOnPlatform: (platform) => `Bekijk op ${platform} →`,
+    camStartPrivate: "Start privé show →",
+    camAbout: (name) => `Over ${name}`,
+    camTags: "Tags",
+    camWatchFree: (name) => `Bekijk ${name} Live`,
+    camClickToOpen: "Klik om de gratis stream te openen",
+    camStreamNotFound: "Stream niet gevonden. Ga terug naar de homepage.",
+    camBack: "Terug",
+    camGenderFemale: "cam girl",
+    camGenderCouple: "cam koppel",
+    camGenderMale: "cam model",
+    camGenderModel: "cam model",
+    profileIsPopular: (name, gender, age, country, platform) => `${name} is een populaire ${gender}${age ? ` van ${age} jaar` : ""}${country ? ` uit ${country}` : ""} op ${platform}.`,
+    profileViewers: (name, viewers) => viewers > 100 ? `Op dit moment kijken er ${viewers.toLocaleString()} mensen mee.` : `${name} is live met ${viewers.toLocaleString()} kijkers.`,
+    profileFeatures: (name, features) => `${name} biedt ${features}.`,
+    profileLanguages: (name, langs) => `${name} spreekt ${langs}.`,
+    profileTags: (tags) => `Populaire tags bij deze show: ${tags}.`,
+    profileWatchFree: (name) => `Bekijk ${name} nu gratis live op StartVagina — geen registratie nodig.`,
   },
 
   en: {
@@ -404,6 +473,39 @@ export const translations: Record<Language, TranslationStrings> = {
 
     modelsOnline: "models online",
     modelsLoading: "Loading models…",
+
+    camTitle: (name, platform) => `${name} Live on ${platform} — Free Webcam Sex | StartVagina`,
+    camDesc: (name, platform) => `Watch ${name} for free live on ${platform}. Live webcam sex and sex chat on StartVagina.`,
+    camBackToOverview: "Back to overview",
+    camViewers: "viewers",
+    camModelInfo: "Model Info",
+    camPlatform: "Platform",
+    camGender: "Gender",
+    camCountry: "Country",
+    camShowType: "Show type",
+    camQuality: "Quality",
+    camLanguages: "Languages",
+    camStatus: "Status",
+    camNew: "New",
+    camViewersLabel: "Viewers",
+    camViewOnPlatform: (platform) => `View on ${platform} →`,
+    camStartPrivate: "Start private show →",
+    camAbout: (name) => `About ${name}`,
+    camTags: "Tags",
+    camWatchFree: (name) => `Watch ${name} Live`,
+    camClickToOpen: "Click to open the free stream",
+    camStreamNotFound: "Stream not found. Go back to the homepage.",
+    camBack: "Back",
+    camGenderFemale: "cam girl",
+    camGenderCouple: "cam couple",
+    camGenderMale: "cam model",
+    camGenderModel: "cam model",
+    profileIsPopular: (name, gender, age, country, platform) => `${name} is a popular ${gender}${age ? `, ${age} years old` : ""}${country ? ` from ${country}` : ""} on ${platform}.`,
+    profileViewers: (name, viewers) => viewers > 100 ? `Currently ${viewers.toLocaleString()} people are watching.` : `${name} is live with ${viewers.toLocaleString()} viewers.`,
+    profileFeatures: (name, features) => `${name} offers ${features}.`,
+    profileLanguages: (name, langs) => `${name} speaks ${langs}.`,
+    profileTags: (tags) => `Popular tags for this show: ${tags}.`,
+    profileWatchFree: (name) => `Watch ${name} for free live on StartVagina — no registration needed.`,
   },
 
   fr: {
@@ -526,6 +628,39 @@ export const translations: Record<Language, TranslationStrings> = {
 
     modelsOnline: "modèles en ligne",
     modelsLoading: "Chargement des modèles…",
+
+    camTitle: (name, platform) => `${name} en Direct sur ${platform} — Webcam Sexe Gratuit | StartVagina`,
+    camDesc: (name, platform) => `Regardez ${name} gratuitement en direct sur ${platform}. Webcam sexe et chat sexe en direct sur StartVagina.`,
+    camBackToOverview: "Retour à l'aperçu",
+    camViewers: "spectateurs",
+    camModelInfo: "Info Modèle",
+    camPlatform: "Plateforme",
+    camGender: "Genre",
+    camCountry: "Pays",
+    camShowType: "Type de show",
+    camQuality: "Qualité",
+    camLanguages: "Langues",
+    camStatus: "Statut",
+    camNew: "Nouveau",
+    camViewersLabel: "Spectateurs",
+    camViewOnPlatform: (platform) => `Voir sur ${platform} →`,
+    camStartPrivate: "Démarrer un show privé →",
+    camAbout: (name) => `À propos de ${name}`,
+    camTags: "Tags",
+    camWatchFree: (name) => `Regarder ${name} en Direct`,
+    camClickToOpen: "Cliquez pour ouvrir le stream gratuit",
+    camStreamNotFound: "Stream introuvable. Retournez à la page d'accueil.",
+    camBack: "Retour",
+    camGenderFemale: "cam girl",
+    camGenderCouple: "couple cam",
+    camGenderMale: "modèle cam",
+    camGenderModel: "modèle cam",
+    profileIsPopular: (name, gender, age, country, platform) => `${name} est une ${gender} populaire${age ? ` de ${age} ans` : ""}${country ? ` de ${country}` : ""} sur ${platform}.`,
+    profileViewers: (name, viewers) => viewers > 100 ? `Actuellement ${viewers.toLocaleString()} personnes regardent.` : `${name} est en direct avec ${viewers.toLocaleString()} spectateurs.`,
+    profileFeatures: (name, features) => `${name} offre ${features}.`,
+    profileLanguages: (name, langs) => `${name} parle ${langs}.`,
+    profileTags: (tags) => `Tags populaires pour ce show : ${tags}.`,
+    profileWatchFree: (name) => `Regardez ${name} gratuitement en direct sur StartVagina — aucune inscription nécessaire.`,
   },
 
   it: {
@@ -648,6 +783,39 @@ export const translations: Record<Language, TranslationStrings> = {
 
     modelsOnline: "modelle online",
     modelsLoading: "Caricamento modelle…",
+
+    camTitle: (name, platform) => `${name} dal Vivo su ${platform} — Webcam Sex Gratis | StartVagina`,
+    camDesc: (name, platform) => `Guarda ${name} gratis in diretta su ${platform}. Webcam sex e chat erotica dal vivo su StartVagina.`,
+    camBackToOverview: "Torna alla panoramica",
+    camViewers: "spettatori",
+    camModelInfo: "Info Modella",
+    camPlatform: "Piattaforma",
+    camGender: "Genere",
+    camCountry: "Paese",
+    camShowType: "Tipo di show",
+    camQuality: "Qualità",
+    camLanguages: "Lingue",
+    camStatus: "Stato",
+    camNew: "Nuova",
+    camViewersLabel: "Spettatori",
+    camViewOnPlatform: (platform) => `Guarda su ${platform} →`,
+    camStartPrivate: "Inizia show privato →",
+    camAbout: (name) => `Info su ${name}`,
+    camTags: "Tags",
+    camWatchFree: (name) => `Guarda ${name} dal Vivo`,
+    camClickToOpen: "Clicca per aprire lo stream gratuito",
+    camStreamNotFound: "Stream non trovato. Torna alla homepage.",
+    camBack: "Indietro",
+    camGenderFemale: "cam girl",
+    camGenderCouple: "coppia cam",
+    camGenderMale: "modello cam",
+    camGenderModel: "modello cam",
+    profileIsPopular: (name, gender, age, country, platform) => `${name} è una ${gender} popolare${age ? ` di ${age} anni` : ""}${country ? ` da ${country}` : ""} su ${platform}.`,
+    profileViewers: (name, viewers) => viewers > 100 ? `Attualmente ${viewers.toLocaleString()} persone stanno guardando.` : `${name} è in diretta con ${viewers.toLocaleString()} spettatori.`,
+    profileFeatures: (name, features) => `${name} offre ${features}.`,
+    profileLanguages: (name, langs) => `${name} parla ${langs}.`,
+    profileTags: (tags) => `Tags popolari per questo show: ${tags}.`,
+    profileWatchFree: (name) => `Guarda ${name} gratis in diretta su StartVagina — nessuna registrazione necessaria.`,
   },
 
   de: {
@@ -770,6 +938,39 @@ export const translations: Record<Language, TranslationStrings> = {
 
     modelsOnline: "Models online",
     modelsLoading: "Models werden geladen…",
+
+    camTitle: (name, platform) => `${name} Live auf ${platform} — Gratis Webcam Sex | StartVagina`,
+    camDesc: (name, platform) => `Schau dir ${name} gratis live auf ${platform} an. Live Webcam Sex und Sexchat auf StartVagina.`,
+    camBackToOverview: "Zurück zur Übersicht",
+    camViewers: "Zuschauer",
+    camModelInfo: "Model Info",
+    camPlatform: "Plattform",
+    camGender: "Geschlecht",
+    camCountry: "Land",
+    camShowType: "Show-Typ",
+    camQuality: "Qualität",
+    camLanguages: "Sprachen",
+    camStatus: "Status",
+    camNew: "Neu",
+    camViewersLabel: "Zuschauer",
+    camViewOnPlatform: (platform) => `Ansehen auf ${platform} →`,
+    camStartPrivate: "Privat-Show starten →",
+    camAbout: (name) => `Über ${name}`,
+    camTags: "Tags",
+    camWatchFree: (name) => `${name} Live ansehen`,
+    camClickToOpen: "Klicke um den kostenlosen Stream zu öffnen",
+    camStreamNotFound: "Stream nicht gefunden. Gehe zurück zur Startseite.",
+    camBack: "Zurück",
+    camGenderFemale: "Cam Girl",
+    camGenderCouple: "Cam Paar",
+    camGenderMale: "Cam Model",
+    camGenderModel: "Cam Model",
+    profileIsPopular: (name, gender, age, country, platform) => `${name} ist ein beliebtes ${gender}${age ? `, ${age} Jahre alt` : ""}${country ? ` aus ${country}` : ""} auf ${platform}.`,
+    profileViewers: (name, viewers) => viewers > 100 ? `Aktuell schauen ${viewers.toLocaleString()} Zuschauer zu.` : `${name} ist live mit ${viewers.toLocaleString()} Zuschauern.`,
+    profileFeatures: (name, features) => `${name} bietet ${features}.`,
+    profileLanguages: (name, langs) => `${name} spricht ${langs}.`,
+    profileTags: (tags) => `Beliebte Tags bei dieser Show: ${tags}.`,
+    profileWatchFree: (name) => `Schau dir ${name} jetzt gratis live auf StartVagina an — keine Registrierung nötig.`,
   },
 
   es: {
@@ -892,5 +1093,38 @@ export const translations: Record<Language, TranslationStrings> = {
 
     modelsOnline: "modelos en línea",
     modelsLoading: "Cargando modelos…",
+
+    camTitle: (name, platform) => `${name} en Vivo en ${platform} — Webcam Sexo Gratis | StartVagina`,
+    camDesc: (name, platform) => `Mira a ${name} gratis en vivo en ${platform}. Webcam sexo y chat sexual en vivo en StartVagina.`,
+    camBackToOverview: "Volver al inicio",
+    camViewers: "espectadores",
+    camModelInfo: "Info Modelo",
+    camPlatform: "Plataforma",
+    camGender: "Género",
+    camCountry: "País",
+    camShowType: "Tipo de show",
+    camQuality: "Calidad",
+    camLanguages: "Idiomas",
+    camStatus: "Estado",
+    camNew: "Nueva",
+    camViewersLabel: "Espectadores",
+    camViewOnPlatform: (platform) => `Ver en ${platform} →`,
+    camStartPrivate: "Iniciar show privado →",
+    camAbout: (name) => `Sobre ${name}`,
+    camTags: "Tags",
+    camWatchFree: (name) => `Ver a ${name} en Vivo`,
+    camClickToOpen: "Haz clic para abrir el stream gratis",
+    camStreamNotFound: "Stream no encontrado. Vuelve a la página de inicio.",
+    camBack: "Volver",
+    camGenderFemale: "cam girl",
+    camGenderCouple: "pareja cam",
+    camGenderMale: "modelo cam",
+    camGenderModel: "modelo cam",
+    profileIsPopular: (name, gender, age, country, platform) => `${name} es una ${gender} popular${age ? ` de ${age} años` : ""}${country ? ` de ${country}` : ""} en ${platform}.`,
+    profileViewers: (name, viewers) => viewers > 100 ? `Actualmente ${viewers.toLocaleString()} personas están mirando.` : `${name} está en vivo con ${viewers.toLocaleString()} espectadores.`,
+    profileFeatures: (name, features) => `${name} ofrece ${features}.`,
+    profileLanguages: (name, langs) => `${name} habla ${langs}.`,
+    profileTags: (tags) => `Tags populares para este show: ${tags}.`,
+    profileWatchFree: (name) => `Mira a ${name} gratis en vivo en StartVagina — sin registro necesario.`,
   },
 };
