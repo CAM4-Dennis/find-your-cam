@@ -11,6 +11,7 @@ import { useMemo } from "react";
 import type { CamModel } from "@/types/cam";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { landingUI } from "@/data/i18nHelpers";
+import { categoryPages as translatedCategoryPages, getCategoryConfig } from "@/data/categoryPages";
 
 interface CategoryConfig {
   slug: string;
@@ -516,7 +517,10 @@ const CategoryLanding = () => {
   const location = useLocation();
   const { basePath, lang, t } = useLanguage();
   const slug = basePath.replace(/^\//, "");
-  const config = categoryPages[slug || ""];
+  // Use translated data if available, fall back to hardcoded NL data
+  const translatedConfig = getCategoryConfig(slug || "", lang);
+  const fallbackConfig = categoryPages[slug || ""];
+  const config = translatedConfig || fallbackConfig;
   const { allCams, isLoading } = useAllCams();
 
   const categoryCams = useMemo(() => {
