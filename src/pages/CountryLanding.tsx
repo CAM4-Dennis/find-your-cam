@@ -7,10 +7,9 @@ import CamGrid from "@/components/CamGrid";
 import { Helmet } from "react-helmet-async";
 import { useAllCams } from "@/hooks/useAllCams";
 import { useMemo } from "react";
-import { Link /* replaced */ } from "react-router-dom";
-import LocalLink from "@/components/LocalLink";
 import { Loader2 } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { landingUI } from "@/data/i18nHelpers";
 
 interface CountryConfig {
   slug: string;
@@ -492,7 +491,7 @@ Op StartVagina verzamelen we modellen van alle grote cam platforms op één plek
 const CountryLandingPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { basePath, t } = useLanguage();
+  const { basePath, lang, t } = useLanguage();
   const slug = basePath.replace(/^\//, "");
   const { allCams, isLoading } = useAllCams();
 
@@ -617,7 +616,7 @@ const CountryLandingPage = () => {
           )}
 
           <section className="mt-12 max-w-3xl">
-            <h2 className="text-xl font-bold text-foreground mb-3">Webcamsex {config.country}</h2>
+            <h2 className="text-xl font-bold text-foreground mb-3">{landingUI.webcamsex[lang]} {config.country}</h2>
             <div
               className="text-muted-foreground leading-relaxed space-y-3 [&>p]:mb-3 [&_strong]:text-foreground [&_strong]:font-semibold"
               dangerouslySetInnerHTML={{
@@ -629,7 +628,7 @@ const CountryLandingPage = () => {
           {/* FAQ */}
           <section className="mt-12 max-w-3xl">
             <h2 className="text-2xl font-bold text-foreground mb-6">
-              Veelgestelde vragen — Webcamsex {config.country}
+              {landingUI.faqTitle[lang]} — {landingUI.webcamsex[lang]} {config.country}
             </h2>
             <div className="space-y-4">
               {config.faq.map((f, i) => (
@@ -646,7 +645,7 @@ const CountryLandingPage = () => {
           {/* Cross-links */}
           <section className="mt-12 border-t border-border pt-8">
             <h2 className="text-lg font-semibold text-foreground mb-4">
-              Meer landen op StartVagina
+              {landingUI.moreCountries[lang]}
             </h2>
             <div className="flex flex-wrap gap-2">
               {Object.values(countryPages)
@@ -661,13 +660,13 @@ const CountryLandingPage = () => {
                   </LocalLink>
                 ))}
               <LocalLink to="/countries" className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors">
-                🌍 Alle Landen
+                🌍 {landingUI.allCountries[lang]}
               </LocalLink>
               <LocalLink to="/webcamsex" className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors">
-                Webcamsex
+                {landingUI.webcamsex[lang]}
               </LocalLink>
               <LocalLink to="/categories" className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors">
-                Categorieën
+                {t.navCategories}
               </LocalLink>
             </div>
           </section>

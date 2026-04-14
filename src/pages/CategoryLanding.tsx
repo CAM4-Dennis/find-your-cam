@@ -8,10 +8,9 @@ import { Loader2 } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { useAllCams } from "@/hooks/useAllCams";
 import { useMemo } from "react";
-import { Link /* replaced */ } from "react-router-dom";
-import LocalLink from "@/components/LocalLink";
 import type { CamModel } from "@/types/cam";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { landingUI } from "@/data/i18nHelpers";
 
 interface CategoryConfig {
   slug: string;
@@ -515,7 +514,7 @@ Op StartVagina filter je op mobiele cam shows en ontdek je modellen die nu live 
 
 const CategoryLanding = () => {
   const location = useLocation();
-  const { basePath, t } = useLanguage();
+  const { basePath, lang, t } = useLanguage();
   const slug = basePath.replace(/^\//, "");
   const config = categoryPages[slug || ""];
   const { allCams, isLoading } = useAllCams();
@@ -572,7 +571,7 @@ const CategoryLanding = () => {
             </div>
           ) : (
             <CamGrid
-              title={`${config.emoji} ${config.label} — ${categoryCams.length} modellen online`}
+              title={`${config.emoji} ${config.label} — ${categoryCams.length} ${landingUI.modelsOnline[lang]}`}
               models={categoryCams}
               totalOnline={categoryCams.length}
               isLoading={isLoading}
@@ -592,7 +591,7 @@ const CategoryLanding = () => {
           {/* FAQ Section */}
           <section className="mt-12 max-w-3xl">
             <h2 className="text-2xl font-bold text-foreground mb-6">
-              Veelgestelde vragen — {config.label}
+              {landingUI.faqTitle[lang]} — {config.label}
             </h2>
             <div className="space-y-4">
               {config.faq.map((f, i) => (
@@ -614,7 +613,7 @@ const CategoryLanding = () => {
           {/* Cross-links */}
           <section className="mt-12 border-t border-border pt-8">
             <h2 className="text-lg font-semibold text-foreground mb-4">
-              Meer categorieën op StartVagina
+              {landingUI.moreCategories[lang]}
             </h2>
             <div className="flex flex-wrap gap-2">
               {Object.values(categoryPages)
@@ -632,19 +631,19 @@ const CategoryLanding = () => {
                 to="/categories"
                 className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors"
               >
-                Alle Categorieën
+                {landingUI.allCategories[lang]}
               </LocalLink>
               <LocalLink
                 to="/webcamsex"
                 className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors"
               >
-                Webcamsex
+                {landingUI.webcamsex[lang]}
               </LocalLink>
               <LocalLink
                 to="/live-sex-cams"
                 className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors"
               >
-                Live Sex Cams
+                {landingUI.liveSexCams[lang]}
               </LocalLink>
             </div>
           </section>

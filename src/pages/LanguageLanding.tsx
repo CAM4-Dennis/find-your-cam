@@ -7,10 +7,9 @@ import CamGrid from "@/components/CamGrid";
 import { Helmet } from "react-helmet-async";
 import { useAllCams } from "@/hooks/useAllCams";
 import { useMemo } from "react";
-import { Link /* replaced */ } from "react-router-dom";
-import LocalLink from "@/components/LocalLink";
 import { Loader2 } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { landingUI } from "@/data/i18nHelpers";
 
 interface LanguageConfig {
   slug: string;
@@ -270,7 +269,7 @@ const allLanguagePages = Object.values(languagePages);
 
 const LanguageLanding = () => {
   const location = useLocation();
-  const { basePath, t } = useLanguage();
+  const { basePath, lang, t } = useLanguage();
   const slug = basePath.replace(/^\//, "");
   const config = languagePages[slug || ""];
   const { allCams, isLoading } = useAllCams();
@@ -324,7 +323,7 @@ const LanguageLanding = () => {
             </div>
           ) : (
             <CamGrid
-              title={`${config.emoji} ${config.name} — ${languageCams.length} modellen online`}
+              title={`${config.emoji} ${config.name} — ${languageCams.length} ${landingUI.modelsOnline[lang]}`}
               models={languageCams}
               totalOnline={languageCams.length}
               isLoading={isLoading}
@@ -343,7 +342,7 @@ const LanguageLanding = () => {
           {/* FAQ */}
           <section className="mt-12 max-w-3xl">
             <h2 className="text-2xl font-bold text-foreground mb-6">
-              Veelgestelde vragen
+              {landingUI.faqTitle[lang]}
             </h2>
             <div className="space-y-4">
               {config.faq.map((f, i) => (
@@ -360,7 +359,7 @@ const LanguageLanding = () => {
           {/* Cross-links */}
           <section className="mt-12 border-t border-border pt-8">
             <h2 className="text-lg font-semibold text-foreground mb-4">
-              Meer talen op StartVagina
+              {landingUI.moreLanguages[lang]}
             </h2>
             <div className="flex flex-wrap gap-2">
               {allLanguagePages
@@ -375,7 +374,7 @@ const LanguageLanding = () => {
                   </LocalLink>
                 ))}
               <LocalLink to="/languages" className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors">
-                🗣️ Alle Talen
+                🗣️ {t.navLanguages}
               </LocalLink>
             </div>
           </section>
