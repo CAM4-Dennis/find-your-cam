@@ -55,10 +55,13 @@ export const LanguageProvider = ({ children }: { children: React.ReactNode }) =>
     // Save choice so LanguageDetector respects it
     localStorage.setItem("sv_lang_detected", newLang);
     
+    // Preserve location.state (e.g. model data on CamStream pages)
+    const navOptions = location.state ? { state: location.state } : undefined;
+    
     if (newLang === "nl") {
-      navigate(currentPath + location.search);
+      navigate(currentPath + location.search, navOptions);
     } else {
-      navigate(`/${newLang}${currentPath === "/" ? "" : currentPath}${location.search}`);
+      navigate(`/${newLang}${currentPath === "/" ? "" : currentPath}${location.search}`, navOptions);
     }
   };
 
