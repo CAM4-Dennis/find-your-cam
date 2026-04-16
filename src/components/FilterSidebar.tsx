@@ -8,7 +8,7 @@ interface FilterSidebarProps {
 }
 
 const ageOptions = ["18-19", "20-30", "31-40", "40+"];
-const platforms = ["Cam4", "Chaturbate", "BongaCams", "Stripchat", "XCams"];
+const platforms = ["Cam4", "Chaturbate", "BongaCams", "Stripchat"]; // XCams temporarily disabled
 const tagOptions = ["Asian", "BDSM", "Big Boobs", "Ebony", "Hairy", "Latina", "Mature", "MILF", "Small Tits", "Tattoo", "Teen", "Anal", "Squirt", "Feet"];
 const languageOptions = ["Nederlands", "English", "Deutsch", "Français", "Español", "Italiano", "Português", "Русский", "日本語", "한국어"];
 

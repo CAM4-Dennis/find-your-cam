@@ -180,7 +180,7 @@ const Index = () => {
               { name: "Cam4", isLoading: loadingCam4 || loadingCouples4 },
               { name: "Chaturbate", isLoading: loadingCB || loadingCouplesCB || loadingNew },
               { name: "BongaCams", isLoading: loadingBonga || loadingCouplesBonga },
-              { name: "XCams", isLoading: loadingXCams || loadingCouplesXCams },
+              // { name: "XCams", isLoading: loadingXCams || loadingCouplesXCams }, // temporarily disabled
               { name: "Stripchat", isLoading: loadingStrip || loadingStripCouples },
             ]}
           />

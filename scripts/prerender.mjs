@@ -168,8 +168,8 @@ const pages = [
   },
 
   // ---------- Platform landing pages ----------
-  ...["cam4", "chaturbate", "bongacams", "stripchat", "xcams"].map(p => {
-    const name = { cam4: "CAM4", chaturbate: "Chaturbate", bongacams: "BongaCams", stripchat: "Stripchat", xcams: "XCams" }[p];
+  ...["cam4", "chaturbate", "bongacams", "stripchat"].map(p => { // xcams temporarily disabled
+    const name = { cam4: "CAM4", chaturbate: "Chaturbate", bongacams: "BongaCams", stripchat: "Stripchat" }[p];
     return {
       slugs: [`live-sex-cams-${p}`],
       meta: m(
