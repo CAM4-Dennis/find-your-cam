@@ -68,6 +68,8 @@ type TranslationStrings = {
   filterCategory: string;
   filterLanguage: string;
   filterCamSites: string;
+  filterHide: string;
+  filterShow: string;
   genderFemale: string;
   genderCouple: string;
   genderShemale: string;
@@ -240,6 +242,8 @@ export const translations: Record<Language, TranslationStrings> = {
     filterCategory: "Categorie",
     filterLanguage: "Taal",
     filterCamSites: "Cam Sites",
+    filterHide: "Filters verbergen",
+    filterShow: "Filters tonen",
     genderFemale: "Vrouw",
     genderCouple: "Koppel",
     genderShemale: "Shemale",
@@ -395,6 +399,8 @@ export const translations: Record<Language, TranslationStrings> = {
     filterCategory: "Category",
     filterLanguage: "Language",
     filterCamSites: "Cam Sites",
+    filterHide: "Hide filters",
+    filterShow: "Show filters",
     genderFemale: "Female",
     genderCouple: "Couple",
     genderShemale: "Shemale",
@@ -550,6 +556,8 @@ export const translations: Record<Language, TranslationStrings> = {
     filterCategory: "Catégorie",
     filterLanguage: "Langue",
     filterCamSites: "Sites Cam",
+    filterHide: "Masquer les filtres",
+    filterShow: "Afficher les filtres",
     genderFemale: "Femme",
     genderCouple: "Couple",
     genderShemale: "Shemale",
@@ -705,6 +713,8 @@ export const translations: Record<Language, TranslationStrings> = {
     filterCategory: "Categoria",
     filterLanguage: "Lingua",
     filterCamSites: "Siti Cam",
+    filterHide: "Nascondi filtri",
+    filterShow: "Mostra filtri",
     genderFemale: "Donna",
     genderCouple: "Coppia",
     genderShemale: "Shemale",
@@ -860,6 +870,8 @@ export const translations: Record<Language, TranslationStrings> = {
     filterCategory: "Kategorie",
     filterLanguage: "Sprache",
     filterCamSites: "Cam Seiten",
+    filterHide: "Filter ausblenden",
+    filterShow: "Filter anzeigen",
     genderFemale: "Frau",
     genderCouple: "Paar",
     genderShemale: "Shemale",
@@ -1015,6 +1027,8 @@ export const translations: Record<Language, TranslationStrings> = {
     filterCategory: "Categoría",
     filterLanguage: "Idioma",
     filterCamSites: "Sitios Cam",
+    filterHide: "Ocultar filtros",
+    filterShow: "Mostrar filtros",
     genderFemale: "Mujer",
     genderCouple: "Pareja",
     genderShemale: "Shemale",

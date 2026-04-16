@@ -24,6 +24,7 @@ import { OG_LOCALES } from "@/i18n/translations";
 const Index = () => {
   const { data: geo } = useGeoLocation();
   const [filters, setFilters] = useState<CamFilters>(defaultFilters);
+  const [showFilters, setShowFilters] = useState(true);
   const { t, lang, langPrefix } = useLanguage();
 
   // Stagger API calls: primary loads immediately, secondary after 500ms
@@ -248,9 +249,26 @@ const Index = () => {
               )}
             </div>
 
-            <div className="hidden lg:block w-64 shrink-0">
-              <div className="sticky top-6 max-h-[calc(100vh-3rem)] overflow-y-auto scrollbar-thin">
-                <FilterSidebar filters={filters} onChange={setFilters} />
+            <div className="hidden lg:block shrink-0">
+              <div className="sticky top-6">
+                <button
+                  onClick={() => setShowFilters((v) => !v)}
+                  className="mb-3 flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  aria-expanded={showFilters}
+                >
+                  <svg
+                    className={`h-3.5 w-3.5 transition-transform ${showFilters ? "rotate-90" : ""}`}
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                  {showFilters ? t.filterHide : t.filterShow}
+                </button>
+                {showFilters && (
+                  <div className="w-64 max-h-[calc(100vh-5rem)] overflow-y-auto scrollbar-thin">
+                    <FilterSidebar filters={filters} onChange={setFilters} />
+                  </div>
+                )}
               </div>
             </div>
           </div>
