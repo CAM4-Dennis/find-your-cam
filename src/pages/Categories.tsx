@@ -35,7 +35,7 @@ const Categories = () => {
           <title>{t.categoriesTitle}</title>
           <meta name="description" content={t.categoriesDescription} />
           <meta name="robots" content="index, follow" />
-          <link rel="canonical" href={`https://startvagina.nl${langPrefix}/categories`} />
+          <link rel="canonical" href={`https://www.startvagina.nl${langPrefix}/categories`} />
         </Helmet>
 
         <Header />

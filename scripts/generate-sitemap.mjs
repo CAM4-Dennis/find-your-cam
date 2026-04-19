@@ -9,7 +9,7 @@ import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const BASE = "https://startvagina.nl";
+const BASE = "https://www.startvagina.nl";
 const langs = ["nl", "en", "fr", "it", "de", "es"];
 const prefixes = { nl: "", en: "/en", fr: "/fr", it: "/it", de: "/de", es: "/es" };
 

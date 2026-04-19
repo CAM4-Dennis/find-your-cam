@@ -60,7 +60,7 @@ const Countries = () => {
           <title>{t.countriesTitle}</title>
           <meta name="description" content={t.countriesDescription} />
           <meta name="robots" content="index, follow" />
-          <link rel="canonical" href={`https://startvagina.nl${langPrefix}/countries`} />
+          <link rel="canonical" href={`https://www.startvagina.nl${langPrefix}/countries`} />
         </Helmet>
 
         <Header />

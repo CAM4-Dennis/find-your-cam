@@ -33,10 +33,10 @@ const KeywordLanding = () => {
           <meta name="description" content={config.description} />
           <meta name="keywords" content={config.keywords} />
           <meta name="robots" content="index, follow" />
-          <link rel="canonical" href={`https://startvagina.nl/${keyword}`} />
+          <link rel="canonical" href={`https://www.startvagina.nl/${keyword}`} />
           <meta property="og:title" content={config.title} />
           <meta property="og:description" content={config.description} />
-          <meta property="og:url" content={`https://startvagina.nl/${keyword}`} />
+          <meta property="og:url" content={`https://www.startvagina.nl/${keyword}`} />
           <script type="application/ld+json">
             {JSON.stringify({
               "@context": "https://schema.org",

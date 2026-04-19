@@ -130,7 +130,7 @@ const Index = () => {
   const isLoading = loadingCam4 || loadingCB || loadingBonga || loadingXCams || loadingStrip ||
     loadingCouples4 || loadingCouplesCB || loadingCouplesBonga || loadingCouplesXCams || loadingStripCouples || loadingNew;
 
-  const canonicalUrl = `https://startvagina.nl${langPrefix || ""}`;
+  const canonicalUrl = `https://www.startvagina.nl${langPrefix || ""}`;
 
   return (
     <AgeGate>

@@ -540,10 +540,10 @@ const CategoryLanding = () => {
           <meta name="description" content={config.description} />
           <meta name="keywords" content={config.keywords} />
           <meta name="robots" content="index, follow" />
-          <link rel="canonical" href={`https://startvagina.nl/${config.slug}`} />
+          <link rel="canonical" href={`https://www.startvagina.nl/${config.slug}`} />
           <meta property="og:title" content={config.title} />
           <meta property="og:description" content={config.description} />
-          <meta property="og:url" content={`https://startvagina.nl/${config.slug}`} />
+          <meta property="og:url" content={`https://www.startvagina.nl/${config.slug}`} />
           <meta property="og:type" content="website" />
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:title" content={config.title} />

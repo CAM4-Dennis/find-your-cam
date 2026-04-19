@@ -169,10 +169,10 @@ const CamStream = () => {
           <title>{t.camTitle(model.name, platformName)}</title>
           <meta name="description" content={t.camDesc(model.name, platformName)} />
           <meta name="keywords" content={`${model.name}, ${platformName}, ${model.name} webcam, ${model.name} live${model.country && model.country !== "Onbekend" ? ", " + model.country + " cam" : ""}${model.tags?.slice(0, 3).map(tag => ", " + tag).join("") || ""}`} />
-          <link rel="canonical" href={`https://startvagina.nl/${platform}/${username}`} />
+          <link rel="canonical" href={`https://www.startvagina.nl/${platform}/${username}`} />
           <meta property="og:title" content={t.camTitle(model.name, platformName)} />
           <meta property="og:description" content={t.camDesc(model.name, platformName)} />
-          <meta property="og:url" content={`https://startvagina.nl/${platform}/${username}`} />
+          <meta property="og:url" content={`https://www.startvagina.nl/${platform}/${username}`} />
           <meta name="robots" content="noindex, nofollow" />
           <script type="application/ld+json">
             {JSON.stringify({
@@ -186,7 +186,7 @@ const CamStream = () => {
                 knowsLanguage: model.languages?.length > 0 ? model.languages : undefined,
               },
               description: `Bekijk ${model.name} live op ${platformName}`,
-              url: `https://startvagina.nl/${platform}/${username}`,
+              url: `https://www.startvagina.nl/${platform}/${username}`,
             })}
           </script>
         </Helmet>

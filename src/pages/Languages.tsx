@@ -119,7 +119,7 @@ const Languages = () => {
           <title>{t.languagesTitle}</title>
           <meta name="description" content={t.languagesDescription} />
           <meta name="robots" content="index, follow" />
-          <link rel="canonical" href={`https://startvagina.nl${langPrefix}/languages`} />
+          <link rel="canonical" href={`https://www.startvagina.nl${langPrefix}/languages`} />
         </Helmet>
 
         <Header />
