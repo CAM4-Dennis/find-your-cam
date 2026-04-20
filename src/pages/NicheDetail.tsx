@@ -4,18 +4,11 @@ import Footer from "@/components/Footer";
 import AgeGate from "@/components/AgeGate";
 import { Helmet } from "react-helmet-async";
 import { useNicheFeed, useNicheList } from "@/hooks/useNiches";
-import { Loader2, Play, ArrowLeft, Clock, Heart } from "lucide-react";
+import { Loader2, ArrowLeft } from "lucide-react";
+import VideoPreviewCard from "@/components/VideoPreviewCard";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { getRobotsContent } from "@/lib/robotsMeta";
 import { getNicheSeo } from "@/data/nicheSeoData";
-
-function formatDuration(ms?: number): string {
-  if (!ms) return "";
-  const totalSec = Math.floor(ms / 1000);
-  const min = Math.floor(totalSec / 60);
-  const sec = totalSec % 60;
-  return `${min}:${sec.toString().padStart(2, "0")}`;
-}
 
 function makeAffiliateLink(username: string): string {
   return `https://offers.cam4tracking.com/aff_c?offer_id=278&aff_id=1961&aff_sub=startvagina&aff_sub2=${encodeURIComponent(username)}&url=${encodeURIComponent(`https://www.cam4.com/${username}`)}`;
@@ -160,61 +153,25 @@ const NicheDetail = () => {
             <p className="text-muted-foreground text-center py-12">{t.noVideos}</p>
           ) : (
             <>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {videoPosts.map((post) => {
                   const video = post.medias.find((m) => m.mediaType === "VIDEO");
                   if (!video) return null;
 
                   return (
-                    <a
+                    <VideoPreviewCard
                       key={post.id}
-                      href={makeAffiliateLink(post.username)}
-                      target="_blank"
-                      rel="noopener noreferrer nofollow"
-                      className="group relative rounded-lg overflow-hidden bg-card border border-border hover:border-primary transition-colors"
-                    >
-                      {/* Thumbnail */}
-                      <div className="aspect-video relative overflow-hidden bg-muted">
-                        <img
-                          src={video.thumbnailUrl || post.coverThumbnailUrl}
-                          alt={post.title || post.text}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                          loading="lazy"
-                        />
-                        {/* Play icon overlay */}
-                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/30">
-                          <Play size={40} className="text-white fill-white" />
-                        </div>
-                        {/* Duration badge */}
-                        {video.duration && (
-                          <span className="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-1.5 py-0.5 rounded flex items-center gap-1">
-                            <Clock size={10} />
-                            {formatDuration(video.duration)}
-                          </span>
-                        )}
-                      </div>
-
-                      {/* Info */}
-                      <div className="p-2.5">
-                        <h3 className="text-sm font-medium text-foreground truncate">
-                          {post.title || post.text}
-                        </h3>
-                        <div className="flex items-center gap-2 mt-1">
-                          <img
-                            src={post.ownerInfo.avatarSmallSizeUrl || post.ownerInfo.avatarUrl}
-                            alt={post.username}
-                            className="w-5 h-5 rounded-full object-cover"
-                            loading="lazy"
-                          />
-                          <span className="text-xs text-muted-foreground truncate">{post.username}</span>
-                          {post.reactionsCount > 0 && (
-                            <span className="text-xs text-muted-foreground flex items-center gap-0.5 ml-auto">
-                              <Heart size={10} /> {post.reactionsCount}
-                            </span>
-                          )}
-                        </div>
-                      </div>
-                    </a>
+                      postId={post.id}
+                      title={post.title || post.text}
+                      username={post.username}
+                      avatarUrl={post.ownerInfo.avatarSmallSizeUrl || post.ownerInfo.avatarUrl}
+                      videoUrl={video.mediaUrl}
+                      thumbnailUrl={video.thumbnailUrl || post.coverThumbnailUrl}
+                      duration={video.duration}
+                      reactionsCount={post.reactionsCount}
+                      affiliateLink={makeAffiliateLink(post.username)}
+                      lang={lang}
+                    />
                   );
                 })}
               </div>
