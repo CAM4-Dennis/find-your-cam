@@ -2,7 +2,7 @@ import { useState, useRef, useCallback, useEffect } from "react";
 import { Play, Clock, Heart, ExternalLink, Volume2, VolumeX } from "lucide-react";
 import type { Language } from "@/i18n/translations";
 
-const PREVIEW_SECONDS = 15;
+const PREVIEW_SECONDS = 10;
 
 interface VideoPreviewCardProps {
   postId: number;
