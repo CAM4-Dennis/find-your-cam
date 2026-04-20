@@ -7,6 +7,7 @@ import { useNicheFeed, useNicheList } from "@/hooks/useNiches";
 import { Loader2, Play, ArrowLeft, Clock, Heart } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { getRobotsContent } from "@/lib/robotsMeta";
+import { getNicheSeo } from "@/data/nicheSeoData";
 
 function formatDuration(ms?: number): string {
   if (!ms) return "";
@@ -95,13 +96,14 @@ const NicheDetail = () => {
 
   const nicheName = nicheInfo?.name.originalText || slug || "";
   const nicheDesc = nicheInfo?.description.originalText || "";
+  const seo = getNicheSeo(slug || "", nicheName, lang);
 
   return (
     <AgeGate>
       <div className="min-h-screen flex flex-col bg-background">
         <Helmet>
-          <title>{`${nicheName} Video's — CAM4 Niche Content | StartVagina`}</title>
-          <meta name="description" content={`${nicheName}: ${nicheDesc}. Bekijk exclusieve video's van cam modellen op CAM4.`} />
+          <title>{seo.title}</title>
+          <meta name="description" content={seo.description} />
           <meta name="robots" content={getRobotsContent(lang)} />
           <link rel="canonical" href={`https://www.startvagina.nl/niche-videos/${slug}`} />
         </Helmet>
