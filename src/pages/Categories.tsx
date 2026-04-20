@@ -4,6 +4,7 @@ import AgeGate from "@/components/AgeGate";
 import { Helmet } from "react-helmet-async";
 import LocalLink from "@/components/LocalLink";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { getRobotsContent } from "@/lib/robotsMeta";
 
 const categories = [
   { label: "Teen (18+)", emoji: "🔞", slug: "webcamsex-teen-18-plus" },
@@ -26,7 +27,7 @@ const categories = [
 ];
 
 const Categories = () => {
-  const { t, langPrefix } = useLanguage();
+  const { t, lang, langPrefix } = useLanguage();
 
   return (
     <AgeGate>
@@ -34,7 +35,7 @@ const Categories = () => {
         <Helmet>
           <title>{t.categoriesTitle}</title>
           <meta name="description" content={t.categoriesDescription} />
-          <meta name="robots" content="index, follow" />
+          <meta name="robots" content={getRobotsContent(lang)} />
           <link rel="canonical" href={`https://www.startvagina.nl${langPrefix}/categories`} />
         </Helmet>
 

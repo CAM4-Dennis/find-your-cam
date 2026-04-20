@@ -9,6 +9,7 @@ import { Helmet } from "react-helmet-async";
 import { useAllCams } from "@/hooks/useAllCams";
 import { useMemo } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { getRobotsContent } from "@/lib/robotsMeta";
 import { platformPages, getPlatformConfig } from "@/data/platformPages";
 
 function renderContent(text: string): string {
@@ -42,7 +43,7 @@ const PlatformLanding = () => {
           <title>{config.title}</title>
           <meta name="description" content={config.description} />
           <meta name="keywords" content={config.keywords} />
-          <meta name="robots" content="index, follow" />
+          <meta name="robots" content={getRobotsContent(lang)} />
           <link rel="canonical" href={`https://www.startvagina.nl/${config.slug}`} />
           <meta property="og:title" content={config.title} />
           <meta property="og:description" content={config.description} />

@@ -7,6 +7,7 @@ import CamGrid from "@/components/CamGrid";
 import { Helmet } from "react-helmet-async";
 import { useAllCams } from "@/hooks/useAllCams";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { getRobotsContent } from "@/lib/robotsMeta";
 
 const languageAliases: Record<string, string[]> = {
   Nederlands: ["dutch", "nl", "nederlands", "nederlandstalig"],
@@ -72,7 +73,7 @@ const Languages = () => {
   const { allCams, isLoading } = useAllCams();
   const [selected, setSelected] = useState<string | null>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
-  const { t, langPrefix } = useLanguage();
+  const { t, lang, langPrefix } = useLanguage();
 
   const languageCounts = useMemo(() => {
     const counts: Record<string, number> = {};
@@ -118,7 +119,7 @@ const Languages = () => {
         <Helmet>
           <title>{t.languagesTitle}</title>
           <meta name="description" content={t.languagesDescription} />
-          <meta name="robots" content="index, follow" />
+          <meta name="robots" content={getRobotsContent(lang)} />
           <link rel="canonical" href={`https://www.startvagina.nl${langPrefix}/languages`} />
         </Helmet>
 

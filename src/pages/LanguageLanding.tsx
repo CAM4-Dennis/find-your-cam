@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, Navigate } from "react-router-dom";
 import LocalLink from "@/components/LocalLink";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -10,6 +10,7 @@ import { useMemo } from "react";
 import { Loader2 } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { landingUI } from "@/data/i18nHelpers";
+import type { Language } from "@/i18n/translations";
 
 interface LanguageConfig {
   slug: string;
@@ -267,6 +268,25 @@ Ontdek alle Koreaans sprekende cam modellen op StartVagina.`,
 
 const allLanguagePages = Object.values(languagePages);
 
+/**
+ * Map language-page slugs to the site language prefix they belong to.
+ * Pages not listed here (PT, RU, JA, KO) are available under all prefixes.
+ * Under /nl (default, no prefix): all pages are available.
+ * Under /en: only the English page.
+ * Under /fr: only the French page, etc.
+ */
+const slugToSiteLang: Record<string, Language> = {
+  "webcamsex-in-het-nederlands": "nl",
+  "english-webcam-sex-chat": "en",
+  "webcamsex-auf-deutsch": "de",
+  "webcamsex-en-francais": "fr",
+  "webcamsex-en-espanol": "es",
+  "webcamsex-in-italiano": "it",
+};
+
+/** noindex languages — pages under these prefixes get noindex, nofollow */
+const NOINDEX_LANGS: Language[] = ["fr", "it", "de", "es"];
+
 const LanguageLanding = () => {
   const location = useLocation();
   const { basePath, lang, t } = useLanguage();
@@ -283,6 +303,16 @@ const LanguageLanding = () => {
 
   if (!config) return null;
 
+  // If this slug is restricted to a specific site language and the current
+  // site language doesn't match, redirect to the canonical (unprefixed/nl) version.
+  const restrictedTo = slugToSiteLang[slug];
+  if (restrictedTo && lang !== "nl" && lang !== restrictedTo) {
+    // Redirect to the canonical version (no prefix = Dutch/default)
+    return <Navigate to={`/${config.slug}`} replace />;
+  }
+
+  const robotsContent = NOINDEX_LANGS.includes(lang) ? "noindex, nofollow" : "index, follow";
+
   return (
     <AgeGate>
       <div className="min-h-screen flex flex-col bg-background">
@@ -290,7 +320,7 @@ const LanguageLanding = () => {
           <title>{config.title}</title>
           <meta name="description" content={config.description} />
           <meta name="keywords" content={config.keywords} />
-          <meta name="robots" content="index, follow" />
+          <meta name="robots" content={robotsContent} />
           <link rel="canonical" href={`https://www.startvagina.nl/${config.slug}`} />
           <meta property="og:title" content={config.title} />
           <meta property="og:description" content={config.description} />

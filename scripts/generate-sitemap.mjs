@@ -10,8 +10,9 @@ import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const BASE = "https://www.startvagina.nl";
-const langs = ["nl", "en", "fr", "it", "de", "es"];
-const prefixes = { nl: "", en: "/en", fr: "/fr", it: "/it", de: "/de", es: "/es" };
+// Only NL and EN are indexed; fr/it/de/es are noindex
+const langs = ["nl", "en"];
+const prefixes = { nl: "", en: "/en" };
 
 // All page slugs with their priority and changefreq
 const pages = [
@@ -58,12 +59,13 @@ const pages = [
   { slug: "/webcamsex-mobiel", priority: "0.6", changefreq: "daily" },
 
   // Language landing pages
-  { slug: "/webcamsex-in-het-nederlands", priority: "0.8", changefreq: "daily" },
-  { slug: "/english-webcam-sex-chat", priority: "0.7", changefreq: "daily" },
-  { slug: "/webcamsex-auf-deutsch", priority: "0.7", changefreq: "daily" },
-  { slug: "/webcamsex-en-francais", priority: "0.7", changefreq: "daily" },
-  { slug: "/webcamsex-en-espanol", priority: "0.7", changefreq: "daily" },
-  { slug: "/webcamsex-in-italiano", priority: "0.7", changefreq: "daily" },
+  // restrictTo: only include under these lang prefixes (undefined = all)
+  { slug: "/webcamsex-in-het-nederlands", priority: "0.8", changefreq: "daily", restrictTo: ["nl"] },
+  { slug: "/english-webcam-sex-chat", priority: "0.7", changefreq: "daily", restrictTo: ["nl", "en"] },
+  { slug: "/webcamsex-auf-deutsch", priority: "0.7", changefreq: "daily", restrictTo: ["nl"] },
+  { slug: "/webcamsex-en-francais", priority: "0.7", changefreq: "daily", restrictTo: ["nl"] },
+  { slug: "/webcamsex-en-espanol", priority: "0.7", changefreq: "daily", restrictTo: ["nl"] },
+  { slug: "/webcamsex-in-italiano", priority: "0.7", changefreq: "daily", restrictTo: ["nl"] },
   { slug: "/webcamsex-em-portugues", priority: "0.6", changefreq: "daily" },
   { slug: "/webcamsex-na-russkom", priority: "0.6", changefreq: "daily" },
   { slug: "/japanese-webcam-sex", priority: "0.6", changefreq: "daily" },
@@ -95,8 +97,9 @@ function buildUrl(slug, langPrefix) {
   return `${BASE}${langPrefix}${slug}`;
 }
 
-function buildHreflangLinks(slug) {
-  return langs
+function buildHreflangLinks(slug, restrictTo) {
+  const activeLangs = restrictTo ? langs.filter((l) => restrictTo.includes(l)) : langs;
+  return activeLangs
     .map((lang) => {
       const href = buildUrl(slug, prefixes[lang]);
       return `    <xhtml:link rel="alternate" hreflang="${lang}" href="${href}" />`;
@@ -105,13 +108,13 @@ function buildHreflangLinks(slug) {
     .join("\n");
 }
 
-function buildUrlEntry(slug, langPrefix, priority, changefreq) {
+function buildUrlEntry(slug, langPrefix, priority, changefreq, restrictTo) {
   const loc = buildUrl(slug, langPrefix);
   return `  <url>
     <loc>${loc}</loc>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
-${buildHreflangLinks(slug)}
+${buildHreflangLinks(slug, restrictTo)}
   </url>`;
 }
 
@@ -119,7 +122,9 @@ ${buildHreflangLinks(slug)}
 const entries = [];
 for (const page of pages) {
   for (const lang of langs) {
-    entries.push(buildUrlEntry(page.slug, prefixes[lang], page.priority, page.changefreq));
+    // Skip if this page is restricted to specific lang prefixes
+    if (page.restrictTo && !page.restrictTo.includes(lang)) continue;
+    entries.push(buildUrlEntry(page.slug, prefixes[lang], page.priority, page.changefreq, page.restrictTo));
   }
 }
 

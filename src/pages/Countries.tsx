@@ -7,12 +7,13 @@ import { Helmet } from "react-helmet-async";
 import { useAllCams } from "@/hooks/useAllCams";
 import { countryToFullSlug } from "@/lib/countrySlug";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { getRobotsContent } from "@/lib/robotsMeta";
 
 const Countries = () => {
   const { allCams } = useAllCams();
   const [expanded, setExpanded] = useState(false);
   const chipsRef = useRef<HTMLDivElement>(null);
-  const { t, langPrefix } = useLanguage();
+  const { t, lang, langPrefix } = useLanguage();
 
   const countryMergeMap: Record<string, string> = {
     "The Netherlands": "Nederland",
@@ -59,7 +60,7 @@ const Countries = () => {
         <Helmet>
           <title>{t.countriesTitle}</title>
           <meta name="description" content={t.countriesDescription} />
-          <meta name="robots" content="index, follow" />
+          <meta name="robots" content={getRobotsContent(lang)} />
           <link rel="canonical" href={`https://www.startvagina.nl${langPrefix}/countries`} />
         </Helmet>
 

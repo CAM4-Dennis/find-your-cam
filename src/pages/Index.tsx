@@ -19,6 +19,7 @@ import { defaultFilters } from "@/types/filters";
 import { applyFilters } from "@/lib/filterModels";
 import { getCountryName } from "@/lib/countryFlags";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { getRobotsContent } from "@/lib/robotsMeta";
 import { OG_LOCALES } from "@/i18n/translations";
 
 const Index = () => {
@@ -140,7 +141,7 @@ const Index = () => {
           <title>{t.siteTitle}</title>
           <meta name="description" content={t.siteDescription} />
           <meta name="keywords" content="webcamsex, live sex cams, gratis webcam, sexchat, cam girls" />
-          <meta name="robots" content="index, follow" />
+          <meta name="robots" content={getRobotsContent(lang)} />
           <link rel="canonical" href={canonicalUrl} />
           <meta property="og:title" content={t.ogTitle} />
           <meta property="og:description" content={t.ogDescription} />

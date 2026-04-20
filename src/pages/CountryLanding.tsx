@@ -9,6 +9,7 @@ import { useAllCams } from "@/hooks/useAllCams";
 import { useMemo } from "react";
 import { Loader2 } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { getRobotsContent } from "@/lib/robotsMeta";
 import { landingUI } from "@/data/i18nHelpers";
 import { getCountryConfig } from "@/data/countryPages";
 
@@ -574,7 +575,7 @@ const CountryLandingPage = () => {
           <title>{config.title}</title>
           <meta name="description" content={config.description} />
           <meta name="keywords" content={config.keywords} />
-          <meta name="robots" content="index, follow" />
+          <meta name="robots" content={getRobotsContent(lang)} />
           <link rel="canonical" href={`https://www.startvagina.nl/${config.slug}`} />
           <meta property="og:title" content={config.title} />
           <meta property="og:description" content={config.description} />
