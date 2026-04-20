@@ -58,6 +58,9 @@ const pages = [
   { slug: "/webcamsex-outdoor", priority: "0.6", changefreq: "daily" },
   { slug: "/webcamsex-mobiel", priority: "0.6", changefreq: "daily" },
 
+  // Niche videos
+  { slug: "/niche-videos", priority: "0.8", changefreq: "daily" },
+
   // Language landing pages
   // restrictTo: only include under these lang prefixes (undefined = all)
   { slug: "/webcamsex-in-het-nederlands", priority: "0.8", changefreq: "daily", restrictTo: ["nl"] },

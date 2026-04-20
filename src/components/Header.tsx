@@ -19,6 +19,7 @@ const Header = () => {
     { label: t.navLanguages, href: localePath("/languages") },
     { label: t.navNew, href: localePath("/new") },
     { label: t.navTopCams, href: localePath("/top") },
+    { label: t.navVideos, href: localePath("/niche-videos") },
     { label: t.navBlog, href: localePath("/blog") },
   ];
 

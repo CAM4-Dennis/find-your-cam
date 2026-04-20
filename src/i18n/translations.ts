@@ -37,6 +37,7 @@ type TranslationStrings = {
   navNew: string;
   navTopCams: string;
   navBlog: string;
+  navVideos: string;
 
   // Header
   searchPlaceholder: string;
@@ -214,6 +215,7 @@ export const translations: Record<Language, TranslationStrings> = {
     navLanguages: "Talen",
     navNew: "Nieuw",
     navTopCams: "Top Cams",
+    navVideos: "Video's",
     navBlog: "Blog",
 
     searchPlaceholder: "Zoek model of categorie...",
@@ -372,6 +374,7 @@ export const translations: Record<Language, TranslationStrings> = {
     navNew: "New",
     navTopCams: "Top Cams",
     navBlog: "Blog",
+    navVideos: "Videos",
 
     searchPlaceholder: "Search model or category...",
     sfwLabel: "SFW",
@@ -530,6 +533,7 @@ export const translations: Record<Language, TranslationStrings> = {
     navTopCams: "Top Cams",
     navBlog: "Blog",
 
+    navVideos: "Vidéos",
     searchPlaceholder: "Rechercher modèle ou catégorie...",
     sfwLabel: "SFW",
     nsfwLabel: "NSFW",
@@ -688,6 +692,7 @@ export const translations: Record<Language, TranslationStrings> = {
     navBlog: "Blog",
 
     searchPlaceholder: "Cerca modella o categoria...",
+    navVideos: "Video",
     sfwLabel: "SFW",
     nsfwLabel: "NSFW",
 
@@ -846,6 +851,7 @@ export const translations: Record<Language, TranslationStrings> = {
 
     searchPlaceholder: "Model oder Kategorie suchen...",
     sfwLabel: "SFW",
+    navVideos: "Videos",
     nsfwLabel: "NSFW",
 
     ageGateTitle: "StartVagina",
@@ -1004,6 +1010,7 @@ export const translations: Record<Language, TranslationStrings> = {
     searchPlaceholder: "Buscar modelo o categoría...",
     sfwLabel: "SFW",
     nsfwLabel: "NSFW",
+    navVideos: "Videos",
 
     ageGateTitle: "StartVagina",
     ageGateText: "Este sitio web contiene contenido explícito destinado solo a adultos (18+). Al continuar confirmas que tienes 18 años o más.",
