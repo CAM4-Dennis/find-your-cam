@@ -78,6 +78,11 @@ const NicheVideos = () => {
           <meta name="description" content={t.description} />
           <meta name="robots" content={getRobotsContent(lang)} />
           <link rel="canonical" href="https://www.startvagina.nl/niche-videos" />
+          <meta property="og:title" content={t.title} />
+          <meta property="og:description" content={t.description} />
+          <meta property="og:url" content="https://www.startvagina.nl/niche-videos" />
+          <meta property="og:type" content="website" />
+          <meta property="og:site_name" content="StartVagina" />
         </Helmet>
 
         <Header />

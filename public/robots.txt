@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://startvagina.nl/sitemap.xml
+Sitemap: https://www.startvagina.nl/sitemap.xml

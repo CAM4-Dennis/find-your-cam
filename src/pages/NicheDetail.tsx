@@ -106,6 +106,14 @@ const NicheDetail = () => {
           <meta name="description" content={seo.description} />
           <meta name="robots" content={getRobotsContent(lang)} />
           <link rel="canonical" href={`https://www.startvagina.nl/niche-videos/${slug}`} />
+          <meta property="og:title" content={seo.title} />
+          <meta property="og:description" content={seo.description} />
+          <meta property="og:url" content={`https://www.startvagina.nl/niche-videos/${slug}`} />
+          <meta property="og:type" content="website" />
+          <meta property="og:site_name" content="StartVagina" />
+          {nicheInfo?.thumbnailMedia?.mediumSizeImageUrl && (
+            <meta property="og:image" content={nicheInfo.thumbnailMedia.mediumSizeImageUrl} />
+          )}
         </Helmet>
 
         <Header />

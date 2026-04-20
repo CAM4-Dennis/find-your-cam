@@ -23,6 +23,11 @@ const Blog = () => {
         <Helmet>
           <title>{t.blogTitle}</title>
           <meta name="description" content={t.blogDescription} />
+          <meta property="og:title" content={t.blogTitle} />
+          <meta property="og:description" content={t.blogDescription} />
+          <meta property="og:url" content="https://www.startvagina.nl/blog" />
+          <meta property="og:type" content="website" />
+          <meta property="og:site_name" content="StartVagina" />
         </Helmet>
 
         <Header />

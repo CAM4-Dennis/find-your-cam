@@ -36,6 +36,11 @@ const Categories = () => {
           <title>{t.categoriesTitle}</title>
           <meta name="description" content={t.categoriesDescription} />
           <meta name="robots" content={getRobotsContent(lang)} />
+          <meta property="og:title" content={t.categoriesTitle} />
+          <meta property="og:description" content={t.categoriesDescription} />
+          <meta property="og:url" content="https://www.startvagina.nl/categories" />
+          <meta property="og:type" content="website" />
+          <meta property="og:site_name" content="StartVagina" />
           <link rel="canonical" href={`https://www.startvagina.nl${langPrefix}/categories`} />
         </Helmet>
 

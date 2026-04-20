@@ -59,6 +59,11 @@ const New = () => {
         <Helmet>
           <title>{t.newTitle}</title>
           <meta name="description" content={t.newDescription} />
+          <meta property="og:title" content={t.newTitle} />
+          <meta property="og:description" content={t.newDescription} />
+          <meta property="og:url" content="https://www.startvagina.nl/new" />
+          <meta property="og:type" content="website" />
+          <meta property="og:site_name" content="StartVagina" />
         </Helmet>
 
         <Header />

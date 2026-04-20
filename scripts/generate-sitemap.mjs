@@ -121,6 +121,36 @@ ${buildHreflangLinks(slug, restrictTo)}
   </url>`;
 }
 
+// Fetch niche slugs from CAM4 API at build time
+async function fetchNicheSlugs() {
+  try {
+    const res = await fetch("https://api.cam4.com/rest/v1.0/niches?size=50&sortStrategy=MOST_POPULAR&gender=female");
+    if (!res.ok) throw new Error(`API ${res.status}`);
+    const data = await res.json();
+    let allNiches = [...data.content];
+    // Fetch remaining pages
+    for (let page = 1; page < data.totalPages; page++) {
+      const res2 = await fetch(`https://api.cam4.com/rest/v1.0/niches?size=50&sortStrategy=MOST_POPULAR&gender=female&page=${page}`);
+      if (res2.ok) {
+        const d2 = await res2.json();
+        allNiches.push(...d2.content);
+      }
+    }
+    return allNiches.filter(n => n.stats.postsCount > 0).map(n => n.slug);
+  } catch (e) {
+    console.warn(`⚠️  Could not fetch niche slugs: ${e.message}. Skipping niche pages in sitemap.`);
+    return [];
+  }
+}
+
+const nicheSlugs = await fetchNicheSlugs();
+console.log(`📦 Fetched ${nicheSlugs.length} niche slugs from CAM4 API`);
+
+// Add niche detail pages dynamically
+for (const slug of nicheSlugs) {
+  pages.push({ slug: `/niche-videos/${slug}`, priority: "0.6", changefreq: "daily" });
+}
+
 // Generate all URL entries
 const entries = [];
 for (const page of pages) {

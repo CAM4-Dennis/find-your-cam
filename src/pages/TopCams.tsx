@@ -39,6 +39,11 @@ const TopCams = () => {
         <Helmet>
           <title>{t.topTitle}</title>
           <meta name="description" content={t.topDescription} />
+          <meta property="og:title" content={t.topTitle} />
+          <meta property="og:description" content={t.topDescription} />
+          <meta property="og:url" content="https://www.startvagina.nl/top" />
+          <meta property="og:type" content="website" />
+          <meta property="og:site_name" content="StartVagina" />
         </Helmet>
 
         <Header />

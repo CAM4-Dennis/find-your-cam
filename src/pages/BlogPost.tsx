@@ -122,6 +122,10 @@ const BlogPost = () => {
         <Helmet>
           <title>{`${post.title} — StartVagina Blog`}</title>
           <meta name="description" content={post.description} />
+          <meta property="og:title" content={`${post.title} — StartVagina Blog`} />
+          <meta property="og:description" content={post.description} />
+          <meta property="og:type" content="article" />
+          <meta property="og:site_name" content="StartVagina" />
         </Helmet>
 
         <Header />
