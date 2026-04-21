@@ -198,6 +198,27 @@ type TranslationStrings = {
   profileLanguages: (name: string, langs: string) => string;
   profileTags: (tags: string) => string;
   profileWatchFree: (name: string) => string;
+
+  // Contact page
+  contactTitle: string;
+  contactMetaDesc: string;
+  contactIntro: string;
+  contactName: string;
+  contactNamePlaceholder: string;
+  contactEmail: string;
+  contactEmailPlaceholder: string;
+  contactSubject: string;
+  contactSubjectPlaceholder: string;
+  contactMessage: string;
+  contactMessagePlaceholder: string;
+  contactSend: string;
+  contactSending: string;
+  contactSuccessTitle: string;
+  contactSuccessText: string;
+  contactError: string;
+  contactRequired: string;
+  contactInvalidEmail: string;
+  contactMinChars: string;
 };
 
 export const translations: Record<Language, TranslationStrings> = {
@@ -357,6 +378,26 @@ export const translations: Record<Language, TranslationStrings> = {
     profileLanguages: (name, langs) => `${name} spreekt ${langs}.`,
     profileTags: (tags) => `Populaire tags bij deze show: ${tags}.`,
     profileWatchFree: (name) => `Bekijk ${name} nu gratis live op StartVagina — geen registratie nodig.`,
+
+    contactTitle: "Contact",
+    contactMetaDesc: "Neem contact op met StartVagina. Stel je vraag of geef feedback via ons contactformulier.",
+    contactIntro: "Heb je een vraag, opmerking of suggestie? Vul het formulier hieronder in en we nemen zo snel mogelijk contact met je op.",
+    contactName: "Naam",
+    contactNamePlaceholder: "Je naam",
+    contactEmail: "E-mailadres",
+    contactEmailPlaceholder: "je@email.com",
+    contactSubject: "Onderwerp",
+    contactSubjectPlaceholder: "Waar gaat het over?",
+    contactMessage: "Bericht",
+    contactMessagePlaceholder: "Schrijf hier je bericht...",
+    contactSend: "Versturen",
+    contactSending: "Bezig met versturen...",
+    contactSuccessTitle: "Bericht verstuurd!",
+    contactSuccessText: "Bedankt voor je bericht. We reageren zo snel mogelijk.",
+    contactError: "Er ging iets mis bij het versturen. Probeer het later opnieuw.",
+    contactRequired: "Dit veld is verplicht",
+    contactInvalidEmail: "Vul een geldig e-mailadres in",
+    contactMinChars: "Minimaal 10 tekens",
   },
 
   en: {
@@ -515,6 +556,26 @@ export const translations: Record<Language, TranslationStrings> = {
     profileLanguages: (name, langs) => `${name} speaks ${langs}.`,
     profileTags: (tags) => `Popular tags for this show: ${tags}.`,
     profileWatchFree: (name) => `Watch ${name} for free live on StartVagina — no registration needed.`,
+
+    contactTitle: "Contact",
+    contactMetaDesc: "Get in touch with StartVagina. Ask a question or share feedback via our contact form.",
+    contactIntro: "Have a question, comment or suggestion? Fill out the form below and we'll get back to you as soon as possible.",
+    contactName: "Name",
+    contactNamePlaceholder: "Your name",
+    contactEmail: "Email address",
+    contactEmailPlaceholder: "you@email.com",
+    contactSubject: "Subject",
+    contactSubjectPlaceholder: "What is this about?",
+    contactMessage: "Message",
+    contactMessagePlaceholder: "Write your message here...",
+    contactSend: "Send",
+    contactSending: "Sending...",
+    contactSuccessTitle: "Message sent!",
+    contactSuccessText: "Thanks for your message. We'll get back to you soon.",
+    contactError: "Something went wrong. Please try again later.",
+    contactRequired: "This field is required",
+    contactInvalidEmail: "Please enter a valid email address",
+    contactMinChars: "Minimum 10 characters",
   },
 
   fr: {
@@ -673,6 +734,26 @@ export const translations: Record<Language, TranslationStrings> = {
     profileLanguages: (name, langs) => `${name} parle ${langs}.`,
     profileTags: (tags) => `Tags populaires pour ce show : ${tags}.`,
     profileWatchFree: (name) => `Regardez ${name} gratuitement en direct sur StartVagina — aucune inscription nécessaire.`,
+
+    contactTitle: "Contact",
+    contactMetaDesc: "Contactez StartVagina. Posez votre question ou partagez vos commentaires via notre formulaire de contact.",
+    contactIntro: "Vous avez une question, un commentaire ou une suggestion ? Remplissez le formulaire ci-dessous et nous vous répondrons dès que possible.",
+    contactName: "Nom",
+    contactNamePlaceholder: "Votre nom",
+    contactEmail: "Adresse e-mail",
+    contactEmailPlaceholder: "vous@email.com",
+    contactSubject: "Sujet",
+    contactSubjectPlaceholder: "De quoi s'agit-il ?",
+    contactMessage: "Message",
+    contactMessagePlaceholder: "Écrivez votre message ici...",
+    contactSend: "Envoyer",
+    contactSending: "Envoi en cours...",
+    contactSuccessTitle: "Message envoyé !",
+    contactSuccessText: "Merci pour votre message. Nous vous répondrons rapidement.",
+    contactError: "Une erreur s'est produite. Veuillez réessayer plus tard.",
+    contactRequired: "Ce champ est obligatoire",
+    contactInvalidEmail: "Veuillez entrer une adresse e-mail valide",
+    contactMinChars: "Minimum 10 caractères",
   },
 
   it: {
@@ -831,6 +912,26 @@ export const translations: Record<Language, TranslationStrings> = {
     profileLanguages: (name, langs) => `${name} parla ${langs}.`,
     profileTags: (tags) => `Tags popolari per questo show: ${tags}.`,
     profileWatchFree: (name) => `Guarda ${name} gratis in diretta su StartVagina — nessuna registrazione necessaria.`,
+
+    contactTitle: "Contatto",
+    contactMetaDesc: "Contatta StartVagina. Fai una domanda o condividi il tuo feedback tramite il nostro modulo di contatto.",
+    contactIntro: "Hai una domanda, un commento o un suggerimento? Compila il modulo qui sotto e ti risponderemo il prima possibile.",
+    contactName: "Nome",
+    contactNamePlaceholder: "Il tuo nome",
+    contactEmail: "Indirizzo e-mail",
+    contactEmailPlaceholder: "tu@email.com",
+    contactSubject: "Oggetto",
+    contactSubjectPlaceholder: "Di cosa si tratta?",
+    contactMessage: "Messaggio",
+    contactMessagePlaceholder: "Scrivi il tuo messaggio qui...",
+    contactSend: "Invia",
+    contactSending: "Invio in corso...",
+    contactSuccessTitle: "Messaggio inviato!",
+    contactSuccessText: "Grazie per il tuo messaggio. Ti risponderemo al più presto.",
+    contactError: "Qualcosa è andato storto. Riprova più tardi.",
+    contactRequired: "Questo campo è obbligatorio",
+    contactInvalidEmail: "Inserisci un indirizzo e-mail valido",
+    contactMinChars: "Minimo 10 caratteri",
   },
 
   de: {
@@ -989,6 +1090,26 @@ export const translations: Record<Language, TranslationStrings> = {
     profileLanguages: (name, langs) => `${name} spricht ${langs}.`,
     profileTags: (tags) => `Beliebte Tags bei dieser Show: ${tags}.`,
     profileWatchFree: (name) => `Schau dir ${name} jetzt gratis live auf StartVagina an — keine Registrierung nötig.`,
+
+    contactTitle: "Kontakt",
+    contactMetaDesc: "Kontaktiere StartVagina. Stelle deine Frage oder teile dein Feedback über unser Kontaktformular.",
+    contactIntro: "Hast du eine Frage, einen Kommentar oder einen Vorschlag? Fülle das Formular unten aus und wir melden uns so schnell wie möglich bei dir.",
+    contactName: "Name",
+    contactNamePlaceholder: "Dein Name",
+    contactEmail: "E-Mail-Adresse",
+    contactEmailPlaceholder: "du@email.com",
+    contactSubject: "Betreff",
+    contactSubjectPlaceholder: "Worum geht es?",
+    contactMessage: "Nachricht",
+    contactMessagePlaceholder: "Schreibe deine Nachricht hier...",
+    contactSend: "Senden",
+    contactSending: "Wird gesendet...",
+    contactSuccessTitle: "Nachricht gesendet!",
+    contactSuccessText: "Danke für deine Nachricht. Wir antworten so schnell wie möglich.",
+    contactError: "Etwas ist schief gelaufen. Bitte versuche es später erneut.",
+    contactRequired: "Dieses Feld ist erforderlich",
+    contactInvalidEmail: "Bitte gib eine gültige E-Mail-Adresse ein",
+    contactMinChars: "Mindestens 10 Zeichen",
   },
 
   es: {
@@ -1147,5 +1268,25 @@ export const translations: Record<Language, TranslationStrings> = {
     profileLanguages: (name, langs) => `${name} habla ${langs}.`,
     profileTags: (tags) => `Tags populares para este show: ${tags}.`,
     profileWatchFree: (name) => `Mira a ${name} gratis en vivo en StartVagina — sin registro necesario.`,
+
+    contactTitle: "Contacto",
+    contactMetaDesc: "Contacta con StartVagina. Haz tu pregunta o comparte tus comentarios a través de nuestro formulario de contacto.",
+    contactIntro: "¿Tienes una pregunta, comentario o sugerencia? Rellena el formulario a continuación y te responderemos lo antes posible.",
+    contactName: "Nombre",
+    contactNamePlaceholder: "Tu nombre",
+    contactEmail: "Correo electrónico",
+    contactEmailPlaceholder: "tu@email.com",
+    contactSubject: "Asunto",
+    contactSubjectPlaceholder: "¿De qué se trata?",
+    contactMessage: "Mensaje",
+    contactMessagePlaceholder: "Escribe tu mensaje aquí...",
+    contactSend: "Enviar",
+    contactSending: "Enviando...",
+    contactSuccessTitle: "¡Mensaje enviado!",
+    contactSuccessText: "Gracias por tu mensaje. Te responderemos lo antes posible.",
+    contactError: "Algo salió mal. Por favor, inténtalo de nuevo más tarde.",
+    contactRequired: "Este campo es obligatorio",
+    contactInvalidEmail: "Por favor, introduce un correo electrónico válido",
+    contactMinChars: "Mínimo 10 caracteres",
   },
 };

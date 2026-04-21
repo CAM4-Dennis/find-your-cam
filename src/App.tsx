@@ -28,6 +28,7 @@ const CategoryLanding = lazy(() => import("./pages/CategoryLanding.tsx"));
 const CountryLanding = lazy(() => import("./pages/CountryLanding.tsx"));
 const NicheVideos = lazy(() => import("./pages/NicheVideos.tsx"));
 const NicheDetail = lazy(() => import("./pages/NicheDetail.tsx"));
+const Contact = lazy(() => import("./pages/Contact.tsx"));
 
 const queryClient = new QueryClient();
 
@@ -93,6 +94,7 @@ const pageRoutes = (
     <Route path="webcamsex-voeten" element={<CategoryLanding />} />
     <Route path="webcamsex-outdoor" element={<CategoryLanding />} />
     <Route path="webcamsex-mobiel" element={<CategoryLanding />} />
+    <Route path="contact" element={<Contact />} />
     <Route path="niche-videos" element={<NicheVideos />} />
     <Route path="niche-videos/:slug" element={<NicheDetail />} />
     <Route path="*" element={<CountryLanding />} />

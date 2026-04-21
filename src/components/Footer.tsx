@@ -226,6 +226,7 @@ const Footer = () => {
               <li><Link to={localePath("/live-sex-cams")} className="hover:text-primary transition-colors">{t.footerLiveSexCams}</Link></li>
               <li><Link to={localePath("/sexchat")} className="hover:text-primary transition-colors">{t.footerSexchat}</Link></li>
               <li><Link to={localePath("/blog")} className="hover:text-primary transition-colors">Blog</Link></li>
+              <li><Link to={localePath("/contact")} className="hover:text-primary transition-colors">{t.contactTitle}</Link></li>
             </ul>
             <h4 className="font-semibold text-sm mb-3 mt-5 text-foreground">{t.footerLanguages}</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
