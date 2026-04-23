@@ -10,9 +10,9 @@ import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const BASE = "https://www.startvagina.nl";
-// Only NL and EN are indexed; fr/it/de/es are noindex
-const langs = ["nl", "en"];
-const prefixes = { nl: "", en: "/en" };
+// All 6 languages indexed
+const langs = ["nl", "en", "fr", "de", "es", "it"];
+const prefixes = { nl: "", en: "/en", fr: "/fr", de: "/de", es: "/es", it: "/it" };
 
 // All page slugs with their priority and changefreq
 const pages = [
