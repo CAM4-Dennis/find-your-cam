@@ -145,16 +145,52 @@ const CamStream = () => {
     };
   }, [model?.previewUrl, hasHls, hasIframe, videoEl]);
 
+  // Build direct platform links for when model data isn't available (direct URL visit)
+  const directPlatformLinks: Record<string, (u: string) => string> = {
+    chaturbate: (u) => `https://chaturbate.com/in/?tour=5zjT&campaign=nr6ku&track=default&room=${u}`,
+    cam4: (u) => `https://offers.cam4tracking.com/aff_c?offer_id=278&aff_id=1961&aff_sub=startvagina&aff_sub2=${u}&url=https://www.cam4.com/${u}`,
+    bongacams: (u) => `https://bongacams.com/${u}`,
+    stripchat: (u) => `https://stripchat.com/${u}`,
+  };
+
   if (!model) {
+    const directLink = platform && username && directPlatformLinks[platform]
+      ? directPlatformLinks[platform](username)
+      : null;
+    const displayUsername = username ? username.charAt(0).toUpperCase() + username.slice(1) : "";
+
     return (
       <AgeGate>
         <div className="min-h-screen flex flex-col bg-background">
+          <Helmet>
+            <title>{t.camTitle(displayUsername, platformName)}</title>
+            <meta name="description" content={t.camDesc(displayUsername, platformName)} />
+            <link rel="canonical" href={`https://www.startvagina.nl${localePath(`/${platform}/${username}`)}`} />
+            <meta name="robots" content="index, follow" />
+          </Helmet>
           <Header />
-          <main className="container flex-1 py-12 text-center">
-            <p className="text-muted-foreground">{t.camStreamNotFound}</p>
-            <Button variant="outline" className="mt-4" onClick={() => navigate(localePath("/"))}>
-              <ArrowLeft size={16} className="mr-2" /> {t.camBack}
-            </Button>
+          <main className="container flex-1 py-12 text-center space-y-6">
+            <h1 className="text-2xl font-bold font-display text-foreground">
+              {displayUsername} — {platformName}
+            </h1>
+            <p className="text-muted-foreground">
+              {t.camDesc(displayUsername, platformName)}
+            </p>
+            {directLink && (
+              <a
+                href={directLink}
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                className="inline-block bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:opacity-90 transition"
+              >
+                {t.camViewOnPlatform(platformName)}
+              </a>
+            )}
+            <div className="pt-4">
+              <Button variant="outline" onClick={() => navigate(localePath("/"))}>
+                <ArrowLeft size={16} className="mr-2" /> {t.camBackToOverview}
+              </Button>
+            </div>
           </main>
           <Footer />
         </div>
@@ -169,11 +205,11 @@ const CamStream = () => {
           <title>{t.camTitle(model.name, platformName)}</title>
           <meta name="description" content={t.camDesc(model.name, platformName)} />
           <meta name="keywords" content={`${model.name}, ${platformName}, ${model.name} webcam, ${model.name} live${model.country && model.country !== "Onbekend" ? ", " + model.country + " cam" : ""}${model.tags?.slice(0, 3).map(tag => ", " + tag).join("") || ""}`} />
-          <link rel="canonical" href={`https://www.startvagina.nl/${platform}/${username}`} />
+          <link rel="canonical" href={`https://www.startvagina.nl${localePath(`/${platform}/${username}`)}`} />
           <meta property="og:title" content={t.camTitle(model.name, platformName)} />
           <meta property="og:description" content={t.camDesc(model.name, platformName)} />
-          <meta property="og:url" content={`https://www.startvagina.nl/${platform}/${username}`} />
-          <meta name="robots" content="noindex, nofollow" />
+          <meta property="og:url" content={`https://www.startvagina.nl${localePath(`/${platform}/${username}`)}`} />
+          <meta name="robots" content="index, follow" />
           <script type="application/ld+json">
             {JSON.stringify({
               "@context": "https://schema.org",
@@ -185,8 +221,8 @@ const CamStream = () => {
                 ...(model.age ? { description: `${model.name}, ${model.age} jaar, webcam model op ${platformName}` } : {}),
                 knowsLanguage: model.languages?.length > 0 ? model.languages : undefined,
               },
-              description: `Bekijk ${model.name} live op ${platformName}`,
-              url: `https://www.startvagina.nl/${platform}/${username}`,
+              description: t.camDesc(model.name, platformName),
+              url: `https://www.startvagina.nl${localePath(`/${platform}/${username}`)}`,
             })}
           </script>
         </Helmet>

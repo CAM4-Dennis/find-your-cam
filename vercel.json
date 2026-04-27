@@ -1,4 +1,9 @@
 {
+"functions": {
+    "api/model.js": {
+      "includeFiles": "dist/**"
+    }
+  },
 "redirects": [
     { "source": "/gratis-filmpjes", "destination": "/", "permanent": true },
     { "source": "/gratis-filmpjes/", "destination": "/", "permanent": true },
@@ -23,6 +28,30 @@
     { "source": "/cam/:name(.*)", "destination": "/cam4/:name", "permanent": true }
   ],
   "rewrites": [
+    { "source": "/chaturbate/:username", "destination": "/api/model?platform=chaturbate&username=:username" },
+    { "source": "/bongacams/:username", "destination": "/api/model?platform=bongacams&username=:username" },
+    { "source": "/cam4/:username", "destination": "/api/model?platform=cam4&username=:username" },
+    { "source": "/stripchat/:username", "destination": "/api/model?platform=stripchat&username=:username" },
+    { "source": "/en/chaturbate/:username", "destination": "/api/model?lang=en&platform=chaturbate&username=:username" },
+    { "source": "/en/bongacams/:username", "destination": "/api/model?lang=en&platform=bongacams&username=:username" },
+    { "source": "/en/cam4/:username", "destination": "/api/model?lang=en&platform=cam4&username=:username" },
+    { "source": "/en/stripchat/:username", "destination": "/api/model?lang=en&platform=stripchat&username=:username" },
+    { "source": "/fr/chaturbate/:username", "destination": "/api/model?lang=fr&platform=chaturbate&username=:username" },
+    { "source": "/fr/bongacams/:username", "destination": "/api/model?lang=fr&platform=bongacams&username=:username" },
+    { "source": "/fr/cam4/:username", "destination": "/api/model?lang=fr&platform=cam4&username=:username" },
+    { "source": "/fr/stripchat/:username", "destination": "/api/model?lang=fr&platform=stripchat&username=:username" },
+    { "source": "/de/chaturbate/:username", "destination": "/api/model?lang=de&platform=chaturbate&username=:username" },
+    { "source": "/de/bongacams/:username", "destination": "/api/model?lang=de&platform=bongacams&username=:username" },
+    { "source": "/de/cam4/:username", "destination": "/api/model?lang=de&platform=cam4&username=:username" },
+    { "source": "/de/stripchat/:username", "destination": "/api/model?lang=de&platform=stripchat&username=:username" },
+    { "source": "/es/chaturbate/:username", "destination": "/api/model?lang=es&platform=chaturbate&username=:username" },
+    { "source": "/es/bongacams/:username", "destination": "/api/model?lang=es&platform=bongacams&username=:username" },
+    { "source": "/es/cam4/:username", "destination": "/api/model?lang=es&platform=cam4&username=:username" },
+    { "source": "/es/stripchat/:username", "destination": "/api/model?lang=es&platform=stripchat&username=:username" },
+    { "source": "/it/chaturbate/:username", "destination": "/api/model?lang=it&platform=chaturbate&username=:username" },
+    { "source": "/it/bongacams/:username", "destination": "/api/model?lang=it&platform=bongacams&username=:username" },
+    { "source": "/it/cam4/:username", "destination": "/api/model?lang=it&platform=cam4&username=:username" },
+    { "source": "/it/stripchat/:username", "destination": "/api/model?lang=it&platform=stripchat&username=:username" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
