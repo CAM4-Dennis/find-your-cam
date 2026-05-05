@@ -11,7 +11,7 @@ import { getRobotsContent } from "@/lib/robotsMeta";
 import { getNicheSeo } from "@/data/nicheSeoData";
 
 function makeAffiliateLink(username: string): string {
-  return `https://offers.cam4tracking.com/aff_c?offer_id=278&aff_id=1961&aff_sub=startvagina&aff_sub2=${encodeURIComponent(username)}&url=${encodeURIComponent(`https://www.cam4.com/${username}`)}`;
+  return `https://offers.cam4tracking.com/aff_c?offer_id=278&aff_id=1961&aff_sub=startvagina&aff_sub2=${encodeURIComponent(username)}&url=${encodeURIComponent(`https://www.cam4.com/${username}?showSignupPopup&noAds=true`)}`;
 }
 
 const detailI18n = {

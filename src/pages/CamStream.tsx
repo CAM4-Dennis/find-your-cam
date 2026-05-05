@@ -148,7 +148,7 @@ const CamStream = () => {
   // Build direct platform links for when model data isn't available (direct URL visit)
   const directPlatformLinks: Record<string, (u: string) => string> = {
     chaturbate: (u) => `https://chaturbate.com/in/?tour=5zjT&campaign=nr6ku&track=default&room=${u}`,
-    cam4: (u) => `https://offers.cam4tracking.com/aff_c?offer_id=278&aff_id=1961&aff_sub=startvagina&aff_sub2=${u}&url=https://www.cam4.com/${u}`,
+    cam4: (u) => `https://offers.cam4tracking.com/aff_c?offer_id=278&aff_id=1961&aff_sub=startvagina&aff_sub2=${u}&url=https://www.cam4.com/${u}?showSignupPopup%26noAds=true`,
     bongacams: (u) => `https://bongacams.com/${u}`,
     stripchat: (u) => `https://stripchat.com/${u}`,
   };
