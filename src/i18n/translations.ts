@@ -93,6 +93,7 @@ type TranslationStrings = {
   footerCamGirls: string;
   footerLiveSexCams: string;
   footerSexchat: string;
+  footerMakeMoney: string;
 
   // Footer SEO - Homepage
   footerSeoHomeTitle: string;
@@ -288,6 +289,7 @@ export const translations: Record<Language, TranslationStrings> = {
     footerCamGirls: "Cam Girls",
     footerLiveSexCams: "Live Sex Cams",
     footerSexchat: "Sexchat",
+    footerMakeMoney: "VERDIEN GELD ONLINE",
 
     footerSeoHomeTitle: "StartVagina — Dé Zoekmachine voor Gratis Webcamsex",
     footerSeoHomeP1: "StartVagina.nl bundelt duizenden live cam girls van de vijf grootste platformen — Chaturbate, Stripchat, BongaCams, CAM4 en XCams — op één overzichtelijke pagina. Geen registratie, geen kosten, direct kijken.",
@@ -466,6 +468,7 @@ export const translations: Record<Language, TranslationStrings> = {
     footerCamGirls: "Cam Girls",
     footerLiveSexCams: "Live Sex Cams",
     footerSexchat: "Sex Chat",
+    footerMakeMoney: "MAKE MONEY ONLINE",
 
     footerSeoHomeTitle: "StartVagina — The Search Engine for Free Webcam Sex",
     footerSeoHomeP1: "StartVagina brings together thousands of live cam girls from the five biggest platforms — Chaturbate, Stripchat, BongaCams, CAM4 and XCams — on one clear page. No registration, no costs, watch instantly.",
@@ -644,6 +647,7 @@ export const translations: Record<Language, TranslationStrings> = {
     footerCamGirls: "Cam Girls",
     footerLiveSexCams: "Cams en Direct",
     footerSexchat: "Chat Sexe",
+    footerMakeMoney: "GAGNEZ DE L'ARGENT EN LIGNE",
 
     footerSeoHomeTitle: "StartVagina — Le Moteur de Recherche pour Webcam Sexe Gratuit",
     footerSeoHomeP1: "StartVagina regroupe des milliers de cam girls en direct des cinq plus grandes plateformes — Chaturbate, Stripchat, BongaCams, CAM4 et XCams — sur une seule page claire. Sans inscription, sans frais, regardez instantanément.",
@@ -822,6 +826,7 @@ export const translations: Record<Language, TranslationStrings> = {
     footerCamGirls: "Cam Girl",
     footerLiveSexCams: "Cam dal Vivo",
     footerSexchat: "Chat Erotica",
+    footerMakeMoney: "GUADAGNA ONLINE",
 
     footerSeoHomeTitle: "StartVagina — Il Motore di Ricerca per Webcam Sex Gratis",
     footerSeoHomeP1: "StartVagina riunisce migliaia di cam girl dal vivo dalle cinque più grandi piattaforme — Chaturbate, Stripchat, BongaCams, CAM4 e XCams — in un'unica pagina chiara. Nessuna registrazione, nessun costo, guarda subito.",
@@ -1000,6 +1005,7 @@ export const translations: Record<Language, TranslationStrings> = {
     footerCamGirls: "Cam Girls",
     footerLiveSexCams: "Live Sex Cams",
     footerSexchat: "Sexchat",
+    footerMakeMoney: "ONLINE GELD VERDIENEN",
 
     footerSeoHomeTitle: "StartVagina — Die Suchmaschine für Gratis Webcam Sex",
     footerSeoHomeP1: "StartVagina bündelt tausende Live Cam Girls von den fünf größten Plattformen — Chaturbate, Stripchat, BongaCams, CAM4 und XCams — auf einer übersichtlichen Seite. Keine Registrierung, keine Kosten, sofort schauen.",
@@ -1178,6 +1184,7 @@ export const translations: Record<Language, TranslationStrings> = {
     footerCamGirls: "Cam Girls",
     footerLiveSexCams: "Cams en Vivo",
     footerSexchat: "Chat Sexual",
+    footerMakeMoney: "GANA DINERO EN LÍNEA",
 
     footerSeoHomeTitle: "StartVagina — El Buscador de Webcam Sexo Gratis",
     footerSeoHomeP1: "StartVagina reúne miles de cam girls en vivo de las cinco plataformas más grandes — Chaturbate, Stripchat, BongaCams, CAM4 y XCams — en una sola página clara. Sin registro, sin costes, mira al instante.",
