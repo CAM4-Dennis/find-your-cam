@@ -34,7 +34,7 @@ const Contact = () => {
   const onSubmit = async (data: ContactForm) => {
     setStatus("sending");
     try {
-      const res = await fetch("https://formsubmit.co/ajax/info@startvagina.nl", {
+      const res = await fetch("https://formsubmit.co/ajax/info@where2next.nl", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
