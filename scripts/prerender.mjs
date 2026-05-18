@@ -167,6 +167,30 @@ const pages = [
     ),
   },
 
+  // ---------- Comparison landing pages ----------
+  ...[
+    { s: "chaturbate-vs-stripchat",  a: "Chaturbate", b: "Stripchat" },
+    { s: "chaturbate-vs-bongacams",  a: "Chaturbate", b: "BongaCams" },
+    { s: "chaturbate-vs-cam4",       a: "Chaturbate", b: "CAM4" },
+    { s: "chaturbate-vs-jerkmate",   a: "Chaturbate", b: "Jerkmate" },
+    { s: "stripchat-vs-bongacams",   a: "Stripchat",  b: "BongaCams" },
+    { s: "stripchat-vs-cam4",        a: "Stripchat",  b: "CAM4" },
+    { s: "stripchat-vs-jerkmate",    a: "Stripchat",  b: "Jerkmate" },
+    { s: "cam4-vs-bongacams",        a: "CAM4",       b: "BongaCams" },
+    { s: "cam4-vs-jerkmate",         a: "CAM4",       b: "Jerkmate" },
+    { s: "bongacams-vs-jerkmate",    a: "BongaCams",  b: "Jerkmate" },
+  ].map(c => ({
+    slugs: [c.s],
+    meta: m(
+      meta(`${c.a} vs ${c.b} — Vergelijking 2026 | StartVagina`, `${c.a} of ${c.b}? Vergelijk beide cam platforms op modellen, kwaliteit, VR, interface en meer op StartVagina.`, `${c.a.toLowerCase()} vs ${c.b.toLowerCase()}, vergelijking ${c.a.toLowerCase()} ${c.b.toLowerCase()}`),
+      meta(`${c.a} vs ${c.b} — Comparison 2026 | StartVagina`, `${c.a} or ${c.b}? Compare both cam platforms on models, quality, VR, interface and more on StartVagina.`, `${c.a.toLowerCase()} vs ${c.b.toLowerCase()}, comparison ${c.a.toLowerCase()} ${c.b.toLowerCase()}`),
+      meta(`${c.a} vs ${c.b} — Comparaison 2026 | StartVagina`, `${c.a} ou ${c.b} ? Comparez les deux plateformes cam sur les mod\u00e8les, la qualit\u00e9, la VR et plus encore.`, `${c.a.toLowerCase()} vs ${c.b.toLowerCase()}, comparaison ${c.a.toLowerCase()} ${c.b.toLowerCase()}`),
+      meta(`${c.a} vs ${c.b} — Vergleich 2026 | StartVagina`, `${c.a} oder ${c.b}? Vergleiche beide Cam-Plattformen nach Models, Qualit\u00e4t, VR, Interface und mehr.`, `${c.a.toLowerCase()} vs ${c.b.toLowerCase()}, vergleich ${c.a.toLowerCase()} ${c.b.toLowerCase()}`),
+      meta(`${c.a} vs ${c.b} — Comparaci\u00f3n 2026 | StartVagina`, `\u00bf${c.a} o ${c.b}? Compara ambas plataformas cam en modelos, calidad, VR, interfaz y m\u00e1s.`, `${c.a.toLowerCase()} vs ${c.b.toLowerCase()}, comparacion ${c.a.toLowerCase()} ${c.b.toLowerCase()}`),
+      meta(`${c.a} vs ${c.b} — Confronto 2026 | StartVagina`, `${c.a} o ${c.b}? Confronta entrambe le piattaforme cam per modelle, qualit\u00e0, VR, interfaccia e altro.`, `${c.a.toLowerCase()} vs ${c.b.toLowerCase()}, confronto ${c.a.toLowerCase()} ${c.b.toLowerCase()}`),
+    ),
+  })),
+
   // ---------- Platform landing pages ----------
   ...["cam4", "chaturbate", "bongacams", "stripchat", "jerkmate"].map(p => { // xcams temporarily disabled
     const name = { cam4: "CAM4", chaturbate: "Chaturbate", bongacams: "BongaCams", stripchat: "Stripchat", jerkmate: "Jerkmate" }[p];

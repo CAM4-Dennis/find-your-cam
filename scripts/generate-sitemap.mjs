@@ -40,6 +40,18 @@ const pages = [
   { slug: "/live-sex-cams-jerkmate", priority: "0.8", changefreq: "daily" },
   // { slug: "/live-sex-cams-xcams", priority: "0.7", changefreq: "daily" }, // temporarily disabled
 
+  // Comparison landing pages
+  { slug: "/chaturbate-vs-stripchat", priority: "0.7", changefreq: "monthly" },
+  { slug: "/chaturbate-vs-bongacams", priority: "0.7", changefreq: "monthly" },
+  { slug: "/chaturbate-vs-cam4", priority: "0.7", changefreq: "monthly" },
+  { slug: "/chaturbate-vs-jerkmate", priority: "0.7", changefreq: "monthly" },
+  { slug: "/stripchat-vs-bongacams", priority: "0.7", changefreq: "monthly" },
+  { slug: "/stripchat-vs-cam4", priority: "0.7", changefreq: "monthly" },
+  { slug: "/stripchat-vs-jerkmate", priority: "0.7", changefreq: "monthly" },
+  { slug: "/cam4-vs-bongacams", priority: "0.7", changefreq: "monthly" },
+  { slug: "/cam4-vs-jerkmate", priority: "0.7", changefreq: "monthly" },
+  { slug: "/bongacams-vs-jerkmate", priority: "0.7", changefreq: "monthly" },
+
   // Category landing pages
   { slug: "/webcamsex-teen-18-plus", priority: "0.8", changefreq: "daily" },
   { slug: "/webcamsex-milf", priority: "0.8", changefreq: "daily" },

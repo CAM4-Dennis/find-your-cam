@@ -209,6 +209,14 @@ const Footer = () => {
               <li><Link to={localePath("/live-sex-cams-jerkmate")} className="hover:text-primary transition-colors">Jerkmate</Link></li>
               {/* XCams temporarily disabled */}
             </ul>
+            <h4 className="font-semibold text-sm mb-3 mt-5 text-foreground">Vergelijkingen</h4>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><Link to={localePath("/chaturbate-vs-stripchat")} className="hover:text-primary transition-colors">Chaturbate vs Stripchat</Link></li>
+              <li><Link to={localePath("/chaturbate-vs-bongacams")} className="hover:text-primary transition-colors">Chaturbate vs BongaCams</Link></li>
+              <li><Link to={localePath("/chaturbate-vs-cam4")} className="hover:text-primary transition-colors">Chaturbate vs CAM4</Link></li>
+              <li><Link to={localePath("/stripchat-vs-bongacams")} className="hover:text-primary transition-colors">Stripchat vs BongaCams</Link></li>
+              <li><Link to={localePath("/cam4-vs-jerkmate")} className="hover:text-primary transition-colors">CAM4 vs Jerkmate</Link></li>
+            </ul>
             <h4 className="font-semibold text-sm mb-3 mt-5 text-foreground">{t.footerPopularCountries}</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link to={localePath("/webcamsex-nederland")} className="hover:text-primary transition-colors">🇳🇱 Nederland</Link></li>

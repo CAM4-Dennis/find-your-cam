@@ -25,6 +25,7 @@ const Languages = lazy(() => import("./pages/Languages.tsx"));
 const LanguageLanding = lazy(() => import("./pages/LanguageLanding.tsx"));
 const PlatformLanding = lazy(() => import("./pages/PlatformLanding.tsx"));
 const CategoryLanding = lazy(() => import("./pages/CategoryLanding.tsx"));
+const ComparisonLanding = lazy(() => import("./pages/ComparisonLanding.tsx"));
 const CountryLanding = lazy(() => import("./pages/CountryLanding.tsx"));
 const NicheVideos = lazy(() => import("./pages/NicheVideos.tsx"));
 const NicheDetail = lazy(() => import("./pages/NicheDetail.tsx"));
@@ -73,6 +74,16 @@ const pageRoutes = (
     <Route path="sexchat" element={<KeywordLanding />} />
     <Route path="cam-girls" element={<KeywordLanding />} />
     <Route path="live-sex-cams" element={<KeywordLanding />} />
+    <Route path="chaturbate-vs-stripchat" element={<ComparisonLanding />} />
+    <Route path="chaturbate-vs-bongacams" element={<ComparisonLanding />} />
+    <Route path="chaturbate-vs-cam4" element={<ComparisonLanding />} />
+    <Route path="chaturbate-vs-jerkmate" element={<ComparisonLanding />} />
+    <Route path="stripchat-vs-bongacams" element={<ComparisonLanding />} />
+    <Route path="stripchat-vs-cam4" element={<ComparisonLanding />} />
+    <Route path="stripchat-vs-jerkmate" element={<ComparisonLanding />} />
+    <Route path="cam4-vs-bongacams" element={<ComparisonLanding />} />
+    <Route path="cam4-vs-jerkmate" element={<ComparisonLanding />} />
+    <Route path="bongacams-vs-jerkmate" element={<ComparisonLanding />} />
     <Route path="live-sex-cams-cam4" element={<PlatformLanding />} />
     <Route path="live-sex-cams-chaturbate" element={<PlatformLanding />} />
     <Route path="live-sex-cams-bongacams" element={<PlatformLanding />} />
