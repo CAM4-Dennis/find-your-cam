@@ -49,6 +49,7 @@ const pageRoutes = (
     <Route path="bongacams/:username" element={<CamStream />} />
     <Route path="cam4/:username" element={<CamStream />} />
     <Route path="stripchat/:username" element={<CamStream />} />
+    <Route path="jerkmate/:username" element={<CamStream />} />
     {/* <Route path="xcams/:username" element={<CamStream />} /> */}{/* temporarily disabled */}
     <Route path="categories" element={<Categories />} />
     <Route path="countries" element={<Countries />} />
@@ -76,6 +77,7 @@ const pageRoutes = (
     <Route path="live-sex-cams-chaturbate" element={<PlatformLanding />} />
     <Route path="live-sex-cams-bongacams" element={<PlatformLanding />} />
     <Route path="live-sex-cams-stripchat" element={<PlatformLanding />} />
+    <Route path="live-sex-cams-jerkmate" element={<PlatformLanding />} />
     {/* <Route path="live-sex-cams-xcams" element={<PlatformLanding />} /> */}{/* temporarily disabled */}
     <Route path="webcamsex-teen-18-plus" element={<CategoryLanding />} />
     <Route path="webcamsex-milf" element={<CategoryLanding />} />

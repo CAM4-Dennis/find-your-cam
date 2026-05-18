@@ -37,6 +37,7 @@ const pages = [
   { slug: "/live-sex-cams-chaturbate", priority: "0.8", changefreq: "daily" },
   { slug: "/live-sex-cams-bongacams", priority: "0.8", changefreq: "daily" },
   { slug: "/live-sex-cams-stripchat", priority: "0.8", changefreq: "daily" },
+  { slug: "/live-sex-cams-jerkmate", priority: "0.8", changefreq: "daily" },
   // { slug: "/live-sex-cams-xcams", priority: "0.7", changefreq: "daily" }, // temporarily disabled
 
   // Category landing pages

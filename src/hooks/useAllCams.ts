@@ -4,6 +4,7 @@ import { useChaturbateOnline } from "@/hooks/useChaturbate";
 import { useBongaCamsOnline } from "@/hooks/useBongaCams";
 import { useStripchatOnline } from "@/hooks/useStripchat";
 import { useXCamsOnline } from "@/hooks/useXCams";
+import { useJerkmateOnline } from "@/hooks/useJerkmate";
 import type { CamModel } from "@/types/cam";
 
 export function useAllCams() {
@@ -16,13 +17,16 @@ export function useAllCams() {
   const { data: coupleCamsCB = [], isLoading: l6 } = useChaturbateOnline({ gender: "c", limit: 150 });
   const { data: coupleBonga = [], isLoading: l7 } = useBongaCamsOnline({ section: "couples", limit: 150 });
   const { data: stripCouples = [], isLoading: l8 } = useStripchatOnline({ tag: "couples", limit: 150 });
+  const { data: jerkmateFemale = [], isLoading: l10 } = useJerkmateOnline({ gender: "f", live: true, size: 150 });
+  const { data: jerkmateCouples = [], isLoading: l11 } = useJerkmateOnline({ gender: "c", live: true, size: 150 });
 
-  const isLoading = l1 || l2 || l3 || l4 || l5 || l6 || l7 || l8 || l9;
+  const isLoading = l1 || l2 || l3 || l4 || l5 || l6 || l7 || l8 || l9 || l10 || l11;
 
   const allCams = useMemo(() => {
     const all = [
       ...cam4Female, ...cbFemale, ...bongaFemale, ...stripFemale, ...xcamsFemale,
       ...coupleCams4, ...coupleCamsCB, ...coupleBonga, ...stripCouples,
+      ...jerkmateFemale, ...jerkmateCouples,
     ];
     // Deduplicate by id
     const seen = new Set<string>();
@@ -31,7 +35,7 @@ export function useAllCams() {
       seen.add(m.id);
       return true;
     });
-  }, [cam4Female, cbFemale, bongaFemale, stripFemale, xcamsFemale, coupleCams4, coupleCamsCB, coupleBonga, stripCouples]);
+  }, [cam4Female, cbFemale, bongaFemale, stripFemale, xcamsFemale, coupleCams4, coupleCamsCB, coupleBonga, stripCouples, jerkmateFemale, jerkmateCouples]);
 
   return { allCams, isLoading };
 }

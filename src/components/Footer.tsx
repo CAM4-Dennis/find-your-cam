@@ -20,7 +20,7 @@ function getFooterContent(path: string): { title: string; paragraphs: ReactNode[
     return {
       title: "StartVagina — Dé Zoekmachine voor Gratis Webcamsex",
       paragraphs: [
-        <p key="1"><strong className="text-foreground">StartVagina.nl</strong> bundelt duizenden live <strong className="text-foreground">cam girls</strong> van de grootste platformen — <L to="/live-sex-cams-chaturbate">Chaturbate</L>, <L to="/live-sex-cams-stripchat">Stripchat</L>, <L to="/live-sex-cams-bongacams">BongaCams</L>, <L to="/live-sex-cams-cam4">CAM4</L> — op één overzichtelijke pagina. Geen registratie, geen kosten, direct kijken.</p>,
+        <p key="1"><strong className="text-foreground">StartVagina.nl</strong> bundelt duizenden live <strong className="text-foreground">cam girls</strong> van de grootste platformen — <L to="/live-sex-cams-chaturbate">Chaturbate</L>, <L to="/live-sex-cams-stripchat">Stripchat</L>, <L to="/live-sex-cams-bongacams">BongaCams</L>, <L to="/live-sex-cams-cam4">CAM4</L>, <L to="/live-sex-cams-jerkmate">Jerkmate</L> — op één overzichtelijke pagina. Geen registratie, geen kosten, direct kijken.</p>,
         <p key="2">Filter op <L to="/categories">categorie</L>, zoek per <L to="/countries">land</L> of vind modellen die <L to="/languages">jouw taal spreken</L>. Met meer dan 10.000 modellen tegelijk online is er altijd iemand live die bij je past.</p>,
       ],
     };
@@ -28,8 +28,8 @@ function getFooterContent(path: string): { title: string; paragraphs: ReactNode[
 
   // Platform pages
   if (path.startsWith("/live-sex-cams-")) {
-    const name = path.includes("chaturbate") ? "Chaturbate" : path.includes("stripchat") ? "Stripchat" : path.includes("bongacams") ? "BongaCams" : path.includes("cam4") ? "CAM4" : "CAM4";
-    const others = ["Chaturbate", "Stripchat", "BongaCams", "CAM4"].filter(p => p !== name);
+    const name = path.includes("chaturbate") ? "Chaturbate" : path.includes("stripchat") ? "Stripchat" : path.includes("bongacams") ? "BongaCams" : path.includes("jerkmate") ? "Jerkmate" : path.includes("cam4") ? "CAM4" : "CAM4";
+    const others = ["Chaturbate", "Stripchat", "BongaCams", "CAM4", "Jerkmate"].filter(p => p !== name);
     return {
       title: `${name} op StartVagina — Vergelijk met Andere Platformen`,
       paragraphs: [
@@ -51,7 +51,7 @@ function getFooterContent(path: string): { title: string; paragraphs: ReactNode[
     return {
       title: "Webcamsex per Categorie op StartVagina",
       paragraphs: [
-        <p key="1">StartVagina biedt <L to="/categories">17+ webcamsex categorieën</L> met live modellen van alle grote cam platformen. Elke categorie toont real-time wie er online is op <L to="/live-sex-cams-chaturbate">Chaturbate</L>, <L to="/live-sex-cams-stripchat">Stripchat</L>, <L to="/live-sex-cams-bongacams">BongaCams</L>, <L to="/live-sex-cams-cam4">CAM4</L>.</p>,
+        <p key="1">StartVagina biedt <L to="/categories">17+ webcamsex categorieën</L> met live modellen van alle grote cam platformen. Elke categorie toont real-time wie er online is op <L to="/live-sex-cams-chaturbate">Chaturbate</L>, <L to="/live-sex-cams-stripchat">Stripchat</L>, <L to="/live-sex-cams-bongacams">BongaCams</L>, <L to="/live-sex-cams-cam4">CAM4</L> en <L to="/live-sex-cams-jerkmate">Jerkmate</L>.</p>,
         <p key="2">Ontdek ook modellen per <L to="/countries">land</L> — van <L to="/webcamsex-nederland">Nederlandse cam girls</L> tot <L to="/webcamsex-colombia">Colombiaanse modellen</L>. Of zoek op <L to="/languages">taal</L> voor webcamsex zonder taalbarrière. Bekijk onze <L to="/blog">blog</L> voor de nieuwste tips en top-10 lijsten.</p>,
       ],
     };
@@ -106,7 +106,7 @@ function getFooterContent(path: string): { title: string; paragraphs: ReactNode[
     return {
       title: "De Populairste Cam Girls — Live en Trending",
       paragraphs: [
-        <p key="1">De top cams op StartVagina zijn de modellen met de meeste kijkers op dit moment — de shows waar het gebeurt. Deze cam girls trekken honderden tot duizenden kijkers tegelijk van <L to="/live-sex-cams-chaturbate">Chaturbate</L>, <L to="/live-sex-cams-stripchat">Stripchat</L>, <L to="/live-sex-cams-bongacams">BongaCams</L> en <L to="/live-sex-cams-cam4">CAM4</L>.</p>,
+        <p key="1">De top cams op StartVagina zijn de modellen met de meeste kijkers op dit moment — de shows waar het gebeurt. Deze cam girls trekken honderden tot duizenden kijkers tegelijk van <L to="/live-sex-cams-chaturbate">Chaturbate</L>, <L to="/live-sex-cams-stripchat">Stripchat</L>, <L to="/live-sex-cams-bongacams">BongaCams</L>, <L to="/live-sex-cams-cam4">CAM4</L> en <L to="/live-sex-cams-jerkmate">Jerkmate</L>.</p>,
         <p key="2">Op zoek naar iets specifieks? Filter de populairste modellen per <L to="/categories">categorie</L> (bijv. <L to="/webcamsex-milf">MILF</L> of <L to="/webcamsex-latina">Latina</L>), per <L to="/countries">land</L> of per <L to="/languages">taal</L>. Of bekijk de <L to="/new">nieuwste cam girls</L> die net begonnen zijn.</p>,
       ],
     };
@@ -117,7 +117,7 @@ function getFooterContent(path: string): { title: string; paragraphs: ReactNode[
     return {
       title: "Nieuwe Cam Girls — Vers op het Platform",
       paragraphs: [
-        <p key="1">Elke dag beginnen er nieuwe cam modellen op <L to="/live-sex-cams-chaturbate">Chaturbate</L>, <L to="/live-sex-cams-stripchat">Stripchat</L>, <L to="/live-sex-cams-bongacams">BongaCams</L> en <L to="/live-sex-cams-cam4">CAM4</L>. Deze verse gezichten zijn vaak extra enthousiast, spontaan en nieuwsgierig — en ze staan te popelen om hun eerste kijkers te verwelkomen.</p>,
+        <p key="1">Elke dag beginnen er nieuwe cam modellen op <L to="/live-sex-cams-chaturbate">Chaturbate</L>, <L to="/live-sex-cams-stripchat">Stripchat</L>, <L to="/live-sex-cams-bongacams">BongaCams</L>, <L to="/live-sex-cams-cam4">CAM4</L> en <L to="/live-sex-cams-jerkmate">Jerkmate</L>. Deze verse gezichten zijn vaak extra enthousiast, spontaan en nieuwsgierig — en ze staan te popelen om hun eerste kijkers te verwelkomen.</p>,
         <p key="2">Nieuwe modellen ontdekken is een van de leukste dingen aan webcamsex. Combineer met <L to="/categories">categorieën</L> of zoek nieuwe cam girls uit een specifiek <L to="/countries">land</L>. Of bekijk de <L to="/top">populairste cam girls</L> als je liever kiest voor bewezen kwaliteit.</p>,
       ],
     };
@@ -136,9 +136,9 @@ function getFooterContent(path: string): { title: string; paragraphs: ReactNode[
 
   // Model stream pages
   if (path.startsWith("/chaturbate/") || path.startsWith("/bongacams/") ||
-      path.startsWith("/cam4/") || path.startsWith("/stripchat/")) {
+      path.startsWith("/cam4/") || path.startsWith("/stripchat/") || path.startsWith("/jerkmate/")) {
     const platform = path.split("/")[1];
-    const platformMap: Record<string, string> = { chaturbate: "Chaturbate", bongacams: "BongaCams", cam4: "CAM4", stripchat: "Stripchat", };
+    const platformMap: Record<string, string> = { chaturbate: "Chaturbate", bongacams: "BongaCams", cam4: "CAM4", stripchat: "Stripchat", jerkmate: "Jerkmate", };
     const name = platformMap[platform] || platform;
     return {
       title: `Meer ${name} Modellen op StartVagina`,
@@ -153,7 +153,7 @@ function getFooterContent(path: string): { title: string; paragraphs: ReactNode[
   return {
     title: "StartVagina — Gratis Webcamsex & Live Sex Cams",
     paragraphs: [
-      <p key="1"><strong className="text-foreground">StartVagina.nl</strong> is jouw startpagina voor gratis <strong className="text-foreground">webcamsex</strong>. We bundelen cam girls van <L to="/live-sex-cams-chaturbate">Chaturbate</L>, <L to="/live-sex-cams-stripchat">Stripchat</L>, <L to="/live-sex-cams-bongacams">BongaCams</L>, <L to="/live-sex-cams-cam4">CAM4</L> op één plek.</p>,
+      <p key="1"><strong className="text-foreground">StartVagina.nl</strong> is jouw startpagina voor gratis <strong className="text-foreground">webcamsex</strong>. We bundelen cam girls van <L to="/live-sex-cams-chaturbate">Chaturbate</L>, <L to="/live-sex-cams-stripchat">Stripchat</L>, <L to="/live-sex-cams-bongacams">BongaCams</L>, <L to="/live-sex-cams-cam4">CAM4</L> en <L to="/live-sex-cams-jerkmate">Jerkmate</L> op één plek.</p>,
       <p key="2">Verken webcamsex per <L to="/categories">categorie</L>, <L to="/countries">land</L> of <L to="/languages">taal</L>. Lees de <L to="/blog">blog</L> voor tips en vergelijkingen, of duik direct de <L to="/">live cams</L> in. Altijd gratis, altijd live.</p>,
     ],
   };
@@ -206,6 +206,7 @@ const Footer = () => {
               <li><Link to={localePath("/live-sex-cams-stripchat")} className="hover:text-primary transition-colors">Stripchat</Link></li>
               <li><Link to={localePath("/live-sex-cams-bongacams")} className="hover:text-primary transition-colors">BongaCams</Link></li>
               <li><Link to={localePath("/live-sex-cams-cam4")} className="hover:text-primary transition-colors">CAM4</Link></li>
+              <li><Link to={localePath("/live-sex-cams-jerkmate")} className="hover:text-primary transition-colors">Jerkmate</Link></li>
               {/* XCams temporarily disabled */}
             </ul>
             <h4 className="font-semibold text-sm mb-3 mt-5 text-foreground">{t.footerPopularCountries}</h4>

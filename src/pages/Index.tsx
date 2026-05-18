@@ -11,6 +11,7 @@ import { useChaturbateOnline } from "@/hooks/useChaturbate";
 import { useBongaCamsOnline } from "@/hooks/useBongaCams";
 import { useXCamsOnline } from "@/hooks/useXCams";
 import { useStripchatOnline } from "@/hooks/useStripchat";
+import { useJerkmateOnline } from "@/hooks/useJerkmate";
 import { useGeoLocation } from "@/hooks/useGeoLocation";
 import { Helmet } from "react-helmet-async";
 import type { CamModel } from "@/types/cam";
@@ -40,6 +41,7 @@ const Index = () => {
   const { data: cbFemale = [], isLoading: loadingCB } = useChaturbateOnline({ gender: "f", limit: 150 });
   const { data: bongaFemale = [], isLoading: loadingBonga } = useBongaCamsOnline({ section: "straight", limit: 150 });
   const { data: stripFemale = [], isLoading: loadingStrip } = useStripchatOnline({ tag: "girls", limit: 150 });
+  const { data: jmFemale = [], isLoading: loadingJM } = useJerkmateOnline({ gender: "f", live: true, size: 150 });
 
   // Secondary: deferred until after first paint
   const { data: xcamsFemale = [], isLoading: loadingXCams } = useXCamsOnline({ gender: "F", limit: 50 }, loadSecondary);
@@ -48,6 +50,7 @@ const Index = () => {
   const { data: coupleBonga = [], isLoading: loadingCouplesBonga } = useBongaCamsOnline({ section: "couples", limit: 150 }, loadSecondary);
   const { data: coupleXCams = [], isLoading: loadingCouplesXCams } = useXCamsOnline({ gender: "P", limit: 50 }, loadSecondary);
   const { data: stripCouples = [], isLoading: loadingStripCouples } = useStripchatOnline({ tag: "couples", limit: 150 }, loadSecondary);
+  const { data: jmCouples = [], isLoading: loadingJMCouples } = useJerkmateOnline({ gender: "c", live: true, size: 150 }, loadSecondary);
   const { data: newCams = [], isLoading: loadingNew } = useChaturbateOnline({ gender: "f", limit: 150, offset: 150 }, loadSecondary);
 
   // Only show cams that include women (female, couple with female)
@@ -58,10 +61,10 @@ const Index = () => {
 
   // Merge all models into one pool, filtered to female-related only
   const allModels = useMemo(() => {
-    return [...cam4Female, ...cbFemale, ...bongaFemale, ...xcamsFemale, ...stripFemale,
-            ...coupleCams4, ...coupleCamsCB, ...coupleBonga, ...coupleXCams, ...stripCouples,
+    return [...cam4Female, ...cbFemale, ...bongaFemale, ...xcamsFemale, ...stripFemale, ...jmFemale,
+            ...coupleCams4, ...coupleCamsCB, ...coupleBonga, ...coupleXCams, ...stripCouples, ...jmCouples,
             ...newCams].filter(isFemaleRelated);
-  }, [cam4Female, cbFemale, bongaFemale, xcamsFemale, stripFemale, coupleCams4, coupleCamsCB, coupleBonga, coupleXCams, stripCouples, newCams]);
+  }, [cam4Female, cbFemale, bongaFemale, xcamsFemale, stripFemale, jmFemale, coupleCams4, coupleCamsCB, coupleBonga, coupleXCams, stripCouples, jmCouples, newCams]);
 
   const hasActiveFilters = filters.gender.length > 0 || filters.platforms.length > 0 ||
     filters.tags.length > 0 || filters.hd === true || filters.ageRange !== null ||
@@ -81,7 +84,7 @@ const Index = () => {
 
   // Sectioned views (no filters active)
   const popularCams: CamModel[] = useMemo(() => {
-    const all = [...cam4Female, ...cbFemale, ...bongaFemale, ...xcamsFemale, ...stripFemale];
+    const all = [...cam4Female, ...cbFemale, ...bongaFemale, ...xcamsFemale, ...stripFemale, ...jmFemale];
     if (!geo?.country) return all.sort(() => Math.random() - 0.5);
 
     const viewerCountry = getCountryName(geo.country);
@@ -100,7 +103,7 @@ const Index = () => {
       ...local.sort(() => Math.random() - 0.5),
       ...rest.sort(() => Math.random() - 0.5),
     ];
-  }, [cam4Female, cbFemale, bongaFemale, xcamsFemale, stripFemale, geo]);
+  }, [cam4Female, cbFemale, bongaFemale, xcamsFemale, stripFemale, jmFemale, geo]);
 
   // Category sections from allModels pool
   const newCamsSection: CamModel[] = useMemo(
@@ -125,11 +128,11 @@ const Index = () => {
 
   const couples: CamModel[] = useMemo(
     () => [...coupleCams4, ...coupleCamsCB, ...coupleBonga, ...coupleXCams, ...stripCouples].filter(isFemaleRelated).sort(() => Math.random() - 0.5),
-    [coupleCams4, coupleCamsCB, coupleBonga, coupleXCams, stripCouples]
+    [coupleCams4, coupleCamsCB, coupleBonga, coupleXCams, stripCouples, jmCouples]
   );
 
-  const isLoading = loadingCam4 || loadingCB || loadingBonga || loadingXCams || loadingStrip ||
-    loadingCouples4 || loadingCouplesCB || loadingCouplesBonga || loadingCouplesXCams || loadingStripCouples || loadingNew;
+  const isLoading = loadingCam4 || loadingCB || loadingBonga || loadingXCams || loadingStrip || loadingJM ||
+    loadingCouples4 || loadingCouplesCB || loadingCouplesBonga || loadingCouplesXCams || loadingStripCouples || loadingJMCouples || loadingNew;
 
   const canonicalUrl = `https://www.startvagina.nl${langPrefix || ""}`;
 
@@ -184,6 +187,7 @@ const Index = () => {
               { name: "BongaCams", isLoading: loadingBonga || loadingCouplesBonga },
               // { name: "XCams", isLoading: loadingXCams || loadingCouplesXCams }, // temporarily disabled
               { name: "Stripchat", isLoading: loadingStrip || loadingStripCouples },
+              { name: "Jerkmate", isLoading: loadingJM || loadingJMCouples },
             ]}
           />
 

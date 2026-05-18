@@ -81,6 +81,7 @@ const CamStream = () => {
     cam4: "CAM4",
     stripchat: "Stripchat",
     xcams: "XCams",
+    jerkmate: "Jerkmate",
   };
   const platformName = model?.platform || platformDisplayNames[platform || ""] || platform || "Webcam";
 
@@ -151,6 +152,7 @@ const CamStream = () => {
     cam4: (u) => `https://offers.cam4tracking.com/aff_c?offer_id=278&aff_id=1961&aff_sub=startvagina&aff_sub2=${u}&url=https://www.cam4.com/${u}?showSignupPopup%26noAds=true`,
     bongacams: (u) => `https://bongacams.com/${u}`,
     stripchat: (u) => `https://stripchat.com/${u}`,
+    jerkmate: (u) => `https://t.crntv.link/160097/6358?aff_sub1=startvagina&model=${u}`,
   };
 
   if (!model) {
