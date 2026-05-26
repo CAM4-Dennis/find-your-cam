@@ -73,27 +73,25 @@ const ComparisonLanding = () => {
         <Header />
 
         <main className="container flex-1 py-8">
-          {/* H1 */}
-          <div className="mb-6">
+          {/* Hero / H1 section with lighter surface */}
+          <div className="mb-8 bg-[hsl(220_18%_15%)] rounded-xl p-6 border border-border/50">
             <h1 className="text-3xl font-bold font-display text-foreground mb-2">
               {config.h1}
             </h1>
             {/* Score badges */}
-            <div className="flex items-center gap-3 mt-2">
-              <span className="inline-flex items-center gap-1.5 bg-primary/10 text-primary text-sm font-semibold px-3 py-1 rounded-full">
+            <div className="flex items-center gap-3 mt-3">
+              <span className="inline-flex items-center gap-1.5 bg-primary/15 text-primary text-sm font-semibold px-3 py-1.5 rounded-full border border-primary/20">
                 {config.platformA.name}: {winA} {config.winnersLabel === "Winner" ? "wins" : winA === 1 ? "punt" : "punten"}
               </span>
               <span className="text-muted-foreground text-sm font-medium">{config.vsLabel}</span>
-              <span className="inline-flex items-center gap-1.5 bg-secondary text-foreground text-sm font-semibold px-3 py-1 rounded-full">
+              <span className="inline-flex items-center gap-1.5 bg-[hsl(220_15%_22%)] text-foreground text-sm font-semibold px-3 py-1.5 rounded-full border border-border">
                 {config.platformB.name}: {winB} {config.winnersLabel === "Winner" ? "wins" : winB === 1 ? "punt" : "punten"}
               </span>
             </div>
-          </div>
 
-          {/* Intro paragraph */}
-          <section className="max-w-3xl mb-8">
-            <p className="text-muted-foreground leading-relaxed">{config.intro}</p>
-          </section>
+            {/* Intro paragraph inside hero */}
+            <p className="text-muted-foreground leading-relaxed mt-4 max-w-3xl">{config.intro}</p>
+          </div>
 
           {/* Live cam grids — 5 from each platform side by side */}
           {isLoading ? (
@@ -102,19 +100,19 @@ const ComparisonLanding = () => {
               <span>{t.modelsLoading}</span>
             </div>
           ) : (
-            <section className="mb-10">
+            <section className="mb-10 bg-[hsl(220_18%_12%)] rounded-xl p-5 border border-border/30">
               <h2 className="text-xl font-bold text-foreground mb-4">
                 🔴 Live: {config.platformA.name} {config.vsLabel} {config.platformB.name}
               </h2>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <h3 className="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
-                    <span className="bg-primary/20 text-primary text-xs px-2 py-0.5 rounded-full">{config.platformA.name}</span>
+                    <span className="bg-primary/20 text-primary text-xs px-2 py-0.5 rounded-full border border-primary/30">{config.platformA.name}</span>
                     <span className="text-muted-foreground text-sm">— {camsA.length} {t.modelsOnline ?? "online"}</span>
                   </h3>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                     {camsA.slice(0, 5).map((m) => (
-                      <div key={m.id} className="rounded-lg overflow-hidden bg-card border border-border hover:border-primary/50 transition-colors cursor-pointer"
+                      <div key={m.id} className="rounded-lg overflow-hidden bg-[hsl(220_18%_15%)] border border-border/50 hover:border-primary/50 transition-all duration-200 hover:shadow-md hover:shadow-primary/10 cursor-pointer"
                         onClick={() => window.open(m.streamUrl || m.thumbnailUrl || "#", "_blank", "noopener,noreferrer")}>
                         {m.thumbnailUrl && (
                           <img src={m.thumbnailUrl} alt={m.name} className="w-full aspect-video object-cover" loading="lazy" />
@@ -128,12 +126,12 @@ const ComparisonLanding = () => {
                 </div>
                 <div>
                   <h3 className="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
-                    <span className="bg-secondary text-foreground text-xs px-2 py-0.5 rounded-full">{config.platformB.name}</span>
+                    <span className="bg-[hsl(220_15%_22%)] text-foreground text-xs px-2 py-0.5 rounded-full border border-border">{config.platformB.name}</span>
                     <span className="text-muted-foreground text-sm">— {camsB.length} {t.modelsOnline ?? "online"}</span>
                   </h3>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                     {camsB.slice(0, 5).map((m) => (
-                      <div key={m.id} className="rounded-lg overflow-hidden bg-card border border-border hover:border-primary/50 transition-colors cursor-pointer"
+                      <div key={m.id} className="rounded-lg overflow-hidden bg-[hsl(220_18%_15%)] border border-border/50 hover:border-primary/50 transition-all duration-200 hover:shadow-md hover:shadow-primary/10 cursor-pointer"
                         onClick={() => window.open(m.streamUrl || m.thumbnailUrl || "#", "_blank", "noopener,noreferrer")}>
                         {m.thumbnailUrl && (
                           <img src={m.thumbnailUrl} alt={m.name} className="w-full aspect-video object-cover" loading="lazy" />
@@ -154,24 +152,24 @@ const ComparisonLanding = () => {
             <h2 className="text-xl font-bold text-foreground mb-4">
               📊 {config.comparisonTitle}: {config.platformA.name} {config.vsLabel} {config.platformB.name}
             </h2>
-            <div className="overflow-x-auto rounded-lg border border-border">
+            <div className="overflow-x-auto rounded-xl border border-border/60 shadow-lg shadow-black/20">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="bg-card border-b border-border">
-                    <th className="text-left px-4 py-3 text-muted-foreground font-semibold">{config.comparisonTitle}</th>
-                    <th className="text-center px-4 py-3 text-foreground font-bold">{config.platformA.name}</th>
-                    <th className="text-center px-4 py-3 text-foreground font-bold">{config.platformB.name}</th>
+                  <tr className="bg-[hsl(220_18%_18%)] border-b border-border">
+                    <th className="text-left px-4 py-3.5 text-muted-foreground font-semibold">{config.comparisonTitle}</th>
+                    <th className="text-center px-4 py-3.5 text-foreground font-bold">{config.platformA.name}</th>
+                    <th className="text-center px-4 py-3.5 text-foreground font-bold">{config.platformB.name}</th>
                   </tr>
                 </thead>
                 <tbody>
                   {config.comparison.categories.map((cat, i) => (
-                    <tr key={i} className={`border-b border-border last:border-0 ${i % 2 === 0 ? "bg-background" : "bg-card/50"}`}>
+                    <tr key={i} className={`border-b border-border/40 last:border-0 ${i % 2 === 0 ? "bg-[hsl(220_18%_13%)]" : "bg-[hsl(220_16%_16%)]"}`}>
                       <td className="px-4 py-3 text-muted-foreground font-medium">{cat.label}</td>
-                      <td className={`px-4 py-3 text-center font-medium ${cat.winner === "a" ? "text-primary bg-primary/5" : "text-foreground"}`}>
+                      <td className={`px-4 py-3 text-center font-medium ${cat.winner === "a" ? "text-primary bg-primary/10" : "text-foreground"}`}>
                         {cat.winner === "a" && <span className="mr-1">🏆</span>}
                         {cat.valueA}
                       </td>
-                      <td className={`px-4 py-3 text-center font-medium ${cat.winner === "b" ? "text-primary bg-primary/5" : "text-foreground"}`}>
+                      <td className={`px-4 py-3 text-center font-medium ${cat.winner === "b" ? "text-primary bg-primary/10" : "text-foreground"}`}>
                         {cat.winner === "b" && <span className="mr-1">🏆</span>}
                         {cat.valueB}
                       </td>
@@ -179,15 +177,15 @@ const ComparisonLanding = () => {
                   ))}
                 </tbody>
                 <tfoot>
-                  <tr className="bg-card border-t border-border">
-                    <td className="px-4 py-3 font-bold text-foreground">{config.winnersLabel}</td>
-                    <td className="px-4 py-3 text-center">
-                      <span className={`inline-flex items-center justify-center gap-1 font-bold text-sm px-3 py-1 rounded-full ${winA >= winB ? "bg-primary/20 text-primary" : "bg-secondary text-muted-foreground"}`}>
+                  <tr className="bg-[hsl(220_18%_18%)] border-t border-border">
+                    <td className="px-4 py-3.5 font-bold text-foreground">{config.winnersLabel}</td>
+                    <td className="px-4 py-3.5 text-center">
+                      <span className={`inline-flex items-center justify-center gap-1 font-bold text-sm px-3 py-1 rounded-full ${winA >= winB ? "bg-primary/20 text-primary" : "bg-[hsl(220_15%_22%)] text-muted-foreground"}`}>
                         {winA >= winB && "🏆 "}{winA}
                       </span>
                     </td>
-                    <td className="px-4 py-3 text-center">
-                      <span className={`inline-flex items-center justify-center gap-1 font-bold text-sm px-3 py-1 rounded-full ${winB > winA ? "bg-primary/20 text-primary" : "bg-secondary text-muted-foreground"}`}>
+                    <td className="px-4 py-3.5 text-center">
+                      <span className={`inline-flex items-center justify-center gap-1 font-bold text-sm px-3 py-1 rounded-full ${winB > winA ? "bg-primary/20 text-primary" : "bg-[hsl(220_15%_22%)] text-muted-foreground"}`}>
                         {winB > winA && "🏆 "}{winB}
                       </span>
                     </td>
@@ -227,7 +225,7 @@ const ComparisonLanding = () => {
           )}
 
           {/* Verdict */}
-          <section className="mb-10 max-w-3xl bg-primary/5 border border-primary/20 rounded-lg p-6">
+          <section className="mb-10 max-w-3xl bg-gradient-to-br from-primary/10 via-primary/5 to-[hsl(220_18%_15%)] border border-primary/25 rounded-xl p-6 shadow-lg shadow-primary/5">
             <h2 className="text-xl font-bold text-foreground mb-3 flex items-center gap-2">
               🏆 {config.verdictTitle}
             </h2>
@@ -251,12 +249,12 @@ const ComparisonLanding = () => {
           </section>
 
           {/* FAQ */}
-          <section className="mb-10 max-w-3xl">
+          <section className="mb-10 max-w-3xl bg-[hsl(220_18%_13%)] rounded-xl p-6 border border-border/40">
             <h2 className="text-2xl font-bold text-foreground mb-6">{config.faqTitle}</h2>
-            <div className="space-y-4">
+            <div className="space-y-3">
               {config.faq.map((f, i) => (
-                <details key={i} className="group bg-card border border-border rounded-lg">
-                  <summary className="px-4 py-3 cursor-pointer font-medium text-foreground hover:text-primary transition-colors">
+                <details key={i} className="group bg-[hsl(220_16%_16%)] border border-border/50 rounded-lg hover:border-primary/30 transition-colors">
+                  <summary className="px-4 py-3.5 cursor-pointer font-medium text-foreground hover:text-primary transition-colors">
                     {f.q}
                   </summary>
                   <p className="px-4 pb-4 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
@@ -282,7 +280,7 @@ const ComparisonLanding = () => {
           </section>
 
           {/* Other comparisons */}
-          <section className="border-t border-border pt-8">
+          <section className="border-t border-border/40 pt-8 mt-2">
             <h2 className="text-lg font-semibold text-foreground mb-4">
               {lang === "nl" ? "Andere vergelijkingen" : lang === "en" ? "Other comparisons" : lang === "fr" ? "Autres comparaisons" : lang === "de" ? "Andere Vergleiche" : lang === "es" ? "Otras comparaciones" : "Altri confronti"}
             </h2>

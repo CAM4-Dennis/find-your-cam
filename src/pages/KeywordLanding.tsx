@@ -59,6 +59,21 @@ const KeywordLanding = () => {
             <p className="text-muted-foreground max-w-3xl leading-relaxed">{config.intro}</p>
           </section>
 
+          {config.content && (
+            <section className="mb-8 max-w-3xl">
+              <div
+                className="text-muted-foreground leading-relaxed space-y-3 [&>p]:mb-3 [&_strong]:text-foreground [&_strong]:font-semibold"
+                dangerouslySetInnerHTML={{
+                  __html: "<p>" + config.content
+                    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+                    .replace(/\n\n/g, "</p><p>")
+                    .replace(/\n- /g, "<br/>• ")
+                    .replace(/\n/g, "<br/>") + "</p>",
+                }}
+              />
+            </section>
+          )}
+
           {isLoading ? (
             <div className="flex items-center gap-2 text-muted-foreground py-12 justify-center">
               <Loader2 size={20} className="animate-spin text-primary" />

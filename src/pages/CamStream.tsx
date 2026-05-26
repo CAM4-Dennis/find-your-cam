@@ -31,31 +31,67 @@ function generateProfileText(model: CamModel, platformName: string, t: any): str
 
   const genderLabel = model.gender === "female" ? t.camGenderFemale : model.gender === "couple" ? t.camGenderCouple : model.gender === "male" ? t.camGenderMale : t.camGenderModel;
   const country = model.country && model.country !== "Onbekend" ? model.country : "";
+  const age = model.age ? ` (${model.age})` : "";
 
-  parts.push(t.profileIsPopular(model.name, genderLabel, model.age || null, country, platformName));
+  // Opening paragraph — who is this model?
+  let opening = t.profileIsPopular(model.name, genderLabel, model.age || null, country, platformName);
+  if (country) {
+    opening += ` ${model.name} is afkomstig uit ${country} en streamt live op ${platformName}.`;
+  } else {
+    opening += ` ${model.name} streamt live op ${platformName}.`;
+  }
+  parts.push(opening);
 
+  // Viewer popularity paragraph
   if (model.viewers > 0) {
-    parts.push(t.profileViewers(model.name, model.viewers));
+    parts.push(
+      t.profileViewers(model.name, model.viewers) +
+      ` Dit hoge aantal kijkers laat zien hoe populair ${model.name} is in de webcam-community.`
+    );
   }
 
+  // Feature & quality paragraph
   const features: string[] = [];
-  if (model.isHD) features.push("HD");
-  if (model.isNew) features.push(t.camNew.toLowerCase());
-  if (model.isMobile) features.push("mobile");
+  if (model.isHD) features.push("HD-kwaliteit");
+  if (model.isNew) features.push("nieuw op het platform");
+  if (model.isMobile) features.push("mobiel gestreamd");
   if (features.length > 0) {
-    parts.push(t.profileFeatures(model.name, features.join(", ")));
+    parts.push(
+      `De stream van ${model.name} wordt aangeboden in ${features.join(" en ")}. ` +
+      `Dit zorgt voor een optimale kijkervaring.`
+    );
   }
 
+  // Language paragraph
   if (model.languages && model.languages.length > 0) {
-    parts.push(t.profileLanguages(model.name, model.languages.join(", ")));
+    const langList = model.languages.join(", ");
+    parts.push(
+      t.profileLanguages(model.name, langList) +
+      ` Dit maakt het gemakkelijk om te communiceren via de chat tijdens de show.`
+    );
   }
 
+  // Tags / specialty paragraph
   if (model.tags && model.tags.length > 0) {
-    const tagList = model.tags.slice(0, 5).map(t => t.toLowerCase()).join(", ");
-    parts.push(t.profileTags(tagList));
+    const tagList = model.tags.slice(0, 5).map(tag => tag.toLowerCase()).join(", ");
+    parts.push(
+      t.profileTags(tagList) +
+      ` Deze specialiteiten maken de shows van ${model.name} uniek en de moeite waard om te bekijken.`
+    );
   }
 
-  parts.push(t.profileWatchFree(model.name));
+  // Why watch section
+  const whyParts: string[] = [];
+  if (model.isHD) whyParts.push("kristalheldere HD-beelden");
+  if (model.viewers > 100) whyParts.push("een groot en actief publiek dat de sfeer in de chatroom bepaalt");
+  if (model.tags && model.tags.length > 2) whyParts.push("gevarieerde content en specialiteiten");
+  if (country) whyParts.push(`een authentiek model uit ${country}`);
+  if (whyParts.length === 0) whyParts.push("unieke live content die je nergens anders vindt");
+
+  parts.push(
+    `Waarom ${model.name} kijken? Je kunt rekenen op ${whyParts.join(", ")}. ` +
+    t.profileWatchFree(model.name)
+  );
 
   return parts.join(" ");
 }
@@ -168,7 +204,7 @@ const CamStream = () => {
             <title>{t.camTitle(displayUsername, platformName)}</title>
             <meta name="description" content={t.camDesc(displayUsername, platformName)} />
             <link rel="canonical" href={`https://www.startvagina.nl${localePath(`/${platform}/${username}`)}`} />
-            <meta name="robots" content="index, follow" />
+            <meta name="robots" content="noindex, follow" />
           </Helmet>
           <Header />
           <main className="container flex-1 py-12 text-center space-y-6">
@@ -207,10 +243,10 @@ const CamStream = () => {
           <title>{t.camTitle(model.name, platformName)}</title>
           <meta name="description" content={t.camDesc(model.name, platformName)} />
           <meta name="keywords" content={`${model.name}, ${platformName}, ${model.name} webcam, ${model.name} live${model.country && model.country !== "Onbekend" ? ", " + model.country + " cam" : ""}${model.tags?.slice(0, 3).map(tag => ", " + tag).join("") || ""}`} />
-          <link rel="canonical" href={`https://www.startvagina.nl${localePath(`/${platform}/${username}`)}`} />
+          <link rel="canonical" href={`https://www.startvagina.nl/${platform}/${username}`} />
           <meta property="og:title" content={t.camTitle(model.name, platformName)} />
           <meta property="og:description" content={t.camDesc(model.name, platformName)} />
-          <meta property="og:url" content={`https://www.startvagina.nl${localePath(`/${platform}/${username}`)}`} />
+          <meta property="og:url" content={`https://www.startvagina.nl/${platform}/${username}`} />
           <meta name="robots" content="index, follow" />
           <script type="application/ld+json">
             {JSON.stringify({

@@ -52,6 +52,8 @@
     { "source": "/it/bongacams/:username", "destination": "/api/model?lang=it&platform=bongacams&username=:username" },
     { "source": "/it/cam4/:username", "destination": "/api/model?lang=it&platform=cam4&username=:username" },
     { "source": "/it/stripchat/:username", "destination": "/api/model?lang=it&platform=stripchat&username=:username" },
+    { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
+    { "source": "/sitemap/:file", "destination": "/sitemap/:file" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

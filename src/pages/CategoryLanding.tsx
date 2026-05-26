@@ -76,6 +76,9 @@ Let op: alle modellen op StartVagina zijn 18 jaar of ouder. De leeftijdsverifica
     faq: [
       { q: "Zijn alle modellen echt 18+?", a: "Ja, alle cam platforms (Chaturbate, Stripchat, BongaCams, CAM4, XCams) vereisen strikte leeftijdsverificatie met officiële documenten voordat een model kan streamen." },
       { q: "Hoe vind ik de jongste cam modellen?", a: "Op StartVagina kun je filteren op de teen-categorie. Platforms zoals Chaturbate hebben ook een 'New Cams' filter waarmee je modellen vindt die net begonnen zijn." },
+      { q: "Op welk platform vind ik de meeste 18+ cam girls?", a: "Chaturbate heeft het grootste totale aanbod en ook de meeste teen-categorie modellen. Stripchat en BongaCams hebben ook een goede selectie. Via StartVagina zie je alle live 18+ modellen van alle platforms tegelijk." },
+      { q: "Zijn teen cam shows gratis te bekijken?", a: "Ja! De openbare teen cam shows zijn volledig gratis te bekijken zonder registratie. Je betaalt alleen als je tokens stuurt of een privé show aanvraagt." },
+      { q: "Hoe weet ik of een model nieuw is?", a: "Nieuwe modellen krijgen vaak een 'New' badge op hun profiel. Op StartVagina tonen we ook het 'nieuw' label bij modellen die recent zijn gestart. Chaturbate heeft een speciale 'New Cams' sectie voor modellen die net begonnen zijn." },
     ],
     matchTags: ["teen", "18", "young", "18+", "teenager"],
   },
@@ -103,6 +106,9 @@ Op StartVagina verzamelen we alle live MILF cam modellen van Chaturbate, Stripch
     faq: [
       { q: "Wat betekent MILF in webcamsex?", a: "MILF staat voor 'Mother I'd Like to F***' en verwijst in de cam-wereld naar volwassen vrouwen, meestal 30+, die webcamsex aanbieden. Het is een van de populairste categorieën op alle cam platforms." },
       { q: "Op welk platform vind ik de meeste MILF modellen?", a: "Chaturbate en Stripchat hebben het grootste aanbod MILF cam girls. BongaCams heeft veel Europese MILF modellen. Via StartVagina vergelijk je alle platforms tegelijk." },
+      { q: "Wat is de leeftijd van MILF cam girls?", a: "MILF cam modellen zijn doorgaans tussen de 30 en 50 jaar. De exacte leeftijd varieert, maar het gaat om vrouwen die duidelijk volwassen en ervaren zijn. Veel platforms laten je filteren op leeftijdsgroep." },
+      { q: "Zijn MILF cam shows gratis?", a: "Ja, de meeste MILF modellen streamen openbaar en gratis. De openbare show is voor iedereen zichtbaar. Voor exclusieve aandacht of een privé show betaal je tokens of per minuut." },
+      { q: "Waarom zijn MILF cam shows zo populair?", a: "MILF cam shows scoorden al jaren hoog als populairste categorie op alle cam platforms. De combinatie van ervaring, zelfvertrouwen en sensualiteit trekt een breed publiek. Ervaren vrouwen weten hoe ze een show moeten opbouwen en hun publiek weten te boeien." },
     ],
     matchTags: ["milf"],
   },
@@ -129,6 +135,8 @@ Het aanbod mature modellen is kleiner dan de reguliere categorieën, maar de kwa
     faq: [
       { q: "Wat is het verschil tussen MILF en Mature?", a: "MILF verwijst meestal naar vrouwen van 30-45 jaar, terwijl Mature modellen over het algemeen 45+ zijn. De grenzen zijn vloeiend, maar mature duidt op meer rijpere leeftijd." },
       { q: "Zijn er veel mature cam modellen online?", a: "Het aanbod is kleiner dan populaire categorieën, maar er zijn altijd tientallen mature modellen live. Chaturbate en Stripchat hebben de grootste selectie." },
+      { q: "Wanneer zijn mature cam modellen online?", a: "Mature modellen hebben vaak een regelmatiger schema dan jongere cam girls. Veel mature modellen zijn actief in de ochtend en vroege middag. Check het profiel van een favoriet model voor haar vaste tijden." },
+      { q: "Wat maakt mature cam girls anders dan jongere modellen?", a: "Mature cam girls brengen levenservaring en zelfvertrouwen mee. Ze zijn comfortabel voor de camera, weten wat ze willen tonen en nemen de tijd voor echte verbinding met kijkers. Geen schroom, geen onzekerheid — puur genot en zelfverzekerdheid." },
     ],
     matchTags: ["mature", "granny", "older"],
   },
@@ -156,6 +164,9 @@ Of je nu specifiek zoekt naar Japanse, Koreaanse, Thai of Filipijnse cam girls �
     faq: [
       { q: "Op welk platform vind ik de meeste Aziatische cam girls?", a: "Stripchat heeft het grootste aanbod Aziatische modellen met uitgebreide filters. Chaturbate en BongaCams hebben ook een goede selectie. Via StartVagina zie je ze allemaal." },
       { q: "Wanneer zijn Aziatische cam modellen online?", a: "Door het tijdsverschil zijn veel Aziatische modellen online tussen 06:00 en 18:00 CET. Maar populaire modellen passen hun schema aan op Europese en Amerikaanse kijkers." },
+      { q: "Uit welke Aziatische landen komen de meeste cam modellen?", a: "De meeste Aziatische cam girls komen uit de Filipijnen, Thailand, China, Japan en Zuid-Korea. De Filipijnen leveren verreweg de meeste Engelssprekende Aziatische cam modellen." },
+      { q: "Spreken Aziatische cam girls Engels?", a: "Dat varieert per regio. Filipijnse cam girls spreken doorgaans uitstekend Engels. Japanse en Chinese cam girls spreken minder Engels, maar communiceren wel via de chat. Veel platforms bieden ook vertaalfuncties." },
+      { q: "Zijn er Aziatische cam shows met cosplay?", a: "Ja! Cosplay en kawaii-gerelateerde shows zijn bijzonder populair bij Aziatische cam modellen, vooral Japanse en Koreaanse. Zoek op tags als 'cosplay', 'kawaii' of 'anime' voor de meest creatieve shows." },
     ],
     matchTags: ["asian", "asiatic"],
   },
@@ -183,6 +194,9 @@ Op Chaturbate en Stripchat vormen Latina modellen de grootste groep na de Engels
     faq: [
       { q: "Uit welke landen komen de meeste Latina cam girls?", a: "Colombia levert verreweg de meeste cam modellen, gevolgd door Brazilië, Mexico, Venezuela en Argentinië. Colombia wordt niet voor niets de 'cam-hoofdstad van de wereld' genoemd." },
       { q: "Spreken Latina cam girls Engels?", a: "Steeds meer Latina modellen spreken goed Engels. Op grote platforms kun je filteren op taal. Veel modellen gebruiken ook vertaaltools in de chat." },
+      { q: "Op welk platform vind ik de meeste Latina cam girls?", a: "Chaturbate en Stripchat hebben het grootste aanbod Latina cam girls. CAM4 heeft een sterke Spaanstalige community. Via StartVagina zie je het complete live aanbod van alle platforms." },
+      { q: "Wat maakt Colombiaanse cam girls zo populair?", a: "Colombia combineert een grote, jonge bevolking met hoge jeugdwerkloosheid — webcammen is er een gerespecteerd beroep geworden. Colombiaanse cam girls staan bekend om hun schoonheid, professionaliteit en energieke shows. Steden als Medellín en Bogotá hebben zelfs gespecialiseerde cam-studio's." },
+      { q: "Zijn er Latina cam shows in het Nederlands?", a: "Weinig Latina modellen spreken Nederlands, maar communicatie via Engels of Spaans is prima. Veel Latina cam girls leren snel een paar woorden van hun vaste kijkers — inclusief Nederlandse uitdrukkingen." },
     ],
     matchTags: ["latina", "latino", "latin"],
   },
