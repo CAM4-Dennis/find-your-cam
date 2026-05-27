@@ -164,10 +164,12 @@ for (const slug of nicheSlugs) {
   pages.push({ slug: `/niche-videos/${slug}`, priority: "0.6", changefreq: "daily" });
 }
 
-// Generate all URL entries
+// Generate all URL entries (only indexable languages: NL + EN)
+// FR/DE/ES/IT pages are noindexed in the app, so exclude them from sitemap
+const sitemapLangs = ["nl", "en"];
 const entries = [];
 for (const page of pages) {
-  for (const lang of langs) {
+  for (const lang of sitemapLangs) {
     // Skip if this page is restricted to specific lang prefixes
     if (page.restrictTo && !page.restrictTo.includes(lang)) continue;
     entries.push(buildUrlEntry(page.slug, prefixes[lang], page.priority, page.changefreq, page.restrictTo));

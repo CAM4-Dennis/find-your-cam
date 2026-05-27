@@ -15,6 +15,8 @@ const template = readFileSync(join(DIST, "index.html"), "utf-8");
 const langs = ["nl", "en", "fr", "de", "es", "it"];
 const langPrefixes = { nl: "", en: "/en", fr: "/fr", de: "/de", es: "/es", it: "/it" };
 
+const NOINDEX_LANGS = ["fr", "de", "es", "it"];
+
 // ============================================================
 // Multilingual page definitions
 // Each page has meta per language: { nl: {...}, en: {...}, ... }
@@ -323,14 +325,14 @@ const pages = [
 // HTML injection
 // ============================================================
 
-function buildMetaTags(slug, pageMeta) {
+function buildMetaTags(slug, pageMeta, lang = "nl") {
   const canonical = slug ? `${BASE}/${slug}` : BASE;
   const tags = [];
 
   tags.push(`<title>${escapeHtml(pageMeta.title)}</title>`);
   tags.push(`<meta name="description" content="${escapeAttr(pageMeta.description)}">`);
   tags.push(`<meta name="keywords" content="${escapeAttr(pageMeta.keywords)}">`);
-  tags.push(`<meta name="robots" content="index, follow">`);
+  tags.push(`<meta name="robots" content="${NOINDEX_LANGS.includes(lang) ? "noindex, nofollow" : "index, follow"}">`);
   tags.push(`<link rel="canonical" href="${canonical}">`);
   tags.push(`<meta property="og:title" content="${escapeAttr(pageMeta.title)}">`);
   tags.push(`<meta property="og:description" content="${escapeAttr(pageMeta.description)}">`);
@@ -402,7 +404,7 @@ for (const page of pages) {
       else fullSlug = `${prefix.slice(1)}/${baseSlug}`;
 
       const pageMeta = page.meta[lang];
-      const metaTags = buildMetaTags(fullSlug, pageMeta);
+      const metaTags = buildMetaTags(fullSlug, pageMeta, lang);
       const html = injectMeta(template, metaTags, lang);
       writePage(fullSlug, html);
       count++;
@@ -410,5 +412,212 @@ for (const page of pages) {
   }
 }
 
-console.log(`✅ Pre-rendered ${count} pages with multilingual SEO meta tags`);
-console.log(`📁 Output: ${DIST}\n`);
+console.log(`✅ Pre-rendered ${count} pages (static)`);
+
+// ============================================================
+// Niche-videos pre-render
+// ============================================================
+
+const NICHE_META_OVERRIDES = {
+  masturbation: { nl: { title: "Masturbatie Video's \u2014 Solo Cam Shows op CAM4 | StartVagina", description: "Bekijk exclusieve masturbatie video's van cam modellen op CAM4. Solo shows met vingers en toys \u2014 van slow build tot intense orgasmes." }, en: { title: "Masturbation Videos \u2014 Solo Cam Shows on CAM4 | StartVagina", description: "Watch exclusive masturbation videos from cam models on CAM4. Solo shows with fingers and toys \u2014 from slow build to intense orgasms." } },
+  squirt: { nl: { title: "Squirt Video's \u2014 Squirtende Cam Girls op CAM4 | StartVagina", description: "Bekijk squirt video's van cam modellen op CAM4. Intense orgasmes en spectaculaire squirt shows van amateurs en professionals." }, en: { title: "Squirt Videos \u2014 Squirting Cam Girls on CAM4 | StartVagina", description: "Watch squirt videos from cam models on CAM4. Intense orgasms and spectacular squirt shows from amateurs and professionals." } },
+  amateur: { nl: { title: "Amateur Video's \u2014 Echte Amateur Cam Shows op CAM4 | StartVagina", description: "Bekijk amateur video's van echte cam modellen op CAM4. Authentiek, ongescript en persoonlijk \u2014 echte vrouwen delen intieme momenten." }, en: { title: "Amateur Videos \u2014 Real Amateur Cam Shows on CAM4 | StartVagina", description: "Watch amateur videos from real cam models on CAM4. Authentic, unscripted and personal \u2014 real women sharing intimate moments." } },
+  anal: { nl: { title: "Anale Video's \u2014 Anale Cam Shows op CAM4 | StartVagina", description: "Bekijk anale video's van cam modellen op CAM4. Training, toys en meer \u2014 exclusieve anale content van amateurs." }, en: { title: "Anal Videos \u2014 Anal Cam Shows on CAM4 | StartVagina", description: "Watch anal videos from cam models on CAM4. Training, toys and more \u2014 exclusive anal content from amateur models." } },
+  milf: { nl: { title: "MILF Video's \u2014 Ervaren Vrouwen op CAM4 | StartVagina", description: "Bekijk MILF video's van ervaren cam modellen op CAM4. Zelfverzekerde vrouwen met ervaring die weten hoe ze je moeten verleiden." }, en: { title: "MILF Videos \u2014 Experienced Women on CAM4 | StartVagina", description: "Watch MILF videos from experienced cam models on CAM4. Confident women who know exactly how to please." } },
+  "18-plus-girls": { nl: { title: "18+ Meisjes Video's \u2014 Jonge Cam Girls op CAM4 | StartVagina", description: "Bekijk video's van jonge 18+ cam girls op CAM4. Verse nieuwe modellen die hun eerste shows delen." }, en: { title: "18+ Girls Videos \u2014 Young Cam Girls on CAM4 | StartVagina", description: "Watch videos from young 18+ cam girls on CAM4. Fresh new models sharing their first shows." } },
+  "big-tits": { nl: { title: "Grote Borsten Video's \u2014 Cam Girls met Grote Tieten op CAM4 | StartVagina", description: "Bekijk video's van cam modellen met grote borsten op CAM4. Van natuurlijk tot enhanced \u2014 de beste busty cam girl content." }, en: { title: "Big Tits Videos \u2014 Busty Cam Girls on CAM4 | StartVagina", description: "Watch videos from busty cam models on CAM4. From natural to enhanced \u2014 the best big tits cam girl content." } },
+  "hairy-pussy": { nl: { title: "Hairy Pussy Video's \u2014 Ongeschoren Cam Girls op CAM4 | StartVagina", description: "Bekijk video's van cam modellen met een natuurlijke look op CAM4. Ongeschoren en trots \u2014 hairy pussy content van echte vrouwen." }, en: { title: "Hairy Pussy Videos \u2014 Natural Cam Girls on CAM4 | StartVagina", description: "Watch videos from natural cam models on CAM4. Unshaved and proud \u2014 hairy pussy content from real women." } },
+  pussy: { nl: { title: "Pussy Video's \u2014 Close-up Cam Shows op CAM4 | StartVagina", description: "Bekijk pussy video's en close-up content van cam modellen op CAM4. Intiem en expliciet \u2014 de beste cam girl pussy content." }, en: { title: "Pussy Videos \u2014 Close-up Cam Shows on CAM4 | StartVagina", description: "Watch pussy videos and close-up content from cam models on CAM4. Intimate and explicit \u2014 the best cam girl pussy content." } },
+  blowjob: { nl: { title: "Blowjob Video's \u2014 Orale Cam Shows op CAM4 | StartVagina", description: "Bekijk blowjob video's van cam modellen op CAM4. Deepthroat, sloppy en meer \u2014 exclusieve orale content." }, en: { title: "Blowjob Videos \u2014 Oral Cam Shows on CAM4 | StartVagina", description: "Watch blowjob videos from cam models on CAM4. Deepthroat, sloppy and more \u2014 exclusive oral content." } },
+  "big-ass": { nl: { title: "Grote Kont Video's \u2014 Cam Girls met een Big Ass op CAM4 | StartVagina", description: "Bekijk video's van cam modellen met een grote kont op CAM4. Twerk, booty shows en meer van de mooiste curves." }, en: { title: "Big Ass Videos \u2014 Booty Cam Girls on CAM4 | StartVagina", description: "Watch videos from cam models with a big ass on CAM4. Twerk, booty shows and more from the best curves." } },
+  "public-streaming": { nl: { title: "Publieke Stream Video's \u2014 Outdoor Cam Shows op CAM4 | StartVagina", description: "Bekijk publieke streaming video's op CAM4. Cam modellen die het buiten of op openbare plekken doen \u2014 spannend en onvoorspelbaar." }, en: { title: "Public Streaming Videos \u2014 Outdoor Cam Shows on CAM4 | StartVagina", description: "Watch public streaming videos on CAM4. Cam models going live outdoors and in public \u2014 thrilling and unpredictable." } },
+  creampie: { nl: { title: "Creampie Video's \u2014 Creampie Cam Shows op CAM4 | StartVagina", description: "Bekijk creampie video's van cam modellen op CAM4. Exclusieve creampie content van amateurs en koppels." }, en: { title: "Creampie Videos \u2014 Creampie Cam Shows on CAM4 | StartVagina", description: "Watch creampie videos from cam models on CAM4. Exclusive creampie content from amateurs and couples." } },
+  latina: { nl: { title: "Latina Video's \u2014 Latina Cam Girls op CAM4 | StartVagina", description: "Bekijk video's van Latina cam modellen op CAM4. Heet, gepassioneerd en vol energie \u2014 de beste Latijns-Amerikaanse cam girl content." }, en: { title: "Latina Videos \u2014 Latina Cam Girls on CAM4 | StartVagina", description: "Watch videos from Latina cam models on CAM4. Hot, passionate and full of energy \u2014 the best Latin American cam girl content." } },
+  redheads: { nl: { title: "Roodharige Video's \u2014 Redhead Cam Girls op CAM4 | StartVagina", description: "Bekijk video's van roodharige cam modellen op CAM4. Vurig en verleidelijk \u2014 exclusieve redhead content." }, en: { title: "Redhead Videos \u2014 Redhead Cam Girls on CAM4 | StartVagina", description: "Watch videos from redhead cam models on CAM4. Fiery and seductive \u2014 exclusive redhead content." } },
+  pee: { nl: { title: "Pee Video's \u2014 Watersport Cam Shows op CAM4 | StartVagina", description: "Bekijk pee video's van cam modellen op CAM4. Watersport en golden shower content van avontuurlijke modellen." }, en: { title: "Pee Videos \u2014 Watersports Cam Shows on CAM4 | StartVagina", description: "Watch pee videos from cam models on CAM4. Watersports and golden shower content from adventurous models." } },
+  tattoos: { nl: { title: "Tattoo Video's \u2014 Getatoe\u00eberde Cam Girls op CAM4 | StartVagina", description: "Bekijk video's van getatoe\u00eberde cam modellen op CAM4. Inked babes met attitude \u2014 de mooiste tattoo cam girls." }, en: { title: "Tattoo Videos \u2014 Tattooed Cam Girls on CAM4 | StartVagina", description: "Watch videos from tattooed cam models on CAM4. Inked babes with attitude \u2014 the hottest tattooed cam girls." } },
+  bbw: { nl: { title: "BBW Video's \u2014 Curvy Cam Girls op CAM4 | StartVagina", description: "Bekijk video's van BBW cam modellen op CAM4. Voluptueuze vrouwen met zelfvertrouwen \u2014 de beste plus-size cam content." }, en: { title: "BBW Videos \u2014 Curvy Cam Girls on CAM4 | StartVagina", description: "Watch videos from BBW cam models on CAM4. Voluptuous women with confidence \u2014 the best plus-size cam content." } },
+  petite: { nl: { title: "Petite Video's \u2014 Kleine Cam Girls op CAM4 | StartVagina", description: "Bekijk video's van petite cam modellen op CAM4. Klein maar fijn \u2014 schattige en sexy petite cam girls." }, en: { title: "Petite Videos \u2014 Small Cam Girls on CAM4 | StartVagina", description: "Watch videos from petite cam models on CAM4. Small but mighty \u2014 cute and sexy petite cam girls." } },
+  feet: { nl: { title: "Voeten Video's \u2014 Foot Fetish Cam Shows op CAM4 | StartVagina", description: "Bekijk voeten video's van cam modellen op CAM4. Foot fetish content, voetmassage en meer van de mooiste voetjes." }, en: { title: "Feet Videos \u2014 Foot Fetish Cam Shows on CAM4 | StartVagina", description: "Watch feet videos from cam models on CAM4. Foot fetish content, foot massages and more from beautiful feet." } },
+  bdsm: { nl: { title: "BDSM Video's \u2014 Bondage & Dominatie Cam Shows op CAM4 | StartVagina", description: "Bekijk BDSM video's van cam modellen op CAM4. Bondage, dominatie en submission \u2014 van beginners tot hardcore." }, en: { title: "BDSM Videos \u2014 Bondage & Domination Cam Shows on CAM4 | StartVagina", description: "Watch BDSM videos from cam models on CAM4. Bondage, domination and submission \u2014 from beginners to hardcore." } },
+  blonde: { nl: { title: "Blonde Video's \u2014 Blonde Cam Girls op CAM4 | StartVagina", description: "Bekijk video's van blonde cam modellen op CAM4. Klassiek mooi en verleidelijk \u2014 de mooiste blonde cam girls." }, en: { title: "Blonde Videos \u2014 Blonde Cam Girls on CAM4 | StartVagina", description: "Watch videos from blonde cam models on CAM4. Classic beauty and seduction \u2014 the hottest blonde cam girls." } },
+  lesbian: { nl: { title: "Lesbische Video's \u2014 Girl-on-Girl Cam Shows op CAM4 | StartVagina", description: "Bekijk lesbische video's van cam modellen op CAM4. Twee vrouwen, echte passie \u2014 exclusieve girl-on-girl content." }, en: { title: "Lesbian Videos \u2014 Girl-on-Girl Cam Shows on CAM4 | StartVagina", description: "Watch lesbian videos from cam models on CAM4. Two women, real passion \u2014 exclusive girl-on-girl content." } },
+  shower: { nl: { title: "Douche Video's \u2014 Shower Cam Shows op CAM4 | StartVagina", description: "Bekijk douche video's van cam modellen op CAM4. Nat, zeepachtig en sexy \u2014 cam girls onder de douche." }, en: { title: "Shower Videos \u2014 Shower Cam Shows on CAM4 | StartVagina", description: "Watch shower videos from cam models on CAM4. Wet, soapy and sexy \u2014 cam girls in the shower." } },
+  cosplay: { nl: { title: "Cosplay Video's \u2014 Cosplay Cam Girls op CAM4 | StartVagina", description: "Bekijk cosplay video's van cam modellen op CAM4. Anime, gaming en fantasy cosplay \u2014 creatieve en sexy shows." }, en: { title: "Cosplay Videos \u2014 Cosplay Cam Girls on CAM4 | StartVagina", description: "Watch cosplay videos from cam models on CAM4. Anime, gaming and fantasy cosplay \u2014 creative and sexy shows." } },
+  asian: { nl: { title: "Aziatische Video's \u2014 Asian Cam Girls op CAM4 | StartVagina", description: "Bekijk video's van Aziatische cam modellen op CAM4. Japans, Koreaans, Thais en meer \u2014 exotische schoonheid." }, en: { title: "Asian Videos \u2014 Asian Cam Girls on CAM4 | StartVagina", description: "Watch videos from Asian cam models on CAM4. Japanese, Korean, Thai and more \u2014 exotic beauty." } },
+  "fuck-machine": { nl: { title: "Fuck Machine Video's \u2014 Machine Cam Shows op CAM4 | StartVagina", description: "Bekijk fuck machine video's van cam modellen op CAM4. Intense machine-powered shows voor maximaal genot." }, en: { title: "Fuck Machine Videos \u2014 Machine Cam Shows on CAM4 | StartVagina", description: "Watch fuck machine videos from cam models on CAM4. Intense machine-powered shows for maximum pleasure." } },
+  ebony: { nl: { title: "Ebony Video's \u2014 Zwarte Cam Girls op CAM4 | StartVagina", description: "Bekijk video's van ebony cam modellen op CAM4. Prachtige zwarte vrouwen met passie en stijl." }, en: { title: "Ebony Videos \u2014 Black Cam Girls on CAM4 | StartVagina", description: "Watch videos from ebony cam models on CAM4. Beautiful black women with passion and style." } },
+  fitness: { nl: { title: "Fitness Video's \u2014 Sportieve Cam Girls op CAM4 | StartVagina", description: "Bekijk fitness video's van sportieve cam modellen op CAM4. Gespierd, flexibel en sexy \u2014 workout meets webcam." }, en: { title: "Fitness Videos \u2014 Athletic Cam Girls on CAM4 | StartVagina", description: "Watch fitness videos from athletic cam models on CAM4. Toned, flexible and sexy \u2014 workout meets webcam." } },
+  "fem-dom": { nl: { title: "Femdom Video's \u2014 Dominante Vrouwen op CAM4 | StartVagina", description: "Bekijk femdom video's van dominante cam modellen op CAM4. Machtige vrouwen die de controle nemen." }, en: { title: "Femdom Videos \u2014 Dominant Women on CAM4 | StartVagina", description: "Watch femdom videos from dominant cam models on CAM4. Powerful women taking full control." } },
+  "cum-play": { nl: { title: "Cum Play Video's \u2014 Cum Shows op CAM4 | StartVagina", description: "Bekijk cum play video's van cam modellen op CAM4. Creatieve en messy cum shows." }, en: { title: "Cum Play Videos \u2014 Cum Shows on CAM4 | StartVagina", description: "Watch cum play videos from cam models on CAM4. Creative and messy cum shows." } },
+  gamer: { nl: { title: "Gamer Girl Video's \u2014 Gaming Cam Girls op CAM4 | StartVagina", description: "Bekijk video's van gamer cam modellen op CAM4. Gaming en sexy shows gecombineerd \u2014 voor de echte gamer fans." }, en: { title: "Gamer Girl Videos \u2014 Gaming Cam Girls on CAM4 | StartVagina", description: "Watch videos from gamer cam models on CAM4. Gaming and sexy shows combined \u2014 for real gamer fans." } },
+  arab: { nl: { title: "Arabische Video's \u2014 Arabische Cam Girls op CAM4 | StartVagina", description: "Bekijk video's van Arabische cam modellen op CAM4. Exotisch, mysterieus en onweerstaanbaar mooi." }, en: { title: "Arab Videos \u2014 Arab Cam Girls on CAM4 | StartVagina", description: "Watch videos from Arab cam models on CAM4. Exotic, mysterious and irresistibly beautiful." } },
+  twerk: { nl: { title: "Twerk Video's \u2014 Twerking Cam Girls op CAM4 | StartVagina", description: "Bekijk twerk video's van cam modellen op CAM4. Shake it \u2014 de beste booty shaking en twerk content." }, en: { title: "Twerk Videos \u2014 Twerking Cam Girls on CAM4 | StartVagina", description: "Watch twerk videos from cam models on CAM4. Shake it \u2014 the best booty shaking and twerk content." } },
+  smoking: { nl: { title: "Smoking Video's \u2014 Rokende Cam Girls op CAM4 | StartVagina", description: "Bekijk smoking fetish video's van cam modellen op CAM4. Verleidelijk en sensueel \u2014 rokende cam girls." }, en: { title: "Smoking Videos \u2014 Smoking Cam Girls on CAM4 | StartVagina", description: "Watch smoking fetish videos from cam models on CAM4. Seductive and sensual \u2014 smoking cam girls." } },
+  "oil-show": { nl: { title: "Olie Show Video's \u2014 Oiled Up Cam Girls op CAM4 | StartVagina", description: "Bekijk olie show video's van cam modellen op CAM4. Glanzend, glad en onweerstaanbaar \u2014 oiled up cam content." }, en: { title: "Oil Show Videos \u2014 Oiled Up Cam Girls on CAM4 | StartVagina", description: "Watch oil show videos from cam models on CAM4. Shiny, slippery and irresistible \u2014 oiled up cam content." } },
+  pregnant: { nl: { title: "Zwangere Video's \u2014 Pregnant Cam Girls op CAM4 | StartVagina", description: "Bekijk video's van zwangere cam modellen op CAM4. Mooi, sensueel en uniek \u2014 pregnant cam content." }, en: { title: "Pregnant Videos \u2014 Pregnant Cam Girls on CAM4 | StartVagina", description: "Watch videos from pregnant cam models on CAM4. Beautiful, sensual and unique \u2014 pregnant cam content." } },
+  fisting: { nl: { title: "Fisting Video's \u2014 Fisting Cam Shows op CAM4 | StartVagina", description: "Bekijk fisting video's van cam modellen op CAM4. Extreme en intense content voor de echte liefhebber." }, en: { title: "Fisting Videos \u2014 Fisting Cam Shows on CAM4 | StartVagina", description: "Watch fisting videos from cam models on CAM4. Extreme and intense content for true enthusiasts." } },
+  fantasy: { nl: { title: "Fantasy Video's \u2014 Fantasy Cam Shows op CAM4 | StartVagina", description: "Bekijk fantasy video's van cam modellen op CAM4. Roleplay, verkleed en fantasierijke shows." }, en: { title: "Fantasy Videos \u2014 Fantasy Cam Shows on CAM4 | StartVagina", description: "Watch fantasy videos from cam models on CAM4. Roleplay, costumes and imaginative shows." } },
+  leather: { nl: { title: "Leren Video's \u2014 Leather Fetish Cam Shows op CAM4 | StartVagina", description: "Bekijk leather fetish video's van cam modellen op CAM4. Stoer, dominant en verleidelijk in leer." }, en: { title: "Leather Videos \u2014 Leather Fetish Cam Shows on CAM4 | StartVagina", description: "Watch leather fetish videos from cam models on CAM4. Tough, dominant and seductive in leather." } },
+  latex: { nl: { title: "Latex Video's \u2014 Latex Fetish Cam Shows op CAM4 | StartVagina", description: "Bekijk latex fetish video's van cam modellen op CAM4. Strak, glanzend en onweerstaanbaar \u2014 latex cam content." }, en: { title: "Latex Videos \u2014 Latex Fetish Cam Shows on CAM4 | StartVagina", description: "Watch latex fetish videos from cam models on CAM4. Tight, shiny and irresistible \u2014 latex cam content." } },
+  "kinky-wife": { nl: { title: "Kinky Wife Video's \u2014 Stoute Vrouwen op CAM4 | StartVagina", description: "Bekijk kinky wife video's op CAM4. Getrouwde vrouwen die hun wilde kant laten zien." }, en: { title: "Kinky Wife Videos \u2014 Naughty Wives on CAM4 | StartVagina", description: "Watch kinky wife videos on CAM4. Married women showing their wild side." } },
+  hardcore: { nl: { title: "Hardcore Video's \u2014 Hardcore Cam Shows op CAM4 | StartVagina", description: "Bekijk hardcore video's van cam modellen op CAM4. Intens, expliciet en ongecensureerd." }, en: { title: "Hardcore Videos \u2014 Hardcore Cam Shows on CAM4 | StartVagina", description: "Watch hardcore videos from cam models on CAM4. Intense, explicit and uncensored." } },
+  "slavic-girls": { nl: { title: "Slavische Meisjes Video's \u2014 Oost-Europese Cam Girls op CAM4 | StartVagina", description: "Bekijk video's van Slavische cam modellen op CAM4. Prachtige Oost-Europese vrouwen met schoonheid en charme." }, en: { title: "Slavic Girls Videos \u2014 Eastern European Cam Girls on CAM4 | StartVagina", description: "Watch videos from Slavic cam models on CAM4. Beautiful Eastern European women with beauty and charm." } },
+  bisexual: { nl: { title: "Biseksuele Video's \u2014 Bisexual Cam Shows op CAM4 | StartVagina", description: "Bekijk biseksuele video's van cam modellen op CAM4. Vrouwen die van beide kanten genieten." }, en: { title: "Bisexual Videos \u2014 Bisexual Cam Shows on CAM4 | StartVagina", description: "Watch bisexual videos from cam models on CAM4. Women who enjoy both sides." } },
+  facesitting: { nl: { title: "Facesitting Video's \u2014 Facesitting Cam Shows op CAM4 | StartVagina", description: "Bekijk facesitting video's van cam modellen op CAM4. Dominant en sensueel \u2014 de beste facesitting content." }, en: { title: "Facesitting Videos \u2014 Facesitting Cam Shows on CAM4 | StartVagina", description: "Watch facesitting videos from cam models on CAM4. Dominant and sensual \u2014 the best facesitting content." } },
+  handjob: { nl: { title: "Handjob Video's \u2014 Handjob Cam Shows op CAM4 | StartVagina", description: "Bekijk handjob video's van cam modellen op CAM4. Handmatig verwennen op z'n best." }, en: { title: "Handjob Videos \u2014 Handjob Cam Shows on CAM4 | StartVagina", description: "Watch handjob videos from cam models on CAM4. Manual pleasure at its finest." } },
+  "pov-joi": { nl: { title: "POV JOI Video's \u2014 Jerk Off Instructie Cam Shows op CAM4 | StartVagina", description: "Bekijk POV JOI video's van cam modellen op CAM4. Persoonlijke instructies vanuit het eerste persoon." }, en: { title: "POV JOI Videos \u2014 Jerk Off Instruction Cam Shows on CAM4 | StartVagina", description: "Watch POV JOI videos from cam models on CAM4. Personal instructions from a first-person perspective." } },
+  massage: { nl: { title: "Massage Video's \u2014 Erotische Massage Cam Shows op CAM4 | StartVagina", description: "Bekijk erotische massage video's van cam modellen op CAM4. Sensueel, ontspannend en verleidelijk." }, en: { title: "Massage Videos \u2014 Erotic Massage Cam Shows on CAM4 | StartVagina", description: "Watch erotic massage videos from cam models on CAM4. Sensual, relaxing and seductive." } },
+  indian: { nl: { title: "Indiase Video's \u2014 Indian Cam Girls op CAM4 | StartVagina", description: "Bekijk video's van Indiase cam modellen op CAM4. Exotische schoonheid uit India." }, en: { title: "Indian Videos \u2014 Indian Cam Girls on CAM4 | StartVagina", description: "Watch videos from Indian cam models on CAM4. Exotic beauty from India." } },
+  giantess: { nl: { title: "Giantess Video's \u2014 Giantess Fetish Cam Shows op CAM4 | StartVagina", description: "Bekijk giantess fetish video's van cam modellen op CAM4. Groots, dominant en uniek." }, en: { title: "Giantess Videos \u2014 Giantess Fetish Cam Shows on CAM4 | StartVagina", description: "Watch giantess fetish videos from cam models on CAM4. Grand, dominant and unique." } },
+  asmr: { nl: { title: "ASMR Video's \u2014 ASMR Cam Shows op CAM4 | StartVagina", description: "Bekijk ASMR video's van cam modellen op CAM4. Fluisterzachte, tintelende content die je rillingen bezorgt." }, en: { title: "ASMR Videos \u2014 ASMR Cam Shows on CAM4 | StartVagina", description: "Watch ASMR videos from cam models on CAM4. Whisper-soft, tingly content that gives you chills." } },
+  findom: { nl: { title: "Findom Video's \u2014 Financial Domination Cam Shows op CAM4 | StartVagina", description: "Bekijk findom video's van cam modellen op CAM4. Financi\u00eble dominatie door machtige vrouwen." }, en: { title: "Findom Videos \u2014 Financial Domination Cam Shows on CAM4 | StartVagina", description: "Watch findom videos from cam models on CAM4. Financial domination by powerful women." } },
+  pegging: { nl: { title: "Pegging Video's \u2014 Pegging Cam Shows op CAM4 | StartVagina", description: "Bekijk pegging video's van cam modellen op CAM4. Rollenomkering op z'n best." }, en: { title: "Pegging Videos \u2014 Pegging Cam Shows on CAM4 | StartVagina", description: "Watch pegging videos from cam models on CAM4. Role reversal at its finest." } },
+  "interracial-couple": { nl: { title: "Interracial Koppel Video's \u2014 Mixed Couple Cam Shows op CAM4 | StartVagina", description: "Bekijk interracial koppel video's op CAM4. Diverse koppels, echte passie en intieme momenten." }, en: { title: "Interracial Couple Videos \u2014 Mixed Couple Cam Shows on CAM4 | StartVagina", description: "Watch interracial couple videos on CAM4. Diverse couples, real passion and intimate moments." } },
+  "big-cock": { nl: { title: "Big Cock Video's \u2014 Grote Lul Cam Shows op CAM4 | StartVagina", description: "Bekijk big cock video's op CAM4. Indrukwekkend en intens \u2014 de grootste cam content." }, en: { title: "Big Cock Videos \u2014 Big Dick Cam Shows on CAM4 | StartVagina", description: "Watch big cock videos on CAM4. Impressive and intense \u2014 the biggest cam content." } },
+  "dirty-talk": { nl: { title: "Dirty Talk Video's \u2014 Dirty Talk Cam Shows op CAM4 | StartVagina", description: "Bekijk dirty talk video's van cam modellen op CAM4. Woorden die je gek maken." }, en: { title: "Dirty Talk Videos \u2014 Dirty Talk Cam Shows on CAM4 | StartVagina", description: "Watch dirty talk videos from cam models on CAM4. Words that drive you wild." } },
+  threesome: { nl: { title: "Trio Video's \u2014 Threesome Cam Shows op CAM4 | StartVagina", description: "Bekijk trio video's op CAM4. Drie is niet te veel \u2014 de beste threesome cam content." }, en: { title: "Threesome Videos \u2014 Threesome Cam Shows on CAM4 | StartVagina", description: "Watch threesome videos on CAM4. Three is not a crowd \u2014 the best threesome cam content." } },
+  69: { nl: { title: "69 Video's \u2014 69 Positie Cam Shows op CAM4 | StartVagina", description: "Bekijk 69 video's van cam modellen op CAM4. Gelijktijdig genieten in de klassieke 69 positie." }, en: { title: "69 Videos \u2014 69 Position Cam Shows on CAM4 | StartVagina", description: "Watch 69 videos from cam models on CAM4. Mutual pleasure in the classic 69 position." } },
+  tickling: { nl: { title: "Kietelen Video's \u2014 Tickling Fetish Cam Shows op CAM4 | StartVagina", description: "Bekijk tickling fetish video's van cam modellen op CAM4. Speels, prikkelend en uniek." }, en: { title: "Tickling Videos \u2014 Tickling Fetish Cam Shows on CAM4 | StartVagina", description: "Watch tickling fetish videos from cam models on CAM4. Playful, stimulating and unique." } },
+};
+
+function getNicheSeoMeta(slug, nicheName, lang) {
+  const override = NICHE_META_OVERRIDES[slug];
+  if (override?.[lang]) return override[lang];
+  if (override?.nl && lang !== "en") return override.nl;
+  const n = nicheName.toLowerCase();
+  const templates = {
+    nl: { title: `${nicheName} Video's \u2014 ${nicheName} Cam Shows op CAM4 | StartVagina`, description: `Bekijk exclusieve ${n} video's van cam modellen op CAM4. Browse gratis preview content in de ${n} niche.` },
+    en: { title: `${nicheName} Videos \u2014 ${nicheName} Cam Shows on CAM4 | StartVagina`, description: `Watch exclusive ${n} videos from cam models on CAM4. Browse free preview content in the ${n} niche.` },
+    fr: { title: `${nicheName} Vid\u00e9os \u2014 Shows Cam ${nicheName} sur CAM4 | StartVagina`, description: `Regardez des vid\u00e9os ${n} exclusives de cam mod\u00e8les sur CAM4.` },
+    de: { title: `${nicheName} Videos \u2014 ${nicheName} Cam Shows auf CAM4 | StartVagina`, description: `Schau exklusive ${n} Videos von Cam-Models auf CAM4.` },
+    es: { title: `${nicheName} Videos \u2014 Shows Cam ${nicheName} en CAM4 | StartVagina`, description: `Mira videos exclusivos de ${n} de modelos cam en CAM4.` },
+    it: { title: `${nicheName} Video \u2014 Show Cam ${nicheName} su CAM4 | StartVagina`, description: `Guarda video esclusivi di ${n} da modelle cam su CAM4.` },
+  };
+  return templates[lang] || templates.nl;
+}
+
+async function fetchNicheSlugsForPrerender() {
+  try {
+    const res = await fetch("https://api.cam4.com/rest/v1.0/niches?size=50&sortStrategy=MOST_POPULAR&gender=female");
+    if (!res.ok) throw new Error(`API ${res.status}`);
+    const data = await res.json();
+    let allNiches = [...data.content];
+    for (let page = 1; page < data.totalPages; page++) {
+      const res2 = await fetch(`https://api.cam4.com/rest/v1.0/niches?size=50&sortStrategy=MOST_POPULAR&gender=female&page=${page}`);
+      if (res2.ok) { const d2 = await res2.json(); allNiches.push(...d2.content); }
+    }
+    return allNiches.filter(n => n.stats && n.stats.postsCount > 0).map(n => ({ slug: n.slug, name: n.name.originalText }));
+  } catch (e) {
+    console.warn(`\u26a0\ufe0f  Could not fetch niche slugs: ${e.message}. Skipping niche pages.`);
+    return [];
+  }
+}
+
+function buildNicheBodyHtml(lang, slug, nicheName, seoDesc) {
+  const navLinks = {
+    nl: `<a href="/niche-videos">Alle Niche Video's</a> | <a href="/categories">Categorie\u00ebn</a> | <a href="/countries">Landen</a> | <a href="/new">Nieuw</a> | <a href="/top">Top</a>`,
+    en: `<a href="/en/niche-videos">All Niche Videos</a> | <a href="/en/categories">Categories</a> | <a href="/en/countries">Countries</a> | <a href="/en/new">New</a> | <a href="/en/top">Top</a>`,
+    fr: `<a href="/fr/niche-videos">Toutes les Niches</a> | <a href="/fr/categories">Cat\u00e9gories</a> | <a href="/fr/countries">Pays</a> | <a href="/fr/new">Nouveau</a> | <a href="/fr/top">Top</a>`,
+    de: `<a href="/de/niche-videos">Alle Nischen</a> | <a href="/de/categories">Kategorien</a> | <a href="/de/countries">L\u00e4nder</a> | <a href="/de/new">Neu</a> | <a href="/de/top">Top</a>`,
+    es: `<a href="/es/niche-videos">Todos los Nichos</a> | <a href="/es/categories">Categor\u00edas</a> | <a href="/es/countries">Pa\u00edses</a> | <a href="/es/new">Nuevo</a> | <a href="/es/top">Top</a>`,
+    it: `<a href="/it/niche-videos">Tutte le Nicchie</a> | <a href="/it/categories">Categorie</a> | <a href="/it/countries">Paesi</a> | <a href="/it/new">Nuovo</a> | <a href="/it/top">Top</a>`,
+  };
+  const seo = getNicheSeoMeta(slug, nicheName, lang);
+  const h1 = escapeHtml(seo.title.split(" | ")[0]);
+  return `<div id="root"><nav aria-label="Main">${navLinks[lang] || navLinks.nl}</nav><main><h1>${h1}</h1><p>${escapeHtml(seoDesc)}</p></main><footer><p>\u00a9 ${new Date().getFullYear()} StartVagina.nl</p></footer></div>`;
+}
+
+function buildNicheIndexBodyHtml(lang) {
+  const navLinks = {
+    nl: `<a href="/">Home</a> | <a href="/categories">Categorie\u00ebn</a> | <a href="/countries">Landen</a> | <a href="/new">Nieuw</a> | <a href="/top">Top</a>`,
+    en: `<a href="/en">Home</a> | <a href="/en/categories">Categories</a> | <a href="/en/countries">Countries</a> | <a href="/en/new">New</a> | <a href="/en/top">Top</a>`,
+    fr: `<a href="/fr">Accueil</a> | <a href="/fr/categories">Cat\u00e9gories</a> | <a href="/fr/countries">Pays</a> | <a href="/fr/new">Nouveau</a> | <a href="/fr/top">Top</a>`,
+    de: `<a href="/de">Startseite</a> | <a href="/de/categories">Kategorien</a> | <a href="/de/countries">L\u00e4nder</a> | <a href="/de/new">Neu</a> | <a href="/de/top">Top</a>`,
+    es: `<a href="/es">Inicio</a> | <a href="/es/categories">Categor\u00edas</a> | <a href="/es/countries">Pa\u00edses</a> | <a href="/es/new">Nuevo</a> | <a href="/es/top">Top</a>`,
+    it: `<a href="/it">Home</a> | <a href="/it/categories">Categorie</a> | <a href="/it/countries">Paesi</a> | <a href="/it/new">Nuovo</a> | <a href="/it/top">Top</a>`,
+  };
+  const titles = {
+    nl: "Niche Video's \u2014 Cam Video Categorie\u00ebn | StartVagina",
+    en: "Niche Videos \u2014 Cam Video Categories | StartVagina",
+    fr: "Vid\u00e9os de Niche \u2014 Cat\u00e9gories Vid\u00e9o Cam | StartVagina",
+    de: "Nischen-Videos \u2014 Cam Video Kategorien | StartVagina",
+    es: "Videos de Nicho \u2014 Categor\u00edas de Video Cam | StartVagina",
+    it: "Video di Nicchia \u2014 Categorie Video Cam | StartVagina",
+  };
+  const descs = {
+    nl: "Ontdek alle niche video categorie\u00ebn op CAM4 via StartVagina. Blader door exclusieve cam video's gesorteerd op niche \u2014 van squirt tot BDSM, amateur tot latex.",
+    en: "Discover all niche video categories on CAM4 via StartVagina. Browse exclusive cam videos sorted by niche \u2014 from squirt to BDSM, amateur to latex.",
+    fr: "D\u00e9couvrez toutes les cat\u00e9gories de vid\u00e9os de niche sur CAM4 via StartVagina. Parcourez des vid\u00e9os cam exclusives tri\u00e9es par niche.",
+    de: "Entdecke alle Nischen-Video-Kategorien auf CAM4 \u00fcber StartVagina. Durchsuche exklusive Cam Videos sortiert nach Nische.",
+    es: "Descubre todas las categor\u00edas de videos de nicho en CAM4 a trav\u00e9s de StartVagina. Navega por videos cam exclusivos ordenados por nicho.",
+    it: "Scopri tutte le categorie di video di nicchia su CAM4 tramite StartVagina. Sfoglia video cam esclusivi ordinati per nicchia.",
+  };
+  const title = titles[lang] || titles.nl;
+  const desc = descs[lang] || descs.nl;
+  const h1 = escapeHtml(title.split(" | ")[0]);
+  return {
+    title, desc,
+    body: `<div id="root"><nav aria-label="Main">${navLinks[lang] || navLinks.nl}</nav><main><h1>${h1}</h1><p>${escapeHtml(desc)}</p></main><footer><p>\u00a9 ${new Date().getFullYear()} StartVagina.nl</p></footer></div>`,
+  };
+}
+
+function injectMetaWithBody(htmlTemplate, metaTags, bodyHtml, lang) {
+  let html = htmlTemplate.replace(/<title>[^<]*<\/title>/, "");
+  html = html.replace(/<html lang="[^"]*">/, `<html lang="${lang}"`);
+  html = html.replace("</head>", `    ${metaTags}\n</head>`);
+  html = html.replace('<div id="root"></div>', bodyHtml);
+  return html;
+}
+
+console.log("\n\ud83c\udfa5 Pre-rendering niche-videos pages...");
+const nicheSlugsData = await fetchNicheSlugsForPrerender();
+console.log(`\ud83d\udce6 Fetched ${nicheSlugsData.length} niche slugs from CAM4 API`);
+
+// Niche-videos INDEX page (all 6 langs)
+for (const lang of langs) {
+  const prefix = langPrefixes[lang];
+  const fullSlug = prefix ? `${prefix.slice(1)}/niche-videos` : "niche-videos";
+  const { title, desc, body } = buildNicheIndexBodyHtml(lang);
+  const nicheIndexMeta = {
+    title,
+    description: desc,
+    keywords: lang === "nl" ? "niche videos, cam video categorie\u00ebn, webcamsex niches, CAM4" :
+               lang === "en" ? "niche videos, cam video categories, webcam sex niches, CAM4" :
+               lang === "fr" ? "vid\u00e9os de niche, cat\u00e9gories cam, niches webcam sexe, CAM4" :
+               lang === "de" ? "nischen videos, cam video kategorien, webcam sex nischen, CAM4" :
+               lang === "es" ? "videos de nicho, categor\u00edas cam, nichos webcam sexo, CAM4" :
+               "video di nicchia, categorie cam, nicchie webcam sex, CAM4",
+  };
+  const metaTags = buildMetaTags(fullSlug, nicheIndexMeta, lang);
+  const html = injectMetaWithBody(template, metaTags, body, lang);
+  writePage(fullSlug, html);
+  count++;
+}
+
+// Niche-videos DETAIL pages (all 6 langs x all slugs)
+for (const { slug, name: nicheName } of nicheSlugsData) {
+  for (const lang of langs) {
+    const prefix = langPrefixes[lang];
+    const baseSlug = `niche-videos/${slug}`;
+    const fullSlug = prefix ? `${prefix.slice(1)}/${baseSlug}` : baseSlug;
+    const seo = getNicheSeoMeta(slug, nicheName, lang);
+    const nicheDetailMeta = {
+      title: seo.title,
+      description: seo.description,
+      keywords: `${nicheName.toLowerCase()} videos, ${nicheName.toLowerCase()} cam, CAM4, StartVagina`,
+    };
+    const metaTags = buildMetaTags(fullSlug, nicheDetailMeta, lang);
+    const bodyHtml = buildNicheBodyHtml(lang, slug, nicheName, seo.description);
+    const html = injectMetaWithBody(template, metaTags, bodyHtml, lang);
+    writePage(fullSlug, html);
+    count++;
+  }
+}
+
+const nicheCount = nicheSlugsData.length * langs.length + langs.length;
+console.log(`\u2705 Pre-rendered ${nicheCount} niche-videos pages (${langs.length} index + ${nicheSlugsData.length} \u00d7 ${langs.length} detail)`);
+console.log(`\u2139\ufe0f  Model pages use SPA fallback (no static pre-render)`);
+console.log(`\u2139\ufe0f  Filter pages (query strings) use SPA fallback + React Helmet`);
+console.log(`\u2705 Total: ${count} pages`);
+console.log(`\ud83d\udcc1 Output: ${DIST}\n`);
