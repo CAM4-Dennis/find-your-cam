@@ -1,8 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchXCamsRooms, type XCamsFilters } from "@/services/xcamsApi";
 
-// XCams temporarily disabled — set XCAMS_ENABLED back to true to re-enable
-const XCAMS_ENABLED = false;
+const XCAMS_ENABLED = true;
 
 export function useXCamsOnline(filters: XCamsFilters = {}, enabled = true) {
   return useQuery({

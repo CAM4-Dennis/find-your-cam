@@ -204,7 +204,7 @@ const Footer = () => {
               <li><Link to={localePath("/live-sex-cams-cam4")} className="hover:text-primary transition-colors">CAM4</Link></li>
               <li><Link to={localePath("/live-sex-cams-jerkmate")} className="hover:text-primary transition-colors">Jerkmate</Link></li>
               <li><Link to={localePath("/live-sex-cams-flirt4free")} className="hover:text-primary transition-colors">Flirt4Free</Link></li>
-              {/* XCams temporarily disabled */}
+              <li><Link to={localePath("/live-sex-cams-xcams")} className="hover:text-primary transition-colors">XCams</Link></li>
             </ul>
             <h4 className="font-semibold text-sm mb-3 mt-5 text-foreground">Vergelijkingen</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">

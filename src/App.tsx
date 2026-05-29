@@ -51,7 +51,7 @@ const pageRoutes = (
     <Route path="cam4/:username" element={<CamStream />} />
     <Route path="stripchat/:username" element={<CamStream />} />
     <Route path="jerkmate/:username" element={<CamStream />} />
-    {/* <Route path="xcams/:username" element={<CamStream />} /> */}{/* temporarily disabled */}
+    <Route path="xcams/:username" element={<CamStream />} />
     <Route path="categorieen" element={<Categories />} />
     <Route path="landen" element={<Countries />} />
     <Route path="talen" element={<Languages />} />
@@ -90,7 +90,7 @@ const pageRoutes = (
     <Route path="live-sex-cams-stripchat" element={<PlatformLanding />} />
     <Route path="live-sex-cams-jerkmate" element={<PlatformLanding />} />
     <Route path="live-sex-cams-flirt4free" element={<PlatformLanding />} />
-    {/* <Route path="live-sex-cams-xcams" element={<PlatformLanding />} /> */}{/* temporarily disabled */}
+    <Route path="live-sex-cams-xcams" element={<PlatformLanding />} />
     <Route path="jonge-cam-girls-18-plus" element={<CategoryLanding />} />
     <Route path="milf-webcamsex-ervaren-vrouwen" element={<CategoryLanding />} />
     <Route path="mature-webcamsex-oudere-vrouwen" element={<CategoryLanding />} />
