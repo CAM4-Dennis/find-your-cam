@@ -220,6 +220,10 @@ type TranslationStrings = {
   contactRequired: string;
   contactInvalidEmail: string;
   contactMinChars: string;
+
+  // CamGrid pagination
+  loadMore: string;
+  showingOfTotal: (shown: number, total: number) => string;
 };
 
 export const translations: Record<Language, TranslationStrings> = {
@@ -400,6 +404,8 @@ export const translations: Record<Language, TranslationStrings> = {
     contactRequired: "Dit veld is verplicht",
     contactInvalidEmail: "Vul een geldig e-mailadres in",
     contactMinChars: "Minimaal 10 tekens",
+    loadMore: "Meer laden",
+    showingOfTotal: (shown, total) => `${shown} van ${total} modellen`,
   },
 
   en: {
@@ -579,6 +585,8 @@ export const translations: Record<Language, TranslationStrings> = {
     contactRequired: "This field is required",
     contactInvalidEmail: "Please enter a valid email address",
     contactMinChars: "Minimum 10 characters",
+    loadMore: "Load more",
+    showingOfTotal: (shown, total) => `${shown} of ${total} models`,
   },
 
   fr: {
@@ -758,6 +766,8 @@ export const translations: Record<Language, TranslationStrings> = {
     contactRequired: "Ce champ est obligatoire",
     contactInvalidEmail: "Veuillez entrer une adresse e-mail valide",
     contactMinChars: "Minimum 10 caractères",
+    loadMore: "Charger plus",
+    showingOfTotal: (shown, total) => `${shown} sur ${total} modèles`,
   },
 
   it: {
@@ -937,6 +947,8 @@ export const translations: Record<Language, TranslationStrings> = {
     contactRequired: "Questo campo è obbligatorio",
     contactInvalidEmail: "Inserisci un indirizzo e-mail valido",
     contactMinChars: "Minimo 10 caratteri",
+    loadMore: "Carica altro",
+    showingOfTotal: (shown, total) => `${shown} di ${total} modelle`,
   },
 
   de: {
@@ -1116,6 +1128,8 @@ export const translations: Record<Language, TranslationStrings> = {
     contactRequired: "Dieses Feld ist erforderlich",
     contactInvalidEmail: "Bitte gib eine gültige E-Mail-Adresse ein",
     contactMinChars: "Mindestens 10 Zeichen",
+    loadMore: "Mehr laden",
+    showingOfTotal: (shown, total) => `${shown} von ${total} Models`,
   },
 
   es: {
@@ -1295,5 +1309,7 @@ export const translations: Record<Language, TranslationStrings> = {
     contactRequired: "Este campo es obligatorio",
     contactInvalidEmail: "Por favor, introduce un correo electrónico válido",
     contactMinChars: "Mínimo 10 caracteres",
+    loadMore: "Cargar más",
+    showingOfTotal: (shown, total) => `${shown} de ${total} modelos`,
   },
 };

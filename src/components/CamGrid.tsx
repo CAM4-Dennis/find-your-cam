@@ -1,6 +1,10 @@
+import { useState } from "react";
 import CamCard from "./CamCard";
 import type { CamModel } from "@/types/cam";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useLanguage } from "@/i18n/LanguageContext";
+
+const PAGE_SIZE = 30;
 
 interface CamGridProps {
   title: string;
@@ -24,6 +28,16 @@ const CamGridSkeleton = () => (
 );
 
 const CamGrid = ({ title, models, totalOnline, isLoading }: CamGridProps) => {
+  const { t } = useLanguage();
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+
+  const visibleModels = models.slice(0, visibleCount);
+  const hasMore = visibleCount < models.length;
+
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => Math.min(prev + PAGE_SIZE, models.length));
+  };
+
   return (
     <section className="space-y-4">
       <div className="flex items-center justify-between">
@@ -37,11 +51,28 @@ const CamGrid = ({ title, models, totalOnline, isLoading }: CamGridProps) => {
       {isLoading ? (
         <CamGridSkeleton />
       ) : (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-          {models.map((model) => (
-            <CamCard key={model.id} model={model} />
-          ))}
-        </div>
+        <>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+            {visibleModels.map((model) => (
+              <CamCard key={model.id} model={model} />
+            ))}
+          </div>
+          {models.length > PAGE_SIZE && (
+            <div className="flex flex-col items-center gap-2 pt-4">
+              <span className="text-sm text-muted-foreground">
+                {t.showingOfTotal(Math.min(visibleCount, models.length), models.length)}
+              </span>
+              {hasMore && (
+                <button
+                  onClick={handleLoadMore}
+                  className="px-6 py-2.5 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:bg-primary/90 transition-colors"
+                >
+                  {t.loadMore}
+                </button>
+              )}
+            </div>
+          )}
+        </>
       )}
     </section>
   );
