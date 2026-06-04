@@ -1,59 +1,655 @@
 {
-"functions": {
+  "cleanUrls": true,
+  "functions": {
     "api/model.js": {
       "includeFiles": "dist/**"
     }
   },
-"redirects": [
-    { "source": "/gratis-filmpjes", "destination": "/", "permanent": true },
-    { "source": "/gratis-filmpjes/", "destination": "/", "permanent": true },
-    { "source": "/blog/tips-om-veilig-porno-te-kijken", "destination": "/", "permanent": true },
-    { "source": "/blog/tips-om-veilig-porno-te-kijken/", "destination": "/", "permanent": true },
-    { "source": "/blog/wie-is-milena-star-profiel", "destination": "/", "permanent": true },
-    { "source": "/blog/wie-is-milena-star-profiel/", "destination": "/", "permanent": true },
-    { "source": "/list", "destination": "/", "permanent": true },
-    { "source": "/list/", "destination": "/", "permanent": true },
-    { "source": "/about", "destination": "/", "permanent": true },
-    { "source": "/about/", "destination": "/", "permanent": true },
-    { "source": "/live-sex-cam-sites", "destination": "/", "permanent": true },
-    { "source": "/live-sex-cam-sites/", "destination": "/", "permanent": true },
-    { "source": "/live-sex-cam-sites/:path(.*)", "destination": "/", "permanent": true },
-    { "source": "/sex-tube-sites", "destination": "/", "permanent": true },
-    { "source": "/sex-tube-sites/", "destination": "/", "permanent": true },
-    { "source": "/sex-tube-sites/:path(.*)", "destination": "/", "permanent": true },
-    { "source": "/cam/cb-:name(.*)", "destination": "/chaturbate/:name", "permanent": true },
-    { "source": "/cam/bonga-:name(.*)", "destination": "/bongacams/:name", "permanent": true },
-    { "source": "/cam/stripchat-:name(.*)", "destination": "/stripchat/:name", "permanent": true },
-    { "source": "/cam/xcams-:name(.*)", "destination": "/xcams/:name", "permanent": true },
-    { "source": "/cam/:name(.*)", "destination": "/cam4/:name", "permanent": true }
+  "redirects": [
+    {
+      "source": "/gratis-filmpjes",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/gratis-filmpjes/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tips-om-veilig-porno-te-kijken",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tips-om-veilig-porno-te-kijken/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/wie-is-milena-star-profiel",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/wie-is-milena-star-profiel/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/list",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/list/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/about/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/live-sex-cam-sites",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/live-sex-cam-sites/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/live-sex-cam-sites/:path(.*)",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/sex-tube-sites",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/sex-tube-sites/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/sex-tube-sites/:path(.*)",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/cam/cb-:name(.*)",
+      "destination": "/chaturbate/:name",
+      "permanent": true
+    },
+    {
+      "source": "/cam/bonga-:name(.*)",
+      "destination": "/bongacams/:name",
+      "permanent": true
+    },
+    {
+      "source": "/cam/stripchat-:name(.*)",
+      "destination": "/stripchat/:name",
+      "permanent": true
+    },
+    {
+      "source": "/cam/xcams-:name(.*)",
+      "destination": "/xcams/:name",
+      "permanent": true
+    },
+    {
+      "source": "/cam/:name(.*)",
+      "destination": "/cam4/:name",
+      "permanent": true
+    },
+    {
+      "source": "/categories",
+      "destination": "/categorieen",
+      "permanent": true
+    },
+    {
+      "source": "/en/categories",
+      "destination": "/en/categorieen",
+      "permanent": true
+    },
+    {
+      "source": "/countries",
+      "destination": "/landen",
+      "permanent": true
+    },
+    {
+      "source": "/en/countries",
+      "destination": "/en/landen",
+      "permanent": true
+    },
+    {
+      "source": "/languages",
+      "destination": "/talen",
+      "permanent": true
+    },
+    {
+      "source": "/en/languages",
+      "destination": "/en/talen",
+      "permanent": true
+    },
+    {
+      "source": "/new",
+      "destination": "/nieuwe-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/en/new",
+      "destination": "/en/nieuwe-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/top",
+      "destination": "/populairste-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/en/top",
+      "destination": "/en/populairste-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/niche-videos",
+      "destination": "/videos",
+      "permanent": true
+    },
+    {
+      "source": "/en/niche-videos",
+      "destination": "/en/videos",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-teen-18-plus",
+      "destination": "/jonge-cam-girls-18-plus",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-teen-18-plus",
+      "destination": "/en/jonge-cam-girls-18-plus",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-milf",
+      "destination": "/milf-webcamsex-ervaren-vrouwen",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-milf",
+      "destination": "/en/milf-webcamsex-ervaren-vrouwen",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-mature",
+      "destination": "/mature-webcamsex-oudere-vrouwen",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-mature",
+      "destination": "/en/mature-webcamsex-oudere-vrouwen",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-asian",
+      "destination": "/aziatische-cam-girls-live",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-asian",
+      "destination": "/en/aziatische-cam-girls-live",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-latina",
+      "destination": "/latina-cam-girls-live",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-latina",
+      "destination": "/en/latina-cam-girls-live",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-ebony",
+      "destination": "/ebony-cam-girls-live",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-ebony",
+      "destination": "/en/ebony-cam-girls-live",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-grote-borsten",
+      "destination": "/cam-girls-grote-borsten",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-grote-borsten",
+      "destination": "/en/cam-girls-grote-borsten",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-kleine-borsten",
+      "destination": "/petite-cam-girls-kleine-borsten",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-kleine-borsten",
+      "destination": "/en/petite-cam-girls-kleine-borsten",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-anal",
+      "destination": "/anale-cam-shows-live",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-anal",
+      "destination": "/en/anale-cam-shows-live",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-koppels",
+      "destination": "/cam-koppels-live-sex",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-koppels",
+      "destination": "/en/cam-koppels-live-sex",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-squirt",
+      "destination": "/squirt-cam-shows-live",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-squirt",
+      "destination": "/en/squirt-cam-shows-live",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-bdsm",
+      "destination": "/bdsm-bondage-cam-shows",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-bdsm",
+      "destination": "/en/bdsm-bondage-cam-shows",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-tattoo",
+      "destination": "/getatoeeerde-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-tattoo",
+      "destination": "/en/getatoeeerde-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-hairy",
+      "destination": "/behaarde-cam-girls-natural",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-hairy",
+      "destination": "/en/behaarde-cam-girls-natural",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-voeten",
+      "destination": "/voeten-fetish-cam-shows",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-voeten",
+      "destination": "/en/voeten-fetish-cam-shows",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-outdoor",
+      "destination": "/outdoor-cam-shows-buiten",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-outdoor",
+      "destination": "/en/outdoor-cam-shows-buiten",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-mobiel",
+      "destination": "/mobiele-cam-shows-live",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-mobiel",
+      "destination": "/en/mobiele-cam-shows-live",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-nederland",
+      "destination": "/nederlandse-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-nederland",
+      "destination": "/en/nederlandse-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-belgie",
+      "destination": "/belgische-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-belgie",
+      "destination": "/en/belgische-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-colombia",
+      "destination": "/colombiaanse-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-colombia",
+      "destination": "/en/colombiaanse-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-roemenie",
+      "destination": "/roemeense-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-roemenie",
+      "destination": "/en/roemeense-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-duitsland",
+      "destination": "/duitse-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-duitsland",
+      "destination": "/en/duitse-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-italie",
+      "destination": "/italiaanse-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-italie",
+      "destination": "/en/italiaanse-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-spanje",
+      "destination": "/spaanse-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-spanje",
+      "destination": "/en/spaanse-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-frankrijk",
+      "destination": "/franse-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-frankrijk",
+      "destination": "/en/franse-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-verenigd-koninkrijk",
+      "destination": "/britse-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-verenigd-koninkrijk",
+      "destination": "/en/britse-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-verenigde-staten",
+      "destination": "/amerikaanse-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-verenigde-staten",
+      "destination": "/en/amerikaanse-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-rusland",
+      "destination": "/russische-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-rusland",
+      "destination": "/en/russische-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-oekraine",
+      "destination": "/oekraiense-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-oekraine",
+      "destination": "/en/oekraiense-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-brazilie",
+      "destination": "/braziliaanse-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-brazilie",
+      "destination": "/en/braziliaanse-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-japan",
+      "destination": "/japanse-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-japan",
+      "destination": "/en/japanse-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-polen",
+      "destination": "/poolse-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-polen",
+      "destination": "/en/poolse-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-mexico",
+      "destination": "/mexicaanse-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-mexico",
+      "destination": "/en/mexicaanse-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-tsjechie",
+      "destination": "/tsjechische-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-tsjechie",
+      "destination": "/en/tsjechische-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-filipijnen",
+      "destination": "/filipijnse-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-filipijnen",
+      "destination": "/en/filipijnse-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/webcamsex-thailand",
+      "destination": "/thaise-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/en/webcamsex-thailand",
+      "destination": "/en/thaise-cam-girls",
+      "permanent": true
+    },
+    {
+      "source": "/niche-videos/:slug",
+      "destination": "/videos/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/en/niche-videos/:slug",
+      "destination": "/en/videos/:slug",
+      "permanent": true
+    }
   ],
   "rewrites": [
-    { "source": "/chaturbate/:username", "destination": "/api/model?platform=chaturbate&username=:username" },
-    { "source": "/bongacams/:username", "destination": "/api/model?platform=bongacams&username=:username" },
-    { "source": "/cam4/:username", "destination": "/api/model?platform=cam4&username=:username" },
-    { "source": "/stripchat/:username", "destination": "/api/model?platform=stripchat&username=:username" },
-    { "source": "/en/chaturbate/:username", "destination": "/api/model?lang=en&platform=chaturbate&username=:username" },
-    { "source": "/en/bongacams/:username", "destination": "/api/model?lang=en&platform=bongacams&username=:username" },
-    { "source": "/en/cam4/:username", "destination": "/api/model?lang=en&platform=cam4&username=:username" },
-    { "source": "/en/stripchat/:username", "destination": "/api/model?lang=en&platform=stripchat&username=:username" },
-    { "source": "/fr/chaturbate/:username", "destination": "/api/model?lang=fr&platform=chaturbate&username=:username" },
-    { "source": "/fr/bongacams/:username", "destination": "/api/model?lang=fr&platform=bongacams&username=:username" },
-    { "source": "/fr/cam4/:username", "destination": "/api/model?lang=fr&platform=cam4&username=:username" },
-    { "source": "/fr/stripchat/:username", "destination": "/api/model?lang=fr&platform=stripchat&username=:username" },
-    { "source": "/de/chaturbate/:username", "destination": "/api/model?lang=de&platform=chaturbate&username=:username" },
-    { "source": "/de/bongacams/:username", "destination": "/api/model?lang=de&platform=bongacams&username=:username" },
-    { "source": "/de/cam4/:username", "destination": "/api/model?lang=de&platform=cam4&username=:username" },
-    { "source": "/de/stripchat/:username", "destination": "/api/model?lang=de&platform=stripchat&username=:username" },
-    { "source": "/es/chaturbate/:username", "destination": "/api/model?lang=es&platform=chaturbate&username=:username" },
-    { "source": "/es/bongacams/:username", "destination": "/api/model?lang=es&platform=bongacams&username=:username" },
-    { "source": "/es/cam4/:username", "destination": "/api/model?lang=es&platform=cam4&username=:username" },
-    { "source": "/es/stripchat/:username", "destination": "/api/model?lang=es&platform=stripchat&username=:username" },
-    { "source": "/it/chaturbate/:username", "destination": "/api/model?lang=it&platform=chaturbate&username=:username" },
-    { "source": "/it/bongacams/:username", "destination": "/api/model?lang=it&platform=bongacams&username=:username" },
-    { "source": "/it/cam4/:username", "destination": "/api/model?lang=it&platform=cam4&username=:username" },
-    { "source": "/it/stripchat/:username", "destination": "/api/model?lang=it&platform=stripchat&username=:username" },
-    { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
-    { "source": "/sitemap/:file", "destination": "/sitemap/:file" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/chaturbate/:username",
+      "destination": "/api/model?platform=chaturbate&username=:username"
+    },
+    {
+      "source": "/bongacams/:username",
+      "destination": "/api/model?platform=bongacams&username=:username"
+    },
+    {
+      "source": "/cam4/:username",
+      "destination": "/api/model?platform=cam4&username=:username"
+    },
+    {
+      "source": "/stripchat/:username",
+      "destination": "/api/model?platform=stripchat&username=:username"
+    },
+    {
+      "source": "/en/chaturbate/:username",
+      "destination": "/api/model?lang=en&platform=chaturbate&username=:username"
+    },
+    {
+      "source": "/en/bongacams/:username",
+      "destination": "/api/model?lang=en&platform=bongacams&username=:username"
+    },
+    {
+      "source": "/en/cam4/:username",
+      "destination": "/api/model?lang=en&platform=cam4&username=:username"
+    },
+    {
+      "source": "/en/stripchat/:username",
+      "destination": "/api/model?lang=en&platform=stripchat&username=:username"
+    },
+    {
+      "source": "/fr/chaturbate/:username",
+      "destination": "/api/model?lang=fr&platform=chaturbate&username=:username"
+    },
+    {
+      "source": "/fr/bongacams/:username",
+      "destination": "/api/model?lang=fr&platform=bongacams&username=:username"
+    },
+    {
+      "source": "/fr/cam4/:username",
+      "destination": "/api/model?lang=fr&platform=cam4&username=:username"
+    },
+    {
+      "source": "/fr/stripchat/:username",
+      "destination": "/api/model?lang=fr&platform=stripchat&username=:username"
+    },
+    {
+      "source": "/de/chaturbate/:username",
+      "destination": "/api/model?lang=de&platform=chaturbate&username=:username"
+    },
+    {
+      "source": "/de/bongacams/:username",
+      "destination": "/api/model?lang=de&platform=bongacams&username=:username"
+    },
+    {
+      "source": "/de/cam4/:username",
+      "destination": "/api/model?lang=de&platform=cam4&username=:username"
+    },
+    {
+      "source": "/de/stripchat/:username",
+      "destination": "/api/model?lang=de&platform=stripchat&username=:username"
+    },
+    {
+      "source": "/es/chaturbate/:username",
+      "destination": "/api/model?lang=es&platform=chaturbate&username=:username"
+    },
+    {
+      "source": "/es/bongacams/:username",
+      "destination": "/api/model?lang=es&platform=bongacams&username=:username"
+    },
+    {
+      "source": "/es/cam4/:username",
+      "destination": "/api/model?lang=es&platform=cam4&username=:username"
+    },
+    {
+      "source": "/es/stripchat/:username",
+      "destination": "/api/model?lang=es&platform=stripchat&username=:username"
+    },
+    {
+      "source": "/it/chaturbate/:username",
+      "destination": "/api/model?lang=it&platform=chaturbate&username=:username"
+    },
+    {
+      "source": "/it/bongacams/:username",
+      "destination": "/api/model?lang=it&platform=bongacams&username=:username"
+    },
+    {
+      "source": "/it/cam4/:username",
+      "destination": "/api/model?lang=it&platform=cam4&username=:username"
+    },
+    {
+      "source": "/it/stripchat/:username",
+      "destination": "/api/model?lang=it&platform=stripchat&username=:username"
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap.xml"
+    },
+    {
+      "source": "/sitemap/:file",
+      "destination": "/sitemap/:file"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ]
 }

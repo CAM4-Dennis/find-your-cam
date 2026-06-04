@@ -34,8 +34,8 @@ function renderContent(text: string): string {
 }
 
 const countryPages: Record<string, CountryConfig> = {
-  "webcamsex-nederland": {
-    slug: "webcamsex-nederland",
+  "nederlandse-cam-girls": {
+    slug: "nederlandse-cam-girls",
     country: "Nederland",
     flag: "🇳🇱",
     title: "Webcamsex Nederland — Nederlandse Cam Girls Live | StartVagina",
@@ -58,8 +58,8 @@ Via StartVagina zie je alle live Nederlandse modellen van Chaturbate, CAM4, Stri
       { q: "Zijn er ook Nederlandse cam koppels?", a: "Absoluut! Nederland heeft een van de grootste aantallen cam koppels. Vooral op CAM4 gaan veel Nederlandse stellen samen live." },
     ],
   },
-  "webcamsex-belgie": {
-    slug: "webcamsex-belgie",
+  "belgische-cam-girls": {
+    slug: "belgische-cam-girls",
     country: "België",
     flag: "🇧🇪",
     title: "Webcamsex België — Belgische Cam Girls Live | StartVagina",
@@ -81,8 +81,8 @@ Ontdek hier alle live Belgische cam modellen van alle platforms op StartVagina.`
       { q: "Waar vind ik Belgische cam modellen?", a: "CAM4 en BongaCams hebben de meeste Belgische cam girls. Via StartVagina zie je het aanbod van alle platforms." },
     ],
   },
-  "webcamsex-duitsland": {
-    slug: "webcamsex-duitsland",
+  "duitse-cam-girls": {
+    slug: "duitse-cam-girls",
     country: "Duitsland",
     flag: "🇩🇪",
     title: "Webcamsex Duitsland — Duitse Cam Girls Live | StartVagina",
@@ -104,8 +104,8 @@ Bekijk hier alle live Duitse cam girls van alle platforms op StartVagina.`,
       { q: "Op welk platform vind ik Duitse cam girls?", a: "Stripchat en BongaCams hebben het grootste aanbod Duitse modellen. Chaturbate heeft ook een goede selectie." },
     ],
   },
-  "webcamsex-colombia": {
-    slug: "webcamsex-colombia",
+  "colombiaanse-cam-girls": {
+    slug: "colombiaanse-cam-girls",
     country: "Colombia",
     flag: "🇨🇴",
     title: "Webcamsex Colombia — Colombiaanse Cam Girls Live | StartVagina",
@@ -128,8 +128,8 @@ Op StartVagina zie je alle live Colombiaanse cam girls van alle platforms. De sh
       { q: "Spreken Colombiaanse cam girls Engels?", a: "Steeds meer Colombiaanse modellen spreken Engels. Veel gebruiken ook vertaaltools in de chat. De meeste chatten in het Spaans." },
     ],
   },
-  "webcamsex-roemenie": {
-    slug: "webcamsex-roemenie",
+  "roemeense-cam-girls": {
+    slug: "roemeense-cam-girls",
     country: "Roemenië",
     flag: "🇷🇴",
     title: "Webcamsex Roemenië — Roemeense Cam Girls Live | StartVagina",
@@ -151,8 +151,8 @@ Op StartVagina ontdek je alle live Roemeense cam girls van alle platforms op é�
       { q: "Spreken Roemeense modellen Engels?", a: "Ja, de meeste Roemeense cam girls spreken goed Engels. Velen spreken ook Frans, Spaans of Italiaans." },
     ],
   },
-  "webcamsex-italie": {
-    slug: "webcamsex-italie",
+  "italiaanse-cam-girls": {
+    slug: "italiaanse-cam-girls",
     country: "Italië",
     flag: "🇮🇹",
     title: "Webcamsex Italië — Italiaanse Cam Girls Live | StartVagina",
@@ -174,8 +174,8 @@ Ontdek alle live Italiaanse cam modellen op StartVagina — van Rome tot Milaan,
       { q: "Spreken Italiaanse cam girls Engels?", a: "Veel Italiaanse modellen spreken basis-Engels. Op XCams chatten ze vaak in het Italiaans en Frans." },
     ],
   },
-  "webcamsex-spanje": {
-    slug: "webcamsex-spanje",
+  "spaanse-cam-girls": {
+    slug: "spaanse-cam-girls",
     country: "Spanje",
     flag: "🇪🇸",
     title: "Webcamsex Spanje — Spaanse Cam Girls Live | StartVagina",
@@ -197,8 +197,8 @@ Bekijk hier alle live Spaanse cam modellen van alle platforms op StartVagina.`,
       { q: "Wanneer zijn Spaanse cam girls online?", a: "Spaanse modellen zijn vooral online in de avonduren (Europese tijd), van 20:00 tot 02:00 CET." },
     ],
   },
-  "webcamsex-frankrijk": {
-    slug: "webcamsex-frankrijk",
+  "franse-cam-girls": {
+    slug: "franse-cam-girls",
     country: "Frankrijk",
     flag: "🇫🇷",
     title: "Webcamsex Frankrijk — Franse Cam Girls Live | StartVagina",
@@ -220,8 +220,8 @@ Ontdek alle live Franse cam modellen op StartVagina.`,
       { q: "Is XCams een Frans platform?", a: "Ja, XCams heeft zijn oorsprong in Frankrijk en trekt daarom veel Franse en Zuid-Europese modellen aan." },
     ],
   },
-  "webcamsex-verenigd-koninkrijk": {
-    slug: "webcamsex-verenigd-koninkrijk",
+  "britse-cam-girls": {
+    slug: "britse-cam-girls",
     country: "Verenigd Koninkrijk",
     flag: "🇬🇧",
     title: "Webcamsex UK — Britse Cam Girls Live | StartVagina",
@@ -242,8 +242,8 @@ Bekijk alle live Britse cam modellen op StartVagina.`,
       { q: "Op welk platform vind ik Britse cam girls?", a: "Chaturbate heeft het grootste aanbod Britse modellen. BongaCams en Stripchat hebben ook een goede selectie." },
     ],
   },
-  "webcamsex-verenigde-staten": {
-    slug: "webcamsex-verenigde-staten",
+  "amerikaanse-cam-girls": {
+    slug: "amerikaanse-cam-girls",
     country: "Verenigde Staten",
     flag: "🇺🇸",
     title: "Webcamsex VS — Amerikaanse Cam Girls Live | StartVagina",
@@ -264,8 +264,8 @@ Op StartVagina vergelijk je Amerikaanse cam girls van alle platforms in één ov
       { q: "Wanneer zijn Amerikaanse cam girls online?", a: "Door de meerdere tijdzones in de VS zijn er altijd Amerikaanse modellen online. De piek is 's avonds Amerikaanse tijd (02:00-08:00 CET)." },
     ],
   },
-  "webcamsex-rusland": {
-    slug: "webcamsex-rusland",
+  "russische-cam-girls": {
+    slug: "russische-cam-girls",
     country: "Rusland",
     flag: "🇷🇺",
     title: "Webcamsex Rusland — Russische Cam Girls Live | StartVagina",
@@ -286,8 +286,8 @@ Ontdek alle live Russische cam girls op StartVagina.`,
       { q: "Op welk platform vind ik Russische cam girls?", a: "BongaCams heeft verreweg het grootste aanbod Russische modellen. Stripchat en Chaturbate hebben ook veel Russische cam girls." },
     ],
   },
-  "webcamsex-oekraine": {
-    slug: "webcamsex-oekraine",
+  "oekraiense-cam-girls": {
+    slug: "oekraiense-cam-girls",
     country: "Oekraïne",
     flag: "🇺🇦",
     title: "Webcamsex Oekraïne — Oekraïense Cam Girls Live | StartVagina",
@@ -308,8 +308,8 @@ Bekijk alle live Oekraïense cam modellen op StartVagina.`,
       { q: "Wat is het verschil tussen Russische en Oekraïense cam girls?", a: "Hoewel ze vaak op dezelfde platforms actief zijn, hebben Oekraïense modellen vaak een iets andere stijl — wat warmer en toegankelijker. Beide landen leveren topmodellen." },
     ],
   },
-  "webcamsex-brazilie": {
-    slug: "webcamsex-brazilie",
+  "braziliaanse-cam-girls": {
+    slug: "braziliaanse-cam-girls",
     country: "Brazilië",
     flag: "🇧🇷",
     title: "Webcamsex Brazilië — Braziliaanse Cam Girls Live | StartVagina",
@@ -330,8 +330,8 @@ Ontdek alle live Braziliaanse cam modellen op StartVagina.`,
       { q: "Spreken Braziliaanse cam girls Engels?", a: "Steeds meer Braziliaanse modellen spreken Engels, maar de meeste chatten voornamelijk in het Portugees. Vertaaltools helpen bij de communicatie." },
     ],
   },
-  "webcamsex-japan": {
-    slug: "webcamsex-japan",
+  "japanse-cam-girls": {
+    slug: "japanse-cam-girls",
     country: "Japan",
     flag: "🇯🇵",
     title: "Webcamsex Japan — Japanse Cam Girls Live | StartVagina",
@@ -352,8 +352,8 @@ Ontdek alle live Japanse cam modellen op StartVagina.`,
       { q: "Wanneer zijn Japanse cam girls online?", a: "Door het tijdsverschil (8 uur voor op CET) zijn Japanse modellen vooral tussen 10:00 en 20:00 CET online." },
     ],
   },
-  "webcamsex-polen": {
-    slug: "webcamsex-polen",
+  "poolse-cam-girls": {
+    slug: "poolse-cam-girls",
     country: "Polen",
     flag: "🇵🇱",
     title: "Webcamsex Polen — Poolse Cam Girls Live | StartVagina",
@@ -374,8 +374,8 @@ Bekijk alle live Poolse cam modellen op StartVagina.`,
       { q: "Spreken Poolse cam girls Engels?", a: "De meeste Poolse cam modellen spreken goed Engels. Sommige spreken ook Duits, wat handig is voor Nederlandse kijkers." },
     ],
   },
-  "webcamsex-mexico": {
-    slug: "webcamsex-mexico",
+  "mexicaanse-cam-girls": {
+    slug: "mexicaanse-cam-girls",
     country: "Mexico",
     flag: "🇲🇽",
     title: "Webcamsex Mexico — Mexicaanse Cam Girls Live | StartVagina",
@@ -396,8 +396,8 @@ Ontdek alle live Mexicaanse cam modellen op StartVagina.`,
       { q: "Spreken Mexicaanse cam girls Engels?", a: "Sommige Mexicaanse modellen spreken Engels, maar de meeste chatten voornamelijk in het Spaans." },
     ],
   },
-  "webcamsex-tsjechie": {
-    slug: "webcamsex-tsjechie",
+  "tsjechische-cam-girls": {
+    slug: "tsjechische-cam-girls",
     country: "Tsjechië",
     flag: "🇨🇿",
     title: "Webcamsex Tsjechië — Tsjechische Cam Girls Live | StartVagina",
@@ -418,8 +418,8 @@ Bekijk alle live Tsjechische cam modellen op StartVagina.`,
       { q: "Spreken Tsjechische cam girls Engels?", a: "Ja, de meeste Tsjechische modellen spreken goed Engels en vaak ook Duits." },
     ],
   },
-  "webcamsex-filipijnen": {
-    slug: "webcamsex-filipijnen",
+  "filipijnse-cam-girls": {
+    slug: "filipijnse-cam-girls",
     country: "Filipijnen",
     flag: "🇵🇭",
     title: "Webcamsex Filipijnen — Filipijnse Cam Girls Live | StartVagina",
@@ -440,8 +440,8 @@ Ontdek alle live Filipijnse cam modellen op StartVagina.`,
       { q: "Spreken Filipijnse cam girls Engels?", a: "Ja! Engels is een officiële taal in de Filipijnen. Vrijwel alle Filipijnse cam modellen spreken vloeiend Engels." },
     ],
   },
-  "webcamsex-thailand": {
-    slug: "webcamsex-thailand",
+  "thaise-cam-girls": {
+    slug: "thaise-cam-girls",
     country: "Thailand",
     flag: "🇹🇭",
     title: "Webcamsex Thailand — Thaise Cam Girls Live | StartVagina",

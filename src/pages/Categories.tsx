@@ -7,23 +7,23 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { getRobotsContent } from "@/lib/robotsMeta";
 
 const categories = [
-  { label: "Teen (18+)", emoji: "🔞", slug: "webcamsex-teen-18-plus" },
-  { label: "MILF", emoji: "💋", slug: "webcamsex-milf" },
-  { label: "Mature", emoji: "👩‍🦳", slug: "webcamsex-mature" },
-  { label: "Asian", emoji: "🌸", slug: "webcamsex-asian" },
-  { label: "Latina", emoji: "🌶️", slug: "webcamsex-latina" },
-  { label: "Ebony", emoji: "🖤", slug: "webcamsex-ebony" },
-  { label: "Grote Borsten", emoji: "🍈", slug: "webcamsex-grote-borsten" },
-  { label: "Kleine Borsten", emoji: "🌷", slug: "webcamsex-kleine-borsten" },
-  { label: "Anal", emoji: "🍑", slug: "webcamsex-anal" },
-  { label: "Koppels", emoji: "💑", slug: "webcamsex-koppels" },
-  { label: "Squirt", emoji: "💦", slug: "webcamsex-squirt" },
-  { label: "BDSM", emoji: "⛓️", slug: "webcamsex-bdsm" },
-  { label: "Tattoo", emoji: "🎨", slug: "webcamsex-tattoo" },
-  { label: "Hairy", emoji: "🌿", slug: "webcamsex-hairy" },
-  { label: "Voeten", emoji: "🦶", slug: "webcamsex-voeten" },
-  { label: "Outdoor", emoji: "🌳", slug: "webcamsex-outdoor" },
-  { label: "Mobiel", emoji: "📱", slug: "webcamsex-mobiel" },
+  { label: "Teen (18+)", emoji: "🔞", slug: "jonge-cam-girls-18-plus" },
+  { label: "MILF", emoji: "💋", slug: "milf-webcamsex-ervaren-vrouwen" },
+  { label: "Mature", emoji: "👩‍🦳", slug: "mature-webcamsex-oudere-vrouwen" },
+  { label: "Asian", emoji: "🌸", slug: "aziatische-cam-girls-live" },
+  { label: "Latina", emoji: "🌶️", slug: "latina-cam-girls-live" },
+  { label: "Ebony", emoji: "🖤", slug: "ebony-cam-girls-live" },
+  { label: "Grote Borsten", emoji: "🍈", slug: "cam-girls-grote-borsten" },
+  { label: "Kleine Borsten", emoji: "🌷", slug: "petite-cam-girls-kleine-borsten" },
+  { label: "Anal", emoji: "🍑", slug: "anale-cam-shows-live" },
+  { label: "Koppels", emoji: "💑", slug: "cam-koppels-live-sex" },
+  { label: "Squirt", emoji: "💦", slug: "squirt-cam-shows-live" },
+  { label: "BDSM", emoji: "⛓️", slug: "bdsm-bondage-cam-shows" },
+  { label: "Tattoo", emoji: "🎨", slug: "getatoeeerde-cam-girls" },
+  { label: "Hairy", emoji: "🌿", slug: "behaarde-cam-girls-natural" },
+  { label: "Voeten", emoji: "🦶", slug: "voeten-fetish-cam-shows" },
+  { label: "Outdoor", emoji: "🌳", slug: "outdoor-cam-shows-buiten" },
+  { label: "Mobiel", emoji: "📱", slug: "mobiele-cam-shows-live" },
 ];
 
 const Categories = () => {
@@ -38,10 +38,10 @@ const Categories = () => {
           <meta name="robots" content={getRobotsContent(lang)} />
           <meta property="og:title" content={t.categoriesTitle} />
           <meta property="og:description" content={t.categoriesDescription} />
-          <meta property="og:url" content="https://www.startvagina.nl/categories" />
+          <meta property="og:url" content="https://www.startvagina.nl/categorieen" />
           <meta property="og:type" content="website" />
           <meta property="og:site_name" content="StartVagina" />
-          <link rel="canonical" href={`https://www.startvagina.nl${langPrefix}/categories`} />
+          <link rel="canonical" href={`https://www.startvagina.nl${langPrefix}/categorieen`} />
         </Helmet>
 
         <Header />

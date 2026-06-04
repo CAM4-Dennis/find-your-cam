@@ -77,10 +77,10 @@ const NicheVideos = () => {
           <title>{t.title}</title>
           <meta name="description" content={t.description} />
           <meta name="robots" content={getRobotsContent(lang)} />
-          <link rel="canonical" href="https://www.startvagina.nl/niche-videos" />
+          <link rel="canonical" href="https://www.startvagina.nl/videos" />
           <meta property="og:title" content={t.title} />
           <meta property="og:description" content={t.description} />
-          <meta property="og:url" content="https://www.startvagina.nl/niche-videos" />
+          <meta property="og:url" content="https://www.startvagina.nl/videos" />
           <meta property="og:type" content="website" />
           <meta property="og:site_name" content="StartVagina" />
         </Helmet>
@@ -108,7 +108,7 @@ const NicheVideos = () => {
                 .map((niche) => (
                   <Link
                     key={niche.slug}
-                    to={`${langPrefix}/niche-videos/${niche.slug}`}
+                    to={`${langPrefix}/videos/${niche.slug}`}
                     className="group relative rounded-lg overflow-hidden bg-card border border-border hover:border-primary transition-colors"
                   >
                     <div className="aspect-square relative overflow-hidden">

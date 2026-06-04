@@ -14,12 +14,12 @@ const Header = () => {
 
   const navItems = [
     { label: t.navHome, href: localePath("/") },
-    { label: t.navCategories, href: localePath("/categories") },
-    { label: t.navCountries, href: localePath("/countries") },
-    { label: t.navLanguages, href: localePath("/languages") },
-    { label: t.navNew, href: localePath("/new") },
-    { label: t.navTopCams, href: localePath("/top") },
-    { label: t.navVideos, href: localePath("/niche-videos") },
+    { label: t.navCategories, href: localePath("/categorieen") },
+    { label: t.navCountries, href: localePath("/landen") },
+    { label: t.navLanguages, href: localePath("/talen") },
+    { label: t.navNew, href: localePath("/nieuwe-cam-girls") },
+    { label: t.navTopCams, href: localePath("/populairste-cam-girls") },
+    { label: t.navVideos, href: localePath("/videos") },
     { label: t.navBlog, href: localePath("/blog") },
   ];
 

@@ -211,39 +211,39 @@ const pages = [
 
   // ---------- Category landing pages ----------
   ...[
-    { s: "webcamsex-teen-18-plus", nl: "Teen 18+", en: "Teen 18+", fr: "Teen 18+", de: "Teen 18+", es: "Teen 18+", it: "Teen 18+",
+    { s: "jonge-cam-girls-18-plus", nl: "Teen 18+", en: "Teen 18+", fr: "Teen 18+", de: "Teen 18+", es: "Teen 18+", it: "Teen 18+",
       nlD: "jonge cam girls van 18+", enD: "young cam girls aged 18+", frD: "jeunes cam girls de 18+", deD: "junge Cam Girls ab 18+", esD: "cam girls jóvenes de 18+", itD: "giovani cam girl di 18+" },
-    { s: "webcamsex-milf", nl: "MILF", en: "MILF", fr: "MILF", de: "MILF", es: "MILF", it: "MILF",
+    { s: "milf-webcamsex-ervaren-vrouwen", nl: "MILF", en: "MILF", fr: "MILF", de: "MILF", es: "MILF", it: "MILF",
       nlD: "ervaren vrouwen", enD: "experienced women", frD: "femmes expérimentées", deD: "erfahrene Frauen", esD: "mujeres experimentadas", itD: "donne esperte" },
-    { s: "webcamsex-mature", nl: "Mature", en: "Mature", fr: "Mature", de: "Mature", es: "Mature", it: "Mature",
+    { s: "mature-webcamsex-oudere-vrouwen", nl: "Mature", en: "Mature", fr: "Mature", de: "Mature", es: "Mature", it: "Mature",
       nlD: "oudere vrouwen", enD: "older women", frD: "femmes mûres", deD: "ältere Frauen", esD: "mujeres maduras", itD: "donne mature" },
-    { s: "webcamsex-asian", nl: "Aziatisch", en: "Asian", fr: "Asiatique", de: "Asiatisch", es: "Asiáticas", it: "Asiatiche",
+    { s: "aziatische-cam-girls-live", nl: "Aziatisch", en: "Asian", fr: "Asiatique", de: "Asiatisch", es: "Asiáticas", it: "Asiatiche",
       nlD: "Aziatische cam girls", enD: "Asian cam girls", frD: "cam girls asiatiques", deD: "asiatische Cam Girls", esD: "cam girls asiáticas", itD: "cam girl asiatiche" },
-    { s: "webcamsex-latina", nl: "Latina", en: "Latina", fr: "Latina", de: "Latina", es: "Latina", it: "Latina",
+    { s: "latina-cam-girls-live", nl: "Latina", en: "Latina", fr: "Latina", de: "Latina", es: "Latina", it: "Latina",
       nlD: "Latijnse cam girls", enD: "Latina cam girls", frD: "cam girls latinas", deD: "Latina Cam Girls", esD: "cam girls latinas", itD: "cam girl latine" },
-    { s: "webcamsex-ebony", nl: "Ebony", en: "Ebony", fr: "Ebony", de: "Ebony", es: "Ebony", it: "Ebony",
+    { s: "ebony-cam-girls-live", nl: "Ebony", en: "Ebony", fr: "Ebony", de: "Ebony", es: "Ebony", it: "Ebony",
       nlD: "zwarte cam girls", enD: "black cam girls", frD: "cam girls noires", deD: "schwarze Cam Girls", esD: "cam girls negras", itD: "cam girl nere" },
-    { s: "webcamsex-grote-borsten", nl: "Grote Borsten", en: "Big Boobs", fr: "Gros Seins", de: "Große Brüste", es: "Tetas Grandes", it: "Tette Grandi",
+    { s: "cam-girls-grote-borsten", nl: "Grote Borsten", en: "Big Boobs", fr: "Gros Seins", de: "Große Brüste", es: "Tetas Grandes", it: "Tette Grandi",
       nlD: "cam girls met grote borsten", enD: "cam girls with big boobs", frD: "cam girls aux gros seins", deD: "Cam Girls mit großen Brüsten", esD: "cam girls con tetas grandes", itD: "cam girl con tette grandi" },
-    { s: "webcamsex-kleine-borsten", nl: "Kleine Borsten", en: "Small Tits", fr: "Petits Seins", de: "Kleine Brüste", es: "Tetas Pequeñas", it: "Tette Piccole",
+    { s: "petite-cam-girls-kleine-borsten", nl: "Kleine Borsten", en: "Small Tits", fr: "Petits Seins", de: "Kleine Brüste", es: "Tetas Pequeñas", it: "Tette Piccole",
       nlD: "petite cam girls", enD: "petite cam girls", frD: "cam girls petites", deD: "petite Cam Girls", esD: "cam girls petite", itD: "cam girl petite" },
-    { s: "webcamsex-anal", nl: "Anal", en: "Anal", fr: "Anal", de: "Anal", es: "Anal", it: "Anale",
+    { s: "anale-cam-shows-live", nl: "Anal", en: "Anal", fr: "Anal", de: "Anal", es: "Anal", it: "Anale",
       nlD: "anale cam shows", enD: "anal cam shows", frD: "shows cam anal", deD: "anale Cam Shows", esD: "shows cam anal", itD: "show cam anali" },
-    { s: "webcamsex-koppels", nl: "Koppels", en: "Couples", fr: "Couples", de: "Paare", es: "Parejas", it: "Coppie",
+    { s: "cam-koppels-live-sex", nl: "Koppels", en: "Couples", fr: "Couples", de: "Paare", es: "Parejas", it: "Coppie",
       nlD: "echte koppels live op cam", enD: "real couples live on cam", frD: "vrais couples en direct", deD: "echte Paare live auf Cam", esD: "parejas reales en vivo", itD: "vere coppie in diretta" },
-    { s: "webcamsex-squirt", nl: "Squirt", en: "Squirt", fr: "Squirt", de: "Squirt", es: "Squirt", it: "Squirt",
+    { s: "squirt-cam-shows-live", nl: "Squirt", en: "Squirt", fr: "Squirt", de: "Squirt", es: "Squirt", it: "Squirt",
       nlD: "squirting cam shows", enD: "squirting cam shows", frD: "shows cam squirt", deD: "Squirting Cam Shows", esD: "shows cam squirt", itD: "show cam squirt" },
-    { s: "webcamsex-bdsm", nl: "BDSM", en: "BDSM", fr: "BDSM", de: "BDSM", es: "BDSM", it: "BDSM",
+    { s: "bdsm-bondage-cam-shows", nl: "BDSM", en: "BDSM", fr: "BDSM", de: "BDSM", es: "BDSM", it: "BDSM",
       nlD: "bondage en fetish cam shows", enD: "bondage and fetish cam shows", frD: "shows cam bondage et fétiche", deD: "Bondage und Fetisch Cam Shows", esD: "shows cam bondage y fetiche", itD: "show cam bondage e fetish" },
-    { s: "webcamsex-tattoo", nl: "Tattoo", en: "Tattoo", fr: "Tatouage", de: "Tattoo", es: "Tatuaje", it: "Tatuaggio",
+    { s: "getatoeeerde-cam-girls", nl: "Tattoo", en: "Tattoo", fr: "Tatouage", de: "Tattoo", es: "Tatuaje", it: "Tatuaggio",
       nlD: "getatoeëerde cam girls", enD: "tattooed cam girls", frD: "cam girls tatouées", deD: "tätowierte Cam Girls", esD: "cam girls tatuadas", itD: "cam girl tatuate" },
-    { s: "webcamsex-hairy", nl: "Hairy", en: "Hairy", fr: "Poilu", de: "Behaart", es: "Peluda", it: "Pelosa",
+    { s: "behaarde-cam-girls-natural", nl: "Hairy", en: "Hairy", fr: "Poilu", de: "Behaart", es: "Peluda", it: "Pelosa",
       nlD: "behaarde cam girls", enD: "hairy cam girls", frD: "cam girls poilues", deD: "behaarte Cam Girls", esD: "cam girls peludas", itD: "cam girl pelose" },
-    { s: "webcamsex-voeten", nl: "Voeten", en: "Feet", fr: "Pieds", de: "Füße", es: "Pies", it: "Piedi",
+    { s: "voeten-fetish-cam-shows", nl: "Voeten", en: "Feet", fr: "Pieds", de: "Füße", es: "Pies", it: "Piedi",
       nlD: "foot fetish cam shows", enD: "foot fetish cam shows", frD: "shows cam fétichisme des pieds", deD: "Fuß-Fetisch Cam Shows", esD: "shows cam fetiche de pies", itD: "show cam feticismo dei piedi" },
-    { s: "webcamsex-outdoor", nl: "Outdoor", en: "Outdoor", fr: "Extérieur", de: "Outdoor", es: "Exterior", it: "Outdoor",
+    { s: "outdoor-cam-shows-buiten", nl: "Outdoor", en: "Outdoor", fr: "Extérieur", de: "Outdoor", es: "Exterior", it: "Outdoor",
       nlD: "cam shows buiten", enD: "outdoor cam shows", frD: "shows cam en extérieur", deD: "Outdoor Cam Shows", esD: "shows cam al aire libre", itD: "show cam all'aperto" },
-    { s: "webcamsex-mobiel", nl: "Mobiel", en: "Mobile", fr: "Mobile", de: "Mobil", es: "Móvil", it: "Mobile",
+    { s: "mobiele-cam-shows-live", nl: "Mobiel", en: "Mobile", fr: "Mobile", de: "Mobil", es: "Móvil", it: "Mobile",
       nlD: "mobiele cam shows", enD: "mobile cam shows", frD: "shows cam mobiles", deD: "mobile Cam Shows", esD: "shows cam móviles", itD: "show cam mobile" },
   ].map(c => {
     const t = (lang) => ({ nl: "Webcamsex", en: "Webcam Sex", fr: "Webcam Sexe", de: "Webcam Sex", es: "Webcam Sexo", it: "Webcam Sex" }[lang]);
@@ -289,25 +289,25 @@ const pages = [
 
   // ---------- Country landing pages ----------
   ...[
-    { s: "webcamsex-nederland", nl: "Nederland", en: "Netherlands", fr: "Pays-Bas", de: "Niederlande", es: "Países Bajos", it: "Paesi Bassi", nlA: "Nederlandse", enA: "Dutch", frA: "néerlandaises", deA: "niederländische", esA: "holandesas", itA: "olandesi" },
-    { s: "webcamsex-belgie", nl: "België", en: "Belgium", fr: "Belgique", de: "Belgien", es: "Bélgica", it: "Belgio", nlA: "Belgische", enA: "Belgian", frA: "belges", deA: "belgische", esA: "belgas", itA: "belghe" },
-    { s: "webcamsex-duitsland", nl: "Duitsland", en: "Germany", fr: "Allemagne", de: "Deutschland", es: "Alemania", it: "Germania", nlA: "Duitse", enA: "German", frA: "allemandes", deA: "deutsche", esA: "alemanas", itA: "tedesche" },
-    { s: "webcamsex-colombia", nl: "Colombia", en: "Colombia", fr: "Colombie", de: "Kolumbien", es: "Colombia", it: "Colombia", nlA: "Colombiaanse", enA: "Colombian", frA: "colombiennes", deA: "kolumbianische", esA: "colombianas", itA: "colombiane" },
-    { s: "webcamsex-roemenie", nl: "Roemenië", en: "Romania", fr: "Roumanie", de: "Rumänien", es: "Rumanía", it: "Romania", nlA: "Roemeense", enA: "Romanian", frA: "roumaines", deA: "rumänische", esA: "rumanas", itA: "rumene" },
-    { s: "webcamsex-italie", nl: "Italië", en: "Italy", fr: "Italie", de: "Italien", es: "Italia", it: "Italia", nlA: "Italiaanse", enA: "Italian", frA: "italiennes", deA: "italienische", esA: "italianas", itA: "italiane" },
-    { s: "webcamsex-spanje", nl: "Spanje", en: "Spain", fr: "Espagne", de: "Spanien", es: "España", it: "Spagna", nlA: "Spaanse", enA: "Spanish", frA: "espagnoles", deA: "spanische", esA: "españolas", itA: "spagnole" },
-    { s: "webcamsex-frankrijk", nl: "Frankrijk", en: "France", fr: "France", de: "Frankreich", es: "Francia", it: "Francia", nlA: "Franse", enA: "French", frA: "françaises", deA: "französische", esA: "francesas", itA: "francesi" },
-    { s: "webcamsex-verenigd-koninkrijk", nl: "VK", en: "United Kingdom", fr: "Royaume-Uni", de: "Vereinigtes Königreich", es: "Reino Unido", it: "Regno Unito", nlA: "Britse", enA: "British", frA: "britanniques", deA: "britische", esA: "británicas", itA: "britanniche" },
-    { s: "webcamsex-verenigde-staten", nl: "VS", en: "United States", fr: "États-Unis", de: "USA", es: "Estados Unidos", it: "Stati Uniti", nlA: "Amerikaanse", enA: "American", frA: "américaines", deA: "amerikanische", esA: "americanas", itA: "americane" },
-    { s: "webcamsex-rusland", nl: "Rusland", en: "Russia", fr: "Russie", de: "Russland", es: "Rusia", it: "Russia", nlA: "Russische", enA: "Russian", frA: "russes", deA: "russische", esA: "rusas", itA: "russe" },
-    { s: "webcamsex-oekraine", nl: "Oekraïne", en: "Ukraine", fr: "Ukraine", de: "Ukraine", es: "Ucrania", it: "Ucraina", nlA: "Oekraïense", enA: "Ukrainian", frA: "ukrainiennes", deA: "ukrainische", esA: "ucranianas", itA: "ucraine" },
-    { s: "webcamsex-brazilie", nl: "Brazilië", en: "Brazil", fr: "Brésil", de: "Brasilien", es: "Brasil", it: "Brasile", nlA: "Braziliaanse", enA: "Brazilian", frA: "brésiliennes", deA: "brasilianische", esA: "brasileñas", itA: "brasiliane" },
-    { s: "webcamsex-japan", nl: "Japan", en: "Japan", fr: "Japon", de: "Japan", es: "Japón", it: "Giappone", nlA: "Japanse", enA: "Japanese", frA: "japonaises", deA: "japanische", esA: "japonesas", itA: "giapponesi" },
-    { s: "webcamsex-polen", nl: "Polen", en: "Poland", fr: "Pologne", de: "Polen", es: "Polonia", it: "Polonia", nlA: "Poolse", enA: "Polish", frA: "polonaises", deA: "polnische", esA: "polacas", itA: "polacche" },
-    { s: "webcamsex-mexico", nl: "Mexico", en: "Mexico", fr: "Mexique", de: "Mexiko", es: "México", it: "Messico", nlA: "Mexicaanse", enA: "Mexican", frA: "mexicaines", deA: "mexikanische", esA: "mexicanas", itA: "messicane" },
-    { s: "webcamsex-tsjechie", nl: "Tsjechië", en: "Czech Republic", fr: "République tchèque", de: "Tschechien", es: "República Checa", it: "Repubblica Ceca", nlA: "Tsjechische", enA: "Czech", frA: "tchèques", deA: "tschechische", esA: "checas", itA: "ceche" },
-    { s: "webcamsex-filipijnen", nl: "Filipijnen", en: "Philippines", fr: "Philippines", de: "Philippinen", es: "Filipinas", it: "Filippine", nlA: "Filipijnse", enA: "Filipina", frA: "philippines", deA: "philippinische", esA: "filipinas", itA: "filippine" },
-    { s: "webcamsex-thailand", nl: "Thailand", en: "Thailand", fr: "Thaïlande", de: "Thailand", es: "Tailandia", it: "Thailandia", nlA: "Thaise", enA: "Thai", frA: "thaïlandaises", deA: "thailändische", esA: "tailandesas", itA: "thailandesi" },
+    { s: "nederlandse-cam-girls", nl: "Nederland", en: "Netherlands", fr: "Pays-Bas", de: "Niederlande", es: "Países Bajos", it: "Paesi Bassi", nlA: "Nederlandse", enA: "Dutch", frA: "néerlandaises", deA: "niederländische", esA: "holandesas", itA: "olandesi" },
+    { s: "belgische-cam-girls", nl: "België", en: "Belgium", fr: "Belgique", de: "Belgien", es: "Bélgica", it: "Belgio", nlA: "Belgische", enA: "Belgian", frA: "belges", deA: "belgische", esA: "belgas", itA: "belghe" },
+    { s: "duitse-cam-girls", nl: "Duitsland", en: "Germany", fr: "Allemagne", de: "Deutschland", es: "Alemania", it: "Germania", nlA: "Duitse", enA: "German", frA: "allemandes", deA: "deutsche", esA: "alemanas", itA: "tedesche" },
+    { s: "colombiaanse-cam-girls", nl: "Colombia", en: "Colombia", fr: "Colombie", de: "Kolumbien", es: "Colombia", it: "Colombia", nlA: "Colombiaanse", enA: "Colombian", frA: "colombiennes", deA: "kolumbianische", esA: "colombianas", itA: "colombiane" },
+    { s: "roemeense-cam-girls", nl: "Roemenië", en: "Romania", fr: "Roumanie", de: "Rumänien", es: "Rumanía", it: "Romania", nlA: "Roemeense", enA: "Romanian", frA: "roumaines", deA: "rumänische", esA: "rumanas", itA: "rumene" },
+    { s: "italiaanse-cam-girls", nl: "Italië", en: "Italy", fr: "Italie", de: "Italien", es: "Italia", it: "Italia", nlA: "Italiaanse", enA: "Italian", frA: "italiennes", deA: "italienische", esA: "italianas", itA: "italiane" },
+    { s: "spaanse-cam-girls", nl: "Spanje", en: "Spain", fr: "Espagne", de: "Spanien", es: "España", it: "Spagna", nlA: "Spaanse", enA: "Spanish", frA: "espagnoles", deA: "spanische", esA: "españolas", itA: "spagnole" },
+    { s: "franse-cam-girls", nl: "Frankrijk", en: "France", fr: "France", de: "Frankreich", es: "Francia", it: "Francia", nlA: "Franse", enA: "French", frA: "françaises", deA: "französische", esA: "francesas", itA: "francesi" },
+    { s: "britse-cam-girls", nl: "VK", en: "United Kingdom", fr: "Royaume-Uni", de: "Vereinigtes Königreich", es: "Reino Unido", it: "Regno Unito", nlA: "Britse", enA: "British", frA: "britanniques", deA: "britische", esA: "británicas", itA: "britanniche" },
+    { s: "amerikaanse-cam-girls", nl: "VS", en: "United States", fr: "États-Unis", de: "USA", es: "Estados Unidos", it: "Stati Uniti", nlA: "Amerikaanse", enA: "American", frA: "américaines", deA: "amerikanische", esA: "americanas", itA: "americane" },
+    { s: "russische-cam-girls", nl: "Rusland", en: "Russia", fr: "Russie", de: "Russland", es: "Rusia", it: "Russia", nlA: "Russische", enA: "Russian", frA: "russes", deA: "russische", esA: "rusas", itA: "russe" },
+    { s: "oekraiense-cam-girls", nl: "Oekraïne", en: "Ukraine", fr: "Ukraine", de: "Ukraine", es: "Ucrania", it: "Ucraina", nlA: "Oekraïense", enA: "Ukrainian", frA: "ukrainiennes", deA: "ukrainische", esA: "ucranianas", itA: "ucraine" },
+    { s: "braziliaanse-cam-girls", nl: "Brazilië", en: "Brazil", fr: "Brésil", de: "Brasilien", es: "Brasil", it: "Brasile", nlA: "Braziliaanse", enA: "Brazilian", frA: "brésiliennes", deA: "brasilianische", esA: "brasileñas", itA: "brasiliane" },
+    { s: "japanse-cam-girls", nl: "Japan", en: "Japan", fr: "Japon", de: "Japan", es: "Japón", it: "Giappone", nlA: "Japanse", enA: "Japanese", frA: "japonaises", deA: "japanische", esA: "japonesas", itA: "giapponesi" },
+    { s: "poolse-cam-girls", nl: "Polen", en: "Poland", fr: "Pologne", de: "Polen", es: "Polonia", it: "Polonia", nlA: "Poolse", enA: "Polish", frA: "polonaises", deA: "polnische", esA: "polacas", itA: "polacche" },
+    { s: "mexicaanse-cam-girls", nl: "Mexico", en: "Mexico", fr: "Mexique", de: "Mexiko", es: "México", it: "Messico", nlA: "Mexicaanse", enA: "Mexican", frA: "mexicaines", deA: "mexikanische", esA: "mexicanas", itA: "messicane" },
+    { s: "tsjechische-cam-girls", nl: "Tsjechië", en: "Czech Republic", fr: "République tchèque", de: "Tschechien", es: "República Checa", it: "Repubblica Ceca", nlA: "Tsjechische", enA: "Czech", frA: "tchèques", deA: "tschechische", esA: "checas", itA: "ceche" },
+    { s: "filipijnse-cam-girls", nl: "Filipijnen", en: "Philippines", fr: "Philippines", de: "Philippinen", es: "Filipinas", it: "Filippine", nlA: "Filipijnse", enA: "Filipina", frA: "philippines", deA: "philippinische", esA: "filipinas", itA: "filippine" },
+    { s: "thaise-cam-girls", nl: "Thailand", en: "Thailand", fr: "Thaïlande", de: "Thailand", es: "Tailandia", it: "Thailandia", nlA: "Thaise", enA: "Thai", frA: "thaïlandaises", deA: "thailändische", esA: "tailandesas", itA: "thailandesi" },
   ].map(c => ({
     slugs: [c.s],
     meta: m(
@@ -516,12 +516,12 @@ async function fetchNicheSlugsForPrerender() {
 
 function buildNicheBodyHtml(lang, slug, nicheName, seoDesc) {
   const navLinks = {
-    nl: `<a href="/niche-videos">Alle Niche Video's</a> | <a href="/categories">Categorie\u00ebn</a> | <a href="/countries">Landen</a> | <a href="/new">Nieuw</a> | <a href="/top">Top</a>`,
-    en: `<a href="/en/niche-videos">All Niche Videos</a> | <a href="/en/categories">Categories</a> | <a href="/en/countries">Countries</a> | <a href="/en/new">New</a> | <a href="/en/top">Top</a>`,
-    fr: `<a href="/fr/niche-videos">Toutes les Niches</a> | <a href="/fr/categories">Cat\u00e9gories</a> | <a href="/fr/countries">Pays</a> | <a href="/fr/new">Nouveau</a> | <a href="/fr/top">Top</a>`,
-    de: `<a href="/de/niche-videos">Alle Nischen</a> | <a href="/de/categories">Kategorien</a> | <a href="/de/countries">L\u00e4nder</a> | <a href="/de/new">Neu</a> | <a href="/de/top">Top</a>`,
-    es: `<a href="/es/niche-videos">Todos los Nichos</a> | <a href="/es/categories">Categor\u00edas</a> | <a href="/es/countries">Pa\u00edses</a> | <a href="/es/new">Nuevo</a> | <a href="/es/top">Top</a>`,
-    it: `<a href="/it/niche-videos">Tutte le Nicchie</a> | <a href="/it/categories">Categorie</a> | <a href="/it/countries">Paesi</a> | <a href="/it/new">Nuovo</a> | <a href="/it/top">Top</a>`,
+    nl: `<a href="/videos">Alle Niche Video's</a> | <a href="/categorieen">Categorie\u00ebn</a> | <a href="/landen">Landen</a> | <a href="/nieuwe-cam-girls">Nieuw</a> | <a href="/populairste-cam-girls">Top</a>`,
+    en: `<a href="/en/videos">All Niche Videos</a> | <a href="/en/categorieen">Categories</a> | <a href="/en/landen">Countries</a> | <a href="/en/nieuwe-cam-girls">New</a> | <a href="/en/populairste-cam-girls">Top</a>`,
+    fr: `<a href="/fr/videos">Toutes les Niches</a> | <a href="/fr/categorieen">Cat\u00e9gories</a> | <a href="/fr/landen">Pays</a> | <a href="/fr/nouvelle-cam-girls">Nouveau</a> | <a href="/fr/populairste-cam-girls">Top</a>`,
+    de: `<a href="/de/videos">Alle Nischen</a> | <a href="/de/categorieen">Kategorien</a> | <a href="/de/landen">L\u00e4nder</a> | <a href="/de/neue-cam-girls">Neu</a> | <a href="/de/populairste-cam-girls">Top</a>`,
+    es: `<a href="/es/videos">Todos los Nichos</a> | <a href="/es/categorieen">Categor\u00edas</a> | <a href="/es/landen">Pa\u00edses</a> | <a href="/es/nuevas-cam-girls">Nuevo</a> | <a href="/es/populairste-cam-girls">Top</a>`,
+    it: `<a href="/it/videos">Tutte le Nicchie</a> | <a href="/it/categorieen">Categorie</a> | <a href="/it/landen">Paesi</a> | <a href="/it/nuove-cam-girls">Nuovo</a> | <a href="/it/populairste-cam-girls">Top</a>`,
   };
   const seo = getNicheSeoMeta(slug, nicheName, lang);
   const h1 = escapeHtml(seo.title.split(" | ")[0]);
@@ -530,12 +530,12 @@ function buildNicheBodyHtml(lang, slug, nicheName, seoDesc) {
 
 function buildNicheIndexBodyHtml(lang) {
   const navLinks = {
-    nl: `<a href="/">Home</a> | <a href="/categories">Categorie\u00ebn</a> | <a href="/countries">Landen</a> | <a href="/new">Nieuw</a> | <a href="/top">Top</a>`,
-    en: `<a href="/en">Home</a> | <a href="/en/categories">Categories</a> | <a href="/en/countries">Countries</a> | <a href="/en/new">New</a> | <a href="/en/top">Top</a>`,
-    fr: `<a href="/fr">Accueil</a> | <a href="/fr/categories">Cat\u00e9gories</a> | <a href="/fr/countries">Pays</a> | <a href="/fr/new">Nouveau</a> | <a href="/fr/top">Top</a>`,
-    de: `<a href="/de">Startseite</a> | <a href="/de/categories">Kategorien</a> | <a href="/de/countries">L\u00e4nder</a> | <a href="/de/new">Neu</a> | <a href="/de/top">Top</a>`,
-    es: `<a href="/es">Inicio</a> | <a href="/es/categories">Categor\u00edas</a> | <a href="/es/countries">Pa\u00edses</a> | <a href="/es/new">Nuevo</a> | <a href="/es/top">Top</a>`,
-    it: `<a href="/it">Home</a> | <a href="/it/categories">Categorie</a> | <a href="/it/countries">Paesi</a> | <a href="/it/new">Nuovo</a> | <a href="/it/top">Top</a>`,
+    nl: `<a href="/">Home</a> | <a href="/categorieen">Categorie\u00ebn</a> | <a href="/landen">Landen</a> | <a href="/nieuwe-cam-girls">Nieuw</a> | <a href="/populairste-cam-girls">Top</a>`,
+    en: `<a href="/en">Home</a> | <a href="/en/categorieen">Categories</a> | <a href="/en/landen">Countries</a> | <a href="/en/nieuwe-cam-girls">New</a> | <a href="/en/populairste-cam-girls">Top</a>`,
+    fr: `<a href="/fr">Accueil</a> | <a href="/fr/categorieen">Cat\u00e9gories</a> | <a href="/fr/landen">Pays</a> | <a href="/fr/nouvelle-cam-girls">Nouveau</a> | <a href="/fr/populairste-cam-girls">Top</a>`,
+    de: `<a href="/de">Startseite</a> | <a href="/de/categorieen">Kategorien</a> | <a href="/de/landen">L\u00e4nder</a> | <a href="/de/neue-cam-girls">Neu</a> | <a href="/de/populairste-cam-girls">Top</a>`,
+    es: `<a href="/es">Inicio</a> | <a href="/es/categorieen">Categor\u00edas</a> | <a href="/es/landen">Pa\u00edses</a> | <a href="/es/nuevas-cam-girls">Nuevo</a> | <a href="/es/populairste-cam-girls">Top</a>`,
+    it: `<a href="/it">Home</a> | <a href="/it/categorieen">Categorie</a> | <a href="/it/landen">Paesi</a> | <a href="/it/nuove-cam-girls">Nuovo</a> | <a href="/it/populairste-cam-girls">Top</a>`,
   };
   const titles = {
     nl: "Niche Video's \u2014 Cam Video Categorie\u00ebn | StartVagina",
@@ -570,14 +570,14 @@ function injectMetaWithBody(htmlTemplate, metaTags, bodyHtml, lang) {
   return html;
 }
 
-console.log("\n\ud83c\udfa5 Pre-rendering niche-videos pages...");
+console.log("\n\ud83c\udfa5 Pre-rendering videos pages...");
 const nicheSlugsData = await fetchNicheSlugsForPrerender();
 console.log(`\ud83d\udce6 Fetched ${nicheSlugsData.length} niche slugs from CAM4 API`);
 
 // Niche-videos INDEX page (all 6 langs)
 for (const lang of langs) {
   const prefix = langPrefixes[lang];
-  const fullSlug = prefix ? `${prefix.slice(1)}/niche-videos` : "niche-videos";
+  const fullSlug = prefix ? `${prefix.slice(1)}/videos` : "videos";
   const { title, desc, body } = buildNicheIndexBodyHtml(lang);
   const nicheIndexMeta = {
     title,
@@ -599,7 +599,7 @@ for (const lang of langs) {
 for (const { slug, name: nicheName } of nicheSlugsData) {
   for (const lang of langs) {
     const prefix = langPrefixes[lang];
-    const baseSlug = `niche-videos/${slug}`;
+    const baseSlug = `videos/${slug}`;
     const fullSlug = prefix ? `${prefix.slice(1)}/${baseSlug}` : baseSlug;
     const seo = getNicheSeoMeta(slug, nicheName, lang);
     const nicheDetailMeta = {
@@ -616,7 +616,7 @@ for (const { slug, name: nicheName } of nicheSlugsData) {
 }
 
 const nicheCount = nicheSlugsData.length * langs.length + langs.length;
-console.log(`\u2705 Pre-rendered ${nicheCount} niche-videos pages (${langs.length} index + ${nicheSlugsData.length} \u00d7 ${langs.length} detail)`);
+console.log(`\u2705 Pre-rendered ${nicheCount} videos pages (${langs.length} index + ${nicheSlugsData.length} \u00d7 ${langs.length} detail)`);
 console.log(`\u2139\ufe0f  Model pages use SPA fallback (no static pre-render)`);
 console.log(`\u2139\ufe0f  Filter pages (query strings) use SPA fallback + React Helmet`);
 console.log(`\u2705 Total: ${count} pages`);

@@ -18,11 +18,11 @@ const prefixes = { nl: "", en: "/en", fr: "/fr", de: "/de", es: "/es", it: "/it"
 const pages = [
   // Core pages
   { slug: "", priority: "1.0", changefreq: "always" },
-  { slug: "/categories", priority: "0.9", changefreq: "daily" },
-  { slug: "/countries", priority: "0.8", changefreq: "daily" },
-  { slug: "/languages", priority: "0.8", changefreq: "daily" },
-  { slug: "/new", priority: "0.8", changefreq: "always" },
-  { slug: "/top", priority: "0.8", changefreq: "always" },
+  { slug: "/categorieen", priority: "0.9", changefreq: "daily" },
+  { slug: "/landen", priority: "0.8", changefreq: "daily" },
+  { slug: "/talen", priority: "0.8", changefreq: "daily" },
+  { slug: "/nieuwe-cam-girls", priority: "0.8", changefreq: "always" },
+  { slug: "/populairste-cam-girls", priority: "0.8", changefreq: "always" },
   { slug: "/blog", priority: "0.7", changefreq: "weekly" },
 
   // Keyword landing pages
@@ -53,26 +53,26 @@ const pages = [
   { slug: "/bongacams-vs-jerkmate", priority: "0.7", changefreq: "monthly" },
 
   // Category landing pages
-  { slug: "/webcamsex-teen-18-plus", priority: "0.8", changefreq: "daily" },
-  { slug: "/webcamsex-milf", priority: "0.8", changefreq: "daily" },
-  { slug: "/webcamsex-mature", priority: "0.7", changefreq: "daily" },
-  { slug: "/webcamsex-asian", priority: "0.8", changefreq: "daily" },
-  { slug: "/webcamsex-latina", priority: "0.8", changefreq: "daily" },
-  { slug: "/webcamsex-ebony", priority: "0.7", changefreq: "daily" },
-  { slug: "/webcamsex-grote-borsten", priority: "0.8", changefreq: "daily" },
-  { slug: "/webcamsex-kleine-borsten", priority: "0.7", changefreq: "daily" },
-  { slug: "/webcamsex-anal", priority: "0.7", changefreq: "daily" },
-  { slug: "/webcamsex-koppels", priority: "0.8", changefreq: "daily" },
-  { slug: "/webcamsex-squirt", priority: "0.7", changefreq: "daily" },
-  { slug: "/webcamsex-bdsm", priority: "0.7", changefreq: "daily" },
-  { slug: "/webcamsex-tattoo", priority: "0.6", changefreq: "daily" },
-  { slug: "/webcamsex-hairy", priority: "0.6", changefreq: "daily" },
-  { slug: "/webcamsex-voeten", priority: "0.6", changefreq: "daily" },
-  { slug: "/webcamsex-outdoor", priority: "0.6", changefreq: "daily" },
-  { slug: "/webcamsex-mobiel", priority: "0.6", changefreq: "daily" },
+  { slug: "/jonge-cam-girls-18-plus", priority: "0.8", changefreq: "daily" },
+  { slug: "/milf-webcamsex-ervaren-vrouwen", priority: "0.8", changefreq: "daily" },
+  { slug: "/mature-webcamsex-oudere-vrouwen", priority: "0.7", changefreq: "daily" },
+  { slug: "/aziatische-cam-girls-live", priority: "0.8", changefreq: "daily" },
+  { slug: "/latina-cam-girls-live", priority: "0.8", changefreq: "daily" },
+  { slug: "/ebony-cam-girls-live", priority: "0.7", changefreq: "daily" },
+  { slug: "/cam-girls-grote-borsten", priority: "0.8", changefreq: "daily" },
+  { slug: "/petite-cam-girls-kleine-borsten", priority: "0.7", changefreq: "daily" },
+  { slug: "/anale-cam-shows-live", priority: "0.7", changefreq: "daily" },
+  { slug: "/cam-koppels-live-sex", priority: "0.8", changefreq: "daily" },
+  { slug: "/squirt-cam-shows-live", priority: "0.7", changefreq: "daily" },
+  { slug: "/bdsm-bondage-cam-shows", priority: "0.7", changefreq: "daily" },
+  { slug: "/getatoeeerde-cam-girls", priority: "0.6", changefreq: "daily" },
+  { slug: "/behaarde-cam-girls-natural", priority: "0.6", changefreq: "daily" },
+  { slug: "/voeten-fetish-cam-shows", priority: "0.6", changefreq: "daily" },
+  { slug: "/outdoor-cam-shows-buiten", priority: "0.6", changefreq: "daily" },
+  { slug: "/mobiele-cam-shows-live", priority: "0.6", changefreq: "daily" },
 
   // Niche videos
-  { slug: "/niche-videos", priority: "0.8", changefreq: "daily" },
+  { slug: "/videos", priority: "0.8", changefreq: "daily" },
 
   // Language landing pages
   // restrictTo: only include under these lang prefixes (undefined = all)
@@ -88,25 +88,25 @@ const pages = [
   { slug: "/korean-webcam-sex", priority: "0.6", changefreq: "daily" },
 
   // Country landing pages
-  { slug: "/webcamsex-nederland", priority: "0.8", changefreq: "daily" },
-  { slug: "/webcamsex-belgie", priority: "0.7", changefreq: "daily" },
-  { slug: "/webcamsex-duitsland", priority: "0.7", changefreq: "daily" },
-  { slug: "/webcamsex-colombia", priority: "0.7", changefreq: "daily" },
-  { slug: "/webcamsex-roemenie", priority: "0.6", changefreq: "daily" },
-  { slug: "/webcamsex-italie", priority: "0.6", changefreq: "daily" },
-  { slug: "/webcamsex-spanje", priority: "0.6", changefreq: "daily" },
-  { slug: "/webcamsex-frankrijk", priority: "0.6", changefreq: "daily" },
-  { slug: "/webcamsex-verenigd-koninkrijk", priority: "0.6", changefreq: "daily" },
-  { slug: "/webcamsex-verenigde-staten", priority: "0.7", changefreq: "daily" },
-  { slug: "/webcamsex-rusland", priority: "0.6", changefreq: "daily" },
-  { slug: "/webcamsex-oekraine", priority: "0.6", changefreq: "daily" },
-  { slug: "/webcamsex-brazilie", priority: "0.6", changefreq: "daily" },
-  { slug: "/webcamsex-japan", priority: "0.6", changefreq: "daily" },
-  { slug: "/webcamsex-polen", priority: "0.6", changefreq: "daily" },
-  { slug: "/webcamsex-mexico", priority: "0.6", changefreq: "daily" },
-  { slug: "/webcamsex-tsjechie", priority: "0.6", changefreq: "daily" },
-  { slug: "/webcamsex-filipijnen", priority: "0.6", changefreq: "daily" },
-  { slug: "/webcamsex-thailand", priority: "0.6", changefreq: "daily" },
+  { slug: "/nederlandse-cam-girls", priority: "0.8", changefreq: "daily" },
+  { slug: "/belgische-cam-girls", priority: "0.7", changefreq: "daily" },
+  { slug: "/duitse-cam-girls", priority: "0.7", changefreq: "daily" },
+  { slug: "/colombiaanse-cam-girls", priority: "0.7", changefreq: "daily" },
+  { slug: "/roemeense-cam-girls", priority: "0.6", changefreq: "daily" },
+  { slug: "/italiaanse-cam-girls", priority: "0.6", changefreq: "daily" },
+  { slug: "/spaanse-cam-girls", priority: "0.6", changefreq: "daily" },
+  { slug: "/franse-cam-girls", priority: "0.6", changefreq: "daily" },
+  { slug: "/britse-cam-girls", priority: "0.6", changefreq: "daily" },
+  { slug: "/amerikaanse-cam-girls", priority: "0.7", changefreq: "daily" },
+  { slug: "/russische-cam-girls", priority: "0.6", changefreq: "daily" },
+  { slug: "/oekraiense-cam-girls", priority: "0.6", changefreq: "daily" },
+  { slug: "/braziliaanse-cam-girls", priority: "0.6", changefreq: "daily" },
+  { slug: "/japanse-cam-girls", priority: "0.6", changefreq: "daily" },
+  { slug: "/poolse-cam-girls", priority: "0.6", changefreq: "daily" },
+  { slug: "/mexicaanse-cam-girls", priority: "0.6", changefreq: "daily" },
+  { slug: "/tsjechische-cam-girls", priority: "0.6", changefreq: "daily" },
+  { slug: "/filipijnse-cam-girls", priority: "0.6", changefreq: "daily" },
+  { slug: "/thaise-cam-girls", priority: "0.6", changefreq: "daily" },
 ];
 
 function buildUrl(slug, langPrefix) {
@@ -161,7 +161,7 @@ console.log(`📦 Fetched ${nicheSlugs.length} niche slugs from CAM4 API`);
 
 // Add niche detail pages dynamically
 for (const slug of nicheSlugs) {
-  pages.push({ slug: `/niche-videos/${slug}`, priority: "0.6", changefreq: "daily" });
+  pages.push({ slug: `/videos/${slug}`, priority: "0.6", changefreq: "daily" });
 }
 
 // Generate all URL entries (only indexable languages: NL + EN)

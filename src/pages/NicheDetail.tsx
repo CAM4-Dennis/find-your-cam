@@ -98,10 +98,10 @@ const NicheDetail = () => {
           <title>{seo.title}</title>
           <meta name="description" content={seo.description} />
           <meta name="robots" content={getRobotsContent(lang)} />
-          <link rel="canonical" href={`https://www.startvagina.nl/niche-videos/${slug}`} />
+          <link rel="canonical" href={`https://www.startvagina.nl/videos/${slug}`} />
           <meta property="og:title" content={seo.title} />
           <meta property="og:description" content={seo.description} />
-          <meta property="og:url" content={`https://www.startvagina.nl/niche-videos/${slug}`} />
+          <meta property="og:url" content={`https://www.startvagina.nl/videos/${slug}`} />
           <meta property="og:type" content="website" />
           <meta property="og:site_name" content="StartVagina" />
           {nicheInfo?.thumbnailMedia?.mediumSizeImageUrl && (
@@ -115,7 +115,7 @@ const NicheDetail = () => {
           {/* Back + title */}
           <div className="mb-8">
             <Link
-              to={`${langPrefix}/niche-videos`}
+              to={`${langPrefix}/videos`}
               className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors mb-4"
             >
               <ArrowLeft size={16} /> {t.back}

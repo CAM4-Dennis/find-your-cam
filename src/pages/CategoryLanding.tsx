@@ -52,8 +52,8 @@ function matchesCategory(model: CamModel, cat: CategoryConfig): boolean {
 }
 
 const categoryPages: Record<string, CategoryConfig> = {
-  "webcamsex-teen-18-plus": {
-    slug: "webcamsex-teen-18-plus",
+  "jonge-cam-girls-18-plus": {
+    slug: "jonge-cam-girls-18-plus",
     label: "Teen (18+)",
     emoji: "🔞",
     title: "Webcamsex Teen 18+ — Jonge Cam Girls Live | StartVagina",
@@ -83,8 +83,8 @@ Let op: alle modellen op StartVagina zijn 18 jaar of ouder. De leeftijdsverifica
     matchTags: ["teen", "18", "young", "18+", "teenager"],
   },
 
-  "webcamsex-milf": {
-    slug: "webcamsex-milf",
+  "milf-webcamsex-ervaren-vrouwen": {
+    slug: "milf-webcamsex-ervaren-vrouwen",
     label: "MILF",
     emoji: "💋",
     title: "Webcamsex MILF — Ervaren Vrouwen Live op Cam | StartVagina",
@@ -113,8 +113,8 @@ Op StartVagina verzamelen we alle live MILF cam modellen van Chaturbate, Stripch
     matchTags: ["milf"],
   },
 
-  "webcamsex-mature": {
-    slug: "webcamsex-mature",
+  "mature-webcamsex-oudere-vrouwen": {
+    slug: "mature-webcamsex-oudere-vrouwen",
     label: "Mature",
     emoji: "👩‍🦳",
     title: "Webcamsex Mature — Oudere Vrouwen Live op Webcam | StartVagina",
@@ -141,8 +141,8 @@ Het aanbod mature modellen is kleiner dan de reguliere categorieën, maar de kwa
     matchTags: ["mature", "granny", "older"],
   },
 
-  "webcamsex-asian": {
-    slug: "webcamsex-asian",
+  "aziatische-cam-girls-live": {
+    slug: "aziatische-cam-girls-live",
     label: "Asian",
     emoji: "🌸",
     title: "Webcamsex Asian — Aziatische Cam Girls Live | StartVagina",
@@ -171,8 +171,8 @@ Of je nu specifiek zoekt naar Japanse, Koreaanse, Thai of Filipijnse cam girls �
     matchTags: ["asian", "asiatic"],
   },
 
-  "webcamsex-latina": {
-    slug: "webcamsex-latina",
+  "latina-cam-girls-live": {
+    slug: "latina-cam-girls-live",
     label: "Latina",
     emoji: "🌶️",
     title: "Webcamsex Latina — Latijnse Cam Girls Live | StartVagina",
@@ -201,8 +201,8 @@ Op Chaturbate en Stripchat vormen Latina modellen de grootste groep na de Engels
     matchTags: ["latina", "latino", "latin"],
   },
 
-  "webcamsex-ebony": {
-    slug: "webcamsex-ebony",
+  "ebony-cam-girls-live": {
+    slug: "ebony-cam-girls-live",
     label: "Ebony",
     emoji: "🖤",
     title: "Webcamsex Ebony — Zwarte Cam Girls Live | StartVagina",
@@ -228,8 +228,8 @@ De ebony-categorie biedt een verfrissende diversiteit in de cam-wereld. Op Start
     matchTags: ["ebony", "black"],
   },
 
-  "webcamsex-grote-borsten": {
-    slug: "webcamsex-grote-borsten",
+  "cam-girls-grote-borsten": {
+    slug: "cam-girls-grote-borsten",
     label: "Big Boobs",
     emoji: "🍈",
     title: "Webcamsex Grote Borsten — Big Boobs Cam Girls | StartVagina",
@@ -255,8 +255,8 @@ Op StartVagina filter je met één klik op de Big Boobs categorie en zie je alle
     matchTags: ["big boobs", "big tits", "bigboobs", "bigtits", "busty", "huge boobs"],
   },
 
-  "webcamsex-kleine-borsten": {
-    slug: "webcamsex-kleine-borsten",
+  "petite-cam-girls-kleine-borsten": {
+    slug: "petite-cam-girls-kleine-borsten",
     label: "Small Tits",
     emoji: "🌷",
     title: "Webcamsex Kleine Borsten — Petite Cam Girls | StartVagina",
@@ -282,8 +282,8 @@ Op StartVagina filter je direct op kleine borsten / petite en zie je alle beschi
     matchTags: ["small tits", "smalltits", "petite", "tiny tits"],
   },
 
-  "webcamsex-anal": {
-    slug: "webcamsex-anal",
+  "anale-cam-shows-live": {
+    slug: "anale-cam-shows-live",
     label: "Anal",
     emoji: "🍑",
     title: "Webcamsex Anal — Anale Cam Shows Live | StartVagina",
@@ -309,8 +309,8 @@ Op StartVagina filter je direct op de anal-categorie en zie je welke modellen nu
     matchTags: ["anal", "ass", "anal play"],
   },
 
-  "webcamsex-koppels": {
-    slug: "webcamsex-koppels",
+  "cam-koppels-live-sex": {
+    slug: "cam-koppels-live-sex",
     label: "Koppels",
     emoji: "💑",
     title: "Webcamsex Koppels — Live Cam Koppels | StartVagina",
@@ -337,8 +337,8 @@ Op CAM4 vind je opvallend veel **Nederlandse en Belgische koppels** die samen li
     matchGender: ["couple", "c"],
   },
 
-  "webcamsex-squirt": {
-    slug: "webcamsex-squirt",
+  "squirt-cam-shows-live": {
+    slug: "squirt-cam-shows-live",
     label: "Squirt",
     emoji: "💦",
     title: "Webcamsex Squirt — Squirting Cam Shows Live | StartVagina",
@@ -364,8 +364,8 @@ Op StartVagina filter je direct op de squirt-categorie en ontdek je welke modell
     matchTags: ["squirt", "squirting"],
   },
 
-  "webcamsex-bdsm": {
-    slug: "webcamsex-bdsm",
+  "bdsm-bondage-cam-shows": {
+    slug: "bdsm-bondage-cam-shows",
     label: "BDSM",
     emoji: "⛓️",
     title: "Webcamsex BDSM — Bondage & Fetish Cams Live | StartVagina",
@@ -391,8 +391,8 @@ Stripchat heeft een uitgebreide BDSM-sectie met gespecialiseerde filters. Chatur
     matchTags: ["bdsm", "bondage", "domination", "fetish"],
   },
 
-  "webcamsex-tattoo": {
-    slug: "webcamsex-tattoo",
+  "getatoeeerde-cam-girls": {
+    slug: "getatoeeerde-cam-girls",
     label: "Tattoo",
     emoji: "🎨",
     title: "Webcamsex Tattoo — Getatoeëerde Cam Girls Live | StartVagina",
@@ -418,8 +418,8 @@ Van goth-achtige full sleeve modellen tot elegante vrouwen met subtiele ink — 
     matchTags: ["tattoo", "tattoos", "tattooed", "inked"],
   },
 
-  "webcamsex-hairy": {
-    slug: "webcamsex-hairy",
+  "behaarde-cam-girls-natural": {
+    slug: "behaarde-cam-girls-natural",
     label: "Hairy",
     emoji: "🌿",
     title: "Webcamsex Hairy — Behaarde Cam Girls Live | StartVagina",
@@ -445,8 +445,8 @@ Op StartVagina filter je op de hairy-tag en ontdek je alle live behaarde cam mod
     matchTags: ["hairy", "hairy pussy", "hairypussy"],
   },
 
-  "webcamsex-voeten": {
-    slug: "webcamsex-voeten",
+  "voeten-fetish-cam-shows": {
+    slug: "voeten-fetish-cam-shows",
     label: "Feet",
     emoji: "🦶",
     title: "Webcamsex Voeten — Foot Fetish Cam Shows | StartVagina",
@@ -472,8 +472,8 @@ Foot fetish is op Chaturbate en Stripchat een van de meest gebruikte tags. Op St
     matchTags: ["feet", "foot", "foot fetish", "footjob"],
   },
 
-  "webcamsex-outdoor": {
-    slug: "webcamsex-outdoor",
+  "outdoor-cam-shows-buiten": {
+    slug: "outdoor-cam-shows-buiten",
     label: "Outdoor",
     emoji: "🌳",
     title: "Webcamsex Outdoor — Buiten Cam Shows Live | StartVagina",
@@ -499,8 +499,8 @@ Let op: outdoor cams zijn afhankelijk van weer en seizoen. In de zomer is het aa
     matchTags: ["outdoor", "outside", "public", "exhib", "voyeur", "garden", "pool", "beach", "balcon"],
   },
 
-  "webcamsex-mobiel": {
-    slug: "webcamsex-mobiel",
+  "mobiele-cam-shows-live": {
+    slug: "mobiele-cam-shows-live",
     label: "Mobiel",
     emoji: "📱",
     title: "Mobiele Webcamsex — Cam Girls op Telefoon | StartVagina",

@@ -122,10 +122,10 @@ const Languages = () => {
           <meta name="robots" content={getRobotsContent(lang)} />
           <meta property="og:title" content={t.languagesTitle} />
           <meta property="og:description" content={t.languagesDescription} />
-          <meta property="og:url" content="https://www.startvagina.nl/languages" />
+          <meta property="og:url" content="https://www.startvagina.nl/talen" />
           <meta property="og:type" content="website" />
           <meta property="og:site_name" content="StartVagina" />
-          <link rel="canonical" href={`https://www.startvagina.nl${langPrefix}/languages`} />
+          <link rel="canonical" href={`https://www.startvagina.nl${langPrefix}/talen`} />
         </Helmet>
 
         <Header />

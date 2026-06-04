@@ -27,7 +27,7 @@ function cat(slug: string, emoji: string, matchTags: string[], langs: CatLang, e
 
 export const categoryPages: Record<string, Record<Language, CategoryConfig>> = {
 
-"webcamsex-teen-18-plus": cat("webcamsex-teen-18-plus", "🔞", ["teen", "18", "young", "18+", "teenager"], {
+"jonge-cam-girls-18-plus": cat("jonge-cam-girls-18-plus", "🔞", ["teen", "18", "young", "18+", "teenager"], {
   nl: { label: "Teen (18+)", title: "Webcamsex Teen 18+ — Jonge Cam Girls Live | StartVagina", h1: "Webcamsex Teen 18+ — Jonge Cam Girls Live", description: "Bekijk jonge cam girls van 18+ live op webcam. Gratis teen webcamsex met de mooiste jonge modellen.", keywords: "teen webcamsex, 18+ cam girls, jonge cam girls",
     content: `Op zoek naar jonge cam girls van 18 en ouder? Op StartVagina vind je de mooiste **teen cam modellen** die live online zijn.\n\n**Wat je kunt verwachten:**\n- **Verse modellen**: veel 18+ cam girls zijn nieuw op het platform\n- **Alle platforms**: Chaturbate, Stripchat, BongaCams, CAM4 en XCams\n- **Gratis kijken**: alle openbare shows zonder registratie\n- **Dagelijks nieuw**: elke dag nieuwe jonge modellen\n\nLet op: alle modellen op StartVagina zijn 18 jaar of ouder.`,
     faq: [{ q: "Zijn alle modellen echt 18+?", a: "Ja, alle cam platforms vereisen strikte leeftijdsverificatie met officiële documenten." }, { q: "Hoe vind ik de jongste cam modellen?", a: "Filter op de teen-categorie of gebruik het 'New Cams' filter voor modellen die net begonnen zijn." }] },
@@ -48,7 +48,7 @@ export const categoryPages: Record<string, Record<Language, CategoryConfig>> = {
     faq: [{ q: "Tutte le modelle hanno davvero 18+?", a: "Sì, tutte le piattaforme richiedono una verifica dell'età rigorosa con documenti ufficiali." }, { q: "Come trovo le modelle più giovani?", a: "Filtra per la categoria teen o usa il filtro 'New Cams'." }] },
 }),
 
-"webcamsex-milf": cat("webcamsex-milf", "💋", ["milf"], {
+"milf-webcamsex-ervaren-vrouwen": cat("milf-webcamsex-ervaren-vrouwen", "💋", ["milf"], {
   nl: { label: "MILF", title: "Webcamsex MILF — Ervaren Vrouwen Live op Cam | StartVagina", h1: "Webcamsex MILF — Ervaren Vrouwen Live", description: "MILF webcamsex met ervaren vrouwen live op cam. Bekijk de mooiste MILF cam modellen gratis.", keywords: "milf webcamsex, milf cam, milf live",
     content: `MILF webcamsex is een van de meest gezochte categorieën. **Ervaren vrouwen** die precies weten wat ze doen, zelfverzekerd voor de camera staan.\n\n**Waarom MILF cams zo populair zijn:**\n- **Ervaring**: MILF modellen weten hoe ze een show opbouwen\n- **Zelfvertrouwen**: comfortabel in hun eigen huid\n- **Interactie**: betere conversatie-partners die de tijd nemen\n- **Variatie**: van classy tot wild\n- **Trouwe kijkers**: loyale fanbase die terugkomt`,
     faq: [{ q: "Wat betekent MILF in webcamsex?", a: "MILF verwijst naar volwassen vrouwen, meestal 30+, die webcamsex aanbieden." }, { q: "Op welk platform vind ik de meeste MILF modellen?", a: "Chaturbate en Stripchat hebben het grootste aanbod. Via StartVagina vergelijk je alle platforms tegelijk." }] },
@@ -69,7 +69,7 @@ export const categoryPages: Record<string, Record<Language, CategoryConfig>> = {
     faq: [{ q: "Cosa significa MILF nel webcam sex?", a: "MILF si riferisce a donne mature, solitamente 30+, che offrono webcam sex." }, { q: "Dove trovo più modelle MILF?", a: "Chaturbate e Stripchat hanno la più grande selezione. Tramite StartVagina confronti tutte le piattaforme." }] },
 }),
 
-"webcamsex-mature": cat("webcamsex-mature", "👩‍🦳", ["mature", "granny", "older"], {
+"mature-webcamsex-oudere-vrouwen": cat("mature-webcamsex-oudere-vrouwen", "👩‍🦳", ["mature", "granny", "older"], {
   nl: { label: "Mature", title: "Webcamsex Mature — Oudere Vrouwen Live | StartVagina", h1: "Webcamsex Mature — Oudere Vrouwen Live", description: "Mature webcamsex met oudere vrouwen live op cam. Gratis webcam shows van mature modellen.", keywords: "mature webcamsex, mature cam, oudere vrouwen",
     content: `Mature webcamsex draait om vrouwen die de 40, 50 of zelfs 60 gepasseerd zijn. Deze **oudere cam modellen** bewijzen dat sensualiteit geen leeftijdsgrens kent.\n\n**Wat mature cams bijzonder maakt:**\n- **Levenservaring**: ontspannen, onbevangen houding\n- **Echtheid**: geen filters, geen trucjes\n- **Persoonlijk contact**: nemen de tijd voor kijkers\n- **Nichepubliek**: kleine maar zeer loyale groep kijkers`,
     faq: [{ q: "Wat is het verschil tussen MILF en Mature?", a: "MILF verwijst meestal naar vrouwen van 30-45 jaar, terwijl Mature modellen over het algemeen 45+ zijn." }, { q: "Zijn er veel mature cam modellen online?", a: "Het aanbod is kleiner maar er zijn altijd tientallen mature modellen live." }] },
@@ -90,7 +90,7 @@ export const categoryPages: Record<string, Record<Language, CategoryConfig>> = {
     faq: [{ q: "Qual è la differenza tra MILF e Mature?", a: "MILF si riferisce di solito a donne di 30-45 anni, mentre Mature riguarda le 45+." }, { q: "Ci sono molte modelle mature online?", a: "L'offerta è più piccola ma ci sono sempre decine di modelle mature in diretta." }] },
 }),
 
-"webcamsex-asian": cat("webcamsex-asian", "🌸", ["asian", "asiatic"], {
+"aziatische-cam-girls-live": cat("aziatische-cam-girls-live", "🌸", ["asian", "asiatic"], {
   nl: { label: "Aziatisch", title: "Webcamsex Asian — Aziatische Cam Girls Live | StartVagina", h1: "Webcamsex Asian — Aziatische Cam Girls", description: "Aziatische cam girls live op webcam. Gratis Asian webcamsex met modellen uit Japan, Korea, Thailand en meer.", keywords: "asian webcamsex, aziatische cam girls",
     content: `Aziatische cam girls behoren tot de meest populaire modellen. Van **Japanse** schoonheden tot modellen uit **Thailand** en de **Filipijnen** — de diversiteit is enorm.\n\n**Waarom Asian cams zo geliefd zijn:**\n- **Diversiteit**: heel verschillende looks en culturen\n- **Speels en creatief**: cosplay, roleplay en kawaii-elementen\n- **Grote aanwezigheid op Stripchat**\n- **Tijdsverschil voordeel**: overdag veel Aziatische modellen online`,
     faq: [{ q: "Op welk platform vind ik de meeste Aziatische cam girls?", a: "Stripchat heeft het grootste aanbod met uitgebreide filters." }, { q: "Wanneer zijn Aziatische cam modellen online?", a: "Veel zijn online tussen 06:00 en 18:00 CET door het tijdsverschil." }] },
@@ -111,7 +111,7 @@ export const categoryPages: Record<string, Record<Language, CategoryConfig>> = {
     faq: [{ q: "Dove trovo più cam girl asiatiche?", a: "Stripchat ha la più grande selezione con filtri estesi." }, { q: "Quando sono online le modelle asiatiche?", a: "Molte sono online tra le 06:00 e le 18:00 CET per il fuso orario." }] },
 }),
 
-"webcamsex-latina": cat("webcamsex-latina", "🌶️", ["latina", "latino", "latin"], {
+"latina-cam-girls-live": cat("latina-cam-girls-live", "🌶️", ["latina", "latino", "latin"], {
   nl: { label: "Latina", title: "Webcamsex Latina — Latijnse Cam Girls Live | StartVagina", h1: "Webcamsex Latina — Latijnse Cam Girls", description: "Latina cam girls live op webcam. Gratis webcamsex met Colombiaanse, Braziliaanse en Mexicaanse modellen.", keywords: "latina webcamsex, latina cam girls",
     content: `Latina cam girls brengen **vuur, passie en temperament**. Colombia, Brazilië, Mexico — een ongelooflijke stroom aan prachtige modellen.\n\n**Wat Latina cams zo heet maakt:**\n- **Passie en energie**: spontaniteit en aanstekelijke energie\n- **Colombia is cam-hoofdstad**: duizenden Colombiaanse vrouwen streamen dagelijks\n- **Curves en zelfvertrouwen**\n- **Betaalbaar tippen**: extra interactieve shows`,
     faq: [{ q: "Uit welke landen komen de meeste Latina cam girls?", a: "Colombia levert verreweg de meeste, gevolgd door Brazilië, Mexico en Venezuela." }, { q: "Spreken Latina cam girls Engels?", a: "Steeds meer spreken goed Engels. Veel gebruiken ook vertaaltools." }] },
@@ -132,7 +132,7 @@ export const categoryPages: Record<string, Record<Language, CategoryConfig>> = {
     faq: [{ q: "Da quali paesi vengono più cam girl latine?", a: "La Colombia di gran lunga, seguita da Brasile, Messico e Venezuela." }, { q: "Le cam girl latine parlano inglese?", a: "Sempre più sì. Molte usano anche strumenti di traduzione." }] },
 }),
 
-"webcamsex-ebony": cat("webcamsex-ebony", "🖤", ["ebony", "black"], {
+"ebony-cam-girls-live": cat("ebony-cam-girls-live", "🖤", ["ebony", "black"], {
   nl: { label: "Ebony", title: "Webcamsex Ebony — Zwarte Cam Girls Live | StartVagina", h1: "Webcamsex Ebony — Zwarte Cam Girls Live", description: "Ebony cam girls live op webcam. Gratis webcamsex met mooie zwarte modellen.", keywords: "ebony webcamsex, ebony cam girls, zwarte cam girls",
     content: `Ebony webcamsex is een categorie die steeds populairder wordt. **Zwarte cam modellen** brengen een unieke mix van schoonheid, zelfvertrouwen en energie.\n\n**Wat Ebony cams bijzonder maakt:**\n- **Body positivity**: vieren hun lichaam in alle vormen\n- **Energieke shows**: van sensual tot high-energy dans\n- **Sterke community**: trouwe, betrokken fanbase\n- **Groeiend aanbod**: steeds meer modellen`,
     faq: [{ q: "Op welk platform vind ik de meeste ebony cam girls?", a: "Chaturbate en Stripchat hebben het grootste aanbod." }, { q: "Wat betekent ebony in webcamsex?", a: "Ebony is de gangbare term voor zwarte/donkere cam modellen." }] },
@@ -153,7 +153,7 @@ export const categoryPages: Record<string, Record<Language, CategoryConfig>> = {
     faq: [{ q: "Dove trovo più cam girl ebony?", a: "Chaturbate e Stripchat hanno la più grande selezione." }, { q: "Cosa significa ebony?", a: "Ebony è il termine standard per le modelle cam nere." }] },
 }),
 
-"webcamsex-grote-borsten": cat("webcamsex-grote-borsten", "🍈", ["big boobs", "big tits", "bigboobs", "bigtits", "busty", "huge boobs"], {
+"cam-girls-grote-borsten": cat("cam-girls-grote-borsten", "🍈", ["big boobs", "big tits", "bigboobs", "bigtits", "busty", "huge boobs"], {
   nl: { label: "Big Boobs", title: "Webcamsex Grote Borsten — Big Boobs Cam Girls | StartVagina", h1: "Webcamsex Grote Borsten — Big Boobs Cam Girls", description: "Cam girls met grote borsten live op webcam. Gratis big boobs webcamsex.", keywords: "grote borsten webcamsex, big boobs cam, busty cam girls",
     content: `Grote borsten zijn de **meest gezochte categorie** in webcamsex — wereldwijd.\n\n**Waarom big boobs cams #1 zijn:**\n- **Universele aantrekkingskracht**: populairste zoekwoord op alle platforms\n- **Enorm aanbod**: honderden busty modellen tegelijk online\n- **Variatie**: van natuurlijke DD+ tot enhanced\n- **Alle leeftijden**: van 18+ tot ervaren MILF's`,
     faq: [{ q: "Hoe filter ik op borst-grootte?", a: "Filter op de Big Boobs categorie. Op Stripchat kun je ook filteren op specifieke lichaamskenmerken." }, { q: "Zijn de grote borsten echt?", a: "Dat varieert per model. Veel hebben natuurlijke grote borsten, anderen zijn enhanced." }] },
@@ -174,7 +174,7 @@ export const categoryPages: Record<string, Record<Language, CategoryConfig>> = {
     faq: [{ q: "Come filtro per dimensione del seno?", a: "Filtra per la categoria Big Boobs. Su Stripchat puoi anche filtrare per caratteristiche fisiche." }, { q: "Le tette grandi sono vere?", a: "Varia per modella. Molte hanno seni grandi naturali, altre migliorati." }] },
 }),
 
-"webcamsex-kleine-borsten": cat("webcamsex-kleine-borsten", "🌷", ["small tits", "smalltits", "petite", "tiny tits"], {
+"petite-cam-girls-kleine-borsten": cat("petite-cam-girls-kleine-borsten", "🌷", ["small tits", "smalltits", "petite", "tiny tits"], {
   nl: { label: "Petite", title: "Webcamsex Kleine Borsten — Petite Cam Girls | StartVagina", h1: "Webcamsex Kleine Borsten — Petite Cam Girls", description: "Petite cam girls met kleine borsten live op webcam. Gratis small tits webcamsex.", keywords: "kleine borsten webcamsex, petite cam girls",
     content: `De petite categorie heeft een trouwe fanbase. **Cam girls met kleine borsten** brengen een elegante, natuurlijke uitstraling.\n\n**De charme van petite cams:**\n- **Natuurlijke schoonheid**: geen implants\n- **Slank en atletisch**: sportieve body\n- **Creatieve shows**: meer nadruk op persoonlijkheid\n- **Trouwe fanbase**: zeer loyale kijkers`,
     faq: [{ q: "Zijn er veel petite cam modellen online?", a: "Ja! Petite is populair. Er zijn altijd honderden small tits modellen online." }, { q: "Wat betekent petite?", a: "Petite verwijst naar slanke cam modellen met een klein postuur en kleine borsten." }] },
@@ -195,7 +195,7 @@ export const categoryPages: Record<string, Record<Language, CategoryConfig>> = {
     faq: [{ q: "Ci sono molte modelle petite online?", a: "Sì! Petite è popolare. Ci sono sempre centinaia di modelle small tits online." }, { q: "Cosa significa petite?", a: "Petite si riferisce a modelle cam magre con statura piccola e seni piccoli." }] },
 }),
 
-"webcamsex-anal": cat("webcamsex-anal", "🍑", ["anal", "ass", "anal play"], {
+"anale-cam-shows-live": cat("anale-cam-shows-live", "🍑", ["anal", "ass", "anal play"], {
   nl: { label: "Anal", title: "Webcamsex Anal — Anale Cam Shows Live | StartVagina", h1: "Webcamsex Anal — Live Anale Shows", description: "Anal webcamsex met cam girls die live anale shows doen. Gratis anal cam shows.", keywords: "anal webcamsex, anal cam, anale webcam",
     content: `Anal webcamsex is een van de snelst groeiende categorieën.\n\n**Wat je kunt verwachten:**\n- **Interactieve tip-shows**: anale acties bij een tip-doel\n- **Connected toys**: anale toys die reageren op tips\n- **Van softcore tot hardcore**\n- **Gratis in openbare shows**\n- **Alle platforms**: uitgebreide anal-categorie`,
     faq: [{ q: "Zijn anale shows gratis?", a: "Veel modellen doen anale acties in gratis openbare shows, vaak gekoppeld aan een tip-doel." }, { q: "Op welk platform vind ik de meeste anal cam shows?", a: "Chaturbate en Stripchat hebben de grootste selectie." }] },
@@ -216,7 +216,7 @@ export const categoryPages: Record<string, Record<Language, CategoryConfig>> = {
     faq: [{ q: "Gli show anali sono gratis?", a: "Molte modelle fanno azioni anali negli show pubblici gratis, spesso legati a un obiettivo di mance." }, { q: "Dove trovo più show cam anali?", a: "Chaturbate e Stripchat hanno la più grande selezione." }] },
 }),
 
-"webcamsex-koppels": cat("webcamsex-koppels", "💑", [], {
+"cam-koppels-live-sex": cat("cam-koppels-live-sex", "💑", [], {
   nl: { label: "Koppels", title: "Webcamsex Koppels — Live Cam Koppels | StartVagina", h1: "Webcamsex Koppels — Koppels Live op Cam", description: "Koppels webcamsex live bekijken. Gratis cam shows van echte koppels.", keywords: "koppels webcamsex, couples cam, koppel cam",
     content: `Koppels webcamsex is een unieke ervaring. **Echte stellen** die samen voor de camera gaan.\n\n**Waarom koppel-cams zo populair zijn:**\n- **Echte chemie**: geen acteurs, geen scripts\n- **CAM4 is koppel-koning**: grootste aanbod cam koppels\n- **Interactief**: kijkers beslissen mee via tips\n- **Voyeur-ervaring**: spannend meekijken`,
     faq: [{ q: "Op welk platform vind ik de meeste cam koppels?", a: "CAM4 is verreweg het populairst voor koppels. Chaturbate en Stripchat hebben ook een groot aanbod." }, { q: "Zijn koppel-shows gratis?", a: "Ja, de meeste koppel-shows zijn gratis in de openbare room." }] },
@@ -237,7 +237,7 @@ export const categoryPages: Record<string, Record<Language, CategoryConfig>> = {
     faq: [{ q: "Dove trovo più coppie cam?", a: "CAM4 è di gran lunga il più popolare per le coppie. Chaturbate e Stripchat anche." }, { q: "Gli show di coppie sono gratis?", a: "Sì, la maggior parte degli show di coppie sono gratis nella room pubblica." }] },
 }, { matchGender: ["couple", "c"] }),
 
-"webcamsex-squirt": cat("webcamsex-squirt", "💦", ["squirt", "squirting"], {
+"squirt-cam-shows-live": cat("squirt-cam-shows-live", "💦", ["squirt", "squirting"], {
   nl: { label: "Squirt", title: "Webcamsex Squirt — Squirting Cam Shows Live | StartVagina", h1: "Webcamsex Squirt — Live Squirting Shows", description: "Squirt webcamsex met cam girls die live squirten. Gratis squirting cam shows.", keywords: "squirt webcamsex, squirting cam",
     content: `Squirting shows zijn de **meest spectaculaire** momenten in webcamsex.\n\n**Wat squirt cams bijzonder maakt:**\n- **Het ultieme hoogtepunt**: meest visuele orgasme op cam\n- **Tip-driven shows**: samen naar het moment toewerken\n- **Connected toys**: Lovense vibrators die reageren op tips\n- **Echtheid**: live en ongeregisseerd`,
     faq: [{ q: "Is squirting op cam echt?", a: "Ja, squirting op live cam is echt. De shows zijn onbewerkt en live." }, { q: "Hoe weet ik wanneer een model gaat squirten?", a: "De meeste werken met een tip-doel. Als het doel bereikt is, start de finale." }] },
@@ -258,7 +258,7 @@ export const categoryPages: Record<string, Record<Language, CategoryConfig>> = {
     faq: [{ q: "Lo squirting su cam è reale?", a: "Sì, lo squirting in diretta è reale. Gli show sono non editati e dal vivo." }, { q: "Come so quando una modella squirterà?", a: "La maggior parte lavora con un obiettivo di mance. Quando raggiunto, inizia il finale." }] },
 }),
 
-"webcamsex-bdsm": cat("webcamsex-bdsm", "⛓️", ["bdsm", "bondage", "domination", "fetish"], {
+"bdsm-bondage-cam-shows": cat("bdsm-bondage-cam-shows", "⛓️", ["bdsm", "bondage", "domination", "fetish"], {
   nl: { label: "BDSM", title: "Webcamsex BDSM — Bondage & Fetish Cams | StartVagina", h1: "Webcamsex BDSM — Bondage & Fetish Shows", description: "BDSM webcamsex met dominante en submissive cam modellen. Bondage, fetish en domination shows live.", keywords: "bdsm webcamsex, bondage cam, fetish cam",
     content: `BDSM webcamsex opent een wereld van **bondage, dominantie, submissie en fetish**.\n\n**Het BDSM cam-landschap:**\n- **Domination**: ervaren dominatrixen die controle nemen\n- **Bondage**: vastbinden met touw, leer of handboeien\n- **Fetish-variatie**: voeten, leer, latex, roleplay en meer\n- **Veilige verkenning**: fantasieën verkennen vanuit je scherm`,
     faq: [{ q: "Is BDSM webcamsex veilig?", a: "Ja, je kijkt vanaf je scherm. Er is geen fysiek contact." }, { q: "Waar vind ik de beste BDSM cam shows?", a: "Stripchat heeft een uitgebreide BDSM-categorie. Chaturbate biedt de meeste variatie." }] },
@@ -279,7 +279,7 @@ export const categoryPages: Record<string, Record<Language, CategoryConfig>> = {
     faq: [{ q: "Il webcam sex BDSM è sicuro?", a: "Sì, stai guardando dal tuo schermo. Nessun contatto fisico." }, { q: "Dove trovare i migliori show BDSM?", a: "Stripchat ha un'ampia categoria BDSM. Chaturbate offre più varietà." }] },
 }),
 
-"webcamsex-tattoo": cat("webcamsex-tattoo", "🎨", ["tattoo", "tattoos", "tattooed", "inked"], {
+"getatoeeerde-cam-girls": cat("getatoeeerde-cam-girls", "🎨", ["tattoo", "tattoos", "tattooed", "inked"], {
   nl: { label: "Tattoo", title: "Webcamsex Tattoo — Getatoeëerde Cam Girls | StartVagina", h1: "Webcamsex Tattoo — Getatoeëerde Cam Girls", description: "Getatoeëerde cam girls live op webcam. Body art meets webcamsex.", keywords: "tattoo webcamsex, getatoeeerde cam girls",
     content: `**Getatoeëerde cam girls** combineren body art met sensualiteit.\n\n**Waarom tattoo cams aanspreken:**\n- **Visueel aantrekkelijk**: extra laag van schoonheid\n- **Alternatieve uitstraling**: edgy look\n- **Body confidence**: enorm zelfvertrouwen\n- **Groeiende trend**: steeds meer geïnkte modellen`,
     faq: [{ q: "Zijn er veel getatoeëerde cam modellen?", a: "Ja, op Chaturbate en Stripchat vind je op elk moment honderden." }, { q: "Op welk platform vind ik de meeste?", a: "Chaturbate het grootste aanbod, Stripchat de beste filters." }] },
@@ -300,7 +300,7 @@ export const categoryPages: Record<string, Record<Language, CategoryConfig>> = {
     faq: [{ q: "Ci sono molte modelle tatuate?", a: "Sì, su Chaturbate e Stripchat ne trovi centinaia in ogni momento." }, { q: "Quale piattaforma ne ha di più?", a: "Chaturbate la più grande selezione, Stripchat i migliori filtri." }] },
 }),
 
-"webcamsex-hairy": cat("webcamsex-hairy", "🌿", ["hairy", "hairy pussy", "hairypussy"], {
+"behaarde-cam-girls-natural": cat("behaarde-cam-girls-natural", "🌿", ["hairy", "hairy pussy", "hairypussy"], {
   nl: { label: "Hairy", title: "Webcamsex Hairy — Behaarde Cam Girls | StartVagina", h1: "Webcamsex Hairy — Natuurlijk Behaarde Cam Girls", description: "Hairy cam girls live op webcam. Gratis webcamsex met natuurlijk behaarde modellen.", keywords: "hairy webcamsex, hairy cam girls, behaarde cam",
     content: `De hairy-categorie viert de **natuurlijke vrouw** — ongeschoren en prachtig.\n\n**De appeal van hairy cams:**\n- **Natuurlijk en echt**: bewuste keuze voor natural look\n- **Retro-charme**: nostalgische esthetiek\n- **Trouwe niche**: enorm loyale kijkers\n- **Groeiende acceptatie**: body positivity-beweging`,
     faq: [{ q: "Zijn er veel hairy cam modellen?", a: "Het is een niche maar er zijn altijd tientallen hairy cam girls online." }, { q: "Waarom is hairy webcamsex populair?", a: "Steeds meer mensen waarderen de natuurlijke look dankzij de body positivity-beweging." }] },
@@ -321,7 +321,7 @@ export const categoryPages: Record<string, Record<Language, CategoryConfig>> = {
     faq: [{ q: "Ci sono molte modelle pelose?", a: "È una nicchia ma ci sono sempre decine di cam girl pelose online." }, { q: "Perché il webcam sex pelosa è popolare?", a: "Sempre più persone apprezzano il look naturale grazie al movimento body positivity." }] },
 }),
 
-"webcamsex-voeten": cat("webcamsex-voeten", "🦶", ["feet", "foot", "foot fetish", "footjob"], {
+"voeten-fetish-cam-shows": cat("voeten-fetish-cam-shows", "🦶", ["feet", "foot", "foot fetish", "footjob"], {
   nl: { label: "Feet", title: "Webcamsex Voeten — Foot Fetish Cam Shows | StartVagina", h1: "Webcamsex Voeten — Foot Fetish Shows Live", description: "Foot fetish webcamsex met cam girls die hun voeten tonen. Gratis voeten cam shows.", keywords: "voeten webcamsex, foot fetish cam",
     content: `Foot fetish is een van de **meest voorkomende fetishes** ter wereld.\n\n**Wat foot fetish cams bieden:**\n- **Foot worship**: voeten tonen, masseren en verwennen\n- **Close-up camera's**: gedetailleerde close-ups\n- **Hoge hakken en nylons**: blote voeten tot stiletto's\n- **Interactief**: kijkers kiezen wat er gebeurt`,
     faq: [{ q: "Is foot fetish populair?", a: "Ja, feet/voeten is een van de meest gezochte categorieën op alle platforms." }, { q: "Welke cam sites zijn het best?", a: "Chaturbate en Stripchat hebben het grootste aanbod." }] },
@@ -342,7 +342,7 @@ export const categoryPages: Record<string, Record<Language, CategoryConfig>> = {
     faq: [{ q: "Il feticismo dei piedi è popolare?", a: "Sì, i piedi sono una delle categorie più cercate su tutte le piattaforme." }, { q: "Quali piattaforme sono le migliori?", a: "Chaturbate e Stripchat hanno la più grande selezione." }] },
 }),
 
-"webcamsex-outdoor": cat("webcamsex-outdoor", "🌳", ["outdoor", "outside", "public", "exhib", "voyeur", "garden", "pool", "beach", "balcon"], {
+"outdoor-cam-shows-buiten": cat("outdoor-cam-shows-buiten", "🌳", ["outdoor", "outside", "public", "exhib", "voyeur", "garden", "pool", "beach", "balcon"], {
   nl: { label: "Outdoor", title: "Webcamsex Outdoor — Buiten Cam Shows | StartVagina", h1: "Webcamsex Outdoor — Live Buiten Shows", description: "Outdoor webcamsex met cam girls die buiten streamen. Gratis buitensex cam shows.", keywords: "outdoor webcamsex, buiten cam",
     content: `Outdoor webcamsex brengt de opwinding van **exhibitionisme** naar je scherm.\n\n**De thrill van outdoor cams:**\n- **Exhibitionisme**: spanning van buiten naakt zijn\n- **Natuurlijk licht**: unieke belichting\n- **Seizoensgebonden**: in zomer het meeste aanbod\n- **Locatie-variatie**: tuinen, balkons, zwembaden, stranden`,
     faq: [{ q: "Wanneer zijn de meeste outdoor shows?", a: "In de Europese zomermaanden (juni-september) is het aanbod het grootst." }, { q: "Is outdoor cammen legaal?", a: "De meeste outdoor shows vinden plaats in privé-tuinen, op balkons of bij privé-zwembaden." }] },
@@ -363,7 +363,7 @@ export const categoryPages: Record<string, Record<Language, CategoryConfig>> = {
     faq: [{ q: "Quando ci sono più show all'aperto?", a: "Nell'estate europea (giugno-settembre) la selezione è maggiore." }, { q: "Il camming all'aperto è legale?", a: "La maggior parte degli show si svolge in giardini privati, su balconi o a piscine private." }] },
 }),
 
-"webcamsex-mobiel": cat("webcamsex-mobiel", "📱", ["mobile"], {
+"mobiele-cam-shows-live": cat("mobiele-cam-shows-live", "📱", ["mobile"], {
   nl: { label: "Mobiel", title: "Mobiele Webcamsex — Cam Girls op Telefoon | StartVagina", h1: "Mobiele Webcamsex — Cam Girls op de Telefoon", description: "Mobiele webcamsex met cam girls die streamen vanaf hun telefoon.", keywords: "mobiele webcamsex, mobile cam",
     content: `Mobiele cams zijn een **groeiend fenomeen**. Steeds meer modellen streamen vanaf hun smartphone.\n\n**Wat mobile cams anders maakt:**\n- **Spontaniteit**: live gaan vanuit bed, badkamer, onderweg\n- **Intimiteit**: persoonlijk, bijna privé gevoel\n- **Beweging**: niet gebonden aan bureau\n- **Lage drempel**: veel nieuwe modellen beginnen mobiel`,
     faq: [{ q: "Wat is het verschil tussen mobiele en reguliere shows?", a: "Mobiele shows worden gestreamd vanaf een smartphone. De spontaniteit en intimiteit zijn groter." }, { q: "Kan ik webcamsex kijken op mijn mobiel?", a: "Ja! Alle platforms en StartVagina werken volledig op mobiel." }] },

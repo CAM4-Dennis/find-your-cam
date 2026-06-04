@@ -63,10 +63,10 @@ const Countries = () => {
           <meta name="robots" content={getRobotsContent(lang)} />
           <meta property="og:title" content={t.countriesTitle} />
           <meta property="og:description" content={t.countriesDescription} />
-          <meta property="og:url" content="https://www.startvagina.nl/countries" />
+          <meta property="og:url" content="https://www.startvagina.nl/landen" />
           <meta property="og:type" content="website" />
           <meta property="og:site_name" content="StartVagina" />
-          <link rel="canonical" href={`https://www.startvagina.nl${langPrefix}/countries`} />
+          <link rel="canonical" href={`https://www.startvagina.nl${langPrefix}/landen`} />
         </Helmet>
 
         <Header />
