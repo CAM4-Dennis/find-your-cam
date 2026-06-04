@@ -21,9 +21,9 @@ const langPrefixes = { nl: "", en: "/en", fr: "/fr", de: "/de", es: "/es", it: "
 
 // ─── Nav labels ──────────────────────────────────────────────
 const navLabels = {
-  categories: { nl: "Categorieën", en: "Categories", fr: "Catégories", de: "Kategorien", es: "Categorías", it: "Categorie" },
-  countries: { nl: "Landen", en: "Countries", fr: "Pays", de: "Länder", es: "Países", it: "Paesi" },
-  languages: { nl: "Talen", en: "Languages", fr: "Langues", de: "Sprachen", es: "Idiomas", it: "Lingue" },
+  categorieen: { nl: "Categorieën", en: "Categories", fr: "Catégories", de: "Kategorien", es: "Categorías", it: "Categorie" },
+  landen: { nl: "Landen", en: "Countries", fr: "Pays", de: "Länder", es: "Países", it: "Paesi" },
+  talen: { nl: "Talen", en: "Languages", fr: "Langues", de: "Sprachen", es: "Idiomas", it: "Lingue" },
   newLabel: { nl: "Nieuw", en: "New", fr: "Nouveau", de: "Neu", es: "Nuevo", it: "Nuovo" },
   top: { nl: "Top", en: "Top", fr: "Top", de: "Top", es: "Top", it: "Top" },
   blog: { nl: "Blog", en: "Blog", fr: "Blog", de: "Blog", es: "Blog", it: "Blog" },
@@ -51,11 +51,11 @@ function langLink(lang, path) {
 function buildNav(lang) {
   const prefix = langPrefixes[lang] || "";
   const links = [
-    { href: `${prefix}/categorieen`, label: navLabels.categories[lang] },
-    { href: `${prefix}/landen`, label: navLabels.countries[lang] },
-    { href: `${prefix}/talen`, label: navLabels.languages[lang] },
-    { href: `${prefix}/new`, label: navLabels.newLabel[lang] },
-    { href: `${prefix}/top`, label: navLabels.top[lang] },
+    { href: `${prefix}/categorieen`, label: navLabels.categorieen[lang] },
+    { href: `${prefix}/landen`, label: navLabels.landen[lang] },
+    { href: `${prefix}/talen`, label: navLabels.talen[lang] },
+    { href: `${prefix}/nieuwe-cam-girls`, label: navLabels.newLabel[lang] },
+    { href: `${prefix}/populairste-cam-girls`, label: navLabels.top[lang] },
     { href: `${prefix}/blog`, label: navLabels.blog[lang] },
   ];
   return `<nav aria-label="Main">${links.map(l => `<a href="${l.href || "/"}">${esc(l.label)}</a>`).join(" | ")}</nav>`;
@@ -116,7 +116,7 @@ const homeMeta = {
 
 // Simple pages (categories, countries, languages, new, top, blog)
 const simplePages = {
-  categories: {
+  categorieen: {
     nl: { h1: "Webcamsex Categorieën", desc: "Bekijk alle webcamsex categorieën op StartVagina. Van teen tot mature, MILF tot BDSM, anal tot koppels — ontdek jouw favoriete categorie cam girls van Chaturbate, Stripchat, BongaCams en CAM4. Elke categorie toont live modellen die nu online zijn, zodat je direct kunt meekijken zonder registratie." },
     en: { h1: "Webcam Sex Categories", desc: "Browse all webcam sex categories on StartVagina. From teen to mature, MILF to BDSM, anal to couples — find your favourite category of cam girls from Chaturbate, Stripchat, BongaCams and CAM4. Each category shows live models currently online, so you can start watching instantly without signup." },
     fr: { h1: "Catégories Webcam Sexe", desc: "Parcourez toutes les catégories de webcam sexe sur StartVagina. De teen à mature, MILF à BDSM, anal à couples — trouvez votre catégorie préférée de cam girls de Chaturbate, Stripchat, BongaCams et CAM4. Chaque catégorie affiche les modèles en direct actuellement en ligne." },
@@ -124,7 +124,7 @@ const simplePages = {
     es: { h1: "Categorías Webcam Sexo", desc: "Explora todas las categorías de webcam sexo en StartVagina. De teen a mature, MILF a BDSM, anal a parejas — encuentra tu categoría favorita de cam girls de Chaturbate, Stripchat, BongaCams y CAM4. Cada categoría muestra modelos en vivo actualmente en línea." },
     it: { h1: "Categorie Webcam Sex", desc: "Sfoglia tutte le categorie di webcam sex su StartVagina. Da teen a mature, MILF a BDSM, anale a coppie — trova la tua categoria preferita di cam girl da Chaturbate, Stripchat, BongaCams e CAM4. Ogni categoria mostra modelle dal vivo attualmente online." },
   },
-  countries: {
+  landen: {
     nl: { h1: "Webcamsex per Land", desc: "Ontdek cam girls per land op StartVagina. Bekijk Nederlandse, Belgische, Colombiaanse, Roemeense en meer webcam modellen live op Chaturbate, Stripchat, BongaCams en CAM4. Filter op land en vind modellen uit meer dan 19 landen wereldwijd — gratis en zonder registratie." },
     en: { h1: "Webcam Sex by Country", desc: "Discover cam girls by country on StartVagina. Watch Dutch, Belgian, Colombian, Romanian and more webcam models live on Chaturbate, Stripchat, BongaCams and CAM4. Filter by country and find models from over 19 countries worldwide — free and without registration." },
     fr: { h1: "Webcam Sexe par Pays", desc: "Découvrez des cam girls par pays sur StartVagina. Regardez des modèles néerlandaises, belges, colombiennes, roumaines et plus en direct sur Chaturbate, Stripchat, BongaCams et CAM4. Filtrez par pays et trouvez des modèles de plus de 19 pays." },
@@ -132,7 +132,7 @@ const simplePages = {
     es: { h1: "Webcam Sexo por País", desc: "Descubre cam girls por país en StartVagina. Mira modelos holandesas, belgas, colombianas, rumanas y más en vivo en Chaturbate, Stripchat, BongaCams y CAM4. Filtra por país y encuentra modelos de más de 19 países en todo el mundo." },
     it: { h1: "Webcam Sex per Paese", desc: "Scopri cam girl per paese su StartVagina. Guarda modelle olandesi, belghe, colombiane, rumene e altre dal vivo su Chaturbate, Stripchat, BongaCams e CAM4. Filtra per paese e trova modelle da oltre 19 paesi in tutto il mondo." },
   },
-  languages: {
+  talen: {
     nl: { h1: "Webcamsex per Taal", desc: "Vind cam girls die jouw taal spreken op StartVagina. Geniet van webcamsex in het Nederlands, Engels, Duits, Frans, Spaans, Italiaans en meer. Chat live met modellen die je begrijpen — in meer dan 10 talen beschikbaar, gratis en zonder registratie." },
     en: { h1: "Webcam Sex by Language", desc: "Find cam girls who speak your language on StartVagina. Enjoy webcam sex in English, Dutch, German, French, Spanish, Italian and more. Chat live with models who understand you — available in over 10 languages, free and without registration." },
     fr: { h1: "Webcam Sexe par Langue", desc: "Trouvez des cam girls qui parlent votre langue sur StartVagina. Profitez de webcam sexe en français, anglais, allemand, espagnol et plus. Chattez en direct avec des modèles qui vous comprennent — disponible en plus de 10 langues, gratuit et sans inscription." },
@@ -140,7 +140,7 @@ const simplePages = {
     es: { h1: "Webcam Sexo por Idioma", desc: "Encuentra cam girls que hablan tu idioma en StartVagina. Disfruta de webcam sexo en español, inglés, alemán, francés y más. Chatea en vivo con modelos que te entienden — disponible en más de 10 idiomas, gratis y sin registro." },
     it: { h1: "Webcam Sex per Lingua", desc: "Trova cam girl che parlano la tua lingua su StartVagina. Goditi webcam sex in italiano, inglese, tedesco, francese e più. Chatta dal vivo con modelle che ti capiscono — disponibile in oltre 10 lingue, gratis e senza registrazione." },
   },
-  new: {
+  "nieuwe-cam-girls": {
     nl: { h1: "Nieuwe Webcam Modellen", desc: "Ontdek de nieuwste cam modellen die net begonnen zijn met streamen op StartVagina. Verse gezichten en nieuwe erotische shows van Chaturbate, Stripchat, BongaCams en CAM4 — dagelijks bijgewerkt zodat je altijd de meest recente modellen vindt." },
     en: { h1: "New Webcam Models", desc: "Discover the newest webcam models who just started streaming on StartVagina. Fresh faces and exciting new erotic shows from Chaturbate, Stripchat, BongaCams and CAM4 — updated daily so you always find the most recent models." },
     fr: { h1: "Nouveaux Modèles Webcam", desc: "Découvrez les derniers modèles webcam qui viennent de commencer à streamer sur StartVagina. De nouveaux visages et des shows érotiques passionnants de Chaturbate, Stripchat, BongaCams et CAM4 — mis à jour quotidiennement." },
@@ -148,7 +148,7 @@ const simplePages = {
     es: { h1: "Nuevas Modelos Webcam", desc: "Descubre las modelos webcam más nuevas que acaban de empezar en StartVagina. Caras nuevas y shows eróticos emocionantes de Chaturbate, Stripchat, BongaCams y CAM4 — actualizados diariamente." },
     it: { h1: "Nuove Modelle Webcam", desc: "Scopri le modelle webcam più recenti che hanno appena iniziato su StartVagina. Volti nuovi e show erotici emozionanti da Chaturbate, Stripchat, BongaCams e CAM4 — aggiornati quotidianamente." },
   },
-  top: {
+  "populairste-cam-girls": {
     nl: { h1: "Top Cam Girls", desc: "De populairste en best bekeken cam girls live op webcam op StartVagina. Bekijk het dagelijks bijgewerkte overzicht van de top modellen van Chaturbate, Stripchat, BongaCams en CAM4 — gesorteerd op populariteit en aantal kijkers." },
     en: { h1: "Top Cam Girls", desc: "The most popular and most viewed cam girls live on webcam on StartVagina. Browse the daily updated ranking of top models from Chaturbate, Stripchat, BongaCams and CAM4 — sorted by popularity and viewer count." },
     fr: { h1: "Top Cam Girls", desc: "Les cam girls les plus populaires et les plus regardées en direct sur StartVagina. Parcourez le classement quotidien des top modèles de Chaturbate, Stripchat, BongaCams et CAM4 — triées par popularité et nombre de spectateurs." },
@@ -256,7 +256,7 @@ function processPage(slug, lang, h1, bodyHtml, faq) {
 // Extra paragraphs appended to thin pages for word count
 
 const seoOutro = {
-  categories: {
+  categorieen: {
     nl: "<h2>Waarom webcamsex categorieën gebruiken?</h2><p>Met categorieën vind je sneller precies wat je zoekt. Of je nu fan bent van jonge cam girls (18+), ervaren MILF modellen, exotische Aziatische schoonheden of stoute BDSM shows — elke categorie toont alleen live modellen die op dit moment online zijn. StartVagina doorzoekt automatisch Chaturbate, Stripchat, BongaCams en CAM4 zodat je nooit een show hoeft te missen.</p><p>Populaire categorieën zijn onder andere Teen 18+, MILF, Mature, Asian, Latina, Ebony, Grote Borsten, Anaal en Koppels. Elke categorie heeft een eigen pagina met filters, uitleg en de best bekeken modellen van het moment.</p>",
     en: "<h2>Why use webcam sex categories?</h2><p>Categories help you find exactly what you're looking for faster. Whether you're a fan of young cam girls (18+), experienced MILF models, exotic Asian beauties or naughty BDSM shows — each category shows only live models currently online. StartVagina automatically searches Chaturbate, Stripchat, BongaCams and CAM4 so you never miss a show.</p><p>Popular categories include Teen 18+, MILF, Mature, Asian, Latina, Ebony, Big Boobs, Anal and Couples. Each category has its own page with filters, descriptions and the most-watched models of the moment.</p>",
     fr: "<h2>Pourquoi utiliser les catégories webcam sexe ?</h2><p>Les catégories vous aident à trouver exactement ce que vous cherchez plus rapidement. Que vous soyez fan de jeunes cam girls (18+), de modèles MILF expérimentées, de beautés asiatiques ou de shows BDSM — chaque catégorie affiche uniquement les modèles en direct. StartVagina recherche automatiquement sur Chaturbate, Stripchat, BongaCams et CAM4.</p><p>Les catégories populaires incluent Teen 18+, MILF, Mature, Asian, Latina, Ebony, Gros Seins, Anal et Couples. Chaque catégorie dispose de sa propre page avec filtres et descriptions.</p>",
@@ -264,7 +264,7 @@ const seoOutro = {
     es: "<h2>¿Por qué usar categorías de webcam sexo?</h2><p>Las categorías te ayudan a encontrar exactamente lo que buscas más rápido. Ya seas fan de cam girls jóvenes (18+), modelos MILF experimentadas, bellezas asiáticas o shows BDSM — cada categoría muestra solo modelos en vivo actualmente online. StartVagina busca automáticamente en Chaturbate, Stripchat, BongaCams y CAM4.</p><p>Las categorías populares incluyen Teen 18+, MILF, Mature, Asian, Latina, Ebony, Tetas Grandes, Anal y Parejas.</p>",
     it: "<h2>Perché usare le categorie webcam sex?</h2><p>Le categorie ti aiutano a trovare esattamente quello che cerchi più velocemente. Che tu sia fan di giovani cam girl (18+), modelle MILF esperte, bellezze asiatiche o show BDSM — ogni categoria mostra solo modelle dal vivo attualmente online. StartVagina cerca automaticamente su Chaturbate, Stripchat, BongaCams e CAM4.</p><p>Le categorie popolari includono Teen 18+, MILF, Mature, Asian, Latina, Ebony, Tette Grandi, Anale e Coppie.</p>",
   },
-  countries: {
+  landen: {
     nl: "<h2>Webcam modellen per land ontdekken</h2><p>Op StartVagina kun je cam girls filteren op land van herkomst. Of je nu houdt van Nederlandse en Belgische modellen dichtbij huis, of liever exotische cam girls uit Colombia, Roemenië of de Filipijnen bekijkt — we hebben modellen uit meer dan 19 landen. Elk land heeft een eigen pagina met live modellen die nu online zijn op Chaturbate, Stripchat, BongaCams en CAM4.</p><p>De populairste landen zijn Nederland, België, Colombia, Roemenië, de Verenigde Staten en het Verenigd Koninkrijk. Ontdek modellen met verschillende achtergronden en culturen, allemaal gratis en zonder registratie.</p>",
     en: "<h2>Discover webcam models by country</h2><p>On StartVagina you can filter cam girls by country of origin. Whether you love Dutch and Belgian models close to home, or prefer exotic cam girls from Colombia, Romania or the Philippines — we have models from over 19 countries. Each country has its own page with live models currently online on Chaturbate, Stripchat, BongaCams and CAM4.</p><p>The most popular countries include the Netherlands, Belgium, Colombia, Romania, the United States and the United Kingdom. Discover models with different backgrounds and cultures, all free and without registration.</p>",
     fr: "<h2>Découvrir les modèles webcam par pays</h2><p>Sur StartVagina vous pouvez filtrer les cam girls par pays d'origine. Que vous aimiez les modèles néerlandaises et belges proches de chez vous, ou préfériez les cam girls exotiques de Colombie, de Roumanie ou des Philippines — nous avons des modèles de plus de 19 pays. Chaque pays a sa propre page avec des modèles en direct.</p><p>Les pays les plus populaires incluent les Pays-Bas, la Belgique, la Colombie, la Roumanie, les États-Unis et le Royaume-Uni.</p>",
@@ -272,7 +272,7 @@ const seoOutro = {
     es: "<h2>Descubrir modelos webcam por país</h2><p>En StartVagina puedes filtrar cam girls por país de origen. Ya sea que prefieras modelos holandesas y belgas cerca de casa, o cam girls exóticas de Colombia, Rumanía o Filipinas — tenemos modelos de más de 19 países. Cada país tiene su propia página con modelos en vivo en Chaturbate, Stripchat, BongaCams y CAM4.</p><p>Los países más populares incluyen Países Bajos, Bélgica, Colombia, Rumanía, Estados Unidos y Reino Unido.</p>",
     it: "<h2>Scoprire modelle webcam per paese</h2><p>Su StartVagina puoi filtrare le cam girl per paese di origine. Che tu preferisca modelle olandesi e belghe vicino a casa, o cam girl esotiche dalla Colombia, Romania o Filippine — abbiamo modelle da oltre 19 paesi. Ogni paese ha la sua pagina con modelle dal vivo su Chaturbate, Stripchat, BongaCams e CAM4.</p><p>I paesi più popolari includono Paesi Bassi, Belgio, Colombia, Romania, Stati Uniti e Regno Unito.</p>",
   },
-  languages: {
+  talen: {
     nl: "<h2>Chat met cam girls in jouw taal</h2><p>Taal maakt het verschil bij webcamsex. Op StartVagina kun je cam girls vinden die jouw taal spreken — van Nederlands en Engels tot Duits, Frans, Spaans, Italiaans, Portugees, Russisch, Japans en Koreaans. Chat live met modellen die je echt begrijpen voor een veel persoonlijkere ervaring.</p><p>Elke taalpagina toont live modellen die op dit moment online zijn en die taal spreken. Ideaal als je houdt van dirty talk in je eigen taal of gewoon een gezellig gesprek wilt voeren met een cam model.</p>",
     en: "<h2>Chat with cam girls in your language</h2><p>Language makes all the difference in webcam sex. On StartVagina you can find cam girls who speak your language — from English and Dutch to German, French, Spanish, Italian, Portuguese, Russian, Japanese and Korean. Chat live with models who truly understand you for a much more personal experience.</p><p>Each language page shows live models currently online who speak that language. Perfect if you enjoy dirty talk in your own language or simply want a genuine conversation with a cam model.</p>",
     fr: "<h2>Chattez avec des cam girls dans votre langue</h2><p>La langue fait toute la différence dans le webcam sexe. Sur StartVagina vous pouvez trouver des cam girls qui parlent votre langue — du français et anglais à l'allemand, espagnol, italien, portugais, russe, japonais et coréen. Chattez en direct avec des modèles qui vous comprennent vraiment.</p><p>Chaque page de langue affiche les modèles en direct qui parlent cette langue. Parfait si vous aimez le dirty talk dans votre propre langue.</p>",
@@ -280,7 +280,7 @@ const seoOutro = {
     es: "<h2>Chatea con cam girls en tu idioma</h2><p>El idioma marca la diferencia en el webcam sexo. En StartVagina puedes encontrar cam girls que hablan tu idioma — desde español e inglés hasta alemán, francés, italiano, portugués, ruso, japonés y coreano. Chatea en vivo con modelos que realmente te entienden.</p><p>Cada página de idioma muestra modelos en vivo que hablan ese idioma. Perfecto si disfrutas del dirty talk en tu propio idioma.</p>",
     it: "<h2>Chatta con cam girl nella tua lingua</h2><p>La lingua fa la differenza nel webcam sex. Su StartVagina puoi trovare cam girl che parlano la tua lingua — dall'italiano e inglese al tedesco, francese, spagnolo, portoghese, russo, giapponese e coreano. Chatta dal vivo con modelle che ti capiscono davvero.</p><p>Ogni pagina lingua mostra modelle dal vivo che parlano quella lingua. Perfetto se ti piace il dirty talk nella tua lingua.</p>",
   },
-  new: {
+  "nieuwe-cam-girls": {
     nl: "<h2>Waarom nieuwe cam modellen bekijken?</h2><p>Nieuwe cam modellen brengen frisheid en opwinding. Ze zijn vaak extra enthousiast en interactief omdat ze net begonnen zijn. Op StartVagina vind je de nieuwste gezichten van Chaturbate, Stripchat, BongaCams en CAM4 — dagelijks bijgewerkt zodat je altijd de meest recente modellen ontdekt.</p><p>Nieuwe modellen proberen vaak meer uit en zijn extra aandachtig naar hun kijkers. Mis ze niet voordat ze populair worden! Bekijk ze gratis en zonder registratie.</p>",
     en: "<h2>Why watch new cam models?</h2><p>New cam models bring freshness and excitement. They're often extra enthusiastic and interactive because they just started. On StartVagina you'll find the newest faces from Chaturbate, Stripchat, BongaCams and CAM4 — updated daily so you always discover the most recent models.</p><p>New models often try more things and pay extra attention to their viewers. Don't miss them before they get popular! Watch them for free and without registration.</p>",
     fr: "<h2>Pourquoi regarder les nouveaux modèles cam ?</h2><p>Les nouveaux modèles cam apportent fraîcheur et excitation. Elles sont souvent extra enthousiastes et interactives car elles viennent de commencer. Sur StartVagina retrouvez les nouveaux visages de Chaturbate, Stripchat, BongaCams et CAM4 — mis à jour quotidiennement.</p><p>Les nouveaux modèles essaient souvent plus de choses et accordent une attention particulière à leurs spectateurs. Ne les manquez pas !</p>",
@@ -288,7 +288,7 @@ const seoOutro = {
     es: "<h2>¿Por qué ver nuevas modelos cam?</h2><p>Las nuevas modelos cam traen frescura y emoción. Suelen ser más entusiastas e interactivas porque acaban de empezar. En StartVagina encontrarás las caras más nuevas de Chaturbate, Stripchat, BongaCams y CAM4 — actualizadas diariamente.</p><p>Las nuevas modelos suelen probar más cosas y prestar más atención a sus espectadores. ¡No te las pierdas!</p>",
     it: "<h2>Perché guardare nuove modelle cam?</h2><p>Le nuove modelle cam portano freschezza ed emozione. Sono spesso più entusiaste e interattive perché hanno appena iniziato. Su StartVagina troverai i volti più nuovi da Chaturbate, Stripchat, BongaCams e CAM4 — aggiornati quotidianamente.</p><p>Le nuove modelle provano spesso più cose e prestano più attenzione ai loro spettatori. Non perderle!</p>",
   },
-  top: {
+  "populairste-cam-girls": {
     nl: "<h2>De populairste cam girls van dit moment</h2><p>Onze top cam girls ranglijst wordt dagelijks bijgewerkt en toont de meest bekeken en populairste modellen van Chaturbate, Stripchat, BongaCams en CAM4. Deze modellen trekken de meeste kijkers en bieden de beste shows — van sensuele striptease tot interactieve vibrator shows en meer.</p><p>Ontdek waarom deze cam girls zo populair zijn. Bekijk hun profiel, start een gratis chat of geniet van hun live show. De ranglijst verandert voortdurend, dus check regelmatig terug voor nieuwe toppers.</p>",
     en: "<h2>The most popular cam girls right now</h2><p>Our top cam girls ranking is updated daily and shows the most viewed and popular models from Chaturbate, Stripchat, BongaCams and CAM4. These models attract the most viewers and deliver the best shows — from sensual striptease to interactive vibrator shows and more.</p><p>Discover why these cam girls are so popular. View their profile, start a free chat or enjoy their live show. The ranking changes constantly, so check back regularly for new top performers.</p>",
     fr: "<h2>Les cam girls les plus populaires en ce moment</h2><p>Notre classement des top cam girls est mis à jour quotidiennement et affiche les modèles les plus regardées de Chaturbate, Stripchat, BongaCams et CAM4. Ces modèles attirent le plus de spectateurs et offrent les meilleurs shows.</p><p>Découvrez pourquoi ces cam girls sont si populaires. Consultez leur profil, démarrez un chat gratuit ou profitez de leur show en direct.</p>",

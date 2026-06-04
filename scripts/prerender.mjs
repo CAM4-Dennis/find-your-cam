@@ -46,7 +46,7 @@ const pages = [
 
   // ---------- Core pages ----------
   {
-    slugs: ["categories"],
+    slugs: ["categorieen"],
     meta: m(
       meta("Webcamsex Categorieën | StartVagina", "Bekijk alle webcamsex categorieën op StartVagina. Van teen tot mature, MILF tot BDSM — ontdek jouw favoriete categorie cam girls van Chaturbate, Stripchat en meer.", "webcamsex categorieën, cam categorieën"),
       meta("Webcam Sex Categories | StartVagina", "Browse all webcam sex categories on StartVagina. From teen to mature, MILF to BDSM — find your favourite category of cam girls from Chaturbate, Stripchat and more.", "webcam sex categories, cam categories"),
@@ -57,7 +57,7 @@ const pages = [
     ),
   },
   {
-    slugs: ["countries"],
+    slugs: ["landen"],
     meta: m(
       meta("Webcamsex per Land | StartVagina", "Ontdek cam girls per land op StartVagina. Bekijk Nederlandse, Belgische, Colombiaanse en meer webcam modellen live op Chaturbate, Stripchat, BongaCams en CAM4.", "webcamsex landen, cam girls landen"),
       meta("Webcam Sex by Country | StartVagina", "Discover cam girls by country on StartVagina. Watch Dutch, Belgian, Colombian and more webcam models live on Chaturbate, Stripchat, BongaCams and CAM4.", "webcam sex countries, cam girls countries"),
@@ -68,7 +68,7 @@ const pages = [
     ),
   },
   {
-    slugs: ["languages"],
+    slugs: ["talen"],
     meta: m(
       meta("Webcamsex per Taal | StartVagina", "Vind cam girls die jouw taal spreken op StartVagina. Geniet van gratis webcamsex in het Nederlands, Engels, Duits, Frans, Spaans en meer talen — live en zonder registratie.", "webcamsex taal, cam girls taal"),
       meta("Webcam Sex by Language | StartVagina", "Find cam girls who speak your language on StartVagina. Enjoy free webcam sex in English, Dutch, German, French, Spanish and more languages — live and without signup.", "webcam sex language, cam girls language"),
@@ -79,7 +79,7 @@ const pages = [
     ),
   },
   {
-    slugs: ["new"],
+    slugs: ["nieuwe-cam-girls"],
     meta: m(
       meta("Nieuwe Cam Girls | StartVagina", "Ontdek de nieuwste cam modellen die net begonnen zijn met streamen op StartVagina. Verse gezichten en nieuwe erotische shows — dagelijks bijgewerkt.", "nieuwe cam modellen, nieuwe cam girls"),
       meta("New Cam Girls | StartVagina", "Discover the newest webcam models who just started streaming on StartVagina. Fresh faces and exciting new erotic shows — updated daily from all major platforms.", "new cam models, new cam girls"),
@@ -90,7 +90,7 @@ const pages = [
     ),
   },
   {
-    slugs: ["top"],
+    slugs: ["populairste-cam-girls"],
     meta: m(
       meta("Top Cam Girls | StartVagina", "De populairste en best bekeken cam girls live op webcam. Bekijk de top modellen van Chaturbate, Stripchat, BongaCams en CAM4 — dagelijks bijgewerkte ranglijst.", "top cam girls, populaire cam modellen"),
       meta("Top Cam Girls | StartVagina", "The most popular and most viewed cam girls live on webcam. Browse top models from Chaturbate, Stripchat, BongaCams and CAM4 — updated daily.", "top cam girls, popular cam models"),
