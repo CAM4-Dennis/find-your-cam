@@ -663,7 +663,7 @@ const CategoryLanding = () => {
                   </LocalLink>
                 ))}
               <LocalLink
-                to="/categories"
+                to="/categorieen"
                 className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors"
               >
                 {landingUI.allCategories[lang]}
@@ -679,6 +679,34 @@ const CategoryLanding = () => {
                 className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors"
               >
                 {landingUI.liveSexCams[lang]}
+              </LocalLink>
+            </div>
+          </section>
+
+          {/* Related Countries */}
+          <section className="mt-8 border-t border-border pt-8">
+            <h2 className="text-lg font-semibold text-foreground mb-4">
+              {landingUI.popularCountries[lang]}
+            </h2>
+            <div className="flex flex-wrap gap-2">
+              {[
+                { slug: "nederlandse-cam-girls", flag: "🇳🇱", label: "Nederland" },
+                { slug: "belgische-cam-girls", flag: "🇧🇪", label: "België" },
+                { slug: "colombiaanse-cam-girls", flag: "🇨🇴", label: "Colombia" },
+                { slug: "roemeense-cam-girls", flag: "🇷🇴", label: "Roemenië" },
+                { slug: "amerikaanse-cam-girls", flag: "🇺🇸", label: "VS" },
+                { slug: "britse-cam-girls", flag: "🇬🇧", label: "VK" },
+              ].map((c) => (
+                <LocalLink
+                  key={c.slug}
+                  to={`/${c.slug}`}
+                  className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors"
+                >
+                  {c.flag} {c.label}
+                </LocalLink>
+              ))}
+              <LocalLink to="/landen" className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors">
+                🌍 {landingUI.allCountries[lang]}
               </LocalLink>
             </div>
           </section>

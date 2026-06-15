@@ -167,7 +167,7 @@ const LanguageLanding = () => {
                     {l.emoji} {l.name}
                   </LocalLink>
                 ))}
-              <LocalLink to="/languages" className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors">
+              <LocalLink to="/talen" className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors">
                 🗣️ {t.navLanguages}
               </LocalLink>
             </div>

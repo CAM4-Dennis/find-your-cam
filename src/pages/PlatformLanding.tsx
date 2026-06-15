@@ -345,7 +345,7 @@ const PlatformLanding = () => {
                     {(v[lang] || v.nl).name} Live Cams
                   </LocalLink>
                 ))}
-              <LocalLink to="/categories" className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors">
+              <LocalLink to="/categorieen" className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors">
                 {t.navCategories}
               </LocalLink>
               <LocalLink to="/blog" className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors">

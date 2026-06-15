@@ -678,14 +678,44 @@ const CountryLandingPage = () => {
                     {c.flag} {c.country}
                   </LocalLink>
                 ))}
-              <LocalLink to="/countries" className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors">
+              <LocalLink to="/landen" className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors">
                 🌍 {landingUI.allCountries[lang]}
               </LocalLink>
               <LocalLink to="/webcamsex" className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors">
                 {landingUI.webcamsex[lang]}
               </LocalLink>
-              <LocalLink to="/categories" className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors">
+              <LocalLink to="/categorieen" className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors">
                 {t.navCategories}
+              </LocalLink>
+            </div>
+          </section>
+
+          {/* Related Categories */}
+          <section className="mt-8 border-t border-border pt-8">
+            <h2 className="text-lg font-semibold text-foreground mb-4">
+              {landingUI.popularCategories[lang]}
+            </h2>
+            <div className="flex flex-wrap gap-2">
+              {[
+                { slug: "jonge-cam-girls-18-plus", emoji: "🔞", label: "Teen (18+)" },
+                { slug: "milf-webcamsex-ervaren-vrouwen", emoji: "💋", label: "MILF" },
+                { slug: "latina-cam-girls-live", emoji: "🌶️", label: "Latina" },
+                { slug: "aziatische-cam-girls-live", emoji: "🌸", label: "Asian" },
+                { slug: "ebony-cam-girls-live", emoji: "👑", label: "Ebony" },
+                { slug: "cam-koppels-live-sex", emoji: "💑", label: "Couples" },
+                { slug: "cam-girls-grote-borsten", emoji: "🍑", label: "Big Tits" },
+                { slug: "anale-cam-shows-live", emoji: "🔥", label: "Anal" },
+              ].map((c) => (
+                <LocalLink
+                  key={c.slug}
+                  to={`/${c.slug}`}
+                  className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors"
+                >
+                  {c.emoji} {c.label}
+                </LocalLink>
+              ))}
+              <LocalLink to="/categorieen" className="text-sm bg-secondary text-muted-foreground px-3 py-1.5 rounded hover:text-foreground transition-colors">
+                {landingUI.allCategories[lang]}
               </LocalLink>
             </div>
           </section>
