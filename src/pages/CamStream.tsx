@@ -247,7 +247,7 @@ const CamStream = () => {
           <meta property="og:title" content={t.camTitle(model.name, platformName)} />
           <meta property="og:description" content={t.camDesc(model.name, platformName)} />
           <meta property="og:url" content={`https://www.startvagina.nl/${platform}/${username}`} />
-          <meta name="robots" content="noindex, follow" />
+          <meta name="robots" content="index, follow" />
           <script type="application/ld+json">
             {JSON.stringify({
               "@context": "https://schema.org",
