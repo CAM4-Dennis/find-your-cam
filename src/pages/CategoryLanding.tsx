@@ -533,10 +533,10 @@ const CategoryLanding = () => {
   const location = useLocation();
   const { basePath, lang, t } = useLanguage();
   const slug = basePath.replace(/^\//, "");
-  // Use translated data if available, fall back to hardcoded NL data
+  // For NL: prefer richer inline content. For other languages: use i18n data.
   const translatedConfig = getCategoryConfig(slug || "", lang);
   const fallbackConfig = categoryPages[slug || ""];
-  const config = translatedConfig || fallbackConfig;
+  const config = lang === "nl" && fallbackConfig ? fallbackConfig : (translatedConfig || fallbackConfig);
   const { allCams, isLoading } = useAllCams();
 
   const categoryCams = useMemo(() => {

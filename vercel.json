@@ -7,6 +7,17 @@
   },
   "redirects": [
     {
+      "source": "/:path(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "startvagina.nl"
+        }
+      ],
+      "destination": "https://www.startvagina.nl/:path",
+      "permanent": true
+    },
+    {
       "source": "/gratis-filmpjes",
       "destination": "/",
       "permanent": true
