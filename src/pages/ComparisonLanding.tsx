@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AgeGate from "@/components/AgeGate";
 import CamGrid from "@/components/CamGrid";
-import { Loader2 } from "lucide-react";
+import { Loader2, ChevronRight, Home } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { useAllCams } from "@/hooks/useAllCams";
 import { useMemo } from "react";
@@ -11,6 +11,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { getRobotsContent } from "@/lib/robotsMeta";
 import { comparisonPages, getComparisonConfig } from "@/data/comparisonPages";
 import { platformPages } from "@/data/platformPages";
+import { canonicalUrl as buildCanonical, hreflangEntries, breadcrumbSchema, faqSchema as buildFaqSchema } from "@/lib/seoHelpers";
 
 const ComparisonLanding = () => {
   const { basePath, lang, t } = useLanguage();
@@ -35,7 +36,7 @@ const ComparisonLanding = () => {
   if (!config) return null;
 
   // Schema.org FAQPage structured data
-  const faqSchema = {
+  const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: config.faq.map((f) => ({
@@ -45,7 +46,7 @@ const ComparisonLanding = () => {
     })),
   };
 
-  const canonicalUrl = `https://www.startvagina.nl/${config.slug}`;
+  const canonicalUrl = buildCanonical(config.slug, lang);
 
   // Comparison table: determine overall winner
   const winA = config.comparison.categories.filter((c) => c.winner === "a").length;
@@ -67,12 +68,30 @@ const ComparisonLanding = () => {
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:title" content={config.title} />
           <meta name="twitter:description" content={config.description} />
-          <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+          <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
+          <script type="application/ld+json">
+            {JSON.stringify(breadcrumbSchema([
+              { name: "StartVagina", url: "https://www.startvagina.nl" },
+              { name: config.label, url: canonicalUrl },
+            ]))}
+          </script>
+          {hreflangEntries(config.slug).map((h) => (
+            <link key={h.lang} rel="alternate" hrefLang={h.lang} href={h.href} />
+          ))}
         </Helmet>
 
         <Header />
 
         <main className="container flex-1 py-8">
+          {/* Breadcrumb */}
+          <nav aria-label="breadcrumb" className="mb-4 text-sm text-muted-foreground flex items-center gap-1 flex-wrap">
+            <LocalLink to="/" className="hover:text-foreground transition-colors flex items-center gap-1">
+              <Home size={14} /> StartVagina
+            </LocalLink>
+            <ChevronRight size={14} />
+            <span className="text-foreground">{config.label}</span>
+          </nav>
+
           {/* Hero / H1 section with lighter surface */}
           <div className="mb-8 bg-[hsl(220_18%_15%)] rounded-xl p-6 border border-border/50">
             <h1 className="text-3xl font-bold font-display text-foreground mb-2">

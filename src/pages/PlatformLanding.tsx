@@ -3,13 +3,14 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AgeGate from "@/components/AgeGate";
 import CamGrid from "@/components/CamGrid";
-import { Loader2, Star } from "lucide-react";
+import { Loader2, Star, ChevronRight, Home } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { useAllCams } from "@/hooks/useAllCams";
 import { useMemo } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { getRobotsContent } from "@/lib/robotsMeta";
 import { platformPages, getPlatformConfig } from "@/data/platformPages";
+import { canonicalUrl, hreflangEntries, breadcrumbSchema } from "@/lib/seoHelpers";
 
 function renderContent(text: string): string {
   return text
@@ -103,10 +104,13 @@ const PlatformLanding = () => {
           <meta name="description" content={config.description} />
           <meta name="keywords" content={config.keywords} />
           <meta name="robots" content={getRobotsContent(lang)} />
-          <link rel="canonical" href={`https://www.startvagina.nl/${config.slug}`} />
+          <link rel="canonical" href={canonicalUrl(config.slug, lang)} />
+          {hreflangEntries(config.slug).map((h) => (
+            <link key={h.lang} rel="alternate" hrefLang={h.lang} href={h.href} />
+          ))}
           <meta property="og:title" content={config.title} />
           <meta property="og:description" content={config.description} />
-          <meta property="og:url" content={`https://www.startvagina.nl/${config.slug}`} />
+          <meta property="og:url" content={canonicalUrl(config.slug, lang)} />
           <meta property="og:type" content="website" />
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:title" content={config.title} />
@@ -114,11 +118,26 @@ const PlatformLanding = () => {
           {structuredData.map((sd, i) => (
             <script key={i} type="application/ld+json">{JSON.stringify(sd)}</script>
           ))}
+          <script type="application/ld+json">
+            {JSON.stringify(breadcrumbSchema([
+              { name: "StartVagina", url: "https://www.startvagina.nl" },
+              { name: config.name, url: canonicalUrl(config.slug, lang) },
+            ]))}
+          </script>
         </Helmet>
 
         <Header />
 
         <main className="container flex-1 py-8">
+          {/* Breadcrumb */}
+          <nav aria-label="breadcrumb" className="mb-4 text-sm text-muted-foreground flex items-center gap-1 flex-wrap">
+            <LocalLink to="/" className="hover:text-foreground transition-colors flex items-center gap-1">
+              <Home size={14} /> StartVagina
+            </LocalLink>
+            <ChevronRight size={14} />
+            <span className="text-foreground">{config.name}</span>
+          </nav>
+
           {/* H1 + Rating */}
           <div className="mb-6">
             <h1 className="text-3xl font-bold font-display text-foreground mb-2">

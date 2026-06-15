@@ -7,11 +7,12 @@ import CamGrid from "@/components/CamGrid";
 import { Helmet } from "react-helmet-async";
 import { useAllCams } from "@/hooks/useAllCams";
 import { useMemo } from "react";
-import { Loader2 } from "lucide-react";
+import { Loader2, ChevronRight, Home } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { getRobotsContent } from "@/lib/robotsMeta";
 import { landingUI } from "@/data/i18nHelpers";
 import { getCountryConfig } from "@/data/countryPages";
+import { canonicalUrl, hreflangEntries, breadcrumbSchema, faqSchema } from "@/lib/seoHelpers";
 
 interface CountryConfig {
   slug: string;
@@ -576,30 +577,45 @@ const CountryLandingPage = () => {
           <meta name="description" content={config.description} />
           <meta name="keywords" content={config.keywords} />
           <meta name="robots" content={getRobotsContent(lang)} />
-          <link rel="canonical" href={`https://www.startvagina.nl/${config.slug}`} />
+          <link rel="canonical" href={canonicalUrl(config.slug, lang)} />
+          {hreflangEntries(config.slug).map((h) => (
+            <link key={h.lang} rel="alternate" hrefLang={h.lang} href={h.href} />
+          ))}
           <meta property="og:title" content={config.title} />
           <meta property="og:description" content={config.description} />
-          <meta property="og:url" content={`https://www.startvagina.nl/${config.slug}`} />
+          <meta property="og:url" content={canonicalUrl(config.slug, lang)} />
           <meta property="og:type" content="website" />
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:title" content={config.title} />
           <meta name="twitter:description" content={config.description} />
           <script type="application/ld+json">
-            {JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              mainEntity: config.faq.map((f) => ({
-                "@type": "Question",
-                name: f.q,
-                acceptedAnswer: { "@type": "Answer", text: f.a },
-              })),
-            })}
+            {JSON.stringify(faqSchema(config.faq))}
+          </script>
+          <script type="application/ld+json">
+            {JSON.stringify(breadcrumbSchema([
+              { name: "StartVagina", url: "https://www.startvagina.nl" },
+              { name: landingUI.allCountries[lang], url: canonicalUrl("landen", lang) },
+              { name: config.country, url: canonicalUrl(config.slug, lang) },
+            ]))}
           </script>
         </Helmet>
 
         <Header />
 
         <main className="container flex-1 py-8">
+          {/* Breadcrumb */}
+          <nav aria-label="breadcrumb" className="mb-4 text-sm text-muted-foreground flex items-center gap-1 flex-wrap">
+            <LocalLink to="/" className="hover:text-foreground transition-colors flex items-center gap-1">
+              <Home size={14} /> StartVagina
+            </LocalLink>
+            <ChevronRight size={14} />
+            <LocalLink to="/landen" className="hover:text-foreground transition-colors">
+              {landingUI.allCountries[lang]}
+            </LocalLink>
+            <ChevronRight size={14} />
+            <span className="text-foreground">{config.flag} {config.country}</span>
+          </nav>
+
           <h1 className="text-3xl font-bold font-display text-foreground mb-6">
             {config.flag} {config.h1}
           </h1>

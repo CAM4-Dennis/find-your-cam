@@ -22,6 +22,7 @@ import { getCountryName } from "@/lib/countryFlags";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { getRobotsContent } from "@/lib/robotsMeta";
 import { OG_LOCALES } from "@/i18n/translations";
+import { hreflangEntries } from "@/lib/seoHelpers";
 
 const Index = () => {
   const { data: geo } = useGeoLocation();
@@ -146,6 +147,9 @@ const Index = () => {
           <meta name="keywords" content="webcamsex, live sex cams, gratis webcam, sexchat, cam girls" />
           <meta name="robots" content={getRobotsContent(lang)} />
           <link rel="canonical" href={canonicalUrl} />
+          {hreflangEntries("").map((h) => (
+            <link key={h.lang} rel="alternate" hrefLang={h.lang} href={h.href} />
+          ))}
           <meta property="og:title" content={t.ogTitle} />
           <meta property="og:description" content={t.ogDescription} />
           <meta property="og:type" content="website" />
