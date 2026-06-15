@@ -108,12 +108,154 @@ const remainingCountries: Array<{slug: string; flag: string; nl: string; en: str
 
 // Generate translations for remaining countries programmatically
 const t = {
-  nl: { ws: "Webcamsex", title: (c: string, a: string) => `Webcamsex ${c} — ${a} Cam Girls Live | StartVagina`, h1: (c: string, a: string) => `Webcamsex ${c} — ${a} Cam Girls Live`, desc: (c: string, a: string) => `${a} cam girls live op webcam. Gratis webcamsex met modellen uit ${c}.`, kw: (c: string, a: string) => `webcamsex ${c.toLowerCase()}, ${a.toLowerCase()} cam girls`, content: (c: string, a: string, p: string) => `Ontdek **${a.toLowerCase()} cam girls** live op StartVagina. Modellen uit ${c} zijn vooral te vinden op ${p}.\n\n- **Live modellen**: ${a} cam girls die nu online zijn\n- **Gratis kijken**: alle openbare shows zonder registratie\n- **Alle platforms**: vergelijk modellen van alle cam sites`, fq: (c: string, a: string) => `Op welk platform vind ik ${a.toLowerCase()} cam girls?`, fa: (a: string, p: string) => `${p} hebben het grootste aanbod ${a.toLowerCase()} modellen.` },
-  en: { ws: "Webcam Sex", title: (c: string, a: string) => `Webcam Sex ${c} — ${a} Cam Girls Live | StartVagina`, h1: (c: string, a: string) => `Webcam Sex ${c} — ${a} Cam Girls Live`, desc: (c: string, a: string) => `${a} cam girls live on webcam. Free webcam sex with models from ${c}.`, kw: (c: string, a: string) => `webcam sex ${c.toLowerCase()}, ${a.toLowerCase()} cam girls`, content: (c: string, a: string, p: string) => `Discover **${a.toLowerCase()} cam girls** live on StartVagina. Models from ${c} are mainly found on ${p}.\n\n- **Live models**: ${a} cam girls who are online now\n- **Free viewing**: all public shows without registration\n- **All platforms**: compare models from all cam sites`, fq: (c: string, a: string) => `Which platform has the most ${a.toLowerCase()} cam girls?`, fa: (a: string, p: string) => `${p} have the largest selection of ${a.toLowerCase()} models.` },
-  fr: { ws: "Webcam Sexe", title: (c: string, a: string) => `Webcam Sexe ${c} — Cam Girls ${a} en Direct | StartVagina`, h1: (c: string, a: string) => `Webcam Sexe ${c} — Cam Girls ${a}`, desc: (c: string, a: string) => `Cam girls ${a} en direct. Webcam sexe gratuit avec des modèles de ${c}.`, kw: (c: string, a: string) => `webcam sexe ${c.toLowerCase()}, cam girls ${a}`, content: (c: string, a: string, p: string) => `Découvrez les **cam girls ${a}** en direct sur StartVagina. Les modèles de ${c} sont principalement sur ${p}.\n\n- **Modèles en direct** : cam girls ${a} en ligne maintenant\n- **Visionnage gratuit** : tous les shows publics sans inscription\n- **Toutes les plateformes** : comparez les modèles`, fq: (c: string, a: string) => `Où trouver des cam girls ${a} ?`, fa: (a: string, p: string) => `${p} ont la plus grande sélection de modèles ${a}.` },
-  de: { ws: "Webcam Sex", title: (c: string, a: string) => `Webcam Sex ${c} — ${a} Cam Girls Live | StartVagina`, h1: (c: string, a: string) => `Webcam Sex ${c} — ${a} Cam Girls`, desc: (c: string, a: string) => `${a} Cam Girls live auf Webcam. Gratis Webcam Sex mit Models aus ${c}.`, kw: (c: string, a: string) => `webcam sex ${c.toLowerCase()}, ${a.toLowerCase()} cam girls`, content: (c: string, a: string, p: string) => `Entdecke **${a.toLowerCase()} Cam Girls** live auf StartVagina. Models aus ${c} findest du hauptsächlich auf ${p}.\n\n- **Live Models**: ${a} Cam Girls die jetzt online sind\n- **Gratis schauen**: alle öffentlichen Shows ohne Registrierung\n- **Alle Plattformen**: Models aller Cam-Seiten vergleichen`, fq: (c: string, a: string) => `Wo finde ich ${a.toLowerCase()} Cam Girls?`, fa: (a: string, p: string) => `${p} haben die größte Auswahl an ${a.toLowerCase()} Models.` },
-  es: { ws: "Webcam Sexo", title: (c: string, a: string) => `Webcam Sexo ${c} — Cam Girls ${a} en Vivo | StartVagina`, h1: (c: string, a: string) => `Webcam Sexo ${c} — Cam Girls ${a}`, desc: (c: string, a: string) => `Cam girls ${a} en vivo. Webcam sexo gratis con modelos de ${c}.`, kw: (c: string, a: string) => `webcam sexo ${c.toLowerCase()}, cam girls ${a}`, content: (c: string, a: string, p: string) => `Descubre **cam girls ${a}** en vivo en StartVagina. Las modelos de ${c} se encuentran principalmente en ${p}.\n\n- **Modelos en vivo**: cam girls ${a} en línea ahora\n- **Ver gratis**: todos los shows públicos sin registro\n- **Todas las plataformas**: compara modelos de todos los sitios cam`, fq: (c: string, a: string) => `¿Dónde encuentro cam girls ${a}?`, fa: (a: string, p: string) => `${p} tienen la mayor selección de modelos ${a}.` },
-  it: { ws: "Webcam Sex", title: (c: string, a: string) => `Webcam Sex ${c} — Cam Girl ${a} dal Vivo | StartVagina`, h1: (c: string, a: string) => `Webcam Sex ${c} — Cam Girl ${a}`, desc: (c: string, a: string) => `Cam girl ${a} in diretta. Webcam sex gratis con modelle da ${c}.`, kw: (c: string, a: string) => `webcam sex ${c.toLowerCase()}, cam girl ${a}`, content: (c: string, a: string, p: string) => `Scopri le **cam girl ${a}** in diretta su StartVagina. Le modelle da ${c} si trovano principalmente su ${p}.\n\n- **Modelle in diretta**: cam girl ${a} online ora\n- **Visione gratuita**: tutti gli show pubblici senza registrazione\n- **Tutte le piattaforme**: confronta modelle di tutti i siti cam`, fq: (c: string, a: string) => `Dove trovo cam girl ${a}?`, fa: (a: string, p: string) => `${p} hanno la più grande selezione di modelle ${a}.` },
+  nl: {
+    ws: "Webcamsex",
+    title: (c: string, a: string) => `Webcamsex ${c} — ${a} Cam Girls Live | StartVagina`,
+    h1: (c: string, a: string) => `Webcamsex ${c} — ${a} Cam Girls Live`,
+    desc: (c: string, a: string) => `${a} cam girls live op webcam. Gratis webcamsex met modellen uit ${c}. Ontdek de beste ${a.toLowerCase()} cam modellen op Chaturbate, Stripchat, BongaCams en meer.`,
+    kw: (c: string, a: string) => `webcamsex ${c.toLowerCase()}, ${a.toLowerCase()} cam girls, cam girls ${c.toLowerCase()}, live webcam ${c.toLowerCase()}`,
+    content: (c: string, a: string, p: string) => `Op zoek naar **${a.toLowerCase()} cam girls**? Op StartVagina verzamelen we alle live cam modellen uit ${c} op één plek. Of je nu een fan bent van Chaturbate, Stripchat, BongaCams of CAM4 — hier vind je ${a.toLowerCase()} modellen van alle platforms tegelijk, zonder te hoeven switchen.
+
+**Waarom ${a.toLowerCase()} cam girls populair zijn:**
+- **${p}**: de platforms met het grootste aanbod ${a.toLowerCase()} modellen
+- **Real-time overzicht**: zie direct welke ${a.toLowerCase()} cam girls nu online zijn
+- **Gratis kijken**: alle openbare shows zijn zonder registratie te bekijken
+- **Vergelijk platforms**: ontdek op welk platform de meeste modellen uit ${c} actief zijn
+- **Diverse shows**: van solo en striptease tot interactieve toy-shows en privé sessies
+
+Het aanbod ${a.toLowerCase()} cam modellen varieert per tijdstip. Overdag zijn er andere modellen online dan in de avond, afhankelijk van de tijdzone in ${c}. Via StartVagina zie je altijd wie er nu live is — gefilterd op land, categorie of platform.
+
+**Hoe het werkt op StartVagina:**
+
+StartVagina haalt live data op van alle grote cam platforms. Zodra een ${a.toLowerCase()} model online gaat, verschijnt zij automatisch in ons overzicht. Je kunt direct doorklikken naar het platform van je keuze om gratis mee te kijken of te chatten. Geen account nodig op StartVagina zelf — wij zijn de vergelijker, niet het platform.
+
+Ben je specifiek op zoek naar ${a.toLowerCase()} cam koppels, mannelijke modellen of trans performers uit ${c}? Gebruik de filters op StartVagina om precies te vinden wat je zoekt.`,
+    fq1: (c: string, a: string) => `Op welk platform vind ik de meeste ${a.toLowerCase()} cam girls?`,
+    fa1: (a: string, p: string) => `${p} hebben het grootste aanbod ${a.toLowerCase()} modellen. Via StartVagina zie je het aanbod van alle platforms tegelijk, zodat je altijd de beste keuze kunt maken.`,
+    fq2: (c: string, a: string) => `Zijn ${a.toLowerCase()} cam shows gratis?`,
+    fa2: (c: string, a: string) => `Ja! De openbare shows van ${a.toLowerCase()} cam modellen zijn volledig gratis te bekijken zonder registratie. Je betaalt alleen als je tokens stuurt voor tips, verzoeken of een privé show.`,
+    fq3: (c: string, a: string) => `Hoe vind ik ${a.toLowerCase()} cam girls op StartVagina?`,
+    fa3: (c: string, a: string) => `Op StartVagina kun je filteren op land om ${a.toLowerCase()} modellen te zien. Alle live cam girls uit ${c} worden automatisch getoond zodra ze online gaan op een van de aangesloten platforms.`,
+  },
+  en: {
+    ws: "Webcam Sex",
+    title: (c: string, a: string) => `Webcam Sex ${c} — ${a} Cam Girls Live | StartVagina`,
+    h1: (c: string, a: string) => `Webcam Sex ${c} — ${a} Cam Girls Live`,
+    desc: (c: string, a: string) => `${a} cam girls live on webcam. Free webcam sex with models from ${c}. Discover the best ${a.toLowerCase()} cam models on Chaturbate, Stripchat, BongaCams and more.`,
+    kw: (c: string, a: string) => `webcam sex ${c.toLowerCase()}, ${a.toLowerCase()} cam girls, cam girls ${c.toLowerCase()}, live webcam ${c.toLowerCase()}`,
+    content: (c: string, a: string, p: string) => `Looking for **${a.toLowerCase()} cam girls**? StartVagina brings together all live cam models from ${c} in one place. Whether you prefer Chaturbate, Stripchat, BongaCams or CAM4 — find ${a.toLowerCase()} models from all platforms at once, without switching between sites.
+
+**Why ${a.toLowerCase()} cam girls are popular:**
+- **${p}**: the platforms with the largest selection of ${a.toLowerCase()} models
+- **Real-time overview**: see which ${a.toLowerCase()} cam girls are online right now
+- **Free to watch**: all public shows are available without registration
+- **Compare platforms**: discover which platform has the most active models from ${c}
+- **Diverse shows**: from solo and striptease to interactive toy shows and private sessions
+
+The selection of ${a.toLowerCase()} cam models varies by time of day, depending on the timezone in ${c}. With StartVagina, you always see who is currently live — filtered by country, category or platform.
+
+**How StartVagina works:**
+
+StartVagina fetches live data from all major cam platforms. As soon as a ${a.toLowerCase()} model goes online, she automatically appears in our overview. Click through directly to the platform of your choice to watch or chat for free. No account needed on StartVagina — we are the comparison site, not the platform itself.`,
+    fq1: (c: string, a: string) => `Which platform has the most ${a.toLowerCase()} cam girls?`,
+    fa1: (a: string, p: string) => `${p} have the largest selection of ${a.toLowerCase()} models. StartVagina shows models from all platforms at once, so you can always find the best option.`,
+    fq2: (c: string, a: string) => `Are ${a.toLowerCase()} cam shows free?`,
+    fa2: (c: string, a: string) => `Yes! Public shows by ${a.toLowerCase()} cam models are completely free to watch without registration. You only pay if you send tokens for tips, requests or a private show.`,
+    fq3: (c: string, a: string) => `How do I find ${a.toLowerCase()} cam girls on StartVagina?`,
+    fa3: (c: string, a: string) => `On StartVagina you can filter by country to find ${a.toLowerCase()} models. All live cam girls from ${c} are automatically shown when they go online on any connected platform.`,
+  },
+  fr: {
+    ws: "Webcam Sexe",
+    title: (c: string, a: string) => `Webcam Sexe ${c} — Cam Girls ${a} en Direct | StartVagina`,
+    h1: (c: string, a: string) => `Webcam Sexe ${c} — Cam Girls ${a}`,
+    desc: (c: string, a: string) => `Cam girls ${a} en direct. Webcam sexe gratuit avec des modèles de ${c}.`,
+    kw: (c: string, a: string) => `webcam sexe ${c.toLowerCase()}, cam girls ${a}`,
+    content: (c: string, a: string, p: string) => `Découvrez les **cam girls ${a}** en direct sur StartVagina. Les modèles de ${c} sont principalement sur ${p}.
+
+**Pourquoi choisir les cam girls ${a} :**
+- **${p}** : les plateformes avec le plus de modèles ${a}
+- **En direct** : voyez quelles cam girls ${a} sont en ligne maintenant
+- **Gratuit** : tous les shows publics sans inscription
+- **Toutes les plateformes** : comparez les modèles de tous les sites cam
+- **Shows variés** : du solo au privé en passant par les shows interactifs
+
+StartVagina récupère les données en temps réel de toutes les grandes plateformes. Dès qu'une modèle ${a} se connecte, elle apparaît automatiquement dans notre aperçu.`,
+    fq1: (c: string, a: string) => `Où trouver des cam girls ${a} ?`,
+    fa1: (a: string, p: string) => `${p} ont la plus grande sélection de modèles ${a}. StartVagina montre les modèles de toutes les plateformes en même temps.`,
+    fq2: (c: string, a: string) => `Les shows ${a} sont-ils gratuits ?`,
+    fa2: (c: string, a: string) => `Oui ! Les shows publics des modèles ${a} sont entièrement gratuits. Vous ne payez que pour les pourboires ou les shows privés.`,
+    fq3: (c: string, a: string) => `Comment trouver des cam girls ${a} ?`,
+    fa3: (c: string, a: string) => `Sur StartVagina, filtrez par pays pour trouver les modèles ${a} en direct sur toutes les plateformes.`,
+  },
+  de: {
+    ws: "Webcam Sex",
+    title: (c: string, a: string) => `Webcam Sex ${c} — ${a} Cam Girls Live | StartVagina`,
+    h1: (c: string, a: string) => `Webcam Sex ${c} — ${a} Cam Girls`,
+    desc: (c: string, a: string) => `${a} Cam Girls live auf Webcam. Gratis Webcam Sex mit Models aus ${c}.`,
+    kw: (c: string, a: string) => `webcam sex ${c.toLowerCase()}, ${a.toLowerCase()} cam girls`,
+    content: (c: string, a: string, p: string) => `Entdecke **${a.toLowerCase()} Cam Girls** live auf StartVagina. Models aus ${c} findest du hauptsächlich auf ${p}.
+
+**Warum ${a.toLowerCase()} Cam Girls beliebt sind:**
+- **${p}**: die Plattformen mit den meisten ${a.toLowerCase()} Models
+- **Live-Übersicht**: sieh sofort, welche ${a.toLowerCase()} Cam Girls jetzt online sind
+- **Gratis schauen**: alle öffentlichen Shows ohne Registrierung
+- **Alle Plattformen**: vergleiche Models aller Cam-Seiten auf einen Blick
+- **Vielfältige Shows**: von Solo und Striptease bis zu interaktiven Toy-Shows
+
+StartVagina ruft Echtzeit-Daten von allen großen Cam-Plattformen ab. Sobald ein ${a.toLowerCase()} Model online geht, erscheint sie automatisch in unserer Übersicht.`,
+    fq1: (c: string, a: string) => `Wo finde ich ${a.toLowerCase()} Cam Girls?`,
+    fa1: (a: string, p: string) => `${p} haben die größte Auswahl an ${a.toLowerCase()} Models. StartVagina zeigt Models aller Plattformen gleichzeitig.`,
+    fq2: (c: string, a: string) => `Sind ${a.toLowerCase()} Cam Shows kostenlos?`,
+    fa2: (c: string, a: string) => `Ja! Öffentliche Shows von ${a.toLowerCase()} Models sind komplett kostenlos. Du zahlst nur für Tipps oder private Shows.`,
+    fq3: (c: string, a: string) => `Wie finde ich ${a.toLowerCase()} Cam Girls auf StartVagina?`,
+    fa3: (c: string, a: string) => `Auf StartVagina kannst du nach Land filtern, um ${a.toLowerCase()} Models live auf allen Plattformen zu finden.`,
+  },
+  es: {
+    ws: "Webcam Sexo",
+    title: (c: string, a: string) => `Webcam Sexo ${c} — Cam Girls ${a} en Vivo | StartVagina`,
+    h1: (c: string, a: string) => `Webcam Sexo ${c} — Cam Girls ${a}`,
+    desc: (c: string, a: string) => `Cam girls ${a} en vivo. Webcam sexo gratis con modelos de ${c}.`,
+    kw: (c: string, a: string) => `webcam sexo ${c.toLowerCase()}, cam girls ${a}`,
+    content: (c: string, a: string, p: string) => `Descubre **cam girls ${a}** en vivo en StartVagina. Las modelos de ${c} se encuentran principalmente en ${p}.
+
+**Por qué elegir cam girls ${a}:**
+- **${p}**: las plataformas con más modelos ${a}
+- **En directo**: ve qué cam girls ${a} están en línea ahora
+- **Gratis**: todos los shows públicos sin registro
+- **Todas las plataformas**: compara modelos de todos los sitios cam
+- **Shows variados**: desde solo hasta shows privados e interactivos
+
+StartVagina obtiene datos en tiempo real de todas las grandes plataformas. Cuando una modelo ${a} se conecta, aparece automáticamente en nuestra vista general.`,
+    fq1: (c: string, a: string) => `¿Dónde encuentro cam girls ${a}?`,
+    fa1: (a: string, p: string) => `${p} tienen la mayor selección de modelos ${a}. StartVagina muestra modelos de todas las plataformas a la vez.`,
+    fq2: (c: string, a: string) => `¿Los shows ${a} son gratis?`,
+    fa2: (c: string, a: string) => `¡Sí! Los shows públicos de modelos ${a} son completamente gratis. Solo pagas por propinas o shows privados.`,
+    fq3: (c: string, a: string) => `¿Cómo encuentro cam girls ${a} en StartVagina?`,
+    fa3: (c: string, a: string) => `En StartVagina puedes filtrar por país para encontrar modelos ${a} en vivo en todas las plataformas.`,
+  },
+  it: {
+    ws: "Webcam Sex",
+    title: (c: string, a: string) => `Webcam Sex ${c} — Cam Girl ${a} dal Vivo | StartVagina`,
+    h1: (c: string, a: string) => `Webcam Sex ${c} — Cam Girl ${a}`,
+    desc: (c: string, a: string) => `Cam girl ${a} in diretta. Webcam sex gratis con modelle da ${c}.`,
+    kw: (c: string, a: string) => `webcam sex ${c.toLowerCase()}, cam girl ${a}`,
+    content: (c: string, a: string, p: string) => `Scopri le **cam girl ${a}** in diretta su StartVagina. Le modelle da ${c} si trovano principalmente su ${p}.
+
+**Perché scegliere le cam girl ${a}:**
+- **${p}**: le piattaforme con più modelle ${a}
+- **In diretta**: vedi quali cam girl ${a} sono online ora
+- **Gratis**: tutti gli show pubblici senza registrazione
+- **Tutte le piattaforme**: confronta modelle di tutti i siti cam
+- **Show vari**: dal solo allo striptease fino a show interattivi e privati
+
+StartVagina recupera dati in tempo reale da tutte le grandi piattaforme. Quando una modella ${a} va online, appare automaticamente nella nostra panoramica.`,
+    fq1: (c: string, a: string) => `Dove trovo cam girl ${a}?`,
+    fa1: (a: string, p: string) => `${p} hanno la più grande selezione di modelle ${a}. StartVagina mostra modelle di tutte le piattaforme contemporaneamente.`,
+    fq2: (c: string, a: string) => `Gli show ${a} sono gratuiti?`,
+    fa2: (c: string, a: string) => `Sì! Gli show pubblici delle modelle ${a} sono completamente gratuiti. Paghi solo per mance o show privati.`,
+    fq3: (c: string, a: string) => `Come trovo cam girl ${a} su StartVagina?`,
+    fa3: (c: string, a: string) => `Su StartVagina puoi filtrare per paese per trovare modelle ${a} in diretta su tutte le piattaforme.`,
+  },
 };
 
 for (const rc of remainingCountries) {
@@ -131,7 +273,11 @@ for (const rc of remainingCountries) {
       description: tl.desc(cn, adj),
       keywords: tl.kw(cn, adj),
       content: tl.content(cn, adj, rc.platform),
-      faq: [{ q: tl.fq(cn, adj), a: tl.fa(adj, rc.platform) }],
+      faq: [
+        { q: tl.fq1(cn, adj), a: tl.fa1(adj, rc.platform) },
+        { q: tl.fq2(cn, adj), a: tl.fa2(cn, adj) },
+        { q: tl.fq3(cn, adj), a: tl.fa3(cn, adj) },
+      ],
     };
   }
   countryPagesI18n[rc.slug] = langs as CountryLangs;
