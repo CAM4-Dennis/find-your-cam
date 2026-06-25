@@ -1,7 +1,7 @@
 import type { CamModel } from "@/types/cam";
 import { getCountryFlag, getCountryName } from "@/lib/countryFlags";
 
-const BASE_URL = "https://www.islive.nl/api/";
+const BASE_URL = "/api/islive-proxy";
 const AFFILIATE_ID = "12058";
 
 export interface IsliveFilters {
