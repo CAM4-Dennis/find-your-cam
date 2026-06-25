@@ -6,6 +6,7 @@ import { stripchatData } from "./platforms/stripchat";
 import { xcamsData } from "./platforms/xcams";
 import { jerkmateData } from "./platforms/jerkmate";
 import { flirt4freeData } from "./platforms/flirt4free";
+import { isliveData } from "./platforms/islive";
 
 export interface PlatformConfig {
   slug: string;
@@ -100,6 +101,7 @@ export const platformPages: PlatformData = {
   "live-sex-cams-xcams": p("live-sex-cams-xcams", "xcams", "XCams", xcamsData.nl, xcamsData.en, xcamsData.fr, xcamsData.de, xcamsData.es, xcamsData.it),
   "live-sex-cams-jerkmate": p("live-sex-cams-jerkmate", "jerkmate", "Jerkmate", jerkmateData.nl, jerkmateData.en, jerkmateData.fr, jerkmateData.de, jerkmateData.es, jerkmateData.it),
   "live-sex-cams-flirt4free": p("live-sex-cams-flirt4free", "flirt4free", "Flirt4Free", flirt4freeData.nl, flirt4freeData.en, flirt4freeData.fr, flirt4freeData.de, flirt4freeData.es, flirt4freeData.it),
+  "live-sex-cams-islive": p("live-sex-cams-islive", "islive", "Islive", isliveData.nl, isliveData.en, isliveData.fr, isliveData.de, isliveData.es, isliveData.it),
 };
 
 /** Get translated platform page config */

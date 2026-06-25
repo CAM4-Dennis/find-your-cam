@@ -91,6 +91,7 @@ const pageRoutes = (
     <Route path="live-sex-cams-jerkmate" element={<PlatformLanding />} />
     <Route path="live-sex-cams-flirt4free" element={<PlatformLanding />} />
     <Route path="live-sex-cams-xcams" element={<PlatformLanding />} />
+    <Route path="live-sex-cams-islive" element={<PlatformLanding />} />
     <Route path="jonge-cam-girls-18-plus" element={<CategoryLanding />} />
     <Route path="milf-webcamsex-ervaren-vrouwen" element={<CategoryLanding />} />
     <Route path="mature-webcamsex-oudere-vrouwen" element={<CategoryLanding />} />

@@ -194,8 +194,8 @@ const pages = [
   })),
 
   // ---------- Platform landing pages ----------
-  ...["cam4", "chaturbate", "bongacams", "stripchat", "jerkmate"].map(p => { // xcams temporarily disabled
-    const name = { cam4: "CAM4", chaturbate: "Chaturbate", bongacams: "BongaCams", stripchat: "Stripchat", jerkmate: "Jerkmate" }[p];
+  ...["cam4", "chaturbate", "bongacams", "stripchat", "jerkmate", "islive"].map(p => { // xcams temporarily disabled
+    const name = { cam4: "CAM4", chaturbate: "Chaturbate", bongacams: "BongaCams", stripchat: "Stripchat", jerkmate: "Jerkmate", islive: "Islive" }[p];
     return {
       slugs: [`live-sex-cams-${p}`],
       meta: m(

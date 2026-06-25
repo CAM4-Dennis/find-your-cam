@@ -30,8 +30,8 @@ function getFooterContent(path: string): { title: string; paragraphs: ReactNode[
 
   // Platform pages
   if (path.startsWith("/live-sex-cams-")) {
-    const name = path.includes("chaturbate") ? "Chaturbate" : path.includes("stripchat") ? "Stripchat" : path.includes("bongacams") ? "BongaCams" : path.includes("jerkmate") ? "Jerkmate" : path.includes("flirt4free") ? "Flirt4Free" : path.includes("cam4") ? "CAM4" : "CAM4";
-    const others = ["Chaturbate", "Stripchat", "BongaCams", "CAM4", "Jerkmate", "Flirt4Free"].filter(p => p !== name);
+    const name = path.includes("chaturbate") ? "Chaturbate" : path.includes("stripchat") ? "Stripchat" : path.includes("bongacams") ? "BongaCams" : path.includes("jerkmate") ? "Jerkmate" : path.includes("flirt4free") ? "Flirt4Free" : path.includes("islive") ? "Islive" : path.includes("cam4") ? "CAM4" : "CAM4";
+    const others = ["Chaturbate", "Stripchat", "BongaCams", "CAM4", "Jerkmate", "Flirt4Free", "Islive"].filter(p => p !== name);
     return {
       title: `${name} op StartVagina — Vergelijk met Andere Platformen`,
       paragraphs: [
@@ -134,7 +134,7 @@ function getFooterContent(path: string): { title: string; paragraphs: ReactNode[
   if (path.startsWith("/chaturbate/") || path.startsWith("/bongacams/") ||
       path.startsWith("/cam4/") || path.startsWith("/stripchat/") || path.startsWith("/jerkmate/")) {
     const platform = path.split("/")[1];
-    const platformMap: Record<string, string> = { chaturbate: "Chaturbate", bongacams: "BongaCams", cam4: "CAM4", stripchat: "Stripchat", jerkmate: "Jerkmate", flirt4free: "Flirt4Free", };
+    const platformMap: Record<string, string> = { chaturbate: "Chaturbate", bongacams: "BongaCams", cam4: "CAM4", stripchat: "Stripchat", jerkmate: "Jerkmate", flirt4free: "Flirt4Free", islive: "Islive" };
     const name = platformMap[platform] || platform;
     return {
       title: `Meer ${name} Modellen op StartVagina`,
@@ -205,6 +205,7 @@ const Footer = () => {
               <li><Link to={localePath("/live-sex-cams-jerkmate")} className="hover:text-primary transition-colors">Jerkmate</Link></li>
               <li><Link to={localePath("/live-sex-cams-flirt4free")} className="hover:text-primary transition-colors">Flirt4Free</Link></li>
               <li><Link to={localePath("/live-sex-cams-xcams")} className="hover:text-primary transition-colors">XCams</Link></li>
+              <li><Link to={localePath("/live-sex-cams-islive")} className="hover:text-primary transition-colors">Islive</Link></li>
             </ul>
             <h4 className="font-semibold text-sm mb-3 mt-5 text-foreground">Vergelijkingen</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
