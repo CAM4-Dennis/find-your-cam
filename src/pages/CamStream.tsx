@@ -192,7 +192,7 @@ const CamStream = () => {
     bongacams: (u) => `https://bongacams.com/${u}`,
     stripchat: (u) => `https://stripchat.com/${u}`,
     jerkmate: (u) => `https://t.crntv.link/160097/6358?aff_sub1=startvagina&model=${u}`,
-    islive: (u) => `https://cams.vagina.nl/profile/${u}?p=12058`,
+    islive: (u) => `https://cams.islive.nl/profile/${u}?p=12058`,
   };
 
   if (!model) {
