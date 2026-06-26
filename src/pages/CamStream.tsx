@@ -126,9 +126,11 @@ const CamStream = () => {
   const hasHls = !!model?.previewUrl && !hasIframe;
   // Platforms without embed support show thumbnail + CTA
   const isRedirectOnly = !hasIframe && !hasHls;
-  // Auto-refresh thumbnail for XCams (live snapshots update every few seconds on CDN)
+  // Auto-refresh thumbnail for platforms without stream embed (XCams, Islive)
   const isXCams = model?.platform === "XCams";
-  const liveThumbnail = useRefreshingThumbnail(model?.thumbnail || "", isRedirectOnly && isXCams);
+  const isIslive = model?.platform === "Islive";
+  const hasRefreshingThumb = isXCams || isIslive;
+  const liveThumbnail = useRefreshingThumbnail(model?.thumbnail || "", isRedirectOnly && hasRefreshingThumb);
 
   useEffect(() => {
     if (!hasHls || !model?.previewUrl || !videoEl) {
@@ -301,12 +303,12 @@ const CamStream = () => {
                     className="absolute inset-0 flex flex-col items-center justify-center group cursor-pointer"
                   >
                     <img
-                      src={isXCams ? liveThumbnail : model.thumbnail}
+                      src={hasRefreshingThumb ? liveThumbnail : model.thumbnail}
                       alt={`Preview van ${model.name}`}
-                      className={`absolute inset-0 w-full h-full object-cover ${isXCams ? "transition-opacity duration-500" : ""}`}
+                      className={`absolute inset-0 w-full h-full object-cover ${hasRefreshingThumb ? "transition-opacity duration-500" : ""}`}
                       onError={(e) => { (e.target as HTMLImageElement).src = model.thumbnailFallback; }}
                     />
-                    {isXCams && (
+                    {hasRefreshingThumb && (
                       <div className="absolute top-3 left-3 z-20 flex items-center gap-1.5 bg-red-600/90 text-white text-xs font-bold px-2 py-1 rounded">
                         <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
                         LIVE SNAPSHOT

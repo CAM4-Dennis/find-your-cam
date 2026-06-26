@@ -68,7 +68,7 @@ function normalizeIsliveModel(model: IsliveModel): CamModel {
     isNew: false,
     isHD: false,
     showType: "public",
-    previewUrl: model.coverVideo || "",
+    previewUrl: "",
     slug: `islive/${model.modelnaam}`,
     languages,
     iframeEmbed: "",
