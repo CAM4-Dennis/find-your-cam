@@ -1,4 +1,5 @@
 import type { CamModel } from "@/types/cam";
+import { getLanguageNames } from "@/lib/languageNames";
 
 interface ProfileSection {
   title: string;
@@ -207,13 +208,13 @@ function generateFAQ(model: CamModel, platformName: string, lang: string): { q: 
       { q: `Is ${name} nu live?`, a: `${name} is momenteel online op ${platformName}. Live status kan veranderen — bekijk de stream hierboven om te zien of ${name} nu live is. Via StartVagina zie je altijd de actuele status.` },
       { q: `Kan ik ${name} gratis bekijken?`, a: `Ja, je kunt ${name} gratis bekijken op StartVagina. De publieke show is volledig gratis en je hebt geen account nodig. Voor privéshows of interactieve functies heb je een gratis account nodig op ${platformName}.` },
       { q: `Op welk platform streamt ${name}?`, a: `${name} streamt op ${platformName}. Via StartVagina kun je de show direct bekijken of doorklikken naar ${platformName} voor de volledige ervaring inclusief chatten en interactie.` },
-      ...(model.languages?.length > 0 ? [{ q: `Welke talen spreekt ${name}?`, a: `${name} spreekt ${model.languages.join(", ")}. Dit maakt het gemakkelijk om te communiceren in de chatroom tijdens de live show.` }] : []),
+      ...(model.languages?.length > 0 ? [{ q: `Welke talen spreekt ${name}?`, a: `${name} spreekt ${getLanguageNames(model.languages, "nl").join(", ")}. Dit maakt het gemakkelijk om te communiceren in de chatroom tijdens de live show.` }] : []),
     ],
     en: [
       { q: `Is ${name} live right now?`, a: `${name} is currently online on ${platformName}. Live status can change — check the stream above to see if ${name} is currently live. StartVagina always shows the current status.` },
       { q: `Can I watch ${name} for free?`, a: `Yes, you can watch ${name} for free on StartVagina. The public show is completely free and you don't need an account. For private shows or interactive features, you'll need a free account on ${platformName}.` },
       { q: `What platform does ${name} stream on?`, a: `${name} streams on ${platformName}. Through StartVagina you can watch the show directly or click through to ${platformName} for the full experience including chat and interaction.` },
-      ...(model.languages?.length > 0 ? [{ q: `What languages does ${name} speak?`, a: `${name} speaks ${model.languages.join(", ")}. This makes it easy to communicate in the chatroom during the live show.` }] : []),
+      ...(model.languages?.length > 0 ? [{ q: `What languages does ${name} speak?`, a: `${name} speaks ${getLanguageNames(model.languages, "en").join(", ")}. This makes it easy to communicate in the chatroom during the live show.` }] : []),
     ],
     fr: [
       { q: `${name} est-elle en direct maintenant ?`, a: `${name} est actuellement en ligne sur ${platformName}. Le statut peut changer — vérifiez le stream ci-dessus. StartVagina affiche toujours le statut actuel.` },
@@ -259,7 +260,8 @@ export function generateProfileSections(model: CamModel, platformName: string, l
   }
 
   if (model.languages && model.languages.length > 0) {
-    aboutText += " " + t.profileLanguages(name, model.languages.join(", "));
+    const fullLangs = getLanguageNames(model.languages, lang);
+    aboutText += " " + t.profileLanguages(name, fullLangs.join(", "));
   }
 
   if (model.tags && model.tags.length > 0) {

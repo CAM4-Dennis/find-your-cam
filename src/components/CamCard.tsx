@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSfwMode } from "@/hooks/useSfwMode";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { getLanguageNames } from "@/lib/languageNames";
 
 interface CamCardProps {
   model: CamModel;
@@ -11,7 +12,7 @@ interface CamCardProps {
 const CamCard = ({ model }: CamCardProps) => {
   const [imgError, setImgError] = useState(false);
   const { sfwMode } = useSfwMode();
-  const { localePath, t } = useLanguage();
+  const { localePath, t, lang } = useLanguage();
 
   return (
     <article className="cam-card group" aria-label={`${model.name}${model.age ? `, ${model.age} jaar` : ''}`}>
@@ -50,7 +51,7 @@ const CamCard = ({ model }: CamCardProps) => {
               <>
                 <span className="text-border">·</span>
                 <span className="text-[11px]">🗣️</span>
-                <span className="truncate">{model.languages.slice(0, 2).join(", ")}</span>
+                <span className="truncate">{getLanguageNames(model.languages.slice(0, 2), lang).join(", ")}</span>
               </>
             )}
           </div>
