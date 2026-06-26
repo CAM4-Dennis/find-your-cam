@@ -24,6 +24,7 @@ import type { CamModel } from "@/types/cam";
 import { ArrowLeft, Eye, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SimilarCams from "@/components/SimilarCams";
+import { generateProfileSections, generateProfileFAQ } from "@/lib/profileContent";
 
 /** Generate a dynamic SEO-rich profile description from model data (translated) */
 function generateProfileText(model: CamModel, platformName: string, t: any): string {
@@ -100,7 +101,7 @@ const CamStream = () => {
   const { platform, username } = useParams<{ platform: string; username: string }>();
   const location = useLocation();
   const navigate = useNavigate();
-  const { localePath, t } = useLanguage();
+  const { localePath, t, lang } = useLanguage();
   const [videoEl, setVideoEl] = useState<HTMLVideoElement | null>(null);
   const videoRef = useCallback((node: HTMLVideoElement | null) => {
     setVideoEl(node);
@@ -267,6 +268,17 @@ const CamStream = () => {
               url: `https://www.startvagina.nl${localePath(`/${platform}/${username}`)}`,
             })}
           </script>
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: generateProfileFAQ(model, platformName, lang).items.map(item => ({
+                "@type": "Question",
+                name: item.q,
+                acceptedAnswer: { "@type": "Answer", text: item.a },
+              })),
+            })}
+          </script>
         </Helmet>
 
         <Header />
@@ -423,27 +435,48 @@ const CamStream = () => {
             </aside>
           </div>
 
-          {/* Dynamic profile description */}
-          <section className="bg-card border border-border rounded-lg p-5 space-y-3">
-            <h2 className="text-lg font-semibold text-foreground">
-              {t.camAbout(model.name)}
-            </h2>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              {generateProfileText(model, platformName, t)}
-            </p>
-            {model.tags?.length > 0 && (
-              <div className="pt-2">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">{t.camTags}</h3>
-                <div className="flex flex-wrap gap-1.5">
-                  {model.tags.map((tag) => (
-                    <span key={tag} className="text-xs bg-secondary text-muted-foreground px-2 py-1 rounded">
-                      #{tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-          </section>
+          {/* Dynamic SEO-rich profile sections */}
+          {(() => {
+            const sections = generateProfileSections(model, platformName, lang, t);
+            const faq = generateProfileFAQ(model, platformName, lang);
+            return (
+              <>
+                {sections.map((section, i) => (
+                  <section key={i} className="bg-card border border-border rounded-lg p-5 space-y-3">
+                    <h2 className="text-lg font-semibold text-foreground">{section.title}</h2>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{section.content}</p>
+                  </section>
+                ))}
+
+                {model.tags?.length > 0 && (
+                  <section className="bg-card border border-border rounded-lg p-5 space-y-3">
+                    <h2 className="text-lg font-semibold text-foreground">{t.camTags}</h2>
+                    <div className="flex flex-wrap gap-1.5">
+                      {model.tags.map((tag) => (
+                        <span key={tag} className="text-xs bg-secondary text-muted-foreground px-2 py-1 rounded">
+                          #{tag}
+                        </span>
+                      ))}
+                    </div>
+                  </section>
+                )}
+
+                {faq.items.length > 0 && (
+                  <section className="bg-card border border-border rounded-lg p-5 space-y-4">
+                    <h2 className="text-lg font-semibold text-foreground">{faq.title}</h2>
+                    <dl className="space-y-4">
+                      {faq.items.map((item, i) => (
+                        <div key={i}>
+                          <dt className="text-sm font-medium text-foreground">{item.q}</dt>
+                          <dd className="text-sm text-muted-foreground mt-1 leading-relaxed">{item.a}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </section>
+                )}
+              </>
+            );
+          })()}
 
           {/* Similar cams */}
           <SimilarCams currentModel={model} />
