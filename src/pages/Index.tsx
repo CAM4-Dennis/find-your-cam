@@ -12,6 +12,7 @@ import { useBongaCamsOnline } from "@/hooks/useBongaCams";
 import { useXCamsOnline } from "@/hooks/useXCams";
 import { useStripchatOnline } from "@/hooks/useStripchat";
 import { useJerkmateOnline } from "@/hooks/useJerkmate";
+import { useIsliveOnline } from "@/hooks/useIslive";
 import { useGeoLocation } from "@/hooks/useGeoLocation";
 import { Helmet } from "react-helmet-async";
 import type { CamModel } from "@/types/cam";
@@ -53,6 +54,7 @@ const Index = () => {
   const { data: stripCouples = [], isLoading: loadingStripCouples } = useStripchatOnline({ tag: "couples", limit: 150 }, loadSecondary);
   const { data: jmCouples = [], isLoading: loadingJMCouples } = useJerkmateOnline({ gender: "c", live: true, size: 150 }, loadSecondary);
   const { data: newCams = [], isLoading: loadingNew } = useChaturbateOnline({ gender: "f", limit: 150, offset: 150 }, loadSecondary);
+  const { data: isliveFemale = [], isLoading: loadingIslive } = useIsliveOnline({ gender: "v", limit: 60 }, loadSecondary);
 
   // Only show cams that include women (female, couple with female)
   const isFemaleRelated = (m: CamModel) => {
@@ -64,8 +66,8 @@ const Index = () => {
   const allModels = useMemo(() => {
     return [...cam4Female, ...cbFemale, ...bongaFemale, ...xcamsFemale, ...stripFemale, ...jmFemale,
             ...coupleCams4, ...coupleCamsCB, ...coupleBonga, ...coupleXCams, ...stripCouples, ...jmCouples,
-            ...newCams].filter(isFemaleRelated);
-  }, [cam4Female, cbFemale, bongaFemale, xcamsFemale, stripFemale, jmFemale, coupleCams4, coupleCamsCB, coupleBonga, coupleXCams, stripCouples, jmCouples, newCams]);
+            ...newCams, ...isliveFemale].filter(isFemaleRelated);
+  }, [cam4Female, cbFemale, bongaFemale, xcamsFemale, stripFemale, jmFemale, coupleCams4, coupleCamsCB, coupleBonga, coupleXCams, stripCouples, jmCouples, newCams, isliveFemale]);
 
   const hasActiveFilters = filters.gender.length > 0 || filters.platforms.length > 0 ||
     filters.tags.length > 0 || filters.hd === true || filters.ageRange !== null ||
@@ -85,7 +87,7 @@ const Index = () => {
 
   // Sectioned views (no filters active)
   const popularCams: CamModel[] = useMemo(() => {
-    const all = [...cam4Female, ...cbFemale, ...bongaFemale, ...xcamsFemale, ...stripFemale, ...jmFemale];
+    const all = [...cam4Female, ...cbFemale, ...bongaFemale, ...xcamsFemale, ...stripFemale, ...jmFemale, ...isliveFemale];
     if (!geo?.country) return all.sort(() => Math.random() - 0.5);
 
     const viewerCountry = getCountryName(geo.country);
@@ -104,7 +106,7 @@ const Index = () => {
       ...local.sort(() => Math.random() - 0.5),
       ...rest.sort(() => Math.random() - 0.5),
     ];
-  }, [cam4Female, cbFemale, bongaFemale, xcamsFemale, stripFemale, jmFemale, geo]);
+  }, [cam4Female, cbFemale, bongaFemale, xcamsFemale, stripFemale, jmFemale, isliveFemale, geo]);
 
   // Category sections from allModels pool
   const newCamsSection: CamModel[] = useMemo(
