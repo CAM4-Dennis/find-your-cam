@@ -64,7 +64,7 @@ function normalizeIsliveModel(model: IsliveModel): CamModel {
     tags: model.uiterlijk ? [model.uiterlijk] : [],
     isOnline: true,
     gender: normalizeGender(model.geslacht),
-    link: `https://cams.islive.nl/profile/${model.modelnaam}?p=${AFFILIATE_ID}`,
+    link: `https://islive.nl/profile/${model.modelnaam}?p=${AFFILIATE_ID}`,
     isNew: false,
     isHD: false,
     showType: "public",
