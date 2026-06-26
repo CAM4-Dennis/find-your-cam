@@ -84,8 +84,8 @@ export async function fetchIsliveModels(filters: IsliveFilters = {}): Promise<Ca
   if (filters.limit) params.set("limit", String(Math.min(filters.limit, 60)));
   if (filters.page && filters.page > 1) params.set("page", String(filters.page));
 
-  // Include snapshot and nonude fields
-  params.set("select", "snapshot,nonude,cover,coverVideo");
+  // Include all needed fields for display
+  params.set("select", "modelnaam,geslacht,leeftijd,online,waardering,land,woonplaats,uiterlijk,taal0,taal1,taal2,snapshot,nonude,cover,coverVideo,decency,available_contact");
 
   const url = `${BASE_URL}?${params.toString()}`;
   const response = await fetch(url);

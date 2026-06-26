@@ -42,7 +42,7 @@ export function useAllCams() {
       seen.add(m.id);
       return true;
     });
-  }, [cam4Female, cbFemale, bongaFemale, stripFemale, xcamsFemale, coupleCams4, coupleCamsCB, coupleBonga, stripCouples, jerkmateFemale, jerkmateCouples, f4fFemale, f4fTrans]);
+  }, [cam4Female, cbFemale, bongaFemale, stripFemale, xcamsFemale, coupleCams4, coupleCamsCB, coupleBonga, stripCouples, jerkmateFemale, jerkmateCouples, f4fFemale, f4fTrans, isliveFemale]);
 
   return { allCams, isLoading };
 }
