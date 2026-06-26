@@ -52,6 +52,7 @@ const pageRoutes = (
     <Route path="stripchat/:username" element={<CamStream />} />
     <Route path="jerkmate/:username" element={<CamStream />} />
     <Route path="xcams/:username" element={<CamStream />} />
+    <Route path="islive/:username" element={<CamStream />} />
     <Route path="categorieen" element={<Categories />} />
     <Route path="landen" element={<Countries />} />
     <Route path="talen" element={<Languages />} />
