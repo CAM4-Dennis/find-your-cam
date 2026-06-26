@@ -28,12 +28,13 @@ export function useAllCams() {
   const isLoading = l1 || l2 || l3 || l4 || l5 || l6 || l7 || l8 || l9 || l10 || l11 || l12 || l13 || l14;
 
   const allCams = useMemo(() => {
+    // Live-stream platforms first, snapshot-only (Islive, XCams) at the end
     const all = [
-      ...cam4Female, ...cbFemale, ...bongaFemale, ...stripFemale, ...xcamsFemale,
+      ...cam4Female, ...cbFemale, ...bongaFemale, ...stripFemale,
       ...coupleCams4, ...coupleCamsCB, ...coupleBonga, ...stripCouples,
       ...jerkmateFemale, ...jerkmateCouples,
       ...f4fFemale, ...f4fTrans,
-      ...isliveFemale,
+      ...xcamsFemale, ...isliveFemale,
     ];
     // Deduplicate by id
     const seen = new Set<string>();

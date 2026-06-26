@@ -87,14 +87,16 @@ const Index = () => {
 
   // Sectioned views (no filters active)
   const popularCams: CamModel[] = useMemo(() => {
-    const all = [...cam4Female, ...cbFemale, ...bongaFemale, ...xcamsFemale, ...stripFemale, ...jmFemale, ...isliveFemale];
-    if (!geo?.country) return all.sort(() => Math.random() - 0.5);
+    // Live-stream platforms first, snapshot-only (Islive/XCams) at the end
+    const liveModels = [...cam4Female, ...cbFemale, ...bongaFemale, ...stripFemale, ...jmFemale];
+    const snapshotModels = [...xcamsFemale, ...isliveFemale];
+    if (!geo?.country) return [...liveModels.sort(() => Math.random() - 0.5), ...snapshotModels.sort(() => Math.random() - 0.5)];
 
     const viewerCountry = getCountryName(geo.country);
     const local: CamModel[] = [];
     const rest: CamModel[] = [];
 
-    for (const m of all) {
+    for (const m of liveModels) {
       if (m.country?.toLowerCase() === viewerCountry.toLowerCase()) {
         local.push(m);
       } else {
@@ -105,6 +107,7 @@ const Index = () => {
     return [
       ...local.sort(() => Math.random() - 0.5),
       ...rest.sort(() => Math.random() - 0.5),
+      ...snapshotModels.sort(() => Math.random() - 0.5),
     ];
   }, [cam4Female, cbFemale, bongaFemale, xcamsFemale, stripFemale, jmFemale, isliveFemale, geo]);
 
