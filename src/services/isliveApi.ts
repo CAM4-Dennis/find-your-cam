@@ -2,7 +2,7 @@ import type { CamModel } from "@/types/cam";
 import { getCountryFlag, getCountryName } from "@/lib/countryFlags";
 
 const BASE_URL = "/api/islive-proxy";
-const AFFILIATE_ID = "12058";
+const VPSCASH_UID = "01919862-cf46-7e49-b2ad-01d675424ddb";
 
 export interface IsliveFilters {
   gender?: "v" | "m" | "s" | "t";
@@ -64,7 +64,7 @@ function normalizeIsliveModel(model: IsliveModel): CamModel {
     tags: model.uiterlijk ? [model.uiterlijk] : [],
     isOnline: true,
     gender: normalizeGender(model.geslacht),
-    link: `https://islive.nl/profile/${model.modelnaam}?p=${AFFILIATE_ID}`,
+    link: `https://offers.vpscash.com/?offer=159&uid=${VPSCASH_UID}&url=https://www.islive.nl/profile/${model.modelnaam}`,
     isNew: false,
     isHD: false,
     showType: "public",
