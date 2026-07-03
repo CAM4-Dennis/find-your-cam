@@ -15,7 +15,7 @@
         }
       ],
       "destination": "https://www.startvagina.nl/:path",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/gratis-filmpjes",
