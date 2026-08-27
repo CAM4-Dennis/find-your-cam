@@ -660,47 +660,47 @@
     },
     {
       "source": "/vrouwen/:cat",
-      "destination": "/index.html"
+      "destination": "/_app"
     },
     {
       "source": "/mannen/:cat",
-      "destination": "/index.html"
+      "destination": "/_app"
     },
     {
       "source": "/koppels/:cat",
-      "destination": "/index.html"
+      "destination": "/_app"
     },
     {
       "source": "/trans/:cat",
-      "destination": "/index.html"
+      "destination": "/_app"
     },
     {
       "source": "/:lang-sprekend",
-      "destination": "/index.html"
+      "destination": "/_app"
     },
     {
       "source": "/en/vrouwen/:cat",
-      "destination": "/index.html"
+      "destination": "/_app"
     },
     {
       "source": "/en/mannen/:cat",
-      "destination": "/index.html"
+      "destination": "/_app"
     },
     {
       "source": "/en/koppels/:cat",
-      "destination": "/index.html"
+      "destination": "/_app"
     },
     {
       "source": "/en/trans/:cat",
-      "destination": "/index.html"
+      "destination": "/_app"
     },
     {
       "source": "/en/:lang-sprekend",
-      "destination": "/index.html"
+      "destination": "/_app"
     },
     {
       "source": "/(.*)",
-      "destination": "/index.html"
+      "destination": "/_app"
     }
   ]
 }
