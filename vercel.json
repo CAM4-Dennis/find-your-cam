@@ -659,6 +659,46 @@
       "destination": "/sitemap/:file"
     },
     {
+      "source": "/vrouwen/:cat",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/mannen/:cat",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/koppels/:cat",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/trans/:cat",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/:lang-sprekend",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/en/vrouwen/:cat",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/en/mannen/:cat",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/en/koppels/:cat",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/en/trans/:cat",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/en/:lang-sprekend",
+      "destination": "/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
