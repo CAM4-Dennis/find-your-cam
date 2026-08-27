@@ -24,6 +24,9 @@ const KeywordLanding = lazy(() => import("./pages/KeywordLanding.tsx"));
 const Languages = lazy(() => import("./pages/Languages.tsx"));
 const LanguageLanding = lazy(() => import("./pages/LanguageLanding.tsx"));
 const PlatformLanding = lazy(() => import("./pages/PlatformLanding.tsx"));
+const PlatformCategoryLanding = lazy(() => import("./pages/PlatformCategoryLanding.tsx"));
+const GenderCategoryLanding = lazy(() => import("./pages/GenderCategoryLanding.tsx"));
+const LanguageSpeakingLanding2 = lazy(() => import("./pages/LanguageSpeakingLanding.tsx"));
 const CategoryLanding = lazy(() => import("./pages/CategoryLanding.tsx"));
 const ComparisonLanding = lazy(() => import("./pages/ComparisonLanding.tsx"));
 const CountryLanding = lazy(() => import("./pages/CountryLanding.tsx"));
@@ -110,6 +113,65 @@ const pageRoutes = (
     <Route path="voeten-fetish-cam-shows" element={<CategoryLanding />} />
     <Route path="outdoor-cam-shows-buiten" element={<CategoryLanding />} />
     <Route path="mobiele-cam-shows-live" element={<CategoryLanding />} />
+    {/* NEW: 13 additional category pages */}
+    <Route path="blonde-cam-girls" element={<CategoryLanding />} />
+    <Route path="brunette-cam-girls" element={<CategoryLanding />} />
+    <Route path="roodharige-cam-girls" element={<CategoryLanding />} />
+    <Route path="curvy-cam-girls-bbw" element={<CategoryLanding />} />
+    <Route path="slanke-cam-girls" element={<CategoryLanding />} />
+    <Route path="lovense-cam-shows" element={<CategoryLanding />} />
+    <Route path="cam-girls-grote-kont" element={<CategoryLanding />} />
+    <Route path="striptease-cam-shows" element={<CategoryLanding />} />
+    <Route path="dildo-cam-shows" element={<CategoryLanding />} />
+    <Route path="cosplay-cam-shows" element={<CategoryLanding />} />
+    <Route path="rokende-cam-girls" element={<CategoryLanding />} />
+    <Route path="zwangere-cam-girls" element={<CategoryLanding />} />
+    <Route path="gespierde-cam-modellen" element={<CategoryLanding />} />
+    {/* Platform × Category combo pages */}
+    <Route path="chaturbate-cams/:category" element={<PlatformCategoryLanding />} />
+    <Route path="stripchat-cams/:category" element={<PlatformCategoryLanding />} />
+    <Route path="bongacams-cams/:category" element={<PlatformCategoryLanding />} />
+    <Route path="cam4-cams/:category" element={<PlatformCategoryLanding />} />
+    <Route path="jerkmate-cams/:category" element={<PlatformCategoryLanding />} />
+    <Route path="xcams-cams/:category" element={<PlatformCategoryLanding />} />
+    <Route path="flirt4free-cams/:category" element={<PlatformCategoryLanding />} />
+    <Route path="islive-cams/:category" element={<PlatformCategoryLanding />} />
+    {/* Gender × Category combo pages */}
+    <Route path="vrouwen/:category" element={<GenderCategoryLanding />} />
+    <Route path="mannen/:category" element={<GenderCategoryLanding />} />
+    <Route path="koppels/:category" element={<GenderCategoryLanding />} />
+    <Route path="trans/:category" element={<GenderCategoryLanding />} />
+    {/* Language-speaking pages */}
+    <Route path="nederlands-sprekend" element={<LanguageSpeakingLanding2 />} />
+    <Route path="engels-sprekend" element={<LanguageSpeakingLanding2 />} />
+    <Route path="duits-sprekend" element={<LanguageSpeakingLanding2 />} />
+    <Route path="frans-sprekend" element={<LanguageSpeakingLanding2 />} />
+    <Route path="spaans-sprekend" element={<LanguageSpeakingLanding2 />} />
+    <Route path="italiaans-sprekend" element={<LanguageSpeakingLanding2 />} />
+    <Route path="portugees-sprekend" element={<LanguageSpeakingLanding2 />} />
+    <Route path="russisch-sprekend" element={<LanguageSpeakingLanding2 />} />
+    <Route path="pools-sprekend" element={<LanguageSpeakingLanding2 />} />
+    <Route path="tsjechisch-sprekend" element={<LanguageSpeakingLanding2 />} />
+    <Route path="roemeens-sprekend" element={<LanguageSpeakingLanding2 />} />
+    <Route path="hongaars-sprekend" element={<LanguageSpeakingLanding2 />} />
+    <Route path="turks-sprekend" element={<LanguageSpeakingLanding2 />} />
+    <Route path="arabisch-sprekend" element={<LanguageSpeakingLanding2 />} />
+    <Route path="japans-sprekend" element={<LanguageSpeakingLanding2 />} />
+    <Route path="koreaans-sprekend" element={<LanguageSpeakingLanding2 />} />
+    <Route path="chinees-sprekend" element={<LanguageSpeakingLanding2 />} />
+    <Route path="thais-sprekend" element={<LanguageSpeakingLanding2 />} />
+    <Route path="hindi-sprekend" element={<LanguageSpeakingLanding2 />} />
+    <Route path="oekraiens-sprekend" element={<LanguageSpeakingLanding2 />} />
+    <Route path="fins-sprekend" element={<LanguageSpeakingLanding2 />} />
+    <Route path="zweeds-sprekend" element={<LanguageSpeakingLanding2 />} />
+    <Route path="noors-sprekend" element={<LanguageSpeakingLanding2 />} />
+    <Route path="deens-sprekend" element={<LanguageSpeakingLanding2 />} />
+    <Route path="grieks-sprekend" element={<LanguageSpeakingLanding2 />} />
+    <Route path="servisch-sprekend" element={<LanguageSpeakingLanding2 />} />
+    <Route path="kroatisch-sprekend" element={<LanguageSpeakingLanding2 />} />
+    <Route path="bulgaars-sprekend" element={<LanguageSpeakingLanding2 />} />
+    <Route path="indonesisch-sprekend" element={<LanguageSpeakingLanding2 />} />
+    <Route path="vietnamees-sprekend" element={<LanguageSpeakingLanding2 />} />
     <Route path="contact" element={<Contact />} />
     <Route path="videos" element={<NicheVideos />} />
     <Route path="videos/:slug" element={<NicheDetail />} />

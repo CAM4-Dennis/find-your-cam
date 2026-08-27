@@ -71,6 +71,21 @@ const pages = [
   { slug: "/outdoor-cam-shows-buiten", priority: "0.6", changefreq: "daily" },
   { slug: "/mobiele-cam-shows-live", priority: "0.6", changefreq: "daily" },
 
+  // NEW category landing pages
+  { slug: "/blonde-cam-girls", priority: "0.7", changefreq: "daily" },
+  { slug: "/brunette-cam-girls", priority: "0.7", changefreq: "daily" },
+  { slug: "/roodharige-cam-girls", priority: "0.7", changefreq: "daily" },
+  { slug: "/curvy-cam-girls-bbw", priority: "0.7", changefreq: "daily" },
+  { slug: "/slanke-cam-girls", priority: "0.6", changefreq: "daily" },
+  { slug: "/lovense-cam-shows", priority: "0.7", changefreq: "daily" },
+  { slug: "/cam-girls-grote-kont", priority: "0.7", changefreq: "daily" },
+  { slug: "/striptease-cam-shows", priority: "0.7", changefreq: "daily" },
+  { slug: "/dildo-cam-shows", priority: "0.6", changefreq: "daily" },
+  { slug: "/cosplay-cam-shows", priority: "0.6", changefreq: "daily" },
+  { slug: "/rokende-cam-girls", priority: "0.5", changefreq: "daily" },
+  { slug: "/zwangere-cam-girls", priority: "0.5", changefreq: "daily" },
+  { slug: "/gespierde-cam-modellen", priority: "0.5", changefreq: "daily" },
+
   // Niche videos
   { slug: "/videos", priority: "0.8", changefreq: "daily" },
 
@@ -163,6 +178,69 @@ console.log(`📦 Fetched ${nicheSlugs.length} niche slugs from CAM4 API`);
 for (const slug of nicheSlugs) {
   pages.push({ slug: `/videos/${slug}`, priority: "0.6", changefreq: "daily" });
 }
+
+// Platform × Category combo pages
+const platformSlugs = ["chaturbate", "stripchat", "bongacams", "cam4", "jerkmate", "xcams", "flirt4free", "islive"];
+const categorySlugs = [
+  "teen", "milf", "mature", "asian", "latina", "ebony", "bigtits", "petite",
+  "anal", "couple", "squirt", "bdsm", "tattoo", "hairy", "feet", "outdoor",
+  "mobile", "blonde", "brunette", "redhead", "curvy", "slim", "lovense",
+  "bigass", "striptease", "dildo", "cosplay", "smoking", "pregnant", "muscle",
+];
+for (const platform of platformSlugs) {
+  for (const cat of categorySlugs) {
+    pages.push({ slug: `/${platform}-cams/${cat}`, priority: "0.6", changefreq: "daily" });
+  }
+}
+console.log(`🔗 Added ${platformSlugs.length * categorySlugs.length} platform × category combo pages`);
+
+// Gender × Category combo pages
+const genderSlugs = ["vrouwen", "mannen", "koppels", "trans"];
+for (const gender of genderSlugs) {
+  for (const cat of categorySlugs) {
+    pages.push({ slug: `/${gender}/${cat}`, priority: "0.6", changefreq: "daily" });
+  }
+}
+console.log(`👫 Added ${genderSlugs.length * categorySlugs.length} gender × category combo pages`);
+
+// Language-speaking pages
+const languageSpeakingSlugs = [
+  "nederlands-sprekend", "engels-sprekend", "duits-sprekend", "frans-sprekend",
+  "spaans-sprekend", "italiaans-sprekend", "portugees-sprekend", "russisch-sprekend",
+  "pools-sprekend", "tsjechisch-sprekend", "roemeens-sprekend", "hongaars-sprekend",
+  "turks-sprekend", "arabisch-sprekend", "japans-sprekend", "koreaans-sprekend",
+  "chinees-sprekend", "thais-sprekend", "hindi-sprekend", "oekraiens-sprekend",
+  "fins-sprekend", "zweeds-sprekend", "noors-sprekend", "deens-sprekend",
+  "grieks-sprekend", "servisch-sprekend", "kroatisch-sprekend", "bulgaars-sprekend",
+  "indonesisch-sprekend", "vietnamees-sprekend",
+];
+for (const slug of languageSpeakingSlugs) {
+  pages.push({ slug: `/${slug}`, priority: "0.6", changefreq: "daily" });
+}
+console.log(`🗣️ Added ${languageSpeakingSlugs.length} language-speaking pages`);
+
+// New country pages (added in Fase 2)
+const newCountrySlugs = [
+  "canadese-cam-girls", "australische-cam-girls", "hongaarse-cam-girls", "argentijnse-cam-girls",
+  "indiase-cam-girls", "turkse-cam-girls", "griekse-cam-girls", "portugese-cam-girls",
+  "kroatische-cam-girls", "servische-cam-girls", "bulgaarse-cam-girls", "letse-cam-girls",
+  "litouwse-cam-girls", "estse-cam-girls", "slowaakse-cam-girls",
+  "zweedse-cam-girls", "noorse-cam-girls", "deense-cam-girls", "finse-cam-girls",
+  "oostenrijkse-cam-girls", "zwitserse-cam-girls", "ierse-cam-girls",
+  "zuidafrikaanse-cam-girls", "israelische-cam-girls", "egyptische-cam-girls",
+  "marokkaanse-cam-girls", "nigeriaanse-cam-girls", "keniaanse-cam-girls",
+  "venezolaanse-cam-girls", "peruaanse-cam-girls", "chileense-cam-girls",
+  "ecuadoriaanse-cam-girls", "dominicaanse-cam-girls", "cubaanse-cam-girls",
+  "koreaanse-cam-girls", "chinese-cam-girls", "indonesische-cam-girls",
+  "vietnamese-cam-girls", "maleisische-cam-girls", "taiwanese-cam-girls", "singaporese-cam-girls",
+  "moldavische-cam-girls", "albanese-cam-girls", "sloveense-cam-girls",
+  "bosnische-cam-girls", "georgische-cam-girls", "armeense-cam-girls",
+  "cypriotische-cam-girls", "ijslandse-cam-girls",
+];
+for (const slug of newCountrySlugs) {
+  pages.push({ slug: `/${slug}`, priority: "0.6", changefreq: "daily" });
+}
+console.log(`🌍 Added ${newCountrySlugs.length} new country pages`);
 
 // Generate all URL entries (only indexable languages: NL + EN)
 // FR/DE/ES/IT pages are noindexed in the app, so exclude them from sitemap

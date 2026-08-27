@@ -24,6 +24,19 @@ const categories = [
   { label: "Voeten", emoji: "🦶", slug: "voeten-fetish-cam-shows" },
   { label: "Outdoor", emoji: "🌳", slug: "outdoor-cam-shows-buiten" },
   { label: "Mobiel", emoji: "📱", slug: "mobiele-cam-shows-live" },
+  { label: "Blond", emoji: "👱", slug: "blonde-cam-girls" },
+  { label: "Brunette", emoji: "👩‍🦱", slug: "brunette-cam-girls" },
+  { label: "Roodharig", emoji: "👩‍🦰", slug: "roodharige-cam-girls" },
+  { label: "Curvy / BBW", emoji: "🍑", slug: "curvy-cam-girls-bbw" },
+  { label: "Slank", emoji: "💃", slug: "slanke-cam-girls" },
+  { label: "Lovense", emoji: "📳", slug: "lovense-cam-shows" },
+  { label: "Grote Kont", emoji: "🍑", slug: "cam-girls-grote-kont" },
+  { label: "Striptease", emoji: "💃", slug: "striptease-cam-shows" },
+  { label: "Dildo", emoji: "🔧", slug: "dildo-cam-shows" },
+  { label: "Cosplay", emoji: "🎭", slug: "cosplay-cam-shows" },
+  { label: "Roken", emoji: "🚬", slug: "rokende-cam-girls" },
+  { label: "Zwanger", emoji: "🤰", slug: "zwangere-cam-girls" },
+  { label: "Gespierd", emoji: "💪", slug: "gespierde-cam-modellen" },
 ];
 
 const Categories = () => {

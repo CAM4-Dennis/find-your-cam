@@ -1,16 +1,141 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
 User-agent: *
-Allow: /
-
 Sitemap: https://www.startvagina.nl/sitemap.xml
+
+# Template/static files
+Allow: /assets/*
+
+# Platform × Category combo pages (indexable)
+Allow: /chaturbate-cams/*
+Allow: /stripchat-cams/*
+Allow: /bongacams-cams/*
+Allow: /cam4-cams/*
+Allow: /jerkmate-cams/*
+Allow: /xcams-cams/*
+Allow: /flirt4free-cams/*
+Allow: /islive-cams/*
+
+# Block language-prefixed platform combo pages (prevent duplicate indexing)
+Disallow: /en/chaturbate-cams/*
+Disallow: /en/stripchat-cams/*
+Disallow: /en/bongacams-cams/*
+Disallow: /en/cam4-cams/*
+Disallow: /en/jerkmate-cams/*
+Disallow: /en/xcams-cams/*
+Disallow: /en/flirt4free-cams/*
+Disallow: /en/islive-cams/*
+Disallow: /fr/chaturbate-cams/*
+Disallow: /fr/stripchat-cams/*
+Disallow: /fr/bongacams-cams/*
+Disallow: /fr/cam4-cams/*
+Disallow: /fr/jerkmate-cams/*
+Disallow: /fr/xcams-cams/*
+Disallow: /fr/flirt4free-cams/*
+Disallow: /fr/islive-cams/*
+Disallow: /de/chaturbate-cams/*
+Disallow: /de/stripchat-cams/*
+Disallow: /de/bongacams-cams/*
+Disallow: /de/cam4-cams/*
+Disallow: /de/jerkmate-cams/*
+Disallow: /de/xcams-cams/*
+Disallow: /de/flirt4free-cams/*
+Disallow: /de/islive-cams/*
+Disallow: /es/chaturbate-cams/*
+Disallow: /es/stripchat-cams/*
+Disallow: /es/bongacams-cams/*
+Disallow: /es/cam4-cams/*
+Disallow: /es/jerkmate-cams/*
+Disallow: /es/xcams-cams/*
+Disallow: /es/flirt4free-cams/*
+Disallow: /es/islive-cams/*
+Disallow: /it/chaturbate-cams/*
+Disallow: /it/stripchat-cams/*
+Disallow: /it/bongacams-cams/*
+Disallow: /it/cam4-cams/*
+Disallow: /it/jerkmate-cams/*
+Disallow: /it/xcams-cams/*
+Disallow: /it/flirt4free-cams/*
+Disallow: /it/islive-cams/*
+
+# Gender × Category combo pages (indexable)
+Allow: /vrouwen/*
+Allow: /mannen/*
+Allow: /koppels/*
+Allow: /trans/*
+Disallow: /en/vrouwen/*
+Disallow: /en/mannen/*
+Disallow: /en/koppels/*
+Disallow: /en/trans/*
+Disallow: /fr/vrouwen/*
+Disallow: /fr/mannen/*
+Disallow: /fr/koppels/*
+Disallow: /fr/trans/*
+Disallow: /de/vrouwen/*
+Disallow: /de/mannen/*
+Disallow: /de/koppels/*
+Disallow: /de/trans/*
+Disallow: /es/vrouwen/*
+Disallow: /es/mannen/*
+Disallow: /es/koppels/*
+Disallow: /es/trans/*
+Disallow: /it/vrouwen/*
+Disallow: /it/mannen/*
+Disallow: /it/koppels/*
+Disallow: /it/trans/*
+
+# Language-speaking pages (indexable at root)
+Allow: /*-sprekend
+Disallow: /en/*-sprekend
+Disallow: /fr/*-sprekend
+Disallow: /de/*-sprekend
+Disallow: /es/*-sprekend
+Disallow: /it/*-sprekend
+
+# Model profile pages: allow root, block language-prefixed (like LemonCams)
+Allow: /chaturbate/
+Allow: /stripchat/
+Allow: /bongacams/
+Allow: /cam4/
+Allow: /jerkmate/
+Allow: /xcams/
+Allow: /islive/
+Disallow: /en/chaturbate/
+Disallow: /en/stripchat/
+Disallow: /en/bongacams/
+Disallow: /en/cam4/
+Disallow: /en/jerkmate/
+Disallow: /en/xcams/
+Disallow: /en/islive/
+Disallow: /fr/chaturbate/
+Disallow: /fr/stripchat/
+Disallow: /fr/bongacams/
+Disallow: /fr/cam4/
+Disallow: /fr/jerkmate/
+Disallow: /fr/xcams/
+Disallow: /fr/islive/
+Disallow: /de/chaturbate/
+Disallow: /de/stripchat/
+Disallow: /de/bongacams/
+Disallow: /de/cam4/
+Disallow: /de/jerkmate/
+Disallow: /de/xcams/
+Disallow: /de/islive/
+Disallow: /es/chaturbate/
+Disallow: /es/stripchat/
+Disallow: /es/bongacams/
+Disallow: /es/cam4/
+Disallow: /es/jerkmate/
+Disallow: /es/xcams/
+Disallow: /es/islive/
+Disallow: /it/chaturbate/
+Disallow: /it/stripchat/
+Disallow: /it/bongacams/
+Disallow: /it/cam4/
+Disallow: /it/jerkmate/
+Disallow: /it/xcams/
+Disallow: /it/islive/
+
+# Block non-indexed language blog pages
+Disallow: /fr/blog
+Disallow: /de/blog
+Disallow: /es/blog
+Disallow: /it/blog
