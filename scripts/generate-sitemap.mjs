@@ -4,7 +4,7 @@
  * Output: public/sitemap.xml
  */
 
-import { writeFileSync } from "fs";
+import { writeFileSync, readFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 
@@ -24,6 +24,13 @@ const pages = [
   { slug: "/nieuwe-cam-girls", priority: "0.8", changefreq: "always" },
   { slug: "/populairste-cam-girls", priority: "0.8", changefreq: "always" },
   { slug: "/blog", priority: "0.7", changefreq: "weekly" },
+
+  // Blog posts (auto-generated from blog-posts.json)
+  ...JSON.parse(readFileSync(join(__dirname, "../src/data/blog-posts.json"), "utf-8")).map(p => ({
+    slug: `/blog/${p.id}`,
+    priority: "0.6",
+    changefreq: "monthly",
+  })),
 
   // Keyword landing pages
   { slug: "/webcamsex", priority: "0.9", changefreq: "daily" },

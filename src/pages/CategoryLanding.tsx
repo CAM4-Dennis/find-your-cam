@@ -7,7 +7,9 @@ import CamGrid from "@/components/CamGrid";
 import { Loader2, ChevronRight, Home } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { useAllCams } from "@/hooks/useAllCams";
-import { useMemo } from "react";
+import { useMaleCams } from "@/hooks/useMaleCams";
+import { useTransCams } from "@/hooks/useTransCams";
+import { useState, useMemo } from "react";
 import type { CamModel } from "@/types/cam";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { getRobotsContent } from "@/lib/robotsMeta";
@@ -537,14 +539,74 @@ const CategoryLanding = () => {
   const translatedConfig = getCategoryConfig(slug || "", lang);
   const fallbackConfig = categoryPages[slug || ""];
   const config = lang === "nl" && fallbackConfig ? fallbackConfig : (translatedConfig || fallbackConfig);
-  const { allCams, isLoading } = useAllCams();
+  const { allCams, isLoading: baseLoading } = useAllCams();
+
+  // Gender filter state
+  type GenderOption = "all" | "female" | "male" | "couple" | "trans";
+  const [genderFilter, setGenderFilter] = useState<GenderOption>("all");
+
+  // Conditionally fetch male/trans cams only when that filter is active
+  const { maleCams, isLoading: maleLoading } = useMaleCams(genderFilter === "male");
+  const { transCams, isLoading: transLoading } = useTransCams(genderFilter === "trans");
+
+  const isLoading = baseLoading || (genderFilter === "male" && maleLoading) || (genderFilter === "trans" && transLoading);
+
+  // Hide gender filter for categories that are already gender-locked (e.g. koppels)
+  const showGenderFilter = !config?.matchGender || config.matchGender.length === 0;
+
+  const genderOptions: { value: GenderOption; label: Record<string, string>; emoji: string }[] = [
+    { value: "all", label: { nl: "Alles", en: "All", fr: "Tous", de: "Alle", es: "Todos", it: "Tutti" }, emoji: "👤" },
+    { value: "female", label: { nl: "Vrouw", en: "Female", fr: "Femme", de: "Frau", es: "Mujer", it: "Donna" }, emoji: "♀️" },
+    { value: "male", label: { nl: "Man", en: "Male", fr: "Homme", de: "Mann", es: "Hombre", it: "Uomo" }, emoji: "♂️" },
+    { value: "couple", label: { nl: "Koppel", en: "Couple", fr: "Couple", de: "Paar", es: "Pareja", it: "Coppia" }, emoji: "👥" },
+    { value: "trans", label: { nl: "Trans", en: "Trans", fr: "Trans", de: "Trans", es: "Trans", it: "Trans" }, emoji: "⚧️" },
+  ];
 
   const categoryCams = useMemo(() => {
-    if (!config || !allCams.length) return [];
-    return allCams
+    if (!config) return [];
+
+    // Pick the right cam pool based on gender filter
+    const genderAliases: Record<string, string[]> = {
+      female: ["female", "f"],
+      male: ["male", "m"],
+      couple: ["couple", "c"],
+      trans: ["trans", "shemale", "t"],
+    };
+
+    let pool: CamModel[];
+    if (genderFilter === "male") {
+      pool = maleCams;
+    } else if (genderFilter === "trans") {
+      pool = transCams;
+    } else if (genderFilter === "female") {
+      const allowed = genderAliases.female;
+      pool = allCams.filter((m) => allowed.includes(m.gender.toLowerCase()));
+    } else if (genderFilter === "couple") {
+      const allowed = genderAliases.couple;
+      pool = allCams.filter((m) => allowed.includes(m.gender.toLowerCase()));
+    } else {
+      pool = allCams; // "all"
+    }
+
+    if (pool.length === 0) return [];
+
+    // For gender-locked categories (like koppels), matchesCategory handles gender.
+    // For tag-based categories with a gender filter, we match on tags only.
+    if (genderFilter !== "all" && !config.matchGender?.length) {
+      // Tag-based matching only (gender already filtered above)
+      const modelTagsMatch = (m: CamModel) => {
+        if (config.matchMobile) return !!m.isMobile || m.tags.some((t) => t.toLowerCase().includes("mobile"));
+        if (!config.matchTags.length) return true;
+        const mTags = m.tags.map((t) => t.toLowerCase());
+        return config.matchTags.some((tag) => mTags.some((mt) => mt.includes(tag) || tag.includes(mt)));
+      };
+      return pool.filter(modelTagsMatch).sort(() => Math.random() - 0.5);
+    }
+
+    return pool
       .filter((m) => matchesCategory(m, config))
       .sort(() => Math.random() - 0.5);
-  }, [allCams, config]);
+  }, [allCams, maleCams, transCams, config, genderFilter]);
 
   if (!config) return null;
 
@@ -595,9 +657,28 @@ const CategoryLanding = () => {
             <span className="text-foreground">{config.label}</span>
           </nav>
 
-          <h1 className="text-3xl font-bold font-display text-foreground mb-6">
+          <h1 className="text-3xl font-bold font-display text-foreground mb-4">
             {config.h1}
           </h1>
+
+          {/* Gender filter tabs */}
+          {showGenderFilter && (
+            <div className="flex flex-wrap gap-2 mb-6">
+              {genderOptions.map((opt) => (
+                <button
+                  key={opt.value}
+                  onClick={() => setGenderFilter(opt.value)}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                    genderFilter === opt.value
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-secondary text-muted-foreground hover:text-foreground hover:bg-accent"
+                  }`}
+                >
+                  {opt.emoji} {opt.label[lang] || opt.label.en}
+                </button>
+              ))}
+            </div>
+          )}
 
           {isLoading ? (
             <div className="flex items-center gap-2 text-muted-foreground py-12 justify-center">

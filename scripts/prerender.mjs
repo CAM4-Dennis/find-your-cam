@@ -790,6 +790,42 @@ for (const { slug, name: nicheName } of nicheSlugsData) {
 
 const nicheCount = nicheSlugsData.length * langs.length + langs.length;
 console.log(`\u2705 Pre-rendered ${nicheCount} videos pages (${langs.length} index + ${nicheSlugsData.length} \u00d7 ${langs.length} detail)`);
+
+// ── Blog post pages ──
+console.log("\n\ud83d\udcdd Pre-rendering blog post pages...");
+const blogPosts = JSON.parse(readFileSync(join(__dirname, "../src/data/blog-posts.json"), "utf-8"));
+for (const post of blogPosts) {
+  for (const lang of langs) {
+    const prefix = langPrefixes[lang];
+    const baseSlug = `blog/${post.id}`;
+    const fullSlug = prefix ? `${prefix.slice(1)}/${baseSlug}` : baseSlug;
+    const blogMeta = {
+      title: `${post.title} \u2014 StartVagina Blog`,
+      description: post.description,
+      keywords: `${post.category || "webcamsex"}, cam blog, ${post.platform || "webcam"}, StartVagina`,
+      schema: {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        headline: post.title,
+        description: post.description,
+        datePublished: post.date,
+        publisher: { "@type": "Organization", name: "StartVagina", url: BASE },
+        mainEntityOfPage: { "@type": "WebPage", "@id": `${BASE}/${baseSlug}` },
+      },
+    };
+    const metaTags = buildMetaTags(fullSlug, blogMeta, lang);
+    const navLinks = lang === "nl"
+      ? `<a href="/">Home</a> | <a href="/blog">Blog</a>`
+      : `<a href="/${lang}">Home</a> | <a href="/${lang}/blog">Blog</a>`;
+    const bodyHtml = `<div id="root"><nav aria-label="Main">${navLinks}</nav><main><article><h1>${escapeHtml(post.title)}</h1><p>${escapeHtml(post.description)}</p>${post.content}</article></main><footer><p>\u00a9 ${new Date().getFullYear()} StartVagina.nl</p></footer></div>`;
+    const html = injectMetaWithBody(template, metaTags, bodyHtml, lang);
+    writePage(fullSlug, html);
+    count++;
+  }
+}
+const blogCount = blogPosts.length * langs.length;
+console.log(`\u2705 Pre-rendered ${blogCount} blog pages (${blogPosts.length} posts \u00d7 ${langs.length} langs)`);
+
 console.log(`\u2139\ufe0f  Model pages use SPA fallback (no static pre-render)`);
 console.log(`\u2139\ufe0f  Filter pages (query strings) use SPA fallback + React Helmet`);
 console.log(`\u2705 Total: ${count} pages`);
