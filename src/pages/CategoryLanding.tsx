@@ -16,6 +16,7 @@ import { getRobotsContent } from "@/lib/robotsMeta";
 import { landingUI } from "@/data/i18nHelpers";
 import { categoryPages as translatedCategoryPages, getCategoryConfig } from "@/data/categoryPages";
 import { canonicalUrl, hreflangEntries, breadcrumbSchema, faqSchema } from "@/lib/seoHelpers";
+import { getGenderOverride } from "@/data/genderCategoryContent";
 
 interface CategoryConfig {
   slug: string;
@@ -610,27 +611,40 @@ const CategoryLanding = () => {
 
   if (!config) return null;
 
+  // Apply gender-specific content overrides when a non-female gender filter is active
+  const genderOverride = (genderFilter !== "all" && genderFilter !== "female" && config)
+    ? getGenderOverride(config.slug, genderFilter as "male" | "couple" | "trans")
+    : null;
+
+  const displayH1 = genderOverride?.h1 || config.h1;
+  const displayTitle = genderOverride?.title || config.title;
+  const displayDescription = genderOverride?.description || config.description;
+  const displayKeywords = genderOverride?.keywords || config.keywords;
+  const displayContent = genderOverride?.content || config.content;
+  const displayFaq = genderOverride?.faq || config.faq;
+  const displayLabel = genderOverride?.label || config.label;
+
   return (
     <AgeGate>
       <div className="min-h-screen flex flex-col bg-background">
         <Helmet>
-          <title>{config.title}</title>
-          <meta name="description" content={config.description} />
-          <meta name="keywords" content={config.keywords} />
+          <title>{displayTitle}</title>
+          <meta name="description" content={displayDescription} />
+          <meta name="keywords" content={displayKeywords} />
           <meta name="robots" content={getRobotsContent(lang)} />
           <link rel="canonical" href={canonicalUrl(config.slug, lang)} />
           {hreflangEntries(config.slug).map((h) => (
             <link key={h.lang} rel="alternate" hrefLang={h.lang} href={h.href} />
           ))}
-          <meta property="og:title" content={config.title} />
-          <meta property="og:description" content={config.description} />
+          <meta property="og:title" content={displayTitle} />
+          <meta property="og:description" content={displayDescription} />
           <meta property="og:url" content={canonicalUrl(config.slug, lang)} />
           <meta property="og:type" content="website" />
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content={config.title} />
-          <meta name="twitter:description" content={config.description} />
+          <meta name="twitter:title" content={displayTitle} />
+          <meta name="twitter:description" content={displayDescription} />
           <script type="application/ld+json">
-            {JSON.stringify(faqSchema(config.faq))}
+            {JSON.stringify(faqSchema(displayFaq))}
           </script>
           <script type="application/ld+json">
             {JSON.stringify(breadcrumbSchema([
@@ -658,7 +672,7 @@ const CategoryLanding = () => {
           </nav>
 
           <h1 className="text-3xl font-bold font-display text-foreground mb-4">
-            {config.h1}
+            {displayH1}
           </h1>
 
           {/* Gender filter tabs */}
@@ -687,7 +701,7 @@ const CategoryLanding = () => {
             </div>
           ) : (
             <CamGrid
-              title={`${config.emoji} ${config.label} — ${categoryCams.length} ${landingUI.modelsOnline[lang]}`}
+              title={`${config.emoji} ${displayLabel} — ${categoryCams.length} ${landingUI.modelsOnline[lang]}`}
               models={categoryCams}
               totalOnline={categoryCams.length}
               isLoading={isLoading}
@@ -695,11 +709,11 @@ const CategoryLanding = () => {
           )}
 
           <section className="mt-12 max-w-3xl">
-            <h2 className="text-xl font-bold text-foreground mb-3">{config.label}</h2>
+            <h2 className="text-xl font-bold text-foreground mb-3">{displayLabel}</h2>
             <div
               className="text-muted-foreground leading-relaxed space-y-3 [&>p]:mb-3 [&_strong]:text-foreground [&_strong]:font-semibold"
               dangerouslySetInnerHTML={{
-                __html: "<p>" + renderContent(config.content) + "</p>",
+                __html: "<p>" + renderContent(displayContent) + "</p>",
               }}
             />
           </section>
@@ -707,10 +721,10 @@ const CategoryLanding = () => {
           {/* FAQ Section */}
           <section className="mt-12 max-w-3xl">
             <h2 className="text-2xl font-bold text-foreground mb-6">
-              {landingUI.faqTitle[lang]} — {config.label}
+              {landingUI.faqTitle[lang]} — {displayLabel}
             </h2>
             <div className="space-y-4">
-              {config.faq.map((f, i) => (
+              {displayFaq.map((f, i) => (
                 <details
                   key={i}
                   className="group bg-card border border-border rounded-lg"

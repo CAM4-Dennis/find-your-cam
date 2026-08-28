@@ -250,6 +250,17 @@ function splitContent(html: string, groupSize = 3): string[] {
   return sections;
 }
 
+/** Ensure model slug uses slash format (chaturbate/name, not chaturbate-name) */
+function normalizeModelSlug(slug: string): string {
+  const platforms = ["chaturbate", "stripchat", "bongacams", "cam4", "jerkmate", "xcams", "islive", "flirt4free"];
+  for (const p of platforms) {
+    if (slug.startsWith(`${p}-`) && !slug.startsWith(`${p}/`)) {
+      return `${p}/${slug.slice(p.length + 1)}`;
+    }
+  }
+  return slug;
+}
+
 /** Turn model names in HTML into links to their StartVagina profile */
 function linkModelNames(html: string, models: BlogModel[], localePath: (p: string) => string): string {
   if (!models.length) return html;
@@ -268,9 +279,33 @@ function linkModelNames(html: string, models: BlogModel[], localePath: (p: strin
   return html.replace(re, (match) => {
     const model = lookup.get(match.toLowerCase());
     if (!model) return match;
-    const url = localePath(`/${model.slug}`);
+    const url = localePath(`/${normalizeModelSlug(model.slug)}`);
     return `<a href="${url}" class="text-primary hover:underline font-medium">${match}</a>`;
   });
+}
+
+/** Link platform names to their StartVagina platform pages */
+function linkPlatformNames(html: string, localePath: (p: string) => string): string {
+  const platforms: Record<string, string> = {
+    Chaturbate: "/live-sex-cams-chaturbate",
+    Stripchat: "/live-sex-cams-stripchat",
+    BongaCams: "/live-sex-cams-bongacams",
+    CAM4: "/live-sex-cams-cam4",
+    Jerkmate: "/live-sex-cams-jerkmate",
+    "Flirt4Free": "/live-sex-cams-flirt4free",
+    XCams: "/live-sex-cams-xcams",
+    Islive: "/live-sex-cams-islive",
+  };
+
+  let result = html;
+  for (const [name, path] of Object.entries(platforms)) {
+    const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    // Match platform name NOT already inside an <a> tag (href or link text)
+    const re = new RegExp(`(?<!["/>])\\b(${escaped})\\b(?![^<]*<\\/a>)`, "g");
+    const url = localePath(path);
+    result = result.replace(re, `<a href="${url}" class="text-primary hover:underline font-medium">$1</a>`);
+  }
+  return result;
 }
 
 /** Fix internal /blog/ links to include language prefix */
@@ -338,9 +373,12 @@ const BlogPost = () => {
     );
   }
 
-  // Process content: link model names + fix blog links
+  // Process content: link model names + platform names + fix blog links
   const processedContent = fixBlogLinks(
-    linkModelNames(post.content, post.models, localePath),
+    linkPlatformNames(
+      linkModelNames(post.content, post.models, localePath),
+      localePath,
+    ),
     localePath,
   );
 
