@@ -415,24 +415,35 @@ const pages = [
 // HTML injection
 // ============================================================
 
-function buildMetaTags(slug, pageMeta, lang = "nl", hreflangLangs = langs) {
+const INDEXED_LANGS = ["nl", "en"];
+
+function truncate(str, max) {
+  if (str.length <= max) return str;
+  // Try to cut at last space before max
+  const cut = str.lastIndexOf(' ', max - 3);
+  return (cut > max * 0.6 ? str.substring(0, cut) : str.substring(0, max - 3)) + '...';
+}
+
+function buildMetaTags(slug, pageMeta, lang = "nl", hreflangLangs = INDEXED_LANGS) {
   const canonical = slug ? `${BASE}/${slug}` : BASE;
+  const title = truncate(pageMeta.title, 65);
+  const description = truncate(pageMeta.description, 155);
   const tags = [];
 
-  tags.push(`<title>${escapeHtml(pageMeta.title)}</title>`);
-  tags.push(`<meta name="description" content="${escapeAttr(pageMeta.description)}">`);
+  tags.push(`<title>${escapeHtml(title)}</title>`);
+  tags.push(`<meta name="description" content="${escapeAttr(description)}">`);
   tags.push(`<meta name="keywords" content="${escapeAttr(pageMeta.keywords)}">`);
-  tags.push(`<meta name="robots" content="${NOINDEX_LANGS.includes(lang) ? "noindex, nofollow" : "index, follow"}">`);
+  tags.push(`<meta name="robots" content="${NOINDEX_LANGS.includes(lang) ? "noindex, follow" : "index, follow"}">`);
   tags.push(`<link rel="canonical" href="${canonical}">`);
-  tags.push(`<meta property="og:title" content="${escapeAttr(pageMeta.title)}">`);
-  tags.push(`<meta property="og:description" content="${escapeAttr(pageMeta.description)}">`);
+  tags.push(`<meta property="og:title" content="${escapeAttr(title)}">`);
+  tags.push(`<meta property="og:description" content="${escapeAttr(description)}">`);
   tags.push(`<meta property="og:type" content="website">`);
   tags.push(`<meta property="og:url" content="${canonical}">`);
   tags.push(`<meta property="og:site_name" content="StartVagina">`);
   tags.push(`<meta property="og:image" content="${BASE}/og-image.png">`);
   tags.push(`<meta name="twitter:card" content="summary_large_image">`);
-  tags.push(`<meta name="twitter:title" content="${escapeAttr(pageMeta.title)}">`);
-  tags.push(`<meta name="twitter:description" content="${escapeAttr(pageMeta.description)}">`);
+  tags.push(`<meta name="twitter:title" content="${escapeAttr(title)}">`);
+  tags.push(`<meta name="twitter:description" content="${escapeAttr(description)}">`);
   tags.push(`<meta name="twitter:image" content="${BASE}/og-image.png">`);
 
   // Hreflang
@@ -877,7 +888,7 @@ for (const post of blogPosts) {
     const baseSlug = `blog/${post.id}`;
     const fullSlug = prefix ? `${prefix.slice(1)}/${baseSlug}` : baseSlug;
     const blogMeta = {
-      title: `${post.title} \u2014 StartVagina Blog`,
+      title: `${post.title} | StartVagina Blog`,
       description: post.description,
       keywords: `${post.category || "webcamsex"}, cam blog, ${post.platform || "webcam"}, StartVagina`,
       schema: {
