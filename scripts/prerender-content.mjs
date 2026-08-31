@@ -366,6 +366,24 @@ const countryOutroData = {
   "tsjechische-cam-girls": { nl: ["Tsjechische", "Tsjechië"], en: ["Czech", "the Czech Republic"], fr: ["tchèques", "la République tchèque"], de: ["Tschechische", "Tschechien"], es: ["checas", "la República Checa"], it: ["ceche", "la Repubblica Ceca"] },
   "filipijnse-cam-girls": { nl: ["Filipijnse", "de Filipijnen"], en: ["Filipina", "the Philippines"], fr: ["philippines", "les Philippines"], de: ["Philippinische", "den Philippinen"], es: ["filipinas", "las Filipinas"], it: ["filippine", "le Filippine"] },
   "thaise-cam-girls": { nl: ["Thaise", "Thailand"], en: ["Thai", "Thailand"], fr: ["thaïlandaises", "la Thaïlande"], de: ["Thailändische", "Thailand"], es: ["tailandesas", "Tailandia"], it: ["thailandesi", "la Thailandia"] },
+  "canadese-cam-girls": { nl: ["Canadese", "Canada"], en: ["Canadian", "Canada"], fr: ["canadiennes", "le Canada"], de: ["Kanadische", "Kanada"], es: ["canadienses", "Canadá"], it: ["canadesi", "il Canada"] },
+  "australische-cam-girls": { nl: ["Australische", "Australië"], en: ["Australian", "Australia"], fr: ["australiennes", "l'Australie"], de: ["Australische", "Australien"], es: ["australianas", "Australia"], it: ["australiane", "l'Australia"] },
+  "hongaarse-cam-girls": { nl: ["Hongaarse", "Hongarije"], en: ["Hungarian", "Hungary"], fr: ["hongroises", "la Hongrie"], de: ["Ungarische", "Ungarn"], es: ["húngaras", "Hungría"], it: ["ungheresi", "l'Ungheria"] },
+  "argentijnse-cam-girls": { nl: ["Argentijnse", "Argentinië"], en: ["Argentine", "Argentina"], fr: ["argentines", "l'Argentine"], de: ["Argentinische", "Argentinien"], es: ["argentinas", "Argentina"], it: ["argentine", "l'Argentina"] },
+  "indiase-cam-girls": { nl: ["Indiase", "India"], en: ["Indian", "India"], fr: ["indiennes", "l'Inde"], de: ["Indische", "Indien"], es: ["indias", "India"], it: ["indiane", "l'India"] },
+  "turkse-cam-girls": { nl: ["Turkse", "Turkije"], en: ["Turkish", "Turkey"], fr: ["turques", "la Turquie"], de: ["Türkische", "der Türkei"], es: ["turcas", "Turquía"], it: ["turche", "la Turchia"] },
+  "griekse-cam-girls": { nl: ["Griekse", "Griekenland"], en: ["Greek", "Greece"], fr: ["grecques", "la Grèce"], de: ["Griechische", "Griechenland"], es: ["griegas", "Grecia"], it: ["greche", "la Grecia"] },
+  "portugese-cam-girls": { nl: ["Portugese", "Portugal"], en: ["Portuguese", "Portugal"], fr: ["portugaises", "le Portugal"], de: ["Portugiesische", "Portugal"], es: ["portuguesas", "Portugal"], it: ["portoghesi", "il Portogallo"] },
+  "kroatische-cam-girls": { nl: ["Kroatische", "Kroatië"], en: ["Croatian", "Croatia"], fr: ["croates", "la Croatie"], de: ["Kroatische", "Kroatien"], es: ["croatas", "Croacia"], it: ["croate", "la Croazia"] },
+  "servische-cam-girls": { nl: ["Servische", "Servië"], en: ["Serbian", "Serbia"], fr: ["serbes", "la Serbie"], de: ["Serbische", "Serbien"], es: ["serbias", "Serbia"], it: ["serbe", "la Serbia"] },
+  "bulgaarse-cam-girls": { nl: ["Bulgaarse", "Bulgarije"], en: ["Bulgarian", "Bulgaria"], fr: ["bulgares", "la Bulgarie"], de: ["Bulgarische", "Bulgarien"], es: ["búlgaras", "Bulgaria"], it: ["bulgare", "la Bulgaria"] },
+  "cubaanse-cam-girls": { nl: ["Cubaanse", "Cuba"], en: ["Cuban", "Cuba"], fr: ["cubaines", "Cuba"], de: ["Kubanische", "Kuba"], es: ["cubanas", "Cuba"], it: ["cubane", "Cuba"] },
+  "koreaanse-cam-girls": { nl: ["Koreaanse", "Zuid-Korea"], en: ["Korean", "South Korea"], fr: ["coréennes", "la Corée du Sud"], de: ["Koreanische", "Südkorea"], es: ["coreanas", "Corea del Sur"], it: ["coreane", "la Corea del Sud"] },
+  "chinese-cam-girls": { nl: ["Chinese", "China"], en: ["Chinese", "China"], fr: ["chinoises", "la Chine"], de: ["Chinesische", "China"], es: ["chinas", "China"], it: ["cinesi", "la Cina"] },
+  "peruaanse-cam-girls": { nl: ["Peruaanse", "Peru"], en: ["Peruvian", "Peru"], fr: ["péruviennes", "le Pérou"], de: ["Peruanische", "Peru"], es: ["peruanas", "Perú"], it: ["peruviane", "il Perù"] },
+  "venezolaanse-cam-girls": { nl: ["Venezolaanse", "Venezuela"], en: ["Venezuelan", "Venezuela"], fr: ["vénézuéliennes", "le Venezuela"], de: ["Venezolanische", "Venezuela"], es: ["venezolanas", "Venezuela"], it: ["venezuelane", "il Venezuela"] },
+  "zweedse-cam-girls": { nl: ["Zweedse", "Zweden"], en: ["Swedish", "Sweden"], fr: ["suédoises", "la Suède"], de: ["Schwedische", "Schweden"], es: ["suecas", "Suecia"], it: ["svedesi", "la Svezia"] },
+  "dominicaanse-cam-girls": { nl: ["Dominicaanse", "de Dominicaanse Republiek"], en: ["Dominican", "the Dominican Republic"], fr: ["dominicaines", "la République dominicaine"], de: ["Dominikanische", "der Dominikanischen Republik"], es: ["dominicanas", "la República Dominicana"], it: ["dominicane", "la Repubblica Dominicana"] },
 };
 
 // Generic outro for category pages
@@ -397,6 +415,19 @@ const categoryOutroNames = {
   "voeten-fetish-cam-shows": { nl: "Voeten", en: "Feet", fr: "Pieds", de: "Füße", es: "Pies", it: "Piedi" },
   "outdoor-cam-shows-buiten": { nl: "Outdoor", en: "Outdoor", fr: "Extérieur", de: "Outdoor", es: "Exterior", it: "Outdoor" },
   "mobiele-cam-shows-live": { nl: "Mobiel", en: "Mobile", fr: "Mobile", de: "Mobil", es: "Móvil", it: "Mobile" },
+  "blonde-cam-girls": { nl: "Blond", en: "Blonde", fr: "Blonde", de: "Blond", es: "Rubias", it: "Bionde" },
+  "brunette-cam-girls": { nl: "Brunette", en: "Brunette", fr: "Brune", de: "Brünett", es: "Morenas", it: "Brune" },
+  "roodharige-cam-girls": { nl: "Roodharig", en: "Redhead", fr: "Rousse", de: "Rothaarig", es: "Pelirrojas", it: "Rosse" },
+  "curvy-cam-girls-bbw": { nl: "Curvy / BBW", en: "Curvy / BBW", fr: "Rondes / BBW", de: "Curvy / BBW", es: "Curvy / BBW", it: "Curvy / BBW" },
+  "slanke-cam-girls": { nl: "Slank", en: "Slim", fr: "Mince", de: "Schlank", es: "Delgadas", it: "Magre" },
+  "lovense-cam-shows": { nl: "Lovense", en: "Lovense", fr: "Lovense", de: "Lovense", es: "Lovense", it: "Lovense" },
+  "cam-girls-grote-kont": { nl: "Grote Kont", en: "Big Ass", fr: "Gros Cul", de: "Großer Po", es: "Culo Grande", it: "Culo Grande" },
+  "striptease-cam-shows": { nl: "Striptease", en: "Striptease", fr: "Striptease", de: "Striptease", es: "Striptease", it: "Striptease" },
+  "dildo-cam-shows": { nl: "Dildo", en: "Dildo", fr: "Gode", de: "Dildo", es: "Dildo", it: "Dildo" },
+  "cosplay-cam-shows": { nl: "Cosplay", en: "Cosplay", fr: "Cosplay", de: "Cosplay", es: "Cosplay", it: "Cosplay" },
+  "rokende-cam-girls": { nl: "Rokend", en: "Smoking", fr: "Fumeuse", de: "Rauchend", es: "Fumadoras", it: "Fumatrici" },
+  "zwangere-cam-girls": { nl: "Zwanger", en: "Pregnant", fr: "Enceinte", de: "Schwanger", es: "Embarazadas", it: "Incinte" },
+  "gespierde-cam-modellen": { nl: "Gespierd", en: "Muscular", fr: "Musclé", de: "Muskulös", es: "Musculosas", it: "Muscolose" },
 };
 
 // ─── Generate all pages ──────────────────────────────────────
@@ -666,7 +697,7 @@ for (const [comboKey, langData] of Object.entries(comboContentCache.platformCate
     const content = langData[lang];
     if (!content) continue;
     const prefix = comboLangPrefixes[lang];
-    const baseSlug = `${platformSlug}/${catSlug}`;
+    const baseSlug = `${platformSlug}-cams/${catSlug}`;
     const fullSlug = prefix ? `${prefix.slice(1)}/${baseSlug}` : baseSlug;
     const sectionsHtml = (content.sections || []).map(s =>
       `<section><h2>${esc(s.title)}</h2><p>${renderContent(s.text)}</p></section>`
@@ -685,6 +716,41 @@ for (const [slug, langData] of Object.entries(comboContentCache.languageSpeaking
     const fullSlug = prefix ? `${prefix.slice(1)}/${slug}` : slug;
     const bodyHtml = `<p>${renderContent(content.intro)}</p><section>${renderContent(content.content)}</section>`;
     if (processPage(fullSlug, lang, esc(content.h1), bodyHtml, content.faq || [])) count++;
+  }
+}
+
+// 11. Comparison pages (all 6 langs)
+const comparisonPairs = [
+  { s: "chaturbate-vs-stripchat",  a: "Chaturbate", b: "Stripchat" },
+  { s: "chaturbate-vs-bongacams",  a: "Chaturbate", b: "BongaCams" },
+  { s: "chaturbate-vs-cam4",       a: "Chaturbate", b: "CAM4" },
+  { s: "chaturbate-vs-jerkmate",   a: "Chaturbate", b: "Jerkmate" },
+  { s: "stripchat-vs-bongacams",   a: "Stripchat",  b: "BongaCams" },
+  { s: "stripchat-vs-cam4",        a: "Stripchat",  b: "CAM4" },
+  { s: "stripchat-vs-jerkmate",    a: "Stripchat",  b: "Jerkmate" },
+  { s: "cam4-vs-bongacams",        a: "CAM4",       b: "BongaCams" },
+  { s: "cam4-vs-jerkmate",         a: "CAM4",       b: "Jerkmate" },
+  { s: "bongacams-vs-jerkmate",    a: "BongaCams",  b: "Jerkmate" },
+];
+
+const compBody = {
+  nl: (a, b) => `<p>${a} en ${b} zijn twee van de populairste webcam platforms ter wereld. Maar welke past het best bij jou? In deze vergelijking bekijken we de verschillen in aanbod, kwaliteit, prijzen en gebruikerservaring.</p><section><h2>Modellen &amp; Aanbod</h2><p>Zowel ${a} als ${b} bieden duizenden live cam modellen. ${a} staat bekend om zijn open platform met veel amateurmodellen, terwijl ${b} een breed scala aan professionele en amateur performers heeft. Beide platforms bieden categorieën zoals Teen 18+, MILF, Couples en meer.</p></section><section><h2>Kwaliteit &amp; Features</h2><p>Beide platforms ondersteunen HD streaming en interactieve functies zoals tipping en privéshows. De interface en navigatie verschillen, dus probeer beide uit om te zien welke je het prettigst vindt.</p></section><section><h2>Bekijk Beide op StartVagina</h2><p>Op StartVagina kun je modellen van zowel ${a} als ${b} bekijken op één overzichtelijke pagina. Filter op platform, categorie of land en ontdek welke cam site het beste bij je past — gratis en zonder registratie.</p></section>`,
+  en: (a, b) => `<p>${a} and ${b} are two of the most popular webcam platforms in the world. But which one is right for you? In this comparison we look at differences in models, quality, pricing and user experience.</p><section><h2>Models &amp; Selection</h2><p>Both ${a} and ${b} offer thousands of live cam models. ${a} is known for its open platform with many amateur models, while ${b} features a wide range of professional and amateur performers. Both platforms offer categories like Teen 18+, MILF, Couples and more.</p></section><section><h2>Quality &amp; Features</h2><p>Both platforms support HD streaming and interactive features like tipping and private shows. The interface and navigation differ, so try both to see which you prefer.</p></section><section><h2>Compare Both on StartVagina</h2><p>On StartVagina you can browse models from both ${a} and ${b} on one convenient page. Filter by platform, category or country and discover which cam site suits you best — free and without registration.</p></section>`,
+  fr: (a, b) => `<p>${a} et ${b} sont deux des plateformes webcam les plus populaires au monde. Mais laquelle vous convient le mieux ? Dans cette comparaison nous examinons les différences en termes de modèles, qualité, prix et expérience utilisateur.</p><section><h2>Modèles &amp; Sélection</h2><p>Les deux plateformes offrent des milliers de modèles cam en direct avec des catégories variées. Essayez les deux pour trouver celle qui vous convient.</p></section><section><h2>Comparez sur StartVagina</h2><p>Sur StartVagina vous pouvez parcourir les modèles de ${a} et ${b} sur une seule page — gratuit et sans inscription.</p></section>`,
+  de: (a, b) => `<p>${a} und ${b} sind zwei der beliebtesten Webcam-Plattformen der Welt. Aber welche passt besser zu dir? In diesem Vergleich betrachten wir Unterschiede bei Models, Qualität, Preisen und Nutzererlebnis.</p><section><h2>Models &amp; Auswahl</h2><p>Beide Plattformen bieten tausende Live-Cam-Models mit vielfältigen Kategorien. Probiere beide aus um zu sehen welche dir besser gefällt.</p></section><section><h2>Vergleiche auf StartVagina</h2><p>Auf StartVagina kannst du Models von ${a} und ${b} auf einer übersichtlichen Seite durchsuchen — kostenlos und ohne Anmeldung.</p></section>`,
+  es: (a, b) => `<p>${a} y ${b} son dos de las plataformas webcam más populares del mundo. ¿Pero cuál es mejor para ti? En esta comparación analizamos las diferencias en modelos, calidad, precios y experiencia de usuario.</p><section><h2>Modelos &amp; Selección</h2><p>Ambas plataformas ofrecen miles de modelos cam en vivo con categorías variadas. Prueba ambas para ver cuál prefieres.</p></section><section><h2>Compara en StartVagina</h2><p>En StartVagina puedes explorar modelos de ${a} y ${b} en una sola página — gratis y sin registro.</p></section>`,
+  it: (a, b) => `<p>${a} e ${b} sono due delle piattaforme webcam più popolari al mondo. Ma quale fa per te? In questo confronto esaminiamo le differenze in modelle, qualità, prezzi e esperienza utente.</p><section><h2>Modelle &amp; Selezione</h2><p>Entrambe le piattaforme offrono migliaia di modelle cam dal vivo con categorie variegate. Prova entrambe per vedere quale preferisci.</p></section><section><h2>Confronta su StartVagina</h2><p>Su StartVagina puoi esplorare modelle di ${a} e ${b} su un'unica pagina — gratis e senza registrazione.</p></section>`,
+};
+
+for (const comp of comparisonPairs) {
+  for (const lang of langs) {
+    const prefix = langPrefixes[lang];
+    const fullSlug = prefix ? `${prefix.slice(1)}/${comp.s}` : comp.s;
+    const bodyFn = compBody[lang] || compBody.en;
+    const bodyHtml = bodyFn(comp.a, comp.b);
+    const h1Suffix = { nl: "Vergelijking 2026", en: "Comparison 2026", fr: "Comparaison 2026", de: "Vergleich 2026", es: "Comparación 2026", it: "Confronto 2026" };
+    const h1 = `${comp.a} vs ${comp.b} — ${h1Suffix[lang] || h1Suffix.en}`;
+    if (processPage(fullSlug, lang, esc(h1), bodyHtml, null)) count++;
   }
 }
 

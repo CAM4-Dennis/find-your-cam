@@ -96,34 +96,34 @@ const pages = [
   {
     slugs: ["nieuwe-cam-girls"],
     meta: m(
-      meta("Nieuwe Cam Girls | StartVagina", "Ontdek de nieuwste cam modellen die net begonnen zijn met streamen op StartVagina. Verse gezichten en nieuwe erotische shows — dagelijks bijgewerkt.", "nieuwe cam modellen, nieuwe cam girls"),
-      meta("New Cam Girls | StartVagina", "Discover the newest webcam models who just started streaming on StartVagina. Fresh faces and exciting new erotic shows — updated daily from all major platforms.", "new cam models, new cam girls"),
+      meta("Nieuwe Cam Girls — Dagelijks Vers | StartVagina", "Ontdek de nieuwste cam modellen die net begonnen zijn met streamen op StartVagina. Verse gezichten en nieuwe erotische shows — dagelijks bijgewerkt.", "nieuwe cam modellen, nieuwe cam girls"),
+      meta("New Cam Girls — Updated Daily | StartVagina", "Discover the newest webcam models who just started streaming on StartVagina. Fresh faces and exciting new erotic shows — updated daily from all major platforms.", "new cam models, new cam girls"),
       meta("Nouvelles Cam Girls | StartVagina", "Découvrez les derniers modèles webcam qui viennent de commencer à streamer sur StartVagina. Nouveaux visages et shows érotiques — mis à jour quotidiennement.", "nouveaux modèles webcam, nouvelles cam girls"),
-      meta("Neue Cam Girls | StartVagina", "Entdecke die neuesten Webcam Models die gerade angefangen haben auf StartVagina. Frische Gesichter und neue erotische Shows — täglich aktualisiert.", "neue cam models, neue cam girls"),
+      meta("Neue Cam Girls — Täglich Aktualisiert | StartVagina", "Entdecke die neuesten Webcam Models die gerade angefangen haben auf StartVagina. Frische Gesichter und neue erotische Shows — täglich aktualisiert.", "neue cam models, neue cam girls"),
       meta("Nuevas Cam Girls | StartVagina", "Descubre las modelos webcam más nuevas que acaban de empezar en StartVagina. Caras nuevas y shows eróticos emocionantes — actualizados diariamente.", "nuevas modelos webcam, nuevas cam girls"),
-      meta("Nuove Cam Girl | StartVagina", "Scopri le modelle webcam più recenti che hanno appena iniziato su StartVagina. Volti nuovi e show erotici emozionanti — aggiornati quotidianamente.", "nuove modelle webcam, nuove cam girl"),
+      meta("Nuove Cam Girl — Aggiornate Ogni Giorno | StartVagina", "Scopri le modelle webcam più recenti che hanno appena iniziato su StartVagina. Volti nuovi e show erotici emozionanti — aggiornati quotidianamente.", "nuove modelle webcam, nuove cam girl"),
     ),
   },
   {
     slugs: ["populairste-cam-girls"],
     meta: m(
-      meta("Top Cam Girls | StartVagina", "De populairste en best bekeken cam girls live op webcam. Bekijk de top modellen van Chaturbate, Stripchat, BongaCams en CAM4 — dagelijks bijgewerkte ranglijst.", "top cam girls, populaire cam modellen"),
-      meta("Top Cam Girls | StartVagina", "The most popular and most viewed cam girls live on webcam. Browse top models from Chaturbate, Stripchat, BongaCams and CAM4 — updated daily.", "top cam girls, popular cam models"),
-      meta("Top Cam Girls | StartVagina", "Les cam girls les plus populaires et les plus regardées en direct sur webcam. Découvrez le classement des top modèles de Chaturbate, Stripchat et BongaCams.", "top cam girls, modèles populaires"),
-      meta("Top Cam Girls | StartVagina", "Die beliebtesten und meistgesehenen Cam Girls live auf Webcam. Entdecke das Ranking der Top Models von Chaturbate, Stripchat, BongaCams und CAM4.", "top cam girls, beliebte cam models"),
-      meta("Top Cam Girls | StartVagina", "Las cam girls más populares y más vistas en vivo por webcam. Descubre el ranking de top modelos de Chaturbate, Stripchat, BongaCams y CAM4.", "top cam girls, modelos populares"),
-      meta("Top Cam Girl | StartVagina", "Le cam girl più popolari e più viste in diretta su webcam. Scopri la classifica delle top modelle di Chaturbate, Stripchat, BongaCams e CAM4.", "top cam girl, modelle popolari"),
+      meta("Top Populairste Cam Girls Live | StartVagina", "De populairste en best bekeken cam girls live op webcam. Bekijk de top modellen van Chaturbate, Stripchat, BongaCams en CAM4 — dagelijks bijgewerkte ranglijst.", "top cam girls, populaire cam modellen"),
+      meta("Top Most Popular Cam Girls Live | StartVagina", "The most popular and most viewed cam girls live on webcam. Browse top models from Chaturbate, Stripchat, BongaCams and CAM4 — updated daily.", "top cam girls, popular cam models"),
+      meta("Top Cam Girls les Plus Populaires | StartVagina", "Les cam girls les plus populaires et les plus regardées en direct sur webcam. Découvrez le classement des top modèles de Chaturbate, Stripchat et BongaCams.", "top cam girls, modèles populaires"),
+      meta("Top Beliebteste Cam Girls Live | StartVagina", "Die beliebtesten und meistgesehenen Cam Girls live auf Webcam. Entdecke das Ranking der Top Models von Chaturbate, Stripchat, BongaCams und CAM4.", "top cam girls, beliebte cam models"),
+      meta("Top Cam Girls Más Populares en Vivo | StartVagina", "Las cam girls más populares y más vistas en vivo por webcam. Descubre el ranking de top modelos de Chaturbate, Stripchat, BongaCams y CAM4.", "top cam girls, modelos populares"),
+      meta("Top Cam Girl Più Popolari dal Vivo | StartVagina", "Le cam girl più popolari e più viste in diretta su webcam. Scopri la classifica delle top modelle di Chaturbate, Stripchat, BongaCams e CAM4.", "top cam girl, modelle popolari"),
     ),
   },
   {
     slugs: ["blog"],
     meta: m(
-      meta("Blog | StartVagina", "Lees het laatste nieuws, tips en achtergronden over webcamsex en live cam shows op de StartVagina blog. Ontdek trends, reviews en gidsen voor cam beginners.", "webcamsex blog, cam blog"),
-      meta("Blog | StartVagina", "Read the latest news, tips and backgrounds about webcam sex and live cam shows on the StartVagina blog. Discover trends, reviews and guides for cam beginners.", "webcam sex blog, cam blog"),
-      meta("Blog | StartVagina", "Lisez les dernières nouvelles, conseils et articles sur le webcam sexe et les shows cam en direct sur le blog StartVagina. Tendances, avis et guides pour débutants.", "webcam sexe blog, cam blog"),
-      meta("Blog | StartVagina", "Lies die neuesten Nachrichten, Tipps und Hintergründe über Webcam Sex und Live Cam Shows auf dem StartVagina Blog. Trends, Reviews und Guides für Cam-Einsteiger.", "webcam sex blog, cam blog"),
-      meta("Blog | StartVagina", "Lee las últimas noticias, consejos y artículos sobre webcam sexo y shows cam en vivo en el blog de StartVagina. Tendencias, reseñas y guías para principiantes.", "webcam sexo blog, cam blog"),
-      meta("Blog | StartVagina", "Leggi le ultime notizie, consigli e approfondimenti su webcam sex e show cam dal vivo sul blog di StartVagina. Tendenze, recensioni e guide per principianti.", "webcam sex blog, cam blog"),
+      meta("Webcamsex Blog & Tips | StartVagina", "Lees het laatste nieuws, tips en achtergronden over webcamsex en live cam shows op de StartVagina blog. Ontdek trends, reviews en gidsen voor cam beginners.", "webcamsex blog, cam blog"),
+      meta("Webcam Sex Blog & Tips | StartVagina", "Read the latest news, tips and backgrounds about webcam sex and live cam shows on the StartVagina blog. Discover trends, reviews and guides for cam beginners.", "webcam sex blog, cam blog"),
+      meta("Blog Webcam Sexe & Conseils | StartVagina", "Lisez les dernières nouvelles, conseils et articles sur le webcam sexe et les shows cam en direct sur le blog StartVagina. Tendances, avis et guides pour débutants.", "webcam sexe blog, cam blog"),
+      meta("Webcam Sex Blog & Tipps | StartVagina", "Lies die neuesten Nachrichten, Tipps und Hintergründe über Webcam Sex und Live Cam Shows auf dem StartVagina Blog. Trends, Reviews und Guides für Cam-Einsteiger.", "webcam sex blog, cam blog"),
+      meta("Blog Webcam Sexo & Consejos | StartVagina", "Lee las últimas noticias, consejos y artículos sobre webcam sexo y shows cam en vivo en el blog de StartVagina. Tendencias, reseñas y guías para principiantes.", "webcam sexo blog, cam blog"),
+      meta("Blog Webcam Sex & Consigli | StartVagina", "Leggi le ultime notizie, consigli e approfondimenti su webcam sex e show cam dal vivo sul blog di StartVagina. Tendenze, recensioni e guide per principianti.", "webcam sex blog, cam blog"),
     ),
   },
 
@@ -143,7 +143,7 @@ const pages = [
     slugs: ["gratis-webcam-sex"],
     meta: m(
       meta("Gratis Webcam Sex | StartVagina", "Gratis webcam sex kijken met de mooiste cam girls van Chaturbate, Stripchat en BongaCams. Geen creditcard nodig, geen registratie — direct live meekijken.", "gratis webcam sex, gratis cam, gratis sexcam", [{ q: "Is webcam sex echt gratis?", a: "Ja, op StartVagina kun je gratis webcam sex kijken zonder creditcard of registratie. Alle live shows zijn direct beschikbaar." }, { q: "Moet ik me registreren?", a: "Nee, je kunt direct meekijken zonder account aan te maken. Klik gewoon op een model en je wordt doorgestuurd naar de live show." }]),
-      meta("Free Webcam Sex | StartVagina", "Watch free webcam sex with the most beautiful cam girls from Chaturbate, Stripchat and BongaCams. No credit card needed, no registration — start watching live now.", "free webcam sex, free cam, free sex cam", [{ q: "Is webcam sex really free?", a: "Yes, on StartVagina you can watch free webcam sex without a credit card or registration. All live shows are instantly available." }, { q: "Do I need to register?", a: "No, you can start watching immediately without creating an account. Just click on a model and you'll be redirected to the live show." }]),
+      meta("Free Webcam Sex — No Signup | StartVagina", "Watch free webcam sex with the most beautiful cam girls from Chaturbate, Stripchat and BongaCams. No credit card needed, no registration — start watching live now.", "free webcam sex, free cam, free sex cam", [{ q: "Is webcam sex really free?", a: "Yes, on StartVagina you can watch free webcam sex without a credit card or registration. All live shows are instantly available." }, { q: "Do I need to register?", a: "No, you can start watching immediately without creating an account. Just click on a model and you'll be redirected to the live show." }]),
       meta("Webcam Sexe Gratuit | StartVagina", "Regardez du webcam sexe gratuit avec les plus belles cam girls de Chaturbate, Stripchat et BongaCams. Sans carte de crédit, sans inscription — commencez maintenant.", "webcam sexe gratuit, cam gratuit", [{ q: "Le webcam sexe est-il vraiment gratuit ?", a: "Oui, sur StartVagina vous pouvez regarder du webcam sexe gratuitement sans carte de crédit ni inscription." }, { q: "Faut-il s'inscrire ?", a: "Non, vous pouvez commencer à regarder immédiatement sans créer de compte." }]),
       meta("Kostenloser Webcam Sex | StartVagina", "Kostenlos Webcam Sex schauen mit den schönsten Cam Girls von Chaturbate, Stripchat und BongaCams. Keine Kreditkarte nötig, keine Registrierung — jetzt live zuschauen.", "kostenloser webcam sex, gratis cam, kostenlos webcam sex", [{ q: "Ist Webcam Sex wirklich kostenlos?", a: "Ja, auf StartVagina kannst du kostenlos Webcam Sex schauen ohne Kreditkarte oder Registrierung." }, { q: "Muss ich mich registrieren?", a: "Nein, du kannst sofort zuschauen ohne ein Konto zu erstellen." }]),
       meta("Webcam Sexo Gratis | StartVagina", "Mira webcam sexo gratis con las cam girls más hermosas de Chaturbate, Stripchat y BongaCams. Sin tarjeta de crédito, sin registro — empieza a ver en vivo ahora.", "webcam sexo gratis, cam gratis", [{ q: "¿Es realmente gratis el webcam sexo?", a: "Sí, en StartVagina puedes ver webcam sexo gratis sin tarjeta de crédito ni registro." }, { q: "¿Necesito registrarme?", a: "No, puedes empezar a ver inmediatamente sin crear una cuenta." }]),
@@ -167,7 +167,7 @@ const pages = [
       meta("Cam Girls — Live Webcam Meisjes | StartVagina", "Bekijk de mooiste cam girls live op webcam op StartVagina. Duizenden webcam meisjes van Chaturbate, Stripchat, BongaCams en CAM4 op één plek — gratis en zonder registratie.", "cam girls, webcam meisjes, cam meisjes", [{ q: "Wat zijn cam girls?", a: "Cam girls zijn vrouwen die live webcam shows streamen op platforms zoals Chaturbate, Stripchat en CAM4. Je kunt hun shows gratis bekijken en met ze chatten." }, { q: "Hoeveel cam girls zijn er online?", a: "Er zijn op elk moment duizenden cam girls live online. StartVagina verzamelt modellen van alle grote platforms zodat je altijd iemand vindt die je leuk vindt." }]),
       meta("Cam Girls — Live Webcam Girls | StartVagina", "Watch the most beautiful cam girls live on webcam at StartVagina. Thousands of webcam girls from Chaturbate, Stripchat, BongaCams and CAM4 — free and no signup required.", "cam girls, webcam girls, live cam girls", [{ q: "What are cam girls?", a: "Cam girls are women who stream live webcam shows on platforms like Chaturbate, Stripchat and CAM4. You can watch their shows for free and chat with them." }, { q: "How many cam girls are online?", a: "Thousands of cam girls are live online at any moment. StartVagina collects models from all major platforms so you always find someone you like." }]),
       meta("Cam Girls en Direct | StartVagina", "Regardez les plus belles cam girls en direct sur webcam sur StartVagina. Des milliers de cam girls de Chaturbate, Stripchat, BongaCams et CAM4 — gratuit et sans inscription.", "cam girls, webcam girls, cam girls en direct", [{ q: "Que sont les cam girls ?", a: "Les cam girls sont des femmes qui diffusent des shows webcam en direct sur des plateformes comme Chaturbate, Stripchat et CAM4. Vous pouvez les regarder gratuitement." }, { q: "Combien de cam girls sont en ligne ?", a: "Des milliers de cam girls sont en direct à tout moment. StartVagina rassemble les modèles de toutes les grandes plateformes." }]),
-      meta("Cam Girls Live | StartVagina", "Schau dir die schönsten Cam Girls live auf Webcam an auf StartVagina. Tausende Webcam Girls von Chaturbate, Stripchat, BongaCams und CAM4 — kostenlos und ohne Anmeldung.", "cam girls, webcam girls, live cam girls", [{ q: "Was sind Cam Girls?", a: "Cam Girls sind Frauen die live Webcam Shows auf Plattformen wie Chaturbate, Stripchat und CAM4 streamen. Du kannst ihre Shows kostenlos ansehen." }, { q: "Wie viele Cam Girls sind online?", a: "Tausende Cam Girls sind jederzeit live online. StartVagina sammelt Models von allen großen Plattformen." }]),
+      meta("Cam Girls Live auf Webcam | StartVagina", "Schau dir die schönsten Cam Girls live auf Webcam an auf StartVagina. Tausende Webcam Girls von Chaturbate, Stripchat, BongaCams und CAM4 — kostenlos und ohne Anmeldung.", "cam girls, webcam girls, live cam girls", [{ q: "Was sind Cam Girls?", a: "Cam Girls sind Frauen die live Webcam Shows auf Plattformen wie Chaturbate, Stripchat und CAM4 streamen. Du kannst ihre Shows kostenlos ansehen." }, { q: "Wie viele Cam Girls sind online?", a: "Tausende Cam Girls sind jederzeit live online. StartVagina sammelt Models von allen großen Plattformen." }]),
       meta("Cam Girls en Vivo | StartVagina", "Mira las cam girls más hermosas en vivo por webcam en StartVagina. Miles de cam girls de Chaturbate, Stripchat, BongaCams y CAM4 — gratis y sin registro.", "cam girls, webcam girls, cam girls en vivo", [{ q: "¿Qué son las cam girls?", a: "Las cam girls son mujeres que transmiten shows de webcam en vivo en plataformas como Chaturbate, Stripchat y CAM4. Puedes verlas gratis." }, { q: "¿Cuántas cam girls están en línea?", a: "Miles de cam girls están en vivo en cualquier momento. StartVagina reúne modelos de todas las grandes plataformas." }]),
       meta("Cam Girl dal Vivo | StartVagina", "Guarda le cam girl più belle in diretta su webcam su StartVagina. Migliaia di cam girl da Chaturbate, Stripchat, BongaCams e CAM4 — gratis e senza registrazione.", "cam girl, webcam girl, cam girl dal vivo", [{ q: "Cosa sono le cam girl?", a: "Le cam girl sono donne che trasmettono show webcam dal vivo su piattaforme come Chaturbate, Stripchat e CAM4. Puoi guardarle gratis." }, { q: "Quante cam girl sono online?", a: "Migliaia di cam girl sono in diretta in qualsiasi momento. StartVagina raccoglie modelle da tutte le grandi piattaforme." }]),
     ),
@@ -260,6 +260,32 @@ const pages = [
       nlD: "cam shows buiten", enD: "outdoor cam shows", frD: "shows cam en extérieur", deD: "Outdoor Cam Shows", esD: "shows cam al aire libre", itD: "show cam all'aperto" },
     { s: "mobiele-cam-shows-live", nl: "Mobiel", en: "Mobile", fr: "Mobile", de: "Mobil", es: "Móvil", it: "Mobile",
       nlD: "mobiele cam shows", enD: "mobile cam shows", frD: "shows cam mobiles", deD: "mobile Cam Shows", esD: "shows cam móviles", itD: "show cam mobile" },
+    { s: "blonde-cam-girls", nl: "Blond", en: "Blonde", fr: "Blonde", de: "Blond", es: "Rubias", it: "Bionde",
+      nlD: "blonde cam girls", enD: "blonde cam girls", frD: "cam girls blondes", deD: "blonde Cam Girls", esD: "cam girls rubias", itD: "cam girl bionde" },
+    { s: "brunette-cam-girls", nl: "Brunette", en: "Brunette", fr: "Brune", de: "Brünett", es: "Morenas", it: "Brune",
+      nlD: "brunette cam girls", enD: "brunette cam girls", frD: "cam girls brunes", deD: "brünette Cam Girls", esD: "cam girls morenas", itD: "cam girl brune" },
+    { s: "roodharige-cam-girls", nl: "Roodharig", en: "Redhead", fr: "Rousse", de: "Rothaarig", es: "Pelirrojas", it: "Rosse",
+      nlD: "roodharige cam girls", enD: "redhead cam girls", frD: "cam girls rousses", deD: "rothaarige Cam Girls", esD: "cam girls pelirrojas", itD: "cam girl rosse" },
+    { s: "curvy-cam-girls-bbw", nl: "Curvy / BBW", en: "Curvy / BBW", fr: "Rondes / BBW", de: "Curvy / BBW", es: "Curvy / BBW", it: "Curvy / BBW",
+      nlD: "curvy en BBW cam girls", enD: "curvy and BBW cam girls", frD: "cam girls rondes et BBW", deD: "kurvige und BBW Cam Girls", esD: "cam girls curvy y BBW", itD: "cam girl curvy e BBW" },
+    { s: "slanke-cam-girls", nl: "Slank", en: "Slim", fr: "Mince", de: "Schlank", es: "Delgadas", it: "Magre",
+      nlD: "slanke cam girls", enD: "slim cam girls", frD: "cam girls minces", deD: "schlanke Cam Girls", esD: "cam girls delgadas", itD: "cam girl magre" },
+    { s: "lovense-cam-shows", nl: "Lovense", en: "Lovense", fr: "Lovense", de: "Lovense", es: "Lovense", it: "Lovense",
+      nlD: "Lovense interactieve cam shows", enD: "Lovense interactive cam shows", frD: "shows cam Lovense interactifs", deD: "Lovense interaktive Cam Shows", esD: "shows cam Lovense interactivos", itD: "show cam Lovense interattivi" },
+    { s: "cam-girls-grote-kont", nl: "Grote Kont", en: "Big Ass", fr: "Gros Cul", de: "Großer Po", es: "Culo Grande", it: "Culo Grande",
+      nlD: "cam girls met een grote kont", enD: "cam girls with a big ass", frD: "cam girls au gros cul", deD: "Cam Girls mit großem Po", esD: "cam girls con culo grande", itD: "cam girl con culo grande" },
+    { s: "striptease-cam-shows", nl: "Striptease", en: "Striptease", fr: "Striptease", de: "Striptease", es: "Striptease", it: "Striptease",
+      nlD: "striptease cam shows", enD: "striptease cam shows", frD: "shows cam striptease", deD: "Striptease Cam Shows", esD: "shows cam striptease", itD: "show cam striptease" },
+    { s: "dildo-cam-shows", nl: "Dildo", en: "Dildo", fr: "Gode", de: "Dildo", es: "Dildo", it: "Dildo",
+      nlD: "dildo cam shows", enD: "dildo cam shows", frD: "shows cam avec gode", deD: "Dildo Cam Shows", esD: "shows cam con dildo", itD: "show cam con dildo" },
+    { s: "cosplay-cam-shows", nl: "Cosplay", en: "Cosplay", fr: "Cosplay", de: "Cosplay", es: "Cosplay", it: "Cosplay",
+      nlD: "cosplay cam shows", enD: "cosplay cam shows", frD: "shows cam cosplay", deD: "Cosplay Cam Shows", esD: "shows cam cosplay", itD: "show cam cosplay" },
+    { s: "rokende-cam-girls", nl: "Rokend", en: "Smoking", fr: "Fumeuse", de: "Rauchend", es: "Fumadoras", it: "Fumatrici",
+      nlD: "rokende cam girls", enD: "smoking cam girls", frD: "cam girls fumeuses", deD: "rauchende Cam Girls", esD: "cam girls fumadoras", itD: "cam girl fumatrici" },
+    { s: "zwangere-cam-girls", nl: "Zwanger", en: "Pregnant", fr: "Enceinte", de: "Schwanger", es: "Embarazadas", it: "Incinte",
+      nlD: "zwangere cam girls", enD: "pregnant cam girls", frD: "cam girls enceintes", deD: "schwangere Cam Girls", esD: "cam girls embarazadas", itD: "cam girl incinte" },
+    { s: "gespierde-cam-modellen", nl: "Gespierd", en: "Muscular", fr: "Musclé", de: "Muskulös", es: "Musculosas", it: "Muscolose",
+      nlD: "gespierde cam modellen", enD: "muscular cam models", frD: "cam modèles musclés", deD: "muskulöse Cam Models", esD: "modelos cam musculosas", itD: "modelle cam muscolose" },
   ].map(c => {
     const t = (lang) => ({ nl: "Webcamsex", en: "Webcam Sex", fr: "Webcam Sexe", de: "Webcam Sex", es: "Webcam Sexo", it: "Webcam Sex" }[lang]);
     const free = (lang) => ({ nl: "Gratis", en: "Free", fr: "Gratuit", de: "Gratis", es: "Gratis", it: "Gratis" }[lang]);
@@ -268,12 +294,12 @@ const pages = [
     return {
       slugs: [c.s],
       meta: m(
-        meta(`${t("nl")} ${c.nl} | StartVagina`, `${free("nl")} ${t("nl").toLowerCase()} met ${c.nlD} live op webcam ${on("nl")}. Bekijk duizenden cam shows in de categorie ${c.nl} — ${noReg("nl")}.`, `${c.s}, ${c.nl.toLowerCase()} webcamsex, ${c.nl.toLowerCase()} cam`),
-        meta(`${t("en")} ${c.en} | StartVagina`, `${free("en")} ${t("en").toLowerCase()} with ${c.enD} live on webcam ${on("en")}. Watch thousands of cam shows in the ${c.en} category — ${noReg("en")}.`, `${c.s}, ${c.en.toLowerCase()} webcam sex, ${c.en.toLowerCase()} cam`),
-        meta(`${t("fr")} ${c.fr} | StartVagina`, `${free("fr")} ${t("fr").toLowerCase()} avec ${c.frD} en direct sur webcam ${on("fr")}. Regardez des milliers de shows cam ${c.fr} — ${noReg("fr")}.`, `${c.fr.toLowerCase()} webcam sexe, ${c.fr.toLowerCase()} cam`),
-        meta(`${t("de")} ${c.de} | StartVagina`, `${free("de")} ${t("de")} mit ${c.deD} live auf Webcam ${on("de")}. Schau dir tausende Cam Shows in der Kategorie ${c.de} an — ${noReg("de")}.`, `${c.de.toLowerCase()} webcam sex, ${c.de.toLowerCase()} cam`),
-        meta(`${t("es")} ${c.es} | StartVagina`, `${free("es")} ${t("es").toLowerCase()} con ${c.esD} en vivo por webcam ${on("es")}. Mira miles de shows cam en la categoría ${c.es} — ${noReg("es")}.`, `${c.es.toLowerCase()} webcam sexo, ${c.es.toLowerCase()} cam`),
-        meta(`${t("it")} ${c.it} | StartVagina`, `${free("it")} ${t("it").toLowerCase()} con ${c.itD} in diretta su webcam ${on("it")}. Guarda migliaia di show cam nella categoria ${c.it} — ${noReg("it")}.`, `${c.it.toLowerCase()} webcam sex, ${c.it.toLowerCase()} cam`),
+        meta(`${free("nl")} ${t("nl")} ${c.nl} | StartVagina`, `${free("nl")} ${t("nl").toLowerCase()} met ${c.nlD} live op webcam ${on("nl")}. Bekijk duizenden cam shows in de categorie ${c.nl} — ${noReg("nl")}.`, `${c.s}, ${c.nl.toLowerCase()} webcamsex, ${c.nl.toLowerCase()} cam`),
+        meta(`Free ${t("en")} ${c.en} | StartVagina`, `${free("en")} ${t("en").toLowerCase()} with ${c.enD} live on webcam ${on("en")}. Watch thousands of cam shows in the ${c.en} category — ${noReg("en")}.`, `${c.s}, ${c.en.toLowerCase()} webcam sex, ${c.en.toLowerCase()} cam`),
+        meta(`${t("fr")} ${c.fr} Gratuit | StartVagina`, `${free("fr")} ${t("fr").toLowerCase()} avec ${c.frD} en direct sur webcam ${on("fr")}. Regardez des milliers de shows cam ${c.fr} — ${noReg("fr")}.`, `${c.fr.toLowerCase()} webcam sexe, ${c.fr.toLowerCase()} cam`),
+        meta(`${free("de")} ${t("de")} ${c.de} | StartVagina`, `${free("de")} ${t("de")} mit ${c.deD} live auf Webcam ${on("de")}. Schau dir tausende Cam Shows in der Kategorie ${c.de} an — ${noReg("de")}.`, `${c.de.toLowerCase()} webcam sex, ${c.de.toLowerCase()} cam`),
+        meta(`${t("es")} ${c.es} Gratis | StartVagina`, `${free("es")} ${t("es").toLowerCase()} con ${c.esD} en vivo por webcam ${on("es")}. Mira miles de shows cam en la categoría ${c.es} — ${noReg("es")}.`, `${c.es.toLowerCase()} webcam sexo, ${c.es.toLowerCase()} cam`),
+        meta(`${t("it")} ${c.it} Gratis | StartVagina`, `${free("it")} ${t("it").toLowerCase()} con ${c.itD} in diretta su webcam ${on("it")}. Guarda migliaia di show cam nella categoria ${c.it} — ${noReg("it")}.`, `${c.it.toLowerCase()} webcam sex, ${c.it.toLowerCase()} cam`),
       ),
     };
   }),
@@ -312,8 +338,8 @@ const pages = [
     { s: "italiaanse-cam-girls", nl: "Italië", en: "Italy", fr: "Italie", de: "Italien", es: "Italia", it: "Italia", nlA: "Italiaanse", enA: "Italian", frA: "italiennes", deA: "italienische", esA: "italianas", itA: "italiane" },
     { s: "spaanse-cam-girls", nl: "Spanje", en: "Spain", fr: "Espagne", de: "Spanien", es: "España", it: "Spagna", nlA: "Spaanse", enA: "Spanish", frA: "espagnoles", deA: "spanische", esA: "españolas", itA: "spagnole" },
     { s: "franse-cam-girls", nl: "Frankrijk", en: "France", fr: "France", de: "Frankreich", es: "Francia", it: "Francia", nlA: "Franse", enA: "French", frA: "françaises", deA: "französische", esA: "francesas", itA: "francesi" },
-    { s: "britse-cam-girls", nl: "VK", en: "United Kingdom", fr: "Royaume-Uni", de: "Vereinigtes Königreich", es: "Reino Unido", it: "Regno Unito", nlA: "Britse", enA: "British", frA: "britanniques", deA: "britische", esA: "británicas", itA: "britanniche" },
-    { s: "amerikaanse-cam-girls", nl: "VS", en: "United States", fr: "États-Unis", de: "USA", es: "Estados Unidos", it: "Stati Uniti", nlA: "Amerikaanse", enA: "American", frA: "américaines", deA: "amerikanische", esA: "americanas", itA: "americane" },
+    { s: "britse-cam-girls", nl: "Verenigd Koninkrijk", en: "United Kingdom", fr: "Royaume-Uni", de: "Vereinigtes Königreich", es: "Reino Unido", it: "Regno Unito", nlA: "Britse", enA: "British", frA: "britanniques", deA: "britische", esA: "británicas", itA: "britanniche" },
+    { s: "amerikaanse-cam-girls", nl: "Verenigde Staten", en: "United States", fr: "États-Unis", de: "USA", es: "Estados Unidos", it: "Stati Uniti", nlA: "Amerikaanse", enA: "American", frA: "américaines", deA: "amerikanische", esA: "americanas", itA: "americane" },
     { s: "russische-cam-girls", nl: "Rusland", en: "Russia", fr: "Russie", de: "Russland", es: "Rusia", it: "Russia", nlA: "Russische", enA: "Russian", frA: "russes", deA: "russische", esA: "rusas", itA: "russe" },
     { s: "oekraiense-cam-girls", nl: "Oekraïne", en: "Ukraine", fr: "Ukraine", de: "Ukraine", es: "Ucrania", it: "Ucraina", nlA: "Oekraïense", enA: "Ukrainian", frA: "ukrainiennes", deA: "ukrainische", esA: "ucranianas", itA: "ucraine" },
     { s: "braziliaanse-cam-girls", nl: "Brazilië", en: "Brazil", fr: "Brésil", de: "Brasilien", es: "Brasil", it: "Brasile", nlA: "Braziliaanse", enA: "Brazilian", frA: "brésiliennes", deA: "brasilianische", esA: "brasileñas", itA: "brasiliane" },
@@ -323,15 +349,64 @@ const pages = [
     { s: "tsjechische-cam-girls", nl: "Tsjechië", en: "Czech Republic", fr: "République tchèque", de: "Tschechien", es: "República Checa", it: "Repubblica Ceca", nlA: "Tsjechische", enA: "Czech", frA: "tchèques", deA: "tschechische", esA: "checas", itA: "ceche" },
     { s: "filipijnse-cam-girls", nl: "Filipijnen", en: "Philippines", fr: "Philippines", de: "Philippinen", es: "Filipinas", it: "Filippine", nlA: "Filipijnse", enA: "Filipina", frA: "philippines", deA: "philippinische", esA: "filipinas", itA: "filippine" },
     { s: "thaise-cam-girls", nl: "Thailand", en: "Thailand", fr: "Thaïlande", de: "Thailand", es: "Tailandia", it: "Thailandia", nlA: "Thaise", enA: "Thai", frA: "thaïlandaises", deA: "thailändische", esA: "tailandesas", itA: "thailandesi" },
+    { s: "canadese-cam-girls", nl: "Canada", en: "Canada", fr: "Canada", de: "Kanada", es: "Canadá", it: "Canada", nlA: "Canadese", enA: "Canadian", frA: "canadiennes", deA: "kanadische", esA: "canadienses", itA: "canadesi" },
+    { s: "australische-cam-girls", nl: "Australië", en: "Australia", fr: "Australie", de: "Australien", es: "Australia", it: "Australia", nlA: "Australische", enA: "Australian", frA: "australiennes", deA: "australische", esA: "australianas", itA: "australiane" },
+    { s: "hongaarse-cam-girls", nl: "Hongarije", en: "Hungary", fr: "Hongrie", de: "Ungarn", es: "Hungría", it: "Ungheria", nlA: "Hongaarse", enA: "Hungarian", frA: "hongroises", deA: "ungarische", esA: "húngaras", itA: "ungheresi" },
+    { s: "argentijnse-cam-girls", nl: "Argentinië", en: "Argentina", fr: "Argentine", de: "Argentinien", es: "Argentina", it: "Argentina", nlA: "Argentijnse", enA: "Argentine", frA: "argentines", deA: "argentinische", esA: "argentinas", itA: "argentine" },
+    { s: "indiase-cam-girls", nl: "India", en: "India", fr: "Inde", de: "Indien", es: "India", it: "India", nlA: "Indiase", enA: "Indian", frA: "indiennes", deA: "indische", esA: "indias", itA: "indiane" },
+    { s: "turkse-cam-girls", nl: "Turkije", en: "Turkey", fr: "Turquie", de: "Türkei", es: "Turquía", it: "Turchia", nlA: "Turkse", enA: "Turkish", frA: "turques", deA: "türkische", esA: "turcas", itA: "turche" },
+    { s: "griekse-cam-girls", nl: "Griekenland", en: "Greece", fr: "Grèce", de: "Griechenland", es: "Grecia", it: "Grecia", nlA: "Griekse", enA: "Greek", frA: "grecques", deA: "griechische", esA: "griegas", itA: "greche" },
+    { s: "portugese-cam-girls", nl: "Portugal", en: "Portugal", fr: "Portugal", de: "Portugal", es: "Portugal", it: "Portogallo", nlA: "Portugese", enA: "Portuguese", frA: "portugaises", deA: "portugiesische", esA: "portuguesas", itA: "portoghesi" },
+    { s: "kroatische-cam-girls", nl: "Kroatië", en: "Croatia", fr: "Croatie", de: "Kroatien", es: "Croacia", it: "Croazia", nlA: "Kroatische", enA: "Croatian", frA: "croates", deA: "kroatische", esA: "croatas", itA: "croate" },
+    { s: "servische-cam-girls", nl: "Servië", en: "Serbia", fr: "Serbie", de: "Serbien", es: "Serbia", it: "Serbia", nlA: "Servische", enA: "Serbian", frA: "serbes", deA: "serbische", esA: "serbias", itA: "serbe" },
+    { s: "bulgaarse-cam-girls", nl: "Bulgarije", en: "Bulgaria", fr: "Bulgarie", de: "Bulgarien", es: "Bulgaria", it: "Bulgaria", nlA: "Bulgaarse", enA: "Bulgarian", frA: "bulgares", deA: "bulgarische", esA: "búlgaras", itA: "bulgare" },
+    { s: "letse-cam-girls", nl: "Letland", en: "Latvia", fr: "Lettonie", de: "Lettland", es: "Letonia", it: "Lettonia", nlA: "Letse", enA: "Latvian", frA: "lettonnes", deA: "lettische", esA: "letonas", itA: "lettoni" },
+    { s: "litouwse-cam-girls", nl: "Litouwen", en: "Lithuania", fr: "Lituanie", de: "Litauen", es: "Lituania", it: "Lituania", nlA: "Litouwse", enA: "Lithuanian", frA: "lituaniennes", deA: "litauische", esA: "lituanas", itA: "lituane" },
+    { s: "estse-cam-girls", nl: "Estland", en: "Estonia", fr: "Estonie", de: "Estland", es: "Estonia", it: "Estonia", nlA: "Estse", enA: "Estonian", frA: "estoniennes", deA: "estnische", esA: "estonias", itA: "estoni" },
+    { s: "slowaakse-cam-girls", nl: "Slowakije", en: "Slovakia", fr: "Slovaquie", de: "Slowakei", es: "Eslovaquia", it: "Slovacchia", nlA: "Slowaakse", enA: "Slovak", frA: "slovaques", deA: "slowakische", esA: "eslovacas", itA: "slovacche" },
+    { s: "zweedse-cam-girls", nl: "Zweden", en: "Sweden", fr: "Suède", de: "Schweden", es: "Suecia", it: "Svezia", nlA: "Zweedse", enA: "Swedish", frA: "suédoises", deA: "schwedische", esA: "suecas", itA: "svedesi" },
+    { s: "noorse-cam-girls", nl: "Noorwegen", en: "Norway", fr: "Norvège", de: "Norwegen", es: "Noruega", it: "Norvegia", nlA: "Noorse", enA: "Norwegian", frA: "norvégiennes", deA: "norwegische", esA: "noruegas", itA: "norvegesi" },
+    { s: "deense-cam-girls", nl: "Denemarken", en: "Denmark", fr: "Danemark", de: "Dänemark", es: "Dinamarca", it: "Danimarca", nlA: "Deense", enA: "Danish", frA: "danoises", deA: "dänische", esA: "danesas", itA: "danesi" },
+    { s: "finse-cam-girls", nl: "Finland", en: "Finland", fr: "Finlande", de: "Finnland", es: "Finlandia", it: "Finlandia", nlA: "Finse", enA: "Finnish", frA: "finlandaises", deA: "finnische", esA: "finlandesas", itA: "finlandesi" },
+    { s: "oostenrijkse-cam-girls", nl: "Oostenrijk", en: "Austria", fr: "Autriche", de: "Österreich", es: "Austria", it: "Austria", nlA: "Oostenrijkse", enA: "Austrian", frA: "autrichiennes", deA: "österreichische", esA: "austriacas", itA: "austriache" },
+    { s: "zwitserse-cam-girls", nl: "Zwitserland", en: "Switzerland", fr: "Suisse", de: "Schweiz", es: "Suiza", it: "Svizzera", nlA: "Zwitserse", enA: "Swiss", frA: "suisses", deA: "schweizerische", esA: "suizas", itA: "svizzere" },
+    { s: "ierse-cam-girls", nl: "Ierland", en: "Ireland", fr: "Irlande", de: "Irland", es: "Irlanda", it: "Irlanda", nlA: "Ierse", enA: "Irish", frA: "irlandaises", deA: "irische", esA: "irlandesas", itA: "irlandesi" },
+    { s: "zuidafrikaanse-cam-girls", nl: "Zuid-Afrika", en: "South Africa", fr: "Afrique du Sud", de: "Südafrika", es: "Sudáfrica", it: "Sudafrica", nlA: "Zuid-Afrikaanse", enA: "South African", frA: "sud-africaines", deA: "südafrikanische", esA: "sudafricanas", itA: "sudafricane" },
+    { s: "israelische-cam-girls", nl: "Israël", en: "Israel", fr: "Israël", de: "Israel", es: "Israel", it: "Israele", nlA: "Israëlische", enA: "Israeli", frA: "israéliennes", deA: "israelische", esA: "israelíes", itA: "israeliane" },
+    { s: "egyptische-cam-girls", nl: "Egypte", en: "Egypt", fr: "Égypte", de: "Ägypten", es: "Egipto", it: "Egitto", nlA: "Egyptische", enA: "Egyptian", frA: "égyptiennes", deA: "ägyptische", esA: "egipcias", itA: "egiziane" },
+    { s: "marokkaanse-cam-girls", nl: "Marokko", en: "Morocco", fr: "Maroc", de: "Marokko", es: "Marruecos", it: "Marocco", nlA: "Marokkaanse", enA: "Moroccan", frA: "marocaines", deA: "marokkanische", esA: "marroquíes", itA: "marocchine" },
+    { s: "nigeriaanse-cam-girls", nl: "Nigeria", en: "Nigeria", fr: "Nigéria", de: "Nigeria", es: "Nigeria", it: "Nigeria", nlA: "Nigeriaanse", enA: "Nigerian", frA: "nigérianes", deA: "nigerianische", esA: "nigerianas", itA: "nigeriane" },
+    { s: "keniaanse-cam-girls", nl: "Kenia", en: "Kenya", fr: "Kenya", de: "Kenia", es: "Kenia", it: "Kenya", nlA: "Keniaanse", enA: "Kenyan", frA: "kényanes", deA: "kenianische", esA: "kenianas", itA: "keniote" },
+    { s: "venezolaanse-cam-girls", nl: "Venezuela", en: "Venezuela", fr: "Venezuela", de: "Venezuela", es: "Venezuela", it: "Venezuela", nlA: "Venezolaanse", enA: "Venezuelan", frA: "vénézuéliennes", deA: "venezolanische", esA: "venezolanas", itA: "venezuelane" },
+    { s: "peruaanse-cam-girls", nl: "Peru", en: "Peru", fr: "Pérou", de: "Peru", es: "Perú", it: "Perù", nlA: "Peruaanse", enA: "Peruvian", frA: "péruviennes", deA: "peruanische", esA: "peruanas", itA: "peruviane" },
+    { s: "chileense-cam-girls", nl: "Chili", en: "Chile", fr: "Chili", de: "Chile", es: "Chile", it: "Cile", nlA: "Chileense", enA: "Chilean", frA: "chiliennes", deA: "chilenische", esA: "chilenas", itA: "cilene" },
+    { s: "ecuadoriaanse-cam-girls", nl: "Ecuador", en: "Ecuador", fr: "Équateur", de: "Ecuador", es: "Ecuador", it: "Ecuador", nlA: "Ecuadoriaanse", enA: "Ecuadorian", frA: "équatoriennes", deA: "ecuadorianische", esA: "ecuatorianas", itA: "ecuadoriane" },
+    { s: "dominicaanse-cam-girls", nl: "Dominicaanse Republiek", en: "Dominican Republic", fr: "République dominicaine", de: "Dominikanische Republik", es: "República Dominicana", it: "Repubblica Dominicana", nlA: "Dominicaanse", enA: "Dominican", frA: "dominicaines", deA: "dominikanische", esA: "dominicanas", itA: "dominicane" },
+    { s: "cubaanse-cam-girls", nl: "Cuba", en: "Cuba", fr: "Cuba", de: "Kuba", es: "Cuba", it: "Cuba", nlA: "Cubaanse", enA: "Cuban", frA: "cubaines", deA: "kubanische", esA: "cubanas", itA: "cubane" },
+    { s: "koreaanse-cam-girls", nl: "Zuid-Korea", en: "South Korea", fr: "Corée du Sud", de: "Südkorea", es: "Corea del Sur", it: "Corea del Sud", nlA: "Koreaanse", enA: "Korean", frA: "coréennes", deA: "koreanische", esA: "coreanas", itA: "coreane" },
+    { s: "chinese-cam-girls", nl: "China", en: "China", fr: "Chine", de: "China", es: "China", it: "Cina", nlA: "Chinese", enA: "Chinese", frA: "chinoises", deA: "chinesische", esA: "chinas", itA: "cinesi" },
+    { s: "indonesische-cam-girls", nl: "Indonesië", en: "Indonesia", fr: "Indonésie", de: "Indonesien", es: "Indonesia", it: "Indonesia", nlA: "Indonesische", enA: "Indonesian", frA: "indonésiennes", deA: "indonesische", esA: "indonesias", itA: "indonesiane" },
+    { s: "vietnamese-cam-girls", nl: "Vietnam", en: "Vietnam", fr: "Vietnam", de: "Vietnam", es: "Vietnam", it: "Vietnam", nlA: "Vietnamese", enA: "Vietnamese", frA: "vietnamiennes", deA: "vietnamesische", esA: "vietnamitas", itA: "vietnamite" },
+    { s: "maleisische-cam-girls", nl: "Maleisië", en: "Malaysia", fr: "Malaisie", de: "Malaysia", es: "Malasia", it: "Malesia", nlA: "Maleisische", enA: "Malaysian", frA: "malaisiennes", deA: "malaysische", esA: "malasias", itA: "malesi" },
+    { s: "taiwanese-cam-girls", nl: "Taiwan", en: "Taiwan", fr: "Taïwan", de: "Taiwan", es: "Taiwán", it: "Taiwan", nlA: "Taiwanese", enA: "Taiwanese", frA: "taïwanaises", deA: "taiwanesische", esA: "taiwanesas", itA: "taiwanesi" },
+    { s: "singaporese-cam-girls", nl: "Singapore", en: "Singapore", fr: "Singapour", de: "Singapur", es: "Singapur", it: "Singapore", nlA: "Singaporese", enA: "Singaporean", frA: "singapouriennes", deA: "singapurische", esA: "singapurenses", itA: "singaporiane" },
+    { s: "moldavische-cam-girls", nl: "Moldavië", en: "Moldova", fr: "Moldavie", de: "Moldawien", es: "Moldavia", it: "Moldavia", nlA: "Moldavische", enA: "Moldovan", frA: "moldaves", deA: "moldauische", esA: "moldavas", itA: "moldave" },
+    { s: "albanese-cam-girls", nl: "Albanië", en: "Albania", fr: "Albanie", de: "Albanien", es: "Albania", it: "Albania", nlA: "Albanese", enA: "Albanian", frA: "albanaises", deA: "albanische", esA: "albanesas", itA: "albanesi" },
+    { s: "sloveense-cam-girls", nl: "Slovenië", en: "Slovenia", fr: "Slovénie", de: "Slowenien", es: "Eslovenia", it: "Slovenia", nlA: "Sloveense", enA: "Slovenian", frA: "slovènes", deA: "slowenische", esA: "eslovenas", itA: "slovene" },
+    { s: "bosnische-cam-girls", nl: "Bosnië", en: "Bosnia", fr: "Bosnie", de: "Bosnien", es: "Bosnia", it: "Bosnia", nlA: "Bosnische", enA: "Bosnian", frA: "bosniaques", deA: "bosnische", esA: "bosnias", itA: "bosniache" },
+    { s: "georgische-cam-girls", nl: "Georgië", en: "Georgia", fr: "Géorgie", de: "Georgien", es: "Georgia", it: "Georgia", nlA: "Georgische", enA: "Georgian", frA: "géorgiennes", deA: "georgische", esA: "georgianas", itA: "georgiane" },
+    { s: "armeense-cam-girls", nl: "Armenië", en: "Armenia", fr: "Arménie", de: "Armenien", es: "Armenia", it: "Armenia", nlA: "Armeense", enA: "Armenian", frA: "arméniennes", deA: "armenische", esA: "armenias", itA: "armene" },
+    { s: "cypriotische-cam-girls", nl: "Cyprus", en: "Cyprus", fr: "Chypre", de: "Zypern", es: "Chipre", it: "Cipro", nlA: "Cypriotische", enA: "Cypriot", frA: "chypriotes", deA: "zypriotische", esA: "chipriotas", itA: "cipriote" },
+    { s: "ijslandse-cam-girls", nl: "IJsland", en: "Iceland", fr: "Islande", de: "Island", es: "Islandia", it: "Islanda", nlA: "IJslandse", enA: "Icelandic", frA: "islandaises", deA: "isländische", esA: "islandesas", itA: "islandesi" },
   ].map(c => ({
     slugs: [c.s],
     meta: m(
-      meta(`Webcamsex ${c.nl} | StartVagina`, `${c.nlA} cam girls live op webcam op StartVagina. Geniet van gratis webcamsex met de mooiste modellen uit ${c.nl} op Chaturbate, Stripchat en CAM4.`, `webcamsex ${c.nl.toLowerCase()}, ${c.nlA.toLowerCase()} cam girls`),
-      meta(`Webcam Sex ${c.en} | StartVagina`, `${c.enA} cam girls live on webcam on StartVagina. Enjoy free webcam sex with the hottest models from ${c.en} on Chaturbate, Stripchat and CAM4.`, `webcam sex ${c.en.toLowerCase()}, ${c.enA.toLowerCase()} cam girls`),
-      meta(`Webcam Sexe ${c.fr} | StartVagina`, `Cam girls ${c.frA} en direct sur webcam sur StartVagina. Webcam sexe gratuit avec les plus belles modèles de ${c.fr} sur Chaturbate, Stripchat et CAM4.`, `webcam sexe ${c.fr.toLowerCase()}, cam girls ${c.frA}`),
-      meta(`Webcam Sex ${c.de} | StartVagina`, `${c.deA} Cam Girls live auf Webcam auf StartVagina. Gratis Webcam Sex mit den schönsten Models aus ${c.de} auf Chaturbate, Stripchat und CAM4.`, `webcam sex ${c.de.toLowerCase()}, ${c.deA} cam girls`),
-      meta(`Webcam Sexo ${c.es} | StartVagina`, `Cam girls ${c.esA} en vivo por webcam en StartVagina. Webcam sexo gratis con las mejores modelos de ${c.es} en Chaturbate, Stripchat y CAM4.`, `webcam sexo ${c.es.toLowerCase()}, cam girls ${c.esA}`),
-      meta(`Webcam Sex ${c.it} | StartVagina`, `Cam girl ${c.itA} in diretta su webcam su StartVagina. Webcam sex gratis con le migliori modelle da ${c.it} su Chaturbate, Stripchat e CAM4.`, `webcam sex ${c.it.toLowerCase()}, cam girl ${c.itA}`),
+      meta(`Gratis Webcamsex ${c.nl} | StartVagina`, `${c.nlA} cam girls live op webcam op StartVagina. Geniet van gratis webcamsex met de mooiste modellen uit ${c.nl} op Chaturbate, Stripchat en CAM4.`, `webcamsex ${c.nl.toLowerCase()}, ${c.nlA.toLowerCase()} cam girls`),
+      meta(`Free Webcam Sex ${c.en} | StartVagina`, `${c.enA} cam girls live on webcam on StartVagina. Enjoy free webcam sex with the hottest models from ${c.en} on Chaturbate, Stripchat and CAM4.`, `webcam sex ${c.en.toLowerCase()}, ${c.enA.toLowerCase()} cam girls`),
+      meta(`Webcam Sexe ${c.fr} Gratuit | StartVagina`, `Cam girls ${c.frA} en direct sur webcam sur StartVagina. Webcam sexe gratuit avec les plus belles modèles de ${c.fr} sur Chaturbate, Stripchat et CAM4.`, `webcam sexe ${c.fr.toLowerCase()}, cam girls ${c.frA}`),
+      meta(`Gratis Webcam Sex ${c.de} | StartVagina`, `${c.deA} Cam Girls live auf Webcam auf StartVagina. Gratis Webcam Sex mit den schönsten Models aus ${c.de} auf Chaturbate, Stripchat und CAM4.`, `webcam sex ${c.de.toLowerCase()}, ${c.deA} cam girls`),
+      meta(`Webcam Sexo ${c.es} Gratis | StartVagina`, `Cam girls ${c.esA} en vivo por webcam en StartVagina. Webcam sexo gratis con las mejores modelos de ${c.es} en Chaturbate, Stripchat y CAM4.`, `webcam sexo ${c.es.toLowerCase()}, cam girls ${c.esA}`),
+      meta(`Webcam Sex ${c.it} Gratis | StartVagina`, `Cam girl ${c.itA} in diretta su webcam su StartVagina. Webcam sex gratis con le migliori modelle da ${c.it} su Chaturbate, Stripchat e CAM4.`, `webcam sex ${c.it.toLowerCase()}, cam girl ${c.itA}`),
     ),
   })),
 ];
@@ -340,7 +415,7 @@ const pages = [
 // HTML injection
 // ============================================================
 
-function buildMetaTags(slug, pageMeta, lang = "nl") {
+function buildMetaTags(slug, pageMeta, lang = "nl", hreflangLangs = langs) {
   const canonical = slug ? `${BASE}/${slug}` : BASE;
   const tags = [];
 
@@ -362,12 +437,14 @@ function buildMetaTags(slug, pageMeta, lang = "nl") {
 
   // Hreflang
   const baseSlug = slug.replace(/^(en|fr|de|es|it)\//, "").replace(/^(en|fr|de|es|it)$/, "");
-  for (const lang of langs) {
-    const prefix = langPrefixes[lang];
+  for (const hl of hreflangLangs) {
+    const prefix = langPrefixes[hl];
     const href = baseSlug ? `${BASE}${prefix}/${baseSlug}` : `${BASE}${prefix || ""}`;
-    tags.push(`<link rel="alternate" hreflang="${lang}" href="${href}">`);
+    tags.push(`<link rel="alternate" hreflang="${hl}" href="${href}">`);
   }
-  tags.push(`<link rel="alternate" hreflang="x-default" href="${baseSlug ? `${BASE}/${baseSlug}` : BASE}">`);
+  if (hreflangLangs.length > 1) {
+    tags.push(`<link rel="alternate" hreflang="x-default" href="${baseSlug ? `${BASE}/${baseSlug}` : BASE}">`);
+  }
 
   // JSON-LD
   if (pageMeta.faq && pageMeta.faq.length > 0) {
@@ -455,7 +532,7 @@ for (const [comboKey, langData] of Object.entries(comboContentCache.genderCatego
       keywords: `${catSlug} ${genderSlug}, ${genderSlug} ${catSlug} webcamsex, ${genderSlug} ${catSlug} cam`,
       faq: content.faq || [],
     };
-    const metaTags = buildMetaTags(fullSlug, pageMeta, lang);
+    const metaTags = buildMetaTags(fullSlug, pageMeta, lang, comboLangs);
     const html = injectMeta(template, metaTags, lang);
     writePage(fullSlug, html);
     comboCount++;
@@ -480,7 +557,7 @@ for (const [comboKey, langData] of Object.entries(comboContentCache.platformCate
     const content = langData[lang];
     if (!content) continue;
     const prefix = comboLangPrefixes[lang];
-    const baseSlug = `${platformSlug}/${catSlug}`;
+    const baseSlug = `${platformSlug}-cams/${catSlug}`;
     const fullSlug = prefix ? `${prefix.slice(1)}/${baseSlug}` : baseSlug;
     const pageMeta = {
       title: content.title,
@@ -488,7 +565,7 @@ for (const [comboKey, langData] of Object.entries(comboContentCache.platformCate
       keywords: `${catSlug} ${platformSlug}, ${platformSlug} ${catSlug} webcamsex, ${platformSlug} ${catSlug} cam`,
       faq: content.faq || [],
     };
-    const metaTags = buildMetaTags(fullSlug, pageMeta, lang);
+    const metaTags = buildMetaTags(fullSlug, pageMeta, lang, comboLangs);
     const html = injectMeta(template, metaTags, lang);
     writePage(fullSlug, html);
     platCatCount++;
@@ -518,7 +595,7 @@ for (const [slug, langData] of Object.entries(comboContentCache.languageSpeaking
       keywords: `${slug}, ${content.h1.toLowerCase()}`,
       faq: content.faq || [],
     };
-    const metaTags = buildMetaTags(fullSlug, pageMeta, lang);
+    const metaTags = buildMetaTags(fullSlug, pageMeta, lang, comboLangs);
     const html = injectMeta(template, metaTags, lang);
     writePage(fullSlug, html);
     langSpeakCount++;
